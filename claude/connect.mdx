@@ -1,0 +1,81 @@
+---
+title: "Connect Ryze to Claude"
+description: "Add Ryze as a custom connector in Claude and chat with your ad data. Takes about 90 seconds."
+---
+
+Ryze works inside Claude. Once connected, you can ask Claude about your Google Ads and Meta data in plain language — no dashboards, no exports.
+
+<Note>
+You'll need a paid Claude plan (Pro, Team, or Max). The free plan doesn't support custom connectors.
+</Note>
+
+## Your connector URL
+
+You'll need this when adding Ryze to Claude:
+
+```
+https://connector.get-ryze.ai/mcp
+```
+
+## Add Ryze as a connector
+
+<Steps>
+  <Step title="Open Settings in Claude">
+    Go to [claude.ai](https://claude.ai), click your profile avatar at the **bottom-left**, then choose **Settings**.
+    <Frame><img src="/images/claude-step-1.webp" alt="Open Settings in Claude" /></Frame>
+  </Step>
+  <Step title="Go to Connectors → Customize">
+    In Settings, open the **Connectors** tab, then click the **Customize** link.
+    <Frame><img src="/images/claude-step-2.webp" alt="Open the Customize panel" /></Frame>
+  </Step>
+  <Step title="Add a custom connector">
+    On the Customize page, click the **+** button next to *Connectors*.
+    <Frame><img src="/images/claude-step-3.webp" alt="Click the plus button to add a connector" /></Frame>
+  </Step>
+  <Step title="Fill in the details">
+    - **Name** — enter `Ryze AI`
+    - **Remote MCP server URL** — enter `https://connector.get-ryze.ai/mcp`
+    <Frame><img src="/images/claude-step-4.webp" alt="The empty connector modal" /></Frame>
+  </Step>
+  <Step title="Hit Add">
+    After filling both fields, click **Add** at the bottom-right of the modal.
+    <Frame><img src="/images/claude-step-5.webp" alt="Connector modal filled in" /></Frame>
+  </Step>
+  <Step title="Connect">
+    Click **Connect** on the new Ryze AI connector.
+    <Frame><img src="/images/claude-step-6.webp" alt="Click Connect on the Ryze connector" /></Frame>
+  </Step>
+  <Step title="Pick a workspace and allow">
+    Claude opens a Ryze authorization page. Pick the workspace you want Claude to read from, then click **Allow Claude to connect**.
+    <Frame><img src="/images/claude-step-7.webp" alt="Pick a workspace and allow access" /></Frame>
+  </Step>
+  <Step title="Done">
+    You'll see a green **Connected to Ryze AI** toast. The connector now lists every tool Claude can call — Google Ads, Meta Ads, GA4, Search Console, and more.
+    <Frame><img src="/images/claude-step-8.webp" alt="Connected, with the full tool list" /></Frame>
+  </Step>
+</Steps>
+
+## Try it
+
+Start a **new chat** in Claude and ask for what you want:
+
+> Pull the last 7 days of Google Ads spend and break it down by campaign.
+
+Claude uses Ryze tools to answer.
+
+<Tip>
+Always start a **new chat** after connecting or reconnecting. Existing chats won't pick up the connection.
+</Tip>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Permissions & Approvals" icon="shield-check" href="/claude/permissions">
+    Control which actions Claude can take on your accounts.
+  </Card>
+  <Card title="Connect Your Platforms" icon="plug" href="/integrations/overview">
+    Link Google, Meta, Analytics and more.
+  </Card>
+</CardGroup>
+
+Having trouble connecting? See the [FAQ](/claude/faq) or email [support@get-ryze.ai](mailto:support@get-ryze.ai).

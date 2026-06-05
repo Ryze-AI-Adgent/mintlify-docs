@@ -1,0 +1,62 @@
+---
+title: "Overview"
+description: "Connect Google, Meta, Analytics and more so Claude can read your data."
+---
+
+Before Claude can answer questions about your accounts, connect your platforms in Ryze. This happens in your workspace settings, not in Claude.
+
+Ryze supports **50+ integrations** — connect any of them. They're grouped into three categories:
+
+- **Analytics** — Google Analytics, Search Console, and more
+- **Advertising** — Google Ads, Meta, and every other ad platform
+- **Commerce & CMS** — Shopify, WordPress, Framer, and more
+
+## Open Integrations
+
+Go to **Workspace Settings → Integrations**. Use the **Search integrations** box or the category filters to find any platform.
+
+<Frame>
+  <img src="/images/integrations-overview.png" alt="The Integrations tab in Workspace Settings" />
+</Frame>
+
+## Connect a platform
+
+<Steps>
+  <Step title="Click Connect">
+    Find the platform's card and click **Connect**.
+  </Step>
+  <Step title="Authorize">
+    For Google, Meta, and other OAuth platforms, you're redirected to that platform to sign in and approve access. For API-key platforms (like Framer and WordPress), you enter your credentials instead.
+  </Step>
+  <Step title="Pick an account">
+    If asked, choose the specific account or property — for example, the Google Ads account or GA4 property.
+  </Step>
+</Steps>
+
+The card then shows a **Connected** badge.
+
+<Tip>
+After connecting a new platform, start a **new chat** in Claude so it picks up the change.
+</Tip>
+
+## Reconnect a platform
+
+If a platform stops working or shows as disconnected, click **Reconnect** on its card and re-authorize. Then start a new chat in Claude.
+
+## Working with more than one account
+
+Each platform connects one account per workspace. To work with a second account — say, a second Google Ads account on a different login — create a separate [workspace](/workspaces/create-workspace).
+
+## Platform setup guides
+
+<CardGroup cols={2}>
+  <Card title="WordPress" icon="wordpress" href="/integrations/wordpress">
+    Connect with an application password.
+  </Card>
+  <Card title="Framer" icon="f" href="/integrations/framer">
+    Connect with a project URL and API key.
+  </Card>
+  <Card title="OpenAI Ads" icon="robot" href="/integrations/openai">
+    Connect OpenAI Ads with an API key.
+  </Card>
+</CardGroup>

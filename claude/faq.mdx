@@ -1,0 +1,46 @@
+---
+title: "FAQ"
+description: "Common questions about connecting Ryze to Claude."
+---
+
+<AccordionGroup>
+
+<Accordion title="Which Claude plan do I need?">
+A paid plan — **Pro, Team, or Max**. The free plan doesn't support custom connectors.
+</Accordion>
+
+<Accordion title="Where do I find my connector URL?">
+It's the same for everyone:
+
+```
+https://connector.get-ryze.ai/mcp
+```
+
+Add it as the **Remote MCP server URL** when setting up the connector. See [Connect Ryze to Claude](/claude/connect).
+</Accordion>
+
+<Accordion title='I get "Authorization with the MCP server failed."'>
+1. In Claude, go to **Settings → Connectors** and remove the Ryze connector.
+2. Add it again following [Connect Ryze to Claude](/claude/connect).
+3. Open a **new chat** and try again.
+</Accordion>
+
+<Accordion title="I get Error 2812 / a proxy error.">
+Disconnect and reconnect the Ryze connector in Claude, then open a **brand-new chat** and retry. If it still fails, email [support@get-ryze.ai](mailto:support@get-ryze.ai) — your account may need proxy access enabled on our side.
+</Accordion>
+
+<Accordion title="Claude can't see my data.">
+- Make sure the platform shows **Connected** under **Workspace Settings → Integrations**.
+- Confirm you connected it in the **same workspace** you chose when connecting Claude.
+- Start a **new chat** — newly connected platforms don't appear in older chats.
+</Accordion>
+
+<Accordion title="Will connecting Ryze change anything in my ad accounts?">
+No — not without your say-so. Read-only tools just pull data. Write and delete tools can be set to **Needs approval**, so Claude asks before making any change. See [Permissions & Approvals](/claude/permissions).
+</Accordion>
+
+<Accordion title="Can I use the connector on a client's account?">
+Yes. Create a workspace for that client, connect their accounts in it, then connect Claude to that workspace. Each workspace is isolated, so you can manage multiple clients from one Ryze account.
+</Accordion>
+
+</AccordionGroup>

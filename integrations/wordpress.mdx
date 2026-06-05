@@ -1,0 +1,47 @@
+---
+title: "Connect WordPress"
+description: "Connect your WordPress site using an application password."
+---
+
+WordPress uses an **application password** — a special key you generate in WordPress that lets Ryze access your site without sharing your real login.
+
+## Step 1 — Generate an application password
+
+<Steps>
+  <Step title="Open your profile">
+    In your WordPress admin, go to **Users → Profile** (or **Users → All Users → your user → Edit**).
+  </Step>
+  <Step title="Find Application Passwords">
+    Scroll to the bottom of the profile page to the **Application Passwords** section.
+  </Step>
+  <Step title="Create the password">
+    Enter a name like `Ryze`, then click **Add New Application Password**. WordPress shows the generated password **once** — copy it now.
+    <Frame><img src="/images/wordpress-app-password.png" alt="The Application Passwords section in WordPress" /></Frame>
+  </Step>
+</Steps>
+
+<Warning>
+The application password is shown only once. If you lose it, just generate a new one.
+</Warning>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the WordPress card and fill in:
+
+- **Site URL** — your site address, e.g. `https://example.com`
+- **Username** — the login you use for `/wp-admin`
+- **Application password** — the password you just copied
+
+<Frame>
+  <img src="/images/wordpress-connect.png" alt="The Connect WordPress dialog in Ryze" />
+</Frame>
+
+Click **Continue**. Ryze verifies the connection.
+
+## Troubleshooting
+
+- **Credentials rejected** — double-check the username and application password.
+- **REST API not found** — make sure the WordPress REST API is enabled and the site URL is correct.
+- **Can't reach the site** — verify the site URL is reachable and uses `https://`.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
