@@ -55,6 +55,7 @@
             "group": "Connect Your Platforms",
             "pages": [
               "integrations/overview",
+              "integrations/multiple-accounts",
               "integrations/wordpress",
               "integrations/framer",
               "integrations/openai",

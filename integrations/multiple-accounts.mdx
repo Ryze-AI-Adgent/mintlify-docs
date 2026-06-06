@@ -1,0 +1,55 @@
+---
+title: "Connect multiple accounts"
+description: "Connect several accounts for the same platform and choose which one Claude uses by default."
+---
+
+You can connect more than one account for the same platform in a single workspace — for example, two Google Ads logins or several GA4 accounts. Each account is kept separately, with its own property or ad-account selection, and you choose which one is **primary**.
+
+## What is the primary account?
+
+When a platform has more than one connected account, one of them is the **primary**. The primary is the account Claude uses **by default** when you don't name a specific one. You can change it at any time, and you can still ask Claude to use any of the other accounts (see [Using a specific account in Claude](#using-a-specific-account-in-claude)).
+
+A platform with a single connected account doesn't need a primary — that account is always used.
+
+## Add an account
+
+<Steps>
+  <Step title="Open the platform">
+    Go to **Workspace Settings → Integrations** and click **View** on the connected platform's card.
+  </Step>
+  <Step title="Click Add account">
+    Click **+ Add account** and authorize the other login (OAuth) or enter its credentials (API-key platforms). The new account is added alongside the existing ones — nothing is overwritten.
+  </Step>
+  <Step title="Pick its property">
+    Choose the property or ad account for the new connection, then click **Save**. Each account keeps its own selection.
+  </Step>
+</Steps>
+
+Use **Back** and **Next** to page through the connected accounts (for example, *1 of 2*).
+
+<Frame>
+  <img src="/images/integrations-multi-account.png" alt="Adding a second account and setting the primary with the star" />
+</Frame>
+
+## Set the primary account
+
+Next to the account field is a **star**:
+
+- A **filled** star marks the current primary.
+- An **empty** star means that account isn't primary — click it to make it the primary.
+
+Setting a new primary only changes Claude's default; it doesn't disconnect anything.
+
+## Using a specific account in Claude
+
+By default Claude uses the **primary** account. To work with another one, just ask — no setup required:
+
+> **You:** Claude, show my connected Google Analytics accounts.
+
+> **You:** Pull last week's spend for my other Google Ads account.
+
+Claude lists the connected accounts and uses the one you point to.
+
+<Tip>
+After adding an account or changing the primary, start a **new chat** in Claude so it picks up the change.
+</Tip>
