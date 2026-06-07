@@ -3,7 +3,7 @@ title: "Connect Shopify"
 description: "Connect Shopify with a custom app's API key, API secret, and your store domain."
 ---
 
-Shopify connects with three things from a **custom app** you create in your Shopify admin: the **store domain**, an **API key**, and an **API secret key**. Ryze uses them to securely fetch an access token — no app store install required.
+Shopify connects with three things from a **custom app** you create in your Shopify admin: the **store domain**, a **Client ID**, and a **Client secret**. Ryze uses them to securely fetch an access token — no app store install required.
 
 ## Step 1 — Create a custom app in Shopify
 
@@ -59,7 +59,7 @@ Shopify connects with three things from a **custom app** you create in your Shop
 
 <Steps>
   <Step title="Open Settings → Credentials">
-    In the app, open **Settings**. Copy the **Client ID** (this is your API key) and reveal and copy the **Secret** (this is your API secret key).
+    In the app, open **Settings**. Copy the **Client ID**, then reveal and copy the **Secret** (this is your Client secret).
     <Frame><img src="/images/shopify-step-10.png" alt="Copy the Client ID and Secret" /></Frame>
   </Step>
   <Step title="Find your store domain">
@@ -73,8 +73,8 @@ Shopify connects with three things from a **custom app** you create in your Shop
 In **Workspace Settings → Integrations**, click **Connect** on the Shopify card and fill in:
 
 - **Store domain** — e.g. `yourstore.myshopify.com`
-- **API key** — the Client ID you copied
-- **API secret key** — the Secret you copied
+- **Client ID** — the Client ID you copied
+- **Client secret** — the Secret you copied
 
 Click **Continue**. You're connected.
 
