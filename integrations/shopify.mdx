@@ -1,0 +1,81 @@
+---
+title: "Connect Shopify"
+description: "Connect Shopify with a custom app's API key, API secret, and your store domain."
+---
+
+Shopify connects with three things from a **custom app** you create in your Shopify admin: the **store domain**, an **API key**, and an **API secret key**. Ryze uses them to securely fetch an access token — no app store install required.
+
+## Step 1 — Create a custom app in Shopify
+
+<Steps>
+  <Step title="Open Settings → Apps">
+    In your Shopify admin, go to **Settings**, then open **Apps and sales channels**.
+    <Frame><img src="/images/shopify-step-1.png" alt="Apps and sales channels in Shopify settings" /></Frame>
+  </Step>
+  <Step title="Click Develop apps">
+    In the top-right corner, click **Develop apps**.
+    <Frame><img src="/images/shopify-step-2.png" alt="The Develop apps button" /></Frame>
+  </Step>
+  <Step title="Open the Dev Dashboard">
+    Click **Build apps in Dev Dashboard**.
+    <Frame><img src="/images/shopify-step-3.png" alt="Build apps in Dev Dashboard" /></Frame>
+  </Step>
+  <Step title="Create an app">
+    Click **Create app**.
+    <Frame><img src="/images/shopify-step-4.png" alt="Create app in the Dev Dashboard" /></Frame>
+  </Step>
+  <Step title="Name the app">
+    Under **Start from Dev Dashboard**, enter a name (e.g. `Ryze AI`) and click **Create**.
+    <Frame><img src="/images/shopify-step-5.png" alt="Name the app and create it" /></Frame>
+  </Step>
+</Steps>
+
+## Step 2 — Configure the app
+
+<Steps>
+  <Step title="Set the App URL">
+    Under **URLs → App URL**, enter `https://reports.get-ryze.ai` and keep **Embed app in Shopify admin** checked.
+    <Frame><img src="/images/shopify-step-6.png" alt="Set the App URL" /></Frame>
+  </Step>
+  <Step title="Add the required scopes">
+    Under **Access → Scopes**, paste this comma-separated list:
+
+    ```
+    read_analytics,read_content,read_metaobjects,read_orders,read_products,read_publications,read_reports,read_themes,write_content,write_metaobjects,write_products,write_publications,write_themes
+    ```
+    <Frame><img src="/images/shopify-step-7.png" alt="Add the required scopes" /></Frame>
+  </Step>
+  <Step title="Add the redirect URL">
+    Under **Redirect URLs**, enter `https://reports.get-ryze.ai/api/auth/shopify/callback`.
+    <Frame><img src="/images/shopify-step-8.png" alt="Add the redirect URL" /></Frame>
+  </Step>
+  <Step title="Release the version">
+    Click **Release**, confirm in the dialog, and release the version. This activates the app.
+    <Frame><img src="/images/shopify-step-9.png" alt="Release the app version" /></Frame>
+  </Step>
+</Steps>
+
+## Step 3 — Copy your credentials
+
+<Steps>
+  <Step title="Open Settings → Credentials">
+    In the app, open **Settings**. Copy the **Client ID** (this is your API key) and reveal and copy the **Secret** (this is your API secret key).
+    <Frame><img src="/images/shopify-step-10.png" alt="Copy the Client ID and Secret" /></Frame>
+  </Step>
+  <Step title="Find your store domain">
+    Back in your Shopify admin, open **Settings → Domains**. Your store domain is the `.myshopify.com` address marked **Primary**.
+    <Frame><img src="/images/shopify-step-11.png" alt="Find your store domain" /></Frame>
+  </Step>
+</Steps>
+
+## Step 4 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the Shopify card and fill in:
+
+- **Store domain** — e.g. `yourstore.myshopify.com`
+- **API key** — the Client ID you copied
+- **API secret key** — the Secret you copied
+
+Click **Continue**. You're connected.
+
+Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
