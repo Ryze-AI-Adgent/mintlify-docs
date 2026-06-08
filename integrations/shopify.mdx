@@ -53,6 +53,14 @@ Shopify connects with three things from a **custom app** you create in your Shop
     Click **Release**, confirm in the dialog, and release the version. This activates the app.
     <Frame><img src="/images/shopify-step-9.png" alt="Release the app version" /></Frame>
   </Step>
+  <Step title="Install the app on your store">
+    Open the app and click **Install app** (top-right). This installs the app on your store so Ryze can fetch an access token.
+    <Frame><img src="/images/shopify-step-install.png" alt="Install app button in the Dev Dashboard" /></Frame>
+
+    <Warning>
+      Don't skip this step. Without installing the app, the connection fails with `app_not_installed` and Ryze can't authenticate — even though your Client ID and Secret are correct.
+    </Warning>
+  </Step>
 </Steps>
 
 ## Step 3 — Copy your credentials
