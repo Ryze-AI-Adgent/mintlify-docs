@@ -59,6 +59,7 @@
               "integrations/shopify",
               "integrations/wordpress",
               "integrations/framer",
+              "integrations/github",
               "integrations/openai",
               "integrations/faq"
             ]

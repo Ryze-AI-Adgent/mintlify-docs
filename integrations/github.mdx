@@ -1,0 +1,87 @@
+---
+title: "Connect GitHub"
+description: "Publish articles as JSON files committed straight to your repository."
+---
+
+The GitHub integration commits each published article as a JSON file to a repository you choose. It's built for Git-based sites (Next.js, Astro, Hugo, or any static framework) — your site reads the files from the repo and renders them as blog pages.
+
+## How it works
+
+You install the Ryze GitHub App on your account or organization and grant it access to the repository you want. Each published article lands as one commit in that repo.
+
+## Step 1 — Install the GitHub App
+
+<Steps>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the GitHub card.
+  </Step>
+  <Step title="Install the Ryze app on GitHub">
+    You're redirected to GitHub. Choose the account or organization, then grant access to the repository (or repositories) Ryze should publish to. You can limit access to a single repo.
+  </Step>
+  <Step title="Return to Ryze">
+    After installing, GitHub redirects you back to Ryze and the integration shows as connected.
+  </Step>
+</Steps>
+
+## Step 2 — Choose where articles go
+
+After connecting, configure three settings:
+
+- **Repository** — pick from the repos you granted access to, e.g. `your-org/your-site`.
+- **Branch** — the branch Ryze commits to. Defaults to the repository's default branch (usually `main`).
+- **Folder path** — the folder where article files are written. Defaults to `blog/data`.
+
+## What lands in your repo
+
+Each article becomes one JSON file at `<folder path>/<slug>.json` — for example `blog/data/ai-ad-agency.json`. The commit message is `RyzeAI Integration: publish <slug>` for new articles and `RyzeAI Integration: update <slug>` for re-publishes. Updating an article overwrites the same file in a new commit — no duplicates.
+
+The file contains everything your site needs to render the page:
+
+```json
+{
+  "slug": "ai-ad-agency",
+  "title": "AI Ad Agency in 2026: What It Is and How to Pick One",
+  "body_markdown": "Full article body in Markdown...",
+  "body_html": "<p>The same body rendered as HTML...</p>",
+  "meta_title": "AI Ad Agency 2026 — Guide",
+  "meta_description": "Learn how to pick an AI ad agency in 2026...",
+  "excerpt": "Short summary for blog listing cards.",
+  "primary_keyword": "ai ad agency",
+  "published_at": "2026-06-12T10:00:00.000Z",
+  "updated_at": "2026-06-12T10:00:00.000Z",
+  "status": "published"
+}
+```
+
+| Field | What it is |
+| --- | --- |
+| `slug` | URL slug; also the file name |
+| `title` | Article headline (H1) |
+| `body_markdown` | Full body in Markdown |
+| `body_html` | The same body pre-rendered as HTML |
+| `meta_title` | SEO title tag |
+| `meta_description` | SEO meta description |
+| `excerpt` | Short summary for listing pages |
+| `primary_keyword` | The keyword the article targets |
+| `published_at` | First publish time (ISO 8601) |
+| `updated_at` | Last update time (ISO 8601) |
+| `status` | Always `published` |
+
+## Wiring it into your site
+
+Your site decides how to render the files. The typical pattern for a Next.js blog:
+
+1. Read all JSON files from the configured folder at build time (or via the GitHub API at request time).
+2. Generate a route per `slug` and render `body_html` (or `body_markdown` through your own renderer).
+3. Use `meta_title` and `meta_description` for the page's SEO tags, and `excerpt` on the blog index.
+
+If your host (Vercel, Netlify) deploys on push, every published article triggers a deploy automatically — the commit Ryze makes is a normal Git push.
+
+## Notes
+
+- Ryze only ever writes inside the folder path you configure. It doesn't touch other files in the repo.
+- If the folder doesn't exist yet, the first commit creates it.
+- To change the repository, branch, or folder later, open the integration settings and update them — future publishes use the new values.
+- To disconnect, uninstall the Ryze app from your GitHub account's **Settings → Integrations → Applications** or remove the integration in Ryze.
+
+Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
