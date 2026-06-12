@@ -107,7 +107,12 @@
     ]
   },
   "navbar": {
-    "links": [],
+    "links": [
+      {
+        "label": "Status",
+        "href": "https://status.get-ryze.ai"
+      }
+    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
@@ -130,8 +135,14 @@
       {
         "header": "Legal",
         "items": [
-          { "label": "Privacy Policy", "href": "https://www.get-ryze.ai/privacy" },
-          { "label": "Terms of Service", "href": "https://www.get-ryze.ai/term-services" }
+          {
+            "label": "Privacy Policy",
+            "href": "https://www.get-ryze.ai/privacy"
+          },
+          {
+            "label": "Terms of Service",
+            "href": "https://www.get-ryze.ai/term-services"
+          }
         ]
       }
     ]
