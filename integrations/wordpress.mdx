@@ -1,11 +1,42 @@
 ---
 title: "Connect WordPress"
-description: "Connect your WordPress site using an application password."
+description: "Connect a self-hosted site with an application password, or a WordPress.com / Jetpack site with one click."
 ---
 
-WordPress uses an **application password** — a special key you generate in WordPress that lets Ryze access your site without sharing your real login.
+There are two ways to connect WordPress, depending on where your site lives:
 
-## Step 1 — Generate an application password
+- **Self-hosted site** — your WordPress runs on your own hosting (you log in at `yoursite.com/wp-admin`). Connects with an **application password**.
+- **WordPress.com / Jetpack** — your site is hosted on WordPress.com, or it's self-hosted but connected through the Jetpack plugin. Connects with one click — you're redirected to WordPress.com to authorize access, no passwords to copy.
+
+<Frame>
+  <img src="/images/wordpress-connect-methods.png" alt="The Connect WordPress dialog with Self-hosted and WordPress.com / Jetpack tabs" />
+</Frame>
+
+Not sure which one you have? If you log in at `wordpress.com`, pick **WordPress.com / Jetpack**. If you log in at your own domain's `/wp-admin`, pick **Self-hosted site**.
+
+## Option A — WordPress.com / Jetpack
+
+<Steps>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the WordPress card and select the **WordPress.com / Jetpack** tab.
+  </Step>
+  <Step title="Authorize on WordPress.com">
+    You're redirected to WordPress.com. Sign in and approve access.
+  </Step>
+  <Step title="Pick your site">
+    If your account has several sites, choose the one Ryze should publish to. Done — no passwords needed.
+  </Step>
+</Steps>
+
+<Note>
+For Jetpack sites, make sure the Jetpack **JSON API** module is enabled — Ryze publishes through it. If the connection fails, enable the module in Jetpack settings and reconnect.
+</Note>
+
+## Option B — Self-hosted site
+
+A self-hosted site connects with an **application password** — a special key you generate in WordPress that lets Ryze access your site without sharing your real login.
+
+### Step 1 — Generate an application password
 
 <Steps>
   <Step title="Open your profile">
@@ -24,24 +55,21 @@ WordPress uses an **application password** — a special key you generate in Wor
 The application password is shown only once. If you lose it, just generate a new one.
 </Warning>
 
-## Step 2 — Connect in Ryze
+### Step 2 — Connect in Ryze
 
-In **Workspace Settings → Integrations**, click **Connect** on the WordPress card and fill in:
+In **Workspace Settings → Integrations**, click **Connect** on the WordPress card, select the **Self-hosted site** tab, and fill in:
 
 - **Site URL** — your site address, e.g. `https://example.com`
 - **Username** — the login you use for `/wp-admin`
 - **Application password** — the password you just copied
 
-<Frame>
-  <img src="/images/wordpress-connect.png" alt="The Connect WordPress dialog in Ryze" />
-</Frame>
-
 Click **Continue**. Ryze verifies the connection.
 
 ## Troubleshooting
 
-- **Credentials rejected** — double-check the username and application password.
+- **Credentials rejected** (self-hosted) — double-check the username and application password.
 - **REST API not found** — make sure the WordPress REST API is enabled and the site URL is correct.
+- **Jetpack site won't connect** — enable the Jetpack JSON API module, then reconnect.
 - **Can't reach the site** — verify the site URL is reachable and uses `https://`.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
