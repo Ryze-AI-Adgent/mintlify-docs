@@ -1,0 +1,90 @@
+---
+title: "Scheduled tasks"
+description: "Have the agent run a task on a recurring schedule and email you the results — a weekly recap, a daily spend check, whatever you'd otherwise do by hand."
+---
+
+Set a task once and Ryze runs it on its own — every day, week, or month. Each run does the work in a fresh chat and emails you the result, so the report is waiting in your inbox instead of being something you have to go pull.
+
+Find it under **Schedules** in the sidebar.
+
+<Frame>
+  <img src="/images/schedules-page.png" alt="The Scheduled tasks page with saved tasks" />
+</Frame>
+
+## Create a scheduled task
+
+Click **New task** and pick how you want to set it up.
+
+<Frame>
+  <img src="/images/schedules-new-task.png" alt="The New task menu with Create with Agent and Set up manually" />
+</Frame>
+
+### Ask the agent
+
+Pick **Create with Agent** and just say what you want in chat. The agent asks a couple of questions to nail down the cadence and what to report, then creates the schedule for you.
+
+<Frame>
+  <img src="/images/schedules-with-agent.png" alt="Setting up a scheduled task by chatting with the agent" />
+</Frame>
+
+It also offers this on its own — ask a question you'll clearly want answered again next week, and the agent suggests turning it into a recurring task.
+
+### Set it up manually
+
+Pick **Set up manually** to fill in the details yourself.
+
+<Frame>
+  <img src="/images/schedules-create-dialog.png" alt="The manual scheduled task creation dialog" />
+</Frame>
+
+- **Name** — what this task is, e.g. "Weekly Google Ads recap".
+- **Task** — the instructions the agent runs each time. Write it like a prompt: what to check, what to report.
+- **How often / day / time / timezone** — daily, weekly (pick a day), or monthly (pick a date), at the time and timezone you choose.
+- **Email me when each run finishes** — on by default. Turn it off if you only want the result in the chat.
+
+New tasks are **active as soon as you create them**.
+
+<Warning>
+Each run costs ~25 credits (plus any tool calls), and the agent can use every tool it has access to — including changing or deleting things in your connected accounts. Write the task carefully and use at your own risk.
+</Warning>
+
+## What happens on each run
+
+When a schedule fires, Ryze:
+
+1. **Starts a fresh chat** and runs your task as the agent.
+2. **Writes the result** — the agent does the work and ends with a short recap: the verdict and the key numbers.
+3. **Emails you** that recap (if email is on), with a link to open the full chat.
+
+<Frame>
+  <img src="/images/schedules-run-result.png" alt="A finished scheduled run with the agent's recap" />
+</Frame>
+
+The email is a short headline. The full reasoning and detail live in the chat behind the **View full report** link.
+
+<Note>
+Scheduled-run chats are read-only — they're a record of what the agent did, not a conversation you continue. To change what runs, edit the task.
+</Note>
+
+## Manage a task
+
+Open any task to see its run history, trigger it on demand, or change it.
+
+<Frame>
+  <img src="/images/schedules-detail.png" alt="A scheduled task detail page with recent runs" />
+</Frame>
+
+- **Run now** — fire the task immediately instead of waiting for the next scheduled time.
+- **Toggle (Active / Paused)** — pause or resume the schedule. Paused tasks don't run and don't bill.
+- **Edit / Delete** — from the menu. Deleting a task stops all future runs and removes its history.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Credits" icon="coins" href="/paid-ads/credits">
+    How runs are billed.
+  </Card>
+  <Card title="Overview" icon="bullseye" href="/paid-ads/introduction">
+    What Paid Ads can do.
+  </Card>
+</CardGroup>
