@@ -61,6 +61,7 @@
               "integrations/framer",
               "integrations/github",
               "integrations/openai",
+              "integrations/klaviyo",
               "integrations/faq"
             ]
           },
