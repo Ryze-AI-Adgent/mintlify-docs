@@ -1,9 +1,9 @@
 ---
 title: "Connect Klaviyo"
-description: "Connect your Klaviyo account with a private API key so Ryze can read your email and SMS performance."
+description: "Connect your Klaviyo account with a private API key so Ryze can read and manage your email and SMS marketing."
 ---
 
-Klaviyo connects with a **private API key** — a key you generate in Klaviyo that lets Ryze read your campaigns, flows, lists, and reporting without sharing your login. A **read-only** key is all you need.
+Klaviyo connects with a **private API key** — a key you generate in Klaviyo that lets Ryze work with your campaigns, flows, lists, and reporting without sharing your login. Pick the access level that matches what you want Ryze to do: **Full Access** if you want the agent to create and manage things (campaigns, lists, flows), or **Read-Only** if you only want reporting.
 
 <Frame>
   <img src="/images/klaviyo-connect.png" alt="The Connect Klaviyo dialog in Ryze with the Private API key field" />
@@ -12,16 +12,17 @@ Klaviyo connects with a **private API key** — a key you generate in Klaviyo th
 ## Step 1 — Generate a private API key
 
 <Steps>
-  <Step title="Open API keys settings">
-    In Klaviyo, click your **account name** in the lower-left corner, then go to **Settings → API keys**.
-    <Frame><img src="/images/klaviyo-settings.png" alt="The API keys page in Klaviyo settings" /></Frame>
+  <Step title="Open settings">
+    In Klaviyo, click your **account name** in the lower-left corner, then click **Settings**.
+    <Frame><img src="/images/klaviyo-settings-menu.png" alt="Opening Settings from the Klaviyo account menu" /></Frame>
   </Step>
   <Step title="Create a private key">
-    Click **Create Private API Key**. Give it a name like `Ryze` so you can recognize it later.
+    Go to the **API keys** tab and click **Create Private API Key**. Give it a name like `Ryze` so you can recognize it later.
+    <Frame><img src="/images/klaviyo-settings.png" alt="The Create Private API Key button on the API keys page" /></Frame>
   </Step>
   <Step title="Choose access level">
-    Select **Read-only** — it includes everything Ryze needs (`accounts:read` and all other read scopes). Avoid a custom key unless you know which scopes you're enabling.
-    <Frame><img src="/images/klaviyo-access-level.png" alt="Selecting the Read-only access level for the API key" /></Frame>
+    Pick **Full Access** if you want Ryze to create and manage campaigns, lists, and flows. Pick **Read-Only** if you only want reporting. Avoid a custom key unless you know which scopes you're enabling.
+    <Frame><img src="/images/klaviyo-access-level.png" alt="Selecting the access level for the API key" /></Frame>
   </Step>
   <Step title="Copy the key">
     Click **Create**, then copy the key (it starts with `pk_`). Klaviyo shows it once — copy it now.
