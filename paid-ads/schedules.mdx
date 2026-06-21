@@ -1,9 +1,11 @@
 ---
 title: "Scheduled Tasks"
-description: "Have the agent run a task on a recurring schedule and email you the results — a weekly recap, a daily spend check, whatever you'd otherwise do by hand."
+description: "Have the agent run a task on a repeating schedule or once at a specific time, and email you the result — a weekly recap, a daily spend check, or a one-off reminder before a sale ends."
 ---
 
-Set a task once and Ryze runs it on its own — every day, week, or month. Each run does the work in a fresh chat and emails you the result, so the report is waiting in your inbox instead of being something you have to go pull.
+Set a task once and Ryze runs it on its own — either **repeating** (every day, week, or month) or **one-time** at a specific moment in the future. Each run does the work in a fresh chat and emails you the result, so the report is waiting in your inbox instead of being something you have to go pull.
+
+One-time tasks are great for reminders and one-off checks — "pull this report tomorrow at 9am", or "check spend after the sale ends Friday". After a one-time task runs, it's marked **Completed** and won't run again.
 
 Find it under **Schedules** in the sidebar.
 
@@ -27,7 +29,7 @@ Pick **Create with Agent** and just say what you want in chat. The agent asks a 
   <img src="/images/schedules-with-agent.png" alt="Setting up a scheduled task by chatting with the agent" />
 </Frame>
 
-It also offers this on its own — ask a question you'll clearly want answered again next week, and the agent suggests turning it into a recurring task.
+It also offers this on its own — ask a question you'll clearly want answered again next week and the agent suggests a recurring task, or mention a specific moment ("check this after the sale ends Friday") and it suggests a one-time task for that time.
 
 ### Set it up manually
 
@@ -39,7 +41,9 @@ Pick **Set up manually** to fill in the details yourself.
 
 - **Name** — what this task is, e.g. "Weekly Google Ads recap".
 - **Task** — the instructions the agent runs each time. Write it like a prompt: what to check, what to report.
-- **How often / day / time / timezone** — daily, weekly (pick a day), or monthly (pick a date), at the time and timezone you choose.
+- **When should this run?** — choose **repeating** or **one-time**.
+  - **Repeating** — daily, weekly (pick a day), or monthly (pick a date), at the time and timezone you choose.
+  - **One-time** — pick a date and time (interpreted in the timezone you select). It must be in the future, and it runs exactly once.
 - **Email me when each run finishes** — on by default. Turn it off if you only want the result in the chat.
 
 New tasks are **active as soon as you create them**.
@@ -74,8 +78,8 @@ Open any task to see its run history, trigger it on demand, or change it.
   <img src="/images/schedules-detail.png" alt="A scheduled task detail page with recent runs" />
 </Frame>
 
-- **Run now** — fire the task immediately instead of waiting for the next scheduled time.
-- **Toggle (Active / Paused)** — pause or resume the schedule. Paused tasks don't run and don't bill.
+- **Run now** — fire the task immediately. For a one-time task this is a one-off extra run — it doesn't use up the scheduled time, which still fires as planned.
+- **Toggle (Active / Paused)** — pause or resume a repeating schedule. Paused tasks don't run and don't bill. (One-time tasks show **Completed** once they've run.)
 - **Edit / Delete** — from the menu. Deleting a task stops all future runs and removes its history.
 
 ## Related
