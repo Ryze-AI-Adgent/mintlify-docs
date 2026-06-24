@@ -25,10 +25,11 @@ You install the Ryze GitHub App on your account or organization and grant it acc
 
 ## Step 2 — Choose where articles go
 
-After connecting, configure three settings:
+After connecting, configure these settings:
 
 - **Repository** — pick from the repos you granted access to, e.g. `your-org/your-site`.
-- **Branch** — the branch Ryze commits to. Defaults to the repository's default branch (usually `main`).
+- **Blog URL** — the public URL where your articles are listed, e.g. `https://yoursite.com/blog`. Ryze appends each article's slug to build its live link.
+- **Branch** — the branch Ryze commits to. Set to `main`.
 - **Folder path** — the folder where article files are written. Defaults to `blog/data`.
 
 ## What lands in your repo
@@ -81,7 +82,7 @@ If your host (Vercel, Netlify) deploys on push, every published article triggers
 
 - Ryze only ever writes inside the folder path you configure. It doesn't touch other files in the repo.
 - If the folder doesn't exist yet, the first commit creates it.
-- To change the repository, branch, or folder later, open the integration settings and update them — future publishes use the new values.
+- To change the repository, blog URL, or folder later, open the integration settings and update them — future publishes use the new values.
 - To disconnect, uninstall the Ryze app from your GitHub account's **Settings → Integrations → Applications** or remove the integration in Ryze.
 
 Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

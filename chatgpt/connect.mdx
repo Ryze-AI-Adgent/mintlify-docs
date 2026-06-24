@@ -1,0 +1,82 @@
+---
+title: "Connect Ryze to ChatGPT"
+description: "Add Ryze as a custom connector in ChatGPT and chat with your ad data. Takes about two minutes."
+---
+
+Ryze works inside ChatGPT. Once connected, you can ask ChatGPT about your Google Ads and Meta data in plain language — no dashboards, no exports.
+
+<Note>
+You'll need a ChatGPT plan that supports apps and connectors (Plus, Pro, or Business), and **Developer mode** turned on — the steps below cover it.
+</Note>
+
+## Your connector URL
+
+You'll need this when adding Ryze to ChatGPT:
+
+```
+https://connector.get-ryze.ai/mcp
+```
+
+## Add Ryze as a connector
+
+<Steps>
+  <Step title="Open Settings → Apps">
+    In ChatGPT, open **Settings**, then click the **Apps** tab on the left.
+    <Frame><img src="/images/chatgpt-step-1.png" alt="Open the Apps tab in ChatGPT settings" /></Frame>
+  </Step>
+  <Step title="Open Advanced settings">
+    On the Apps page, find **Advanced settings**.
+    <Frame><img src="/images/chatgpt-step-2.png" alt="The Apps page with Advanced settings" /></Frame>
+  </Step>
+  <Step title="Turn on Developer mode">
+    Enable **Developer mode**. This is what lets you add a custom connector.
+    <Frame><img src="/images/chatgpt-step-3.png" alt="Enable Developer mode" /></Frame>
+  </Step>
+  <Step title="Create an app">
+    Click **Create app** at the top.
+    <Frame><img src="/images/chatgpt-step-4.png" alt="Click Create app" /></Frame>
+  </Step>
+  <Step title="Fill in the details">
+    - **Name** — enter `Ryze AI`
+    - **MCP server URL** — enter `https://connector.get-ryze.ai/mcp` (keep **Server URL** selected, not Tunnel)
+    - **Authentication** — choose **OAuth**
+    - Tick **I understand and want to continue**, then click **Create**
+    <Frame><img src="/images/chatgpt-step-5.png" alt="The New App form filled in" /></Frame>
+  </Step>
+  <Step title="Sign in with Ryze AI">
+    ChatGPT opens a Ryze authorization page. Click **Sign in with Ryze AI**.
+    <Frame><img src="/images/chatgpt-step-6.png" alt="Sign in with Ryze AI" /></Frame>
+  </Step>
+  <Step title="Pick a workspace and allow">
+    Choose the workspace you want ChatGPT to read from, then click **Allow** to connect.
+  </Step>
+  <Step title="Done">
+    You'll see a green **Ryze AI is installed** toast. The app page lists the connection details and the tools ChatGPT can call — Google Ads, Meta Ads, GA4, Search Console, and more.
+    <Frame><img src="/images/chatgpt-step-7.png" alt="Ryze AI installed in ChatGPT" /></Frame>
+  </Step>
+</Steps>
+
+## Try it
+
+Start a **new chat** in ChatGPT and ask for what you want:
+
+> Pull the last 7 days of Google Ads spend and break it down by campaign.
+
+ChatGPT uses Ryze tools to answer.
+
+<Tip>
+Always start a **new chat** after connecting or reconnecting. Existing chats won't pick up the connection.
+</Tip>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Permissions & Approvals" icon="shield-check" href="/claude/permissions">
+    Control which actions the assistant can take on your accounts.
+  </Card>
+  <Card title="Connect Your Platforms" icon="plug" href="/integrations/overview">
+    Link Google, Meta, Analytics and more.
+  </Card>
+</CardGroup>
+
+Having trouble connecting? See the [FAQ](/claude/faq) or email [support@get-ryze.ai](mailto:support@get-ryze.ai).
