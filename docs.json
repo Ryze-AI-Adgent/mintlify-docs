@@ -63,6 +63,7 @@
               "integrations/wix",
               "integrations/github",
               "integrations/openai",
+              "integrations/anthropic",
               "integrations/klaviyo",
               "integrations/faq"
             ]
@@ -107,6 +108,7 @@
           {
             "group": "Foundations",
             "pages": [
+              "seo/agent-context",
               "seo/target-pages",
               "seo/keywords"
             ]
