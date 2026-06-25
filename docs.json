@@ -95,6 +95,46 @@
         ]
       },
       {
+        "tab": "SEO",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "seo/introduction",
+              "seo/how-it-works"
+            ]
+          },
+          {
+            "group": "Foundations",
+            "pages": [
+              "seo/target-pages",
+              "seo/keywords"
+            ]
+          },
+          {
+            "group": "On-Page",
+            "pages": [
+              "seo/programmatic",
+              "seo/optimizations"
+            ]
+          },
+          {
+            "group": "Off-Page",
+            "pages": [
+              "seo/guest-posts",
+              "seo/press",
+              "seo/backlinks"
+            ]
+          },
+          {
+            "group": "More",
+            "pages": [
+              "seo/faq"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Paid Ads",
         "groups": [
           {

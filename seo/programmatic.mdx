@@ -1,0 +1,106 @@
+---
+title: "Programmatic Articles"
+description: "Long-tail articles written and published for you — how topics are planned into pools, turned into full drafts, and pushed live to your store or CMS."
+---
+
+Programmatic articles are the core of Ryze's on-page engine: long-tail landing pages, planned from your data, written in full, and published to your CMS. Each one targets a real keyword and points readers toward the pages you want to rank.
+
+Find them under **Programmatic** in the SEO sidebar.
+
+<Frame>
+  <img src="/images/seo-programmatic-page.png" alt="The Programmatic page with All, Planned, Drafted, and Published tabs" />
+</Frame>
+
+## The two pools
+
+Topics are planned into two pools so coverage is both focused and wide:
+
+- **Pool A — anchored.** Topics tied to your picked [target pages](/seo/target-pages) and spread evenly across them, to drive traffic and links to the pages that matter most.
+- **Pool B — open catalog.** Topics that expand into adjacent demand — mined from your Search Console impressions, competitor gaps, and AI brainstorming across your wider catalog.
+
+Each planned topic carries a real keyword, search volume, and difficulty — nothing invented.
+
+## Article statuses
+
+You'll see articles move through states, available as tabs:
+
+| Status | Meaning |
+|--------|---------|
+| **Planned** | Topic is planned and ready to generate. |
+| **Drafted** | The full article body has been written and is ready to publish. |
+| **Published** | Live on your store or CMS. |
+| **Failed** | Generation or publishing hit an error — you can retry. |
+
+## Generate an article
+
+On a **Planned** article, click **Generate**. Ryze writes the full piece:
+
+- **Body** — a complete article (500+ words).
+- **Meta title** and **meta description** — for search snippets.
+- **Featured image** — selected automatically and uploaded.
+
+<Frame>
+  <img src="/images/seo-generate-button.png" alt="A planned article with the Generate button" />
+</Frame>
+
+It runs in the background — the draft is ready in a few minutes, and the article moves to **Drafted**.
+
+## Review and edit a draft
+
+Before publishing, click **Edit** to refine anything. The **Edit draft** dialog lets you change:
+
+- **Title** and **slug**
+- **Meta title** and **meta description**
+- **Body** (Markdown — the same content that gets published)
+- **Scheduled date**
+- **Featured image** (replace or remove)
+
+<Frame>
+  <img src="/images/seo-edit-draft.png" alt="The Edit draft dialog" />
+</Frame>
+
+<Note>
+You can edit an article in any state except Published. Once it's live, edits happen on your CMS.
+</Note>
+
+## Publish
+
+On a **Drafted** article, click **Publish now**. Ryze pushes it to your connected store or CMS and, once live, pings Google to index the new URL. The article moves to **Published** with a link to the live page.
+
+<Frame>
+  <img src="/images/seo-publish-button.png" alt="A drafted article with the Publish now button" />
+</Frame>
+
+### Where it publishes
+
+Ryze publishes to the first connected CMS in your workspace. Supported targets:
+
+| Platform | How it connects |
+|----------|-----------------|
+| **Shopify** | OAuth + custom app credentials |
+| **WordPress** | Site URL + API token |
+| **Framer** | OAuth + a mapped CMS collection |
+| **Wix** | OAuth + site |
+| **GitHub** | GitHub App — publishes article files to a repo |
+
+What gets pushed: the article HTML, meta title and description, slug, excerpt, and the featured image. Connect a CMS under your [integrations](/integrations/overview) first — without one, there's nowhere to publish.
+
+### Manual vs automatic
+
+- **Manual** — you click **Publish now** on each draft.
+- **Automatic** — when auto-publish is on, Ryze publishes drafts on schedule (by their assigned date), at a steady daily pace rather than all at once. Set or change a draft's date in the edit dialog.
+
+<Note>
+If a publish fails, the article is marked Failed with the error. Ryze retries up to a few times before skipping; you can also re-publish manually.
+</Note>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="On-Page Fixes" icon="wrench" href="/seo/optimizations">
+    Technical and GEO fixes shipped by the agent.
+  </Card>
+  <Card title="Connect Your Platforms" icon="plug" href="/integrations/overview">
+    Connect a store or CMS to publish to.
+  </Card>
+</CardGroup>
