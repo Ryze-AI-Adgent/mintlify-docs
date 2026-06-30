@@ -48,6 +48,10 @@ The file contains everything your site needs to render the page:
   "meta_description": "Learn how to pick an AI ad agency in 2026...",
   "excerpt": "Short summary for blog listing cards.",
   "primary_keyword": "ai ad agency",
+  "image": {
+    "url": "https://<project>.supabase.co/storage/v1/object/public/programmatic-articles/<id>/featured.jpg",
+    "alt": "Descriptive alt text for the featured image"
+  },
   "published_at": "2026-06-12T10:00:00.000Z",
   "updated_at": "2026-06-12T10:00:00.000Z",
   "status": "published"
@@ -64,6 +68,7 @@ The file contains everything your site needs to render the page:
 | `meta_description` | SEO meta description |
 | `excerpt` | Short summary for listing pages |
 | `primary_keyword` | The keyword the article targets |
+| `image` | Featured image as `{ url, alt }`, or `null` when the article has none. The image is hosted by Ryze on a public CDN — use the URL directly. |
 | `published_at` | First publish time (ISO 8601) |
 | `updated_at` | Last update time (ISO 8601) |
 | `status` | Always `published` |
@@ -75,6 +80,7 @@ Your site decides how to render the files. The typical pattern for a Next.js blo
 1. Read all JSON files from the configured folder at build time (or via the GitHub API at request time).
 2. Generate a route per `slug` and render `body_html` (or `body_markdown` through your own renderer).
 3. Use `meta_title` and `meta_description` for the page's SEO tags, and `excerpt` on the blog index.
+4. When `image` is present, use `image.url` for the article's hero and `og:image`, and `image.alt` for the alt text. Handle `image: null` by falling back to a default or omitting the hero.
 
 If your host (Vercel, Netlify) deploys on push, every published article triggers a deploy automatically — the commit Ryze makes is a normal Git push.
 
