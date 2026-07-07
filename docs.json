@@ -62,7 +62,11 @@
               "integrations/framer",
               "integrations/wix",
               "integrations/github",
+              "integrations/ghost",
+              "integrations/ryze-hosting",
               "integrations/openai",
+              "integrations/ahrefs",
+              "integrations/semrush",
               "integrations/anthropic",
               "integrations/klaviyo",
               "integrations/faq"
@@ -83,6 +87,13 @@
               "workspaces/settings",
               "workspaces/invite-teammates",
               "workspaces/faq"
+            ]
+          },
+          {
+            "group": "White Label",
+            "pages": [
+              "white-label/branding",
+              "white-label/access"
             ]
           },
           {
@@ -109,7 +120,6 @@
             "group": "Foundations",
             "pages": [
               "seo/agent-context",
-              "seo/target-pages",
               "seo/keywords"
             ]
           },
@@ -125,7 +135,8 @@
             "pages": [
               "seo/guest-posts",
               "seo/press",
-              "seo/backlinks"
+              "seo/backlinks",
+              "seo/backlink-exchange"
             ]
           },
           {

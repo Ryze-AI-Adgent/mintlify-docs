@@ -1,0 +1,43 @@
+---
+title: "Connect Ghost"
+description: "Connect your Ghost blog with an Admin API key so Ryze can publish posts straight to your site."
+---
+
+Ghost connects with a **custom integration** — a name and Admin API key you create in Ghost that lets Ryze publish posts without sharing your login. Once connected, programmatic articles publish straight to your Ghost site.
+
+## Step 1 — Create a custom integration in Ghost
+
+<Steps>
+  <Step title="Open Integrations">
+    In **Ghost Admin**, go to **Settings → Integrations** (search "integrations" in settings to jump there).
+    <Frame><img src="/images/ghost-integrations-list.png" alt="The Integrations screen in Ghost Admin" /></Frame>
+  </Step>
+  <Step title="Add a custom integration">
+    Click **Add custom integration**, give it a name like `Ryze`, and create it.
+  </Step>
+  <Step title="Copy the Admin API Key">
+    On the integration's page, copy the **Admin API Key**.
+    <Frame><img src="/images/ghost-integration-settings.png" alt="The Admin API Key on a Ghost custom integration" /></Frame>
+  </Step>
+</Steps>
+
+<Warning>
+Use the **Admin API Key**, not the Content API Key. The Admin key is what lets Ryze publish; the Content key is read-only and won't work.
+</Warning>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the Ghost card and fill in:
+
+- **Blog URL** — your Ghost site, e.g. `https://myblog.ghost.io`
+- **Admin API key** — the key you just copied
+
+Click **Continue**. Ryze verifies the connection and shows your site title.
+
+## Troubleshooting
+
+- **Key rejected** — make sure you copied the **Admin** API Key (it looks like `id:secret`), not the Content API Key.
+- **Can't reach the site** — the Blog URL must be your Ghost admin domain and use `https://`. Ghost(Pro) sites use a `*.ghost.io` domain.
+- **Wrong site connected** — each key belongs to one Ghost site; create the integration on the site you want to publish to.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
