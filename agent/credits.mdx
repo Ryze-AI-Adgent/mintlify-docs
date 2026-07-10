@@ -1,9 +1,9 @@
 ---
 title: "Credits & Usage"
-description: "How Paid Ads charges credits, and where to track what you spend."
+description: "How Ryze charges credits for chat and agent runs, and where to track what you spend."
 ---
 
-Every message you send in Paid Ads spends credits. The work the AI does — thinking, pulling data, generating creatives — is what you pay for.
+Every message you send in chat spends credits. The work the AI does — thinking, pulling data, generating creatives — is what you pay for.
 
 ## How a message is charged
 
@@ -23,8 +23,19 @@ Each reply starts at **1 credit**, then adds for the work it does:
 - **"Generate 3 ad creatives for our spring launch."** → three creatives. **16 credits** (1 base + 3 × 5).
 
 <Frame>
-  <img src="/images/credits-used-breakdown.png" alt="A Paid Ads reply showing 2.32 credits used" />
+  <img src="/images/credits-used-breakdown.png" alt="A reply showing 2.32 credits used" />
 </Frame>
+
+## Agent runs
+
+Work the agent does on its own — [scheduled tasks](/agent/schedules) and the background research behind [Approvals](/agent/approvals) — is billed per run:
+
+| Action | Cost |
+| --- | --- |
+| **Agent run** — one scheduled or background run | 3 credits |
+| **Each data action during the run** | +0.33 credits |
+
+Failed runs aren't charged, same as chat.
 
 ## See the cost of any reply
 

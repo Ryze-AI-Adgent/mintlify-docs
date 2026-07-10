@@ -94,7 +94,7 @@ On a **Drafted** article, click **Publish now**. Ryze pushes it to your connecte
 
 ### Where it publishes
 
-Ryze publishes to the first connected CMS in your workspace. Supported targets:
+Supported targets:
 
 | Platform | How it connects |
 |----------|-----------------|
@@ -102,9 +102,23 @@ Ryze publishes to the first connected CMS in your workspace. Supported targets:
 | **WordPress** | Site URL + API token |
 | **Framer** | OAuth + a mapped CMS collection |
 | **Wix** | OAuth + site |
+| **Webflow** | Site token + a CMS collection |
+| **Ghost** | Admin API key |
 | **GitHub** | GitHub App — publishes article files to a repo |
+| **Ryze Hosting** | A blog hosted by Ryze on your domain |
 
 What gets pushed: the article HTML, meta title and description, slug, excerpt, and the featured image. Connect a CMS under your [integrations](/integrations/overview) first — without one, there's nowhere to publish.
+
+### Choose the publish target
+
+With several CMS connected, pick which one receives your articles in **Content settings** on the Programmatic page:
+
+<Frame>
+  <img src="/images/seo-content-settings-publish.png" alt="Content settings with the Publish to selector and the Override blog URL field" />
+</Frame>
+
+- **Publish to** — the connected CMS that receives generated articles. With a single CMS connected, it's used automatically.
+- **Override blog URL (optional)** — for headless setups (like GitHub) where articles live at a different public address than the CMS itself. Set it and Ryze uses that address for live links, indexing pings, and liveness checks.
 
 ### Manual vs automatic
 

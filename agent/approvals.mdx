@@ -1,0 +1,62 @@
+---
+title: "Approvals"
+description: "The agent finds improvements in your accounts on its own and brings them to you for sign-off — you approve, it applies the change."
+---
+
+Approvals flip the direction of work. Instead of you checking dashboards for problems, the agent continuously researches your connected accounts — SEO and paid — and when it finds something worth fixing, it files a proposal. You review the exact change, approve or reject, and on approval the agent applies it.
+
+Find them under **Approvals** in the sidebar.
+
+<Frame>
+  <img src="/images/approvals-list.png" alt="The Approvals page with a pending proposal and Approve and Reject buttons" />
+</Frame>
+
+## What a proposal looks like
+
+Every proposal is specific and grounded in your data — never "consider improving X". Open one to see:
+
+- **Summary** — what's wrong, what it costs you, and why it matters, with real numbers from your accounts.
+- **Entity** — the exact account and campaigns the change touches.
+- **Proposed changes** — a before/after table of every change the agent wants to make.
+- **Evidence** — the data the agent pulled to reach its conclusion.
+
+<Frame>
+  <img src="/images/approvals-detail.png" alt="A proposal with entity, proposed changes as a before and after table, and evidence" />
+</Frame>
+
+## Approve or reject
+
+- **Approve** — the agent applies the change to your account and verifies it landed. The proposal moves to **History**.
+- **Reject** — nothing is touched. The agent takes the hint and won't re-file the same proposal.
+
+Use the product filter to see proposals for SEO, paid ads, or everything at once.
+
+## Blocked proposals
+
+Sometimes the agent finds a real problem but can't fix it from its side — a tag that must be installed on your website, a pixel that needs verifying, a platform it has no access to. Those proposals arrive as **Blocked**: the same evidence and proposed changes, plus a blocker note that tells you exactly what to do and where.
+
+<Frame>
+  <img src="/images/approvals-blocked-list.png" alt="A blocked proposal in the list with Acknowledge and Remove blocker actions" />
+</Frame>
+
+<Frame>
+  <img src="/images/approvals-blocked-detail.png" alt="A blocked proposal with the blocker note explaining what needs to be fixed and where" />
+</Frame>
+
+- **I fixed it** — tell the agent you've resolved the blocker. It re-checks reality before proceeding — if the fix is actually live, the proposal moves forward; if not, it stays blocked and tells you what's still missing.
+- **Acknowledge** — you've seen it and will handle it later.
+
+## How proposals are found
+
+The agent runs research on a regular cadence per product, in the background — no setup needed. It only files a proposal when it finds something concrete and worth your attention; quiet accounts produce no noise. Each research run is billed as a regular agent run (see [Credits & Usage](/agent/credits)).
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Scheduled Tasks" icon="clock" href="/agent/schedules">
+    Point the agent at your own recurring checks.
+  </Card>
+  <Card title="Credits & Usage" icon="coins" href="/agent/credits">
+    How agent runs are billed.
+  </Card>
+</CardGroup>

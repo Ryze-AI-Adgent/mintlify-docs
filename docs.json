@@ -61,6 +61,7 @@
               "integrations/wordpress",
               "integrations/framer",
               "integrations/wix",
+              "integrations/webflow",
               "integrations/github",
               "integrations/ghost",
               "integrations/ryze-hosting",
@@ -70,6 +71,16 @@
               "integrations/anthropic",
               "integrations/klaviyo",
               "integrations/faq"
+            ]
+          },
+          {
+            "group": "Agent",
+            "pages": [
+              "agent/context",
+              "agent/approvals",
+              "agent/reports",
+              "agent/schedules",
+              "agent/credits"
             ]
           },
           {
@@ -119,7 +130,6 @@
           {
             "group": "Foundations",
             "pages": [
-              "seo/agent-context",
               "seo/keywords"
             ]
           },
@@ -156,9 +166,6 @@
               "paid-ads/introduction",
               "paid-ads/ai-creatives",
               "paid-ads/competitors",
-              "paid-ads/reports",
-              "paid-ads/schedules",
-              "paid-ads/credits",
               "paid-ads/faq"
             ]
           }
@@ -206,5 +213,23 @@
         ]
       }
     ]
-  }
+  },
+  "redirects": [
+    {
+      "source": "/seo/agent-context",
+      "destination": "/agent/context"
+    },
+    {
+      "source": "/paid-ads/reports",
+      "destination": "/agent/reports"
+    },
+    {
+      "source": "/paid-ads/schedules",
+      "destination": "/agent/schedules"
+    },
+    {
+      "source": "/paid-ads/credits",
+      "destination": "/agent/credits"
+    }
+  ]
 }
