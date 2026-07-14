@@ -70,6 +70,7 @@
               "integrations/semrush",
               "integrations/anthropic",
               "integrations/klaviyo",
+              "integrations/hubspot",
               "integrations/faq"
             ]
           },

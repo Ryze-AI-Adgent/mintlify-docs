@@ -1,0 +1,57 @@
+---
+title: "Connect HubSpot"
+description: "Connect your HubSpot account with OAuth so the agent can read and edit CRM records, lists, and CMS content."
+---
+
+HubSpot connects with **OAuth** — you sign in to HubSpot and approve access, so Ryze never sees your password. Once connected, the agent can read and edit your CRM (contacts, companies, deals, leads, line items, quotes, orders), work with lists, and manage CMS blog content.
+
+## Step 1 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, find the HubSpot card and click **Connect**. You're redirected to HubSpot to authorize.
+
+## Step 2 — Authorize in HubSpot
+
+<Steps>
+  <Step title="Sign in to HubSpot">
+    Sign in to the HubSpot account you want to connect, or create a new one.
+    <Frame><img src="/images/hubspot-oauth-account.png" alt="The HubSpot screen to sign in or create an account when connecting Ryze AI" /></Frame>
+  </Step>
+  <Step title="Choose the account">
+    If you have access to more than one HubSpot account (portal), pick the one you want Ryze to work with, then click **Choose Account**.
+    <Frame><img src="/images/hubspot-choose-account.png" alt="Choosing which HubSpot account to connect to Ryze AI" /></Frame>
+  </Step>
+  <Step title="Approve access">
+    Review the requested permissions and approve. HubSpot sends you back to Ryze and the connection is saved.
+  </Step>
+</Steps>
+
+## Step 3 — Confirm the connection
+
+Back in Ryze, the HubSpot card shows a **Connected** badge and the account you linked — identified by its domain (like `pantio.io`).
+
+<Frame><img src="/images/hubspot-connected.png" alt="The connected HubSpot account shown in Ryze with an option to add another account" /></Frame>
+
+## Connect multiple accounts
+
+You can connect more than one HubSpot account (portal) in the same workspace. Click **Add one more account** on the HubSpot card and repeat the authorization. See [Connect multiple accounts](/integrations/multiple-accounts) for how the agent picks between them.
+
+## What the agent can do
+
+Once connected, the agent works with HubSpot through your account:
+
+- **CRM records** — read and edit contacts, companies, deals, leads, line items, quotes, orders, and custom objects
+- **Search** — filter and query records with the HubSpot CRM Search API
+- **Lists** — read and manage contact lists
+- **CMS** — read and edit blog content
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+## Troubleshooting
+
+- **Wrong account connected** — each connection is one HubSpot portal. To switch, connect the right portal with **Add one more account**, or reconnect and choose a different account during authorization.
+- **Connection stopped working** — click **Reconnect** on the HubSpot card and re-authorize. This refreshes access if permissions changed or the token was revoked in HubSpot.
+- **Missing records or fields** — HubSpot returns a default set of properties; ask the agent for the specific fields you need. If a whole object type is missing, the connected user may not have access to it in HubSpot.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
