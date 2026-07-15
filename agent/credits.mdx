@@ -3,37 +3,43 @@ title: "Credits & Usage"
 description: "How Ryze charges credits for chat and agent runs, and where to track what you spend."
 ---
 
-Every message you send in chat spends credits. The work the AI does — thinking, pulling data, generating creatives — is what you pay for.
+You pay for the AI's thinking, not its plumbing. Every time the model reasons — reads your question, looks at tool results, writes an answer — that's one AI step, and steps are what cost credits.
 
 ## How a message is charged
 
-Each reply starts at **1 credit**, then adds for the work it does:
+Each AI step costs by the model you've picked:
 
-| Action | Cost |
+| Model | Cost per AI step |
 | --- | --- |
-| **Base reply** — every message | 1 credit |
-| **Each data action** — pulling spend, ROAS, editing a campaign, etc. | +0.33 credits |
-| **Each ad creative generated** | +5 credits |
+| **Fast** | 0.25 credits |
+| **Smart** (default) | 0.5 credits |
+| **Powerful** | 1.5 credits |
 
-### Examples
+A simple reply is one step. When the AI pulls data or edits a campaign, it takes an extra step per round of tool results it reads — the tool calls themselves are free.
 
-- **"Hey agent!"** → no data pulled. **1 credit.**
-- **"What's my Google Ads spend this week?"** → one data action. **1.33 credits.**
-- **"Compare ROAS across my Meta and Google campaigns."** → pulls four reports. **2.32 credits** (1 base + 4 × 0.33).
-- **"Generate 3 ad creatives for our spring launch."** → three creatives. **16 credits** (1 base + 3 × 5).
+Two tools carry a fixed cost on top, because they do heavy lifting:
+
+| Tool | Cost |
+| --- | --- |
+| **Ad creative generation** | 5 credits each |
+| **SEO data lookup** (rankings, backlinks, keyword data) | 0.5 credits each |
+
+### Examples (on Smart)
+
+- **"Hey agent!"** → one step. **0.5 credits.**
+- **"What's my Google Ads spend this week?"** → pull data, then answer: two steps. **1 credit.**
+- **"Compare ROAS across my Meta and Google campaigns."** → a few rounds of reports, then the comparison: ~4 steps. **~2 credits.**
+- **"Generate 3 ad creatives for our spring launch."** → two steps + three creatives. **16 credits.**
 
 <Frame>
-  <img src="/images/credits-used-breakdown.png" alt="A reply showing 2.32 credits used" />
+  <img src="/images/credits-used-breakdown.png" alt="A reply showing the credits used" />
 </Frame>
 
 ## Agent runs
 
-Work the agent does on its own — [scheduled tasks](/agent/schedules) and the background research behind [Approvals](/agent/approvals) — is billed per run:
+Work the agent does on its own — [scheduled tasks](/agent/schedules) and applying [Approvals](/agent/approvals) — is billed the same way: per AI step, at the Smart rate (0.5 credits), plus the fixed-cost tools above.
 
-| Action | Cost |
-| --- | --- |
-| **Agent run** — one scheduled or background run | 3 credits |
-| **Each data action during the run** | +0.33 credits |
+**Background research for Approvals is free.** The agent scanning your accounts for opportunities costs nothing — you only pay when you approve a fix and the agent goes to apply it.
 
 Failed runs aren't charged, same as chat.
 
@@ -42,7 +48,7 @@ Failed runs aren't charged, same as chat.
 Hover the credit icon under any AI message to see exactly what it cost.
 
 <Frame>
-  <img src="/images/credits-used-tooltip.png" alt="Hovering a message to see 1 credit used" />
+  <img src="/images/credits-used-tooltip.png" alt="Hovering a message to see the credits used" />
 </Frame>
 
 ## What you're not charged for
@@ -50,8 +56,9 @@ Hover the credit icon under any AI message to see exactly what it cost.
 You're only billed for work that lands:
 
 - **Failed runs and errors** — if a reply hits an error, it doesn't cost credits.
-- **Internal tool calls** — the housekeeping the agent does behind the scenes isn't charged; you pay for the data actions and creatives above, not the plumbing.
-- **Chat on your own Anthropic key** — if you connect your own [Anthropic key](/integrations/anthropic), chat costs nothing in credits for the AI itself — only the tools it runs.
+- **Tool calls** — pulling data, editing campaigns, publishing content: free. You pay for the AI steps around them, plus the two fixed-cost tools above.
+- **Approvals research** — the background scanning that files proposals is on us.
+- **Chat on your own Anthropic key** — if you connect your own [Anthropic key](/integrations/anthropic), AI steps cost nothing — only the fixed-cost tools do.
 
 ## Track your usage
 
@@ -88,7 +95,8 @@ Buy credit packs anytime from **Billing**. Top-up credits **never expire** — t
 
 ## Good to know
 
-- A reply that pulls data or generates creatives does more work, so it costs more — hover the credit icon to see the breakdown.
+- A reply that pulls data does more thinking, so it costs more — hover the credit icon to see the breakdown.
+- Pick the model to match the job: Fast for quick lookups, Powerful when it's genuinely hard. The step price follows.
 - Credits never expire. Unused plan credits roll over — each billing period's allowance is added on top of your remaining balance, and top-up credits stay too.
 - The Usage page breaks consumption down by workspace and by user, so you can see who's spending.
 
