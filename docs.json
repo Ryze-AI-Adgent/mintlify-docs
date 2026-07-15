@@ -57,7 +57,6 @@
             "pages": [
               "integrations/overview",
               "integrations/multiple-accounts",
-              "integrations/shopify",
               "integrations/wordpress",
               "integrations/framer",
               "integrations/wix",
