@@ -1,0 +1,48 @@
+---
+title: "Managing Multiple Accounts"
+description: "Run many accounts from one workspace — chats, reports, schedules, and the agent all work across them."
+---
+
+Want to manage several ad accounts, analytics properties, or store logins in one place? That already works today: connect every account to **one workspace**. Everything in that workspace — platform chats, reports, scheduled tasks, the Ryze agent, and Claude via MCP — can then work across all of them. No special mode or setup is needed.
+
+## The short answer
+
+A workspace can hold **multiple accounts per platform** — several Google Ads logins, a handful of GA4 properties, more than one Search Console. Connect them all to the same workspace, and every surface sees them:
+
+- **Chat** inside the platform can pull from and act on any connected account — just name the one you mean.
+- **Reports** can cover a single account or draw on several at once.
+- **Scheduled tasks** and the agent's background work run against your chosen default accounts.
+- **Claude (MCP)** gets the same reach — one connector, all accounts in the workspace.
+
+> **You:** Compare last week's spend across both of my Google Ads accounts.
+
+> **You:** Pull top queries from the Search Console for my second site.
+
+## How it works
+
+- **Add accounts side by side.** Open **Workspace Settings → Integrations**, click **View** on a platform, then **+ Add account**. Each account keeps its own property or ad-account selection.
+- **Primary account.** One account per platform is the **primary** — the default used when you don't name one. Change it any time with the star.
+- **Switch by naming.** Nothing is locked to the primary. Mention the account you mean in chat and the agent switches — no reconfiguration.
+- **Agent default accounts.** Managing many accounts under one login? Pick which ones the agent works with by default, while the rest stay reachable by name.
+
+The full walkthrough with screenshots is in [Connect Multiple Accounts](/integrations/multiple-accounts).
+
+## One workspace or many?
+
+The rule of thumb: **one workspace = one business.**
+
+- Several accounts that belong to the **same business or brand** — multiple Google Ads logins, regional GA4 properties, a second Meta ad account — connect them all to **one workspace**. One place, everything in reach.
+- **Different clients or separate businesses** — give each its **own workspace**. Every workspace keeps its own connections, team, settings, and data, and you switch between them in seconds. See [Create a Workspace](/workspaces/create-workspace).
+
+## Why there's no "super workspace"
+
+We're sometimes asked for a single workspace that spans all other workspaces — one place that sees every client at once. We won't build that, for two reasons:
+
+1. **The functionality already exists.** If a set of accounts genuinely belongs together, connect them to one workspace — multi-account support covers it. A cross-workspace view wouldn't add anything you can't do today.
+2. **Workspace isolation is a security boundary, not a limitation.** Each workspace scopes what the agent, your chats, and your teammates can reach. One surface with access to every client means a single mistyped request — or a single agent mistake — can land in the wrong client's account, and every team member sees every client's data. Keeping workspaces isolated keeps the blast radius of any action limited to one business.
+
+If you manage many clients, the workflow is: one workspace per client, and switch workspaces when you change context. It's a few seconds of switching in exchange for a hard guarantee that client data and client accounts never mix.
+
+<Tip>
+If you use Claude, start a **new chat** after adding accounts or changing the primary so it picks up the change.
+</Tip>

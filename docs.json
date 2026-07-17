@@ -57,6 +57,7 @@
             "pages": [
               "integrations/overview",
               "integrations/multiple-accounts",
+              "integrations/managing-multiple-accounts",
               "integrations/wordpress",
               "integrations/framer",
               "integrations/wix",
