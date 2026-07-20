@@ -1,0 +1,65 @@
+---
+title: "Fixing duplicate content and canonicals"
+description: "The duplicate content patterns specific to Shopify — collection paths, variant parameters, and supplier descriptions — and how canonical tags resolve them."
+---
+
+Duplicate content on Shopify is mostly structural: the platform exposes the same product at several URLs by design. The rest is copy duplicated across stores.
+
+## Shopify's built-in duplication
+
+The same product is reachable at:
+
+```
+/products/trail-boot
+/collections/hiking/products/trail-boot
+/collections/sale/products/trail-boot
+```
+
+Shopify canonicalises all of these to `/products/trail-boot`. This is correct default behaviour and generally does not need changing.
+
+What does need attention: **internal links should point at the canonical URL directly**. Linking through collection paths wastes crawl and sends mixed signals, even with canonicals in place.
+
+## Other common sources
+
+| source | fix |
+|---|---|
+| Variant parameters | Canonical to parent — see [product variants](/shopify/product-variants) |
+| Filter and sort parameters | Block in `robots.txt`; do not rely on canonicals alone |
+| Supplier product descriptions | Rewrite — this is the biggest one |
+| Near-identical collections | Merge, redirect the loser |
+| Paginated pages canonicalised to page 1 | Stop doing this; it hides those products |
+| `.myshopify.com` domain indexed alongside the custom domain | Ensure canonicals and redirects resolve to the custom domain |
+
+## How canonicals actually work
+
+A canonical tag is a **hint**, not a directive. Google may choose a different canonical if signals disagree — for example, if internal links, sitemaps, and canonicals point to different URLs.
+
+Make the signals agree:
+
+- Canonical tag points to the preferred URL
+- Internal links use the preferred URL
+- Sitemap contains only the preferred URL
+- Redirects resolve to the preferred URL
+
+Check Search Console → Pages for "Duplicate, Google chose different canonical" — that report tells you where your signals conflict.
+
+## Supplier descriptions
+
+The most damaging duplicate content on most stores is not structural. It is the manufacturer's description used verbatim on hundreds of competing stores.
+
+Canonicals cannot help here — the duplication is across domains. The only fix is rewriting. See [product descriptions at scale](/ecommerce/product-descriptions-at-scale).
+
+## What not to do
+
+- **Do not `noindex` duplicates that should be canonicalised.** `noindex` removes the page entirely rather than consolidating its signals.
+- **Do not block duplicates in `robots.txt` and also canonicalise them.** A blocked page cannot be crawled, so its canonical is never read.
+- **Do not delete duplicate pages that have links or traffic.** Redirect them.
+
+## What Ryze does
+
+Ryze detects duplicate URLs and conflicting canonicals during the [audit](/shopify/audit), and ships duplicate URL resolution with approval.
+
+## Related
+
+- [Product variant markup](/shopify/product-variants)
+- [URL redirects and migrations](/shopify/redirects)

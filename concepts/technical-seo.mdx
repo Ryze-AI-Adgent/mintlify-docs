@@ -1,0 +1,45 @@
+---
+title: "Technical SEO"
+description: "Technical SEO is the work of making a site crawlable, indexable, and renderable by search engines, covering crawling, indexation, site architecture, structured data, and performance."
+---
+
+Technical SEO is the work of making a site crawlable, indexable, and renderable by search engines — as distinct from content SEO (what the pages say) and off-page SEO (who links to them).
+
+If technical SEO is broken, content and links cannot compensate: a page that cannot be crawled or indexed will not rank regardless of quality.
+
+## What it covers
+
+**Crawling** — whether engines can reach pages. `robots.txt` rules, internal linking, [crawl budget](/concepts/crawl-budget), redirect chains, and server response codes.
+
+**Indexation** — whether crawled pages are eligible to appear. `noindex` directives, canonical tags, duplicate content, thin pages, and parameter handling.
+
+**Rendering** — whether the content engines see matches what users see. Client-side rendering can hide body text from crawlers that do not execute JavaScript, including many AI retrieval crawlers.
+
+**Architecture** — how pages relate. URL structure, category depth, internal link distribution, pagination, and [faceted navigation](/concepts/crawl-budget).
+
+**Structured data** — machine-readable markup describing page content, usually [Schema.org](https://schema.org) vocabulary in JSON-LD. Required for rich results and increasingly consumed by AI systems and shopping agents.
+
+**Performance** — load and interaction speed, measured by [Core Web Vitals](/concepts/core-web-vitals).
+
+**Internationalization** — `hreflang` annotations, country and language targeting, and avoiding duplicate content across locales.
+
+## Common failure modes on ecommerce sites
+
+- Faceted navigation generating unbounded crawlable URL combinations
+- Product variants split across near-identical pages without canonicals
+- Out-of-stock products returning soft 404s or being removed without redirects
+- Pagination that blocks crawlers from reaching deep catalogue pages
+- Structured data that contradicts the visible page — most often price or availability
+- Migrations that drop redirects and lose accumulated link and citation history
+
+## Primary references
+
+- [Google Search Essentials](https://developers.google.com/search/docs/essentials)
+- [Google structured data documentation](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
+- [Schema.org](https://schema.org)
+
+## Related
+
+- [Core Web Vitals](/concepts/core-web-vitals)
+- [Crawl budget](/concepts/crawl-budget)
+- [Programmatic SEO](/concepts/programmatic-seo)

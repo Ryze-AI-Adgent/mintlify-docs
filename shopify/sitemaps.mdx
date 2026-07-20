@@ -1,0 +1,56 @@
+---
+title: "Sitemaps on Shopify"
+description: "How Shopify generates sitemaps automatically, what they include, their limits, and how to submit and troubleshoot them in Google Search Console."
+---
+
+Shopify generates and maintains `sitemap.xml` automatically at your domain root. You do not create it, and on most plans you cannot edit it directly.
+
+```
+https://yourstore.com/sitemap.xml
+```
+
+## What it contains
+
+The root sitemap is an index pointing to sub-sitemaps:
+
+- `sitemap_products_1.xml`
+- `sitemap_collections_1.xml`
+- `sitemap_pages_1.xml`
+- `sitemap_blogs_1.xml`
+
+Shopify updates these as you add, change, and remove content. Only canonical, indexable URLs are included — products hidden from the sales channel, and pages set to `noindex`, are excluded automatically.
+
+## Submit it
+
+In [Google Search Console](/connect-gsc), go to **Sitemaps** and submit `sitemap.xml`. Do the same in Bing Webmaster Tools.
+
+Submit once. Resubmitting repeatedly does not increase crawl rate and is not a fix for anything.
+
+## Limits worth knowing
+
+- **You cannot exclude individual URLs** from the generated sitemap on most plans. Control inclusion by unpublishing from the sales channel or setting `noindex` in the theme.
+- **`changefreq` and `priority` values** are not used by Google. Adjusting them achieves nothing.
+- **Sitemap files cap at 50,000 URLs each**; Shopify splits automatically past that.
+- **The sitemap is a discovery aid, not an indexing guarantee.** Inclusion does not mean a page will be indexed.
+
+## Troubleshooting
+
+**"Couldn't fetch" in Search Console.** Usually a password-protected store or a `robots.txt` rule blocking the sitemap. Confirm the store is publicly accessible and the sitemap loads in an incognito browser.
+
+**Pages missing from the sitemap.** Check the product or page is published to the Online Store sales channel, and that the theme is not applying `noindex`.
+
+**Submitted URLs not indexed.** Normal to a degree, especially on large catalogues. Persistent large-scale exclusion usually indicates thin content or [crawl budget](/concepts/crawl-budget) problems rather than a sitemap fault.
+
+**Sitemap contains URLs that redirect or 404.** Shopify should remove these automatically; if they persist, the underlying resource is likely still published somewhere.
+
+## Custom sitemap needs
+
+Shopify Plus allows `robots.txt.liquid` editing, which lets you reference additional sitemaps — useful when content lives on a subdomain or a separate platform.
+
+If your documentation or blog is hosted separately, it has its own sitemap and must be submitted separately.
+
+## Related
+
+- [URL redirects and migrations](/shopify/redirects)
+- [Crawl budget](/concepts/crawl-budget)
+- [Large catalogue automation](/shopify/large-catalogs)

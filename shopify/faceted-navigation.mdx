@@ -1,0 +1,68 @@
+---
+title: "Faceted navigation and filters"
+description: "How Shopify filter and sort URLs generate unbounded crawlable combinations, and how to control which of them are crawled and indexed."
+---
+
+Faceted navigation is filtering and sorting on collection pages — by size, colour, price, brand. Each combination generates a URL, and combinations multiply.
+
+Six filters with five options each produce more URL combinations than most stores have products. Left crawlable, this consumes [crawl budget](/concepts/crawl-budget) that should be spent on products.
+
+## What Shopify generates
+
+```
+/collections/boots?filter.v.option.size=42
+/collections/boots?filter.v.option.size=42&filter.v.option.colour=black
+/collections/boots?sort_by=price-ascending
+```
+
+Sort parameters are pure duplication — the same products in a different order, with no unique value at all.
+
+## The decision, per facet
+
+| facet type | treatment |
+|---|---|
+| High search demand (e.g. "black hiking boots") | Give it a real, indexable collection page |
+| Genuine filtering, no search demand | Crawlable but not indexed, or blocked |
+| Sort order | Block — always duplication |
+| Price ranges | Block |
+| Multi-facet combinations | Block |
+| Pagination | Keep crawlable — see [collection pages](/shopify/collection-pages) |
+
+The principle: **if people search for it, it deserves a page. If they do not, it should not be crawlable.**
+
+## How to control it
+
+**`robots.txt` to prevent crawling.** On Shopify Plus you can edit `robots.txt.liquid` to disallow filter and sort parameters. This is the effective lever, because it stops the crawl before it happens.
+
+```
+Disallow: /*sort_by*
+Disallow: /*filter.*
+```
+
+**Canonical tags** on filtered pages pointing to the unfiltered collection. Useful, but weaker — the page still gets crawled, so budget is still spent.
+
+**`noindex`** removes pages from the index but *requires* them to be crawled first. It does not solve a crawl budget problem.
+
+<Note>
+Do not combine `robots.txt` blocking with `noindex` on the same URLs. A blocked page cannot be crawled, so its `noindex` is never read.
+</Note>
+
+**Avoid linking to filtered URLs internally.** Internal links are the primary discovery path. If filtered URLs are not linked, they are largely not found.
+
+## Promote high-demand facets properly
+
+Where a filter combination has real search demand, do not rely on the parameter URL. Create a genuine collection with its own title, description, and content. See [collection page optimisation](/shopify/collection-pages).
+
+## Diagnosing a problem
+
+Look for:
+
+- Search Console showing far more discovered URLs than you have products
+- Large numbers of "Discovered — currently not indexed"
+- Crawl stats dominated by parameter URLs
+- Deep products not being indexed while filter URLs are crawled repeatedly
+
+## Related
+
+- [Crawl budget](/concepts/crawl-budget)
+- [Large catalogue automation](/shopify/large-catalogs)

@@ -1,0 +1,64 @@
+---
+title: "Site speed and Core Web Vitals on Shopify"
+description: "What actually slows down a Shopify store — apps, theme scripts, and unoptimised imagery — and the fixes that move LCP, INP, and CLS."
+---
+
+Shopify handles hosting, CDN, and HTTPS, so raw server speed is rarely the problem. Almost all Shopify performance issues come from three sources: **apps**, **theme JavaScript**, and **images**.
+
+## Diagnose against field data
+
+Lab tools are for diagnosis; [Core Web Vitals](/concepts/core-web-vitals) are assessed on real user data at the 75th percentile.
+
+- **Search Console → Core Web Vitals** — field data, grouped by URL pattern. Start here.
+- **PageSpeed Insights** — field data plus a lab diagnosis for a single URL.
+- **Lighthouse** — lab only. Useful for identifying causes, not for judging whether you pass.
+
+Field data uses a 28-day rolling window, so fixes take weeks to fully reflect.
+
+## Apps are the usual culprit
+
+Every installed app typically injects JavaScript on every page, whether or not the page uses it. Stores accumulate these over years.
+
+- Audit installed apps and remove anything unused — uninstalling does not always remove injected script, so check the theme for leftovers
+- Look for duplicate functionality — two review apps, three analytics tools
+- Review widgets, chat widgets, and popups are the heaviest repeat offenders for INP
+
+This is the single highest-impact performance action on most established stores.
+
+## Images drive LCP
+
+The hero image or first product image is usually the Largest Contentful Paint element.
+
+- Compress and serve appropriately sized images — do not ship a 3000px image to a 400px slot
+- Use modern formats where the theme supports them
+- Lazy-load everything below the fold, but **never** lazy-load the LCP image
+- Set explicit `width` and `height` on every image to prevent layout shift
+
+## JavaScript drives INP
+
+- Reduce third-party scripts
+- Defer non-critical JavaScript
+- Watch variant pickers and filter interactions — these are common INP failures on product and collection pages
+
+## CLS: reserve the space
+
+- Explicit dimensions on images, embeds, and iframes
+- Reserve space for banners, cookie notices, and promotional bars rather than injecting them above existing content
+- Preload fonts, and set `font-display` to avoid reflow
+
+## Theme choice
+
+A bloated theme is difficult to fix incrementally. If a store is failing badly across all three metrics and carries years of accumulated customisation, a modern lightweight theme is often faster to reach than remediation.
+
+## What Ryze does
+
+Ryze monitors Core Web Vitals and ships performance fixes with approval — image compression, lazy-loading, JavaScript reduction, and broken pagination fixes. No theme edits are required.
+
+## Honest weighting
+
+Core Web Vitals are a real but small ranking signal. Relevance dominates. The stronger argument for fixing speed is conversion: slow pages lose buyers regardless of where they rank.
+
+## Related
+
+- [Core Web Vitals](/concepts/core-web-vitals)
+- [Product page optimisation](/shopify/product-pages)

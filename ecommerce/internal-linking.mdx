@@ -1,0 +1,55 @@
+---
+title: "Internal linking"
+description: "How internal links distribute authority and enable discovery across an ecommerce site, and the linking patterns that actually move rankings."
+---
+
+Internal links do two jobs: they let crawlers discover pages, and they distribute authority between them. On large catalogues they are the main determinant of which pages get indexed at all.
+
+## The rules that matter
+
+**Every page should be reachable within about three clicks** of the homepage. Deeper pages are crawled less and rank worse.
+
+**No orphans.** A page with no internal links pointing at it is effectively invisible, even if it is in the sitemap. Sitemaps aid discovery; links confer value.
+
+**Link to canonical URLs.** Linking through collection paths or parameter URLs sends mixed signals even when canonicals are correct.
+
+**Descriptive anchor text.** "Waterproof hiking boots" tells a crawler what the destination is about. "Click here" and "read more" tell it nothing.
+
+## Patterns that work on ecommerce sites
+
+| pattern | purpose |
+|---|---|
+| Category → subcategory → product | The primary crawl path |
+| Related products on product pages | Distributes authority laterally through the catalogue |
+| Articles → relevant category | Sends editorial authority to commercial pages |
+| Breadcrumbs on every page | A second structural path, marked up with schema |
+| Cross-links between related categories | Connects otherwise isolated branches |
+
+**Articles should link to categories more often than to individual products.** Categories are the commercial pages, they persist while products come and go, and they pass authority down to products anyway.
+
+## Where authority concentrates
+
+The homepage holds the most authority, and it flows outward through links. Practical consequences:
+
+- Pages linked from the homepage and main navigation receive the most
+- Pages reachable only through pagination or search receive very little
+- Linking to everything from everywhere dilutes the signal about what matters
+
+Be deliberate: the navigation should point at the categories you actually want to rank.
+
+## Common failures
+
+- **Products only reachable through filters.** Filter URLs are usually blocked, so those products are unreachable.
+- **Related-product modules rendered by JavaScript.** If links are not in the served HTML, many crawlers will not follow them.
+- **Broken links to deleted products** accumulating over time.
+- **Every article linking to the homepage** rather than to the relevant category.
+- **Deep pagination as the only route** to most of the catalogue.
+
+## What Ryze does
+
+Ryze audits internal linking during the [technical audit](/ecommerce/technical-audit), identifies orphan pages, and ships internal linking adjustments with approval. Generated articles are published with internal links to your key pages rather than as isolated content.
+
+## Related
+
+- [Ecommerce site structure](/ecommerce/site-structure)
+- [Crawl budget](/concepts/crawl-budget)

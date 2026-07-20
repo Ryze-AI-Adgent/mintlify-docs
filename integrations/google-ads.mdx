@@ -1,0 +1,60 @@
+---
+title: "Connect Google Ads"
+description: "Connect a Google Ads account to Ryze so you can query spend, ROAS, and performance through Claude, and let the agent manage campaigns with approval."
+---
+
+Connecting Google Ads lets you ask about campaign performance in plain language and lets the agent act on campaigns under your approval settings.
+
+## Requirements
+
+- A Google Ads account with at least read access; standard or admin access to allow changes
+- For agencies, the manager (MCC) account works — you select which client account to connect
+
+## Connect
+
+<Steps>
+  <Step title="Open Integrations">
+    **Workspace Settings → Integrations**, then Google Ads under **Advertising**.
+  </Step>
+  <Step title="Authorize">
+    Sign in to Google and approve access.
+  </Step>
+  <Step title="Pick the account">
+    Choose the specific Google Ads account. If you authorized an MCC, select the client account this workspace covers.
+  </Step>
+</Steps>
+
+Start a **new chat** afterwards.
+
+## What you can ask
+
+> Pull the last 7 days of Google Ads spend and break it down by campaign.
+
+> Which campaigns have ROAS below 2 this month?
+
+> What changed in my account in the last week?
+
+## What the agent can do
+
+With approval, the agent can create and adjust campaigns, manage budgets, and generate ad creatives. Actions that change your account require sign-off by default — configure this in [Permissions & approvals](/claude/permissions).
+
+<Note>
+Review approval settings before enabling unattended changes on a live spending account. This is the connection where a misconfiguration costs real money.
+</Note>
+
+## Multiple accounts
+
+A workspace can hold several Google Ads accounts — useful for brands running separate accounts by region or business unit. See [Connect multiple accounts](/integrations/multiple-accounts) and [Managing multiple accounts](/integrations/managing-multiple-accounts).
+
+## Troubleshooting
+
+**No accounts listed.** The authorized Google account has no Ads access, or the account sits under an MCC you did not authorize.
+
+**Changes rejected.** The authorized user likely has read-only access. Google Ads permissions are set in Google, not in Ryze.
+
+**Data looks delayed.** Google Ads reporting lags for recent conversions, particularly view-through and cross-device.
+
+## Related
+
+- [Paid ads overview](/ads/overview)
+- [Google Ads in Ryze](/ads/google-ads)

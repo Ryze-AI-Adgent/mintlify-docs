@@ -1,0 +1,58 @@
+---
+title: "URL redirects and migrations"
+description: "How to manage URL redirects on Shopify, what to redirect when products are removed, and how to run a migration without losing accumulated ranking and citation history."
+---
+
+A redirect preserves the value a URL has accumulated — links, rankings, and citation history — when that URL changes or disappears. Losing redirects during a migration is one of the few SEO mistakes that is both severe and permanent.
+
+## Creating redirects on Shopify
+
+URL redirects are managed in the Shopify admin under **Online Store → Navigation → URL Redirects**. Shopify issues them as `301` (permanent), which is what you want for anything that has moved for good.
+
+You can bulk import redirects via CSV, which is essential for migrations.
+
+## What to redirect
+
+| situation | action |
+|---|---|
+| Product permanently discontinued | 301 to the closest equivalent product, or the parent collection |
+| Product temporarily out of stock | **Do not redirect.** Keep the page live — see [out-of-stock products](/ecommerce/out-of-stock-products) |
+| Collection merged into another | 301 to the surviving collection |
+| Product renamed (handle changed) | Shopify creates this automatically; verify it exists |
+| Page deleted with no equivalent | 410, or 301 to the most relevant parent |
+| Domain change | 301 every URL to its new equivalent |
+
+## Redirect to the closest equivalent, not the homepage
+
+Mass-redirecting removed products to the homepage is treated as a soft 404 — the destination does not satisfy the original intent, so the value is not passed. Redirect to the nearest genuinely relevant page. Where none exists, the collection is a better target than the homepage.
+
+## Migration checklist
+
+Losing traffic in a migration is almost always a redirect failure. Before switching:
+
+1. **Crawl the existing site** and export every indexable URL
+2. **Export Search Console data** — every URL with impressions or clicks over the last 16 months
+3. **Export your backlink profile** — URLs with external links are the highest priority
+4. **Map old URL → new URL** for every one of them, individually
+5. **Load redirects before the switch**, not after
+6. **Verify after launch** by crawling the old URL list and confirming each returns a single 301 to a 200
+
+## After launch
+
+- Submit the new sitemap in Search Console
+- Watch Search Console → Pages for a spike in 404s and fix as they appear
+- Check for redirect chains — each additional hop loses a little and wastes crawl
+- Expect a temporary dip in rankings; a clean migration recovers, a broken one does not
+
+## Redirect chains
+
+`A → B → C` should be collapsed to `A → C`. Chains accumulate silently over years of small changes and waste crawl budget on large stores. Ryze flags them during the [audit](/shopify/audit).
+
+## Why this matters beyond rankings
+
+A moved page loses accumulated citation history in AI answers as well as search rankings. Since [citations are volatile](/ai-visibility/citations-report) to begin with, a broken URL is unlikely to be re-earned quickly. Decide slugs once and keep them.
+
+## Related
+
+- [Fixing duplicate content and canonicals](/shopify/duplicate-content)
+- [Sitemaps on Shopify](/shopify/sitemaps)

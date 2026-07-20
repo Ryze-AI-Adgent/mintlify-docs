@@ -1,0 +1,63 @@
+---
+title: "Connect Google Search Console"
+description: "Connect Google Search Console to Ryze so the SEO engine can use your real query, impression, and ranking data."
+---
+
+Google Search Console is the most important connection for Ryze SEO. It supplies the queries and pages you already appear for, which is the ground truth the keyword and topic engine is built on.
+
+Without it, Ryze is working from your catalogue and third-party data alone, and topic selection is materially weaker.
+
+## Before you start
+
+- You need a Search Console property for your site, already verified in Google.
+- You need at least **Full** user access on that property in Search Console.
+- Connect the property that matches how your site is actually served — a Domain property covers all subdomains and protocols; a URL-prefix property covers only that exact prefix.
+
+## Connect
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Workspace Settings → Integrations**. Use the **Search integrations** box or the **Analytics** category filter to find Search Console.
+  </Step>
+  <Step title="Click Connect">
+    You are redirected to Google to sign in and approve access.
+  </Step>
+  <Step title="Pick the property">
+    Choose the specific Search Console property for the site this workspace covers.
+  </Step>
+</Steps>
+
+The card then shows a **Connected** badge.
+
+<Tip>
+Start a **new chat** in Claude or ChatGPT afterwards so the assistant picks up the connection.
+</Tip>
+
+## What Ryze uses it for
+
+- **Keyword discovery** — queries you already receive impressions for, including ones you are not deliberately targeting
+- **Opportunity finding** — pages ranking just outside the positions that earn clicks
+- **Pool B topic mining** — expanding into adjacent demand from your impression data
+- **Reporting** — measuring whether published work earned impressions and clicks
+
+## Data timing
+
+Search Console data is not real-time. Google typically reports with a delay of **2–3 days**, and the interface provides up to **16 months** of history. A newly connected property will show its available history, but recently published pages will not appear immediately.
+
+## Troubleshooting
+
+**No properties listed after authorizing.** The Google account you signed in with does not have access to any property. Sign in with the account that does, or have someone grant it access in Search Console.
+
+**Data looks incomplete.** Check you connected the right property type. A URL-prefix property for `https://www.example.com/` will not include `https://example.com/` traffic.
+
+**The connection drops.** Click **Reconnect** on the card and re-authorize. Google access tokens can be revoked by password changes or admin policy.
+
+## Connecting multiple properties
+
+You can connect more than one account for the same platform in a workspace. See [Connect multiple accounts](/integrations/multiple-accounts).
+
+## Related
+
+- [Connect your platforms](/integrations/overview)
+- [Connect your Shopify store](/connect-shopify)
+- [How the SEO engine works](/seo/how-it-works)

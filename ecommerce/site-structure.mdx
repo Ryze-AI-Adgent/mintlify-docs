@@ -1,0 +1,64 @@
+---
+title: "Ecommerce site structure"
+description: "How to structure an ecommerce site for search: shallow hierarchy, category pages as hubs, clean URLs, and every product reachable within a few clicks."
+---
+
+Ecommerce site structure is the arrangement of categories, subcategories, and products, and how they link to each other. It determines what gets crawled, what accumulates authority, and what buyers can find.
+
+## The target shape
+
+```
+Home
+ └── Category            /collections/boots
+      └── Subcategory    /collections/hiking-boots
+           └── Product   /products/trail-gtx
+```
+
+**Three to four levels maximum.** Every product should be reachable within about three clicks of the homepage. Products buried six levels deep are crawled rarely and rank poorly.
+
+## Categories are the commercial pages
+
+Category pages match how people search — "women's waterproof jackets" — better than individual products do. They should be treated as the primary commercial pages, not as navigation scaffolding.
+
+That means real content, not just a grid. See [category page SEO](/ecommerce/category-pages).
+
+## One page per intent
+
+Every category should map to a distinct thing people search for. Where two categories serve the same intent, they compete with each other and split authority.
+
+- Verify categories against real search demand before creating them
+- Merge overlapping categories and redirect the loser
+- Do not create a category per attribute combination — that is [faceted navigation](/shopify/faceted-navigation), and it should not be indexable
+
+## URLs
+
+- Keep them short, readable, and stable
+- Use hyphens, lowercase, no parameters in canonical URLs
+- Do not encode the full breadcrumb path into product URLs — deep paths break when products move between categories
+- **Decide once.** Changing URLs later costs redirects and accumulated history
+
+## Breadcrumbs
+
+Breadcrumbs give crawlers a second structural signal and give buyers orientation. Mark them up with `BreadcrumbList` schema. On large catalogues they are a meaningful part of how deep pages get discovered.
+
+## Flat versus deep
+
+Very flat structures — every product linked from the homepage — do not scale past a few hundred products and dilute the signal about what matters.
+
+Very deep structures bury inventory.
+
+The working compromise: a shallow category tree with strong [internal linking](/ecommerce/internal-linking) across it, so authority reaches deep pages through several paths rather than one.
+
+## Diagnosing structural problems
+
+- Products with no internal links pointing at them (orphans)
+- Search Console showing large numbers of discovered-but-not-indexed URLs
+- Categories with one or two products
+- Products reachable only through search or filters
+- Crawl stats dominated by parameter URLs rather than products
+
+## Related
+
+- [Category page SEO](/ecommerce/category-pages)
+- [Internal linking](/ecommerce/internal-linking)
+- [Crawl budget](/concepts/crawl-budget)

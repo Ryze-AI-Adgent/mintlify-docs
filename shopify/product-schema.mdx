@@ -1,0 +1,82 @@
+---
+title: "Product structured data on Shopify"
+description: "How to implement valid Product schema on Shopify, the properties Google requires, and the theme-generated markup problems that cause it to be ignored."
+---
+
+`Product` structured data tells search engines and shopping agents what a page is selling, at what price, and whether it is available.
+
+Most Shopify themes generate some product markup. Its quality varies widely, and incomplete markup is frequently ignored entirely rather than partially honoured.
+
+## Required and recommended properties
+
+For product rich results, Google requires:
+
+- `name`
+- `image`
+- `offers` containing `price`, `priceCurrency`, and `availability`
+
+Strongly recommended:
+
+- `sku` and `gtin` — needed for merchant listings
+- `brand`
+- `description`
+- `aggregateRating` and `review` where reviews genuinely exist
+- `shippingDetails` and `hasMerchantReturnPolicy` — see [merchant listing markup](/shopify/merchant-listings)
+
+## Example
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Trail GTX Hiking Boot",
+  "image": ["https://example.com/boot.jpg"],
+  "description": "Waterproof full-grain leather hiking boot with a Vibram sole.",
+  "sku": "TRL-GTX-42",
+  "gtin13": "0123456789012",
+  "brand": { "@type": "Brand", "name": "Example Co" },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://example.com/products/trail-gtx",
+    "price": "149.00",
+    "priceCurrency": "GBP",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+```
+
+## The failures that matter
+
+**Markup that contradicts the page.** A schema price differing from the rendered price is a violation and can cost rich results across the site. This happens constantly on stores where markup and display are generated separately.
+
+**Stale availability.** `InStock` on a sold-out product misleads shopping surfaces and agents, and erodes feed trust.
+
+**Missing `offers`.** `Product` without a valid offer is not eligible for product rich results.
+
+**Duplicate markup.** A theme and an app both emitting `Product` schema produces conflicting blocks on one page. Check the rendered source, not the template.
+
+**Variant confusion.** Marking up one variant's price on a page presenting several. See [product variant markup](/shopify/product-variants).
+
+**Review markup without visible reviews.** A violation, and one that attracts manual action.
+
+## Validate
+
+- [Rich Results Test](https://search.google.com/test/rich-results) — per URL
+- [Schema.org validator](https://validator.schema.org) — vocabulary correctness
+- Search Console → Shopping and Enhancements reports — sitewide errors, which is where scale problems appear
+
+Always validate the **rendered** page.
+
+## What Ryze does
+
+Ryze audits product markup across the catalogue, reports missing and invalid properties, and ships schema fixes with approval — including GTIN assignment and category corrections at feed level.
+
+## Primary reference
+
+- [Google product structured data](https://developers.google.com/search/docs/appearance/structured-data/product)
+
+## Related
+
+- [Merchant listing markup](/shopify/merchant-listings)
+- [Structured data for AI search](/ai-visibility/structured-data-for-ai)

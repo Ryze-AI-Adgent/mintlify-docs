@@ -1,0 +1,65 @@
+---
+title: "Out-of-stock products"
+description: "How to handle out-of-stock and discontinued products without losing rankings: keep temporary pages live, redirect permanent removals, never mass-delete."
+---
+
+The decision depends entirely on whether the product is coming back.
+
+| situation | action |
+|---|---|
+| **Temporarily out of stock** | Keep the page live, return 200, mark `OutOfStock` |
+| **Permanently discontinued, replacement exists** | 301 to the replacement |
+| **Permanently discontinued, no replacement** | 301 to the parent category, or 410 |
+| **Seasonal, returning** | Keep the page live year-round |
+| **Never launched** | 404 or 410 |
+
+## Temporarily out of stock: keep the page
+
+Deleting a page that has accumulated rankings, links, and citation history throws that away — and you will need it again in three weeks.
+
+- Return **200**, not 404
+- Set `availability` to `https://schema.org/OutOfStock` in structured data — accurate markup matters more than optimistic markup
+- State restock timing if you know it
+- Offer alternatives on the page, and a back-in-stock notification
+- Keep the page in the sitemap and keep linking to it
+
+The page continues to rank and continues to capture demand.
+
+## Permanently discontinued: redirect
+
+301 to the closest genuine equivalent. Where none exists, the parent category is a better destination than the homepage.
+
+**Do not mass-redirect discontinued products to the homepage.** Google treats an irrelevant redirect destination as a soft 404, so the value is not passed and you gain nothing over a 404.
+
+Use `410 Gone` where the product is permanently gone and there is genuinely nothing relevant. It is a clearer signal than 404 and speeds removal.
+
+## Soft 404s: the silent failure
+
+A soft 404 is a page returning 200 with no real content — an empty product page, or a category with nothing in it.
+
+These accumulate on stores that remove products by emptying the page rather than deleting or redirecting it. They waste [crawl budget](/concepts/crawl-budget) and are reported in Search Console → Pages.
+
+## What not to do
+
+- **Do not delete products in bulk without redirects.** This is the most common cause of unexplained traffic loss after a catalogue clean-up.
+- **Do not `noindex` temporarily out-of-stock products.** Recovery after reindexing takes far longer than the stockout.
+- **Do not leave `InStock` markup on unavailable products.** It misleads shopping surfaces and agents, and damages feed trust.
+- **Do not redirect a temporary stockout.** You lose the page and have to rebuild it.
+
+## Structured data
+
+```json
+"offers": {
+  "@type": "Offer",
+  "price": "149.00",
+  "priceCurrency": "GBP",
+  "availability": "https://schema.org/OutOfStock"
+}
+```
+
+Accurate availability is more valuable than a permanently optimistic `InStock`, particularly for [agentic commerce](/concepts/agentic-commerce), where stale availability causes silent exclusion.
+
+## Related
+
+- [URL redirects and migrations](/shopify/redirects)
+- [Product structured data on Shopify](/shopify/product-schema)

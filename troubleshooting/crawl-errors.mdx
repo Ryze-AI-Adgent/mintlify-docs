@@ -1,0 +1,56 @@
+---
+title: "Crawl errors"
+description: "How to diagnose crawl errors in Search Console — 404s, soft 404s, server errors, redirect problems, and blocked pages — and which ones actually matter."
+---
+
+Crawl errors appear in **Search Console → Pages**. Most stores have some, and most of them do not matter. Knowing which do is the useful skill.
+
+## The error types
+
+| error | meaning | matters? |
+|---|---|---|
+| **404 / Not found** | Page does not exist | Only if it has links or traffic |
+| **Soft 404** | Returns 200 but has no real content | Yes — wastes crawl, signals low quality |
+| **Server error (5xx)** | Site failed to respond | Yes — fix urgently |
+| **Redirect error** | Chain, loop, or broken destination | Yes |
+| **Blocked by robots.txt** | Crawler was disallowed | Only if unintentional |
+| **Excluded by noindex** | Directive present | Only if unintentional |
+| **Discovered — not indexed** | Google found it, chose not to index | Often, at scale |
+| **Crawled — not indexed** | Google read it, chose not to index | Often — usually thin content |
+
+## Which to fix first
+
+**Server errors.** A 5xx means the site was unreachable. Persistent 5xx damages crawl rate and rankings. Check hosting and app-induced load.
+
+**Soft 404s.** Empty product pages, empty categories, pages that removed their content but still return 200. Fix by populating, removing, or [redirecting](/shopify/redirects). These accumulate silently on stores that empty pages instead of deleting them.
+
+**Redirect chains and loops.** Collapse `A → B → C` to `A → C`. Loops break crawling entirely.
+
+**404s with inbound links or traffic.** These are lost value. Redirect them to the closest genuine equivalent.
+
+**"Crawled — currently not indexed" at scale.** Google read the pages and declined. Nearly always thin or duplicate content — see [programmatic SEO](/concepts/programmatic-seo).
+
+## Which to ignore
+
+**404s for pages that should not exist and have no links.** A 404 is the correct response. You do not need to redirect every deleted page.
+
+**Blocked URLs you intentionally blocked.** Filter and sort parameters showing as blocked is the system working.
+
+**Small numbers of "Discovered — not indexed"** on a large catalogue. Some of this is normal.
+
+Do not chase zero errors. A large store with zero reported issues usually means something is not being crawled at all.
+
+## Diagnosing at scale
+
+If discovered-but-not-indexed counts are very large relative to your product count, the likely cause is a crawl trap — usually [faceted navigation](/shopify/faceted-navigation) generating unbounded URL combinations. Google is spending its budget on filter permutations instead of products.
+
+Check crawl stats: if parameter URLs dominate, that is the problem. See [crawl budget](/concepts/crawl-budget).
+
+## What Ryze does
+
+Crawl errors, redirect chains, soft 404s, and broken pagination are detected in the [technical audit](/ecommerce/technical-audit), prioritised by impact, and fixed with approval.
+
+## Related
+
+- [Crawl budget](/concepts/crawl-budget)
+- [Orphan pages and canonicals](/troubleshooting/orphan-pages-canonicals)

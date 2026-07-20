@@ -1,0 +1,70 @@
+---
+title: "CRO store audit"
+description: "What Ryze checks in a conversion audit: speed, product page completeness, checkout friction, mobile experience, and trust signals."
+---
+
+The CRO audit examines where visitors drop out and why. It runs against your connected store and analytics.
+
+## What is checked
+
+**Speed and stability**
+- [Core Web Vitals](/concepts/core-web-vitals) on key templates, from field data
+- Mobile load performance specifically
+- Layout shift during load, which causes mis-taps and abandonment
+
+**Product pages**
+- Specification completeness — missing attributes buyers need to decide
+- Image quality, count, and zoom
+- Shipping cost and delivery time visibility before checkout
+- Returns policy clarity
+- Review presence and prominence
+- Stock and variant clarity
+
+**Checkout funnel**
+- Number of steps to purchase
+- Forced account creation
+- Point at which shipping cost is revealed
+- Payment method coverage
+- Form length and field friction
+
+**Mobile experience**
+- Tap target sizing
+- Navigation and filter usability
+- Image and content layout at small widths
+
+**Trust**
+- Contact details and returns visibility
+- Security and payment indicators
+- Review authenticity and volume
+
+## How findings are prioritised
+
+By expected revenue impact, not count. A checkout step causing 8% abandonment outranks fifty minor layout observations.
+
+The ordering usually falls out as:
+
+1. Anything blocking purchase on mobile
+2. Speed failures on product and checkout templates
+3. Missing information that prevents a decision
+4. Friction in the checkout sequence
+5. Trust and presentation refinements
+
+## Using your analytics
+
+The audit is more useful with [Google Analytics](/integrations/google-analytics) connected, because behaviour data shows where people actually leave rather than where they might.
+
+Without conversion tracking configured in GA4, findings are based on page structure alone — still useful, but not funnel-aware.
+
+## After the audit
+
+Fixes ship with approval, within hours of sign-off. Larger changes are better run as [A/B tests](/cro/ab-testing) than shipped outright, particularly on high-traffic templates.
+
+## Limits
+
+The audit evaluates the store, not the offer. Pricing position, product quality, shipping cost competitiveness, and brand strength frequently matter more than anything on this list — and no amount of layout work fixes an uncompetitive offer.
+
+## Related
+
+- [CRO overview](/cro/overview)
+- [Product page conversion](/cro/product-page-conversion)
+- [Checkout friction](/cro/checkout-friction)

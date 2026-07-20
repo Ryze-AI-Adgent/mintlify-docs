@@ -1,0 +1,61 @@
+---
+title: "Category page SEO"
+description: "Category pages carry the highest commercial intent in ecommerce. How to give them content, avoid internal competition, and handle pagination correctly."
+---
+
+Category pages are usually the highest-value SEO pages on an ecommerce site: they match broad commercial queries, and they concentrate internal links.
+
+They are also usually the thinnest pages on the site — a heading and a product grid.
+
+## Give them content
+
+A grid of products provides almost nothing to index.
+
+Add:
+
+- **A short factual introduction** — what the category contains, who it suits. Two or three sentences.
+- **Buying guidance** — what distinguishes the options, how to choose. This is what people actually search for around commercial queries.
+- **Genuine FAQ content** where real questions exist
+
+Place content so it does not push products below the fold on mobile. An introduction above the grid and a longer section below is the usual compromise.
+
+**Do not pad.** Keyword-stuffed prose under a grid is worse than nothing.
+
+## Avoid internal competition
+
+The most common category problem is several pages targeting the same intent — "hiking boots", "walking boots", "trekking boots" as separate categories.
+
+Search engines pick one and ignore the rest, or split signals across all three.
+
+- Verify each category against distinct search demand
+- Merge duplicates and [redirect](/shopify/redirects) the losers
+- Use one canonical category per intent, with synonyms handled in the content rather than as separate pages
+
+## Pagination
+
+Deep categories paginate, and pagination is where crawl paths break.
+
+- Paginated pages must be crawlable and link to each other
+- **Do not canonicalise page 2+ to page 1** — this hides every product beyond the first page
+- Do not `noindex` paginated pages if they are the only route to those products
+- A "view all" page is a reasonable alternative on moderate catalogues, but not on very large ones
+
+## Titles and meta
+
+- State the category plainly and match query language
+- Avoid templated meta descriptions identical across hundreds of categories
+- Include a distinguishing attribute or product count where it adds information
+
+## Empty and near-empty categories
+
+A category with no products returning a 200 is a soft 404. Either populate it, or remove and redirect it. Categories with one or two products rarely justify their own page.
+
+## Structured data
+
+`BreadcrumbList` on every category page. `ItemList` describing the products shown is supported and helps machines understand the page as a listing.
+
+## Related
+
+- [Ecommerce site structure](/ecommerce/site-structure)
+- [Collection page optimisation](/shopify/collection-pages)
+- [Faceted navigation](/shopify/faceted-navigation)

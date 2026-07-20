@@ -1,0 +1,51 @@
+---
+title: "Crawl budget"
+description: "Crawl budget is the number of URLs a search engine will crawl on a site in a given period, determined by crawl capacity and crawl demand."
+---
+
+Crawl budget is the number of URLs a search engine will crawl on a site in a given period. Google describes it as the product of two factors: **crawl capacity limit** (how much the site can handle without degrading) and **crawl demand** (how much Google wants to crawl it).
+
+## When it matters
+
+Crawl budget is not a concern for most sites. Google states it is generally relevant for:
+
+- Sites with more than roughly **1 million** unique pages with moderately frequent content change
+- Sites with more than roughly **10,000** unique pages with very frequently changing content
+- Sites where a large share of URLs are `Discovered - currently not indexed` in Search Console
+
+A 200-page store does not have a crawl budget problem. A 500,000-URL catalogue with faceted navigation very likely does.
+
+## What consumes it wastefully
+
+On large ecommerce sites, budget is typically lost to:
+
+- **Faceted navigation** — filter and sort combinations generating effectively unlimited URLs from a finite catalogue
+- **Internal search result pages** left crawlable
+- **Session IDs and tracking parameters** creating duplicate URLs of the same content
+- **Redirect chains** — each hop is a separate fetch
+- **Soft 404s** — pages returning 200 with no real content, common for out-of-stock and empty category pages
+- **Near-duplicate variant URLs** without canonicals
+- **Infinite spaces** — calendars, paginated filters without bounds
+
+## How to manage it
+
+- Block crawl-wasting parameter and filter URLs in `robots.txt` — this prevents crawling, unlike `noindex`, which requires the page to be crawled first
+- Keep XML sitemaps accurate, current, and limited to canonical, indexable URLs
+- Return correct status codes: `404`/`410` for gone, `301` for moved, and never `200` for an empty page
+- Collapse redirect chains to a single hop
+- Improve server response time — faster responses raise the crawl capacity limit
+- Consolidate duplicates with canonical tags
+- Strengthen internal linking to deep pages so they are reachable within a few clicks
+
+## What does not increase it
+
+Crawl demand follows perceived value and update frequency. Submitting sitemaps more often, changing `changefreq` values, or resubmitting URLs does not raise the budget. Publishing genuinely useful pages that attract links and traffic does.
+
+## Primary reference
+
+- [Large site owner's guide to managing crawl budget — Google](https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget)
+
+## Related
+
+- [Technical SEO](/concepts/technical-seo)
+- [Programmatic SEO](/concepts/programmatic-seo)

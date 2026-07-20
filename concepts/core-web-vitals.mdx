@@ -1,0 +1,48 @@
+---
+title: "Core Web Vitals"
+description: "Core Web Vitals are Google's three metrics for page experience: Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift."
+---
+
+Core Web Vitals are Google's three metrics for measuring real-world page experience: **Largest Contentful Paint (LCP)**, **Interaction to Next Paint (INP)**, and **Cumulative Layout Shift (CLS)**.
+
+They are measured from real user data, not lab tests, and a URL must meet all three thresholds to pass.
+
+## The three metrics
+
+| metric | measures | good | needs work | poor |
+|---|---|---|---|---|
+| **LCP** | time until the largest visible element renders | ≤ 2.5s | 2.5–4.0s | > 4.0s |
+| **INP** | latency from user interaction to visual response | ≤ 200ms | 200–500ms | > 500ms |
+| **CLS** | unexpected visual movement during load | ≤ 0.1 | 0.1–0.25 | > 0.25 |
+
+Thresholds are assessed at the **75th percentile** of page loads, segmented by mobile and desktop. Passing means 75% of real visits met the threshold — not the average.
+
+INP replaced First Input Delay as a Core Web Vital in March 2024. FID measured only the delay before the first interaction was processed; INP measures the full interaction-to-paint latency across all interactions on the page.
+
+## Common causes on ecommerce sites
+
+**LCP** — unoptimised hero and product imagery, render-blocking CSS or fonts, slow server response, oversized image dimensions served to mobile.
+
+**INP** — heavy third-party scripts (chat widgets, analytics, review platforms, A/B testing tools), long JavaScript tasks blocking the main thread, unoptimised event handlers on filters and variant pickers.
+
+**CLS** — images and embeds without explicit dimensions, banners and cookie notices injected above existing content, web fonts causing layout reflow, dynamically inserted promotional bars.
+
+## How they are measured
+
+- **Field data** — the Chrome User Experience Report (CrUX), based on real Chrome visits over a rolling 28-day window. This is what Google uses for assessment.
+- **Lab data** — Lighthouse and PageSpeed Insights simulations. Useful for diagnosis, but does not directly determine the assessment.
+
+Because field data uses a 28-day rolling window, fixes take weeks to show up fully.
+
+## Weight in ranking
+
+Core Web Vitals are a genuine but small ranking signal. Relevance and content quality dominate. They matter most as a tiebreaker between comparably relevant pages — and independently for conversion, since slow pages lose buyers regardless of ranking.
+
+## Primary references
+
+- [Core Web Vitals — web.dev](https://web.dev/articles/vitals)
+- [Google page experience documentation](https://developers.google.com/search/docs/appearance/page-experience)
+
+## Related
+
+- [Technical SEO](/concepts/technical-seo)

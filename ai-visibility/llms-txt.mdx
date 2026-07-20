@@ -1,0 +1,60 @@
+---
+title: "llms.txt: what it is and whether it helps"
+description: "llms.txt is a proposed markdown file at a site's root that lists its most useful pages for large language models. Adoption by major AI systems is not confirmed."
+---
+
+`llms.txt` is a proposed standard: a markdown file at the root of a site (`/llms.txt`) that lists the pages most useful to a large language model, with short descriptions.
+
+The proposal comes from [llmstxt.org](https://llmstxt.org). It is a community proposal, not a specification from any AI provider.
+
+## What it looks like
+
+```markdown
+# Example Co
+
+> One-line description of what the company does.
+
+## Docs
+
+- [Quickstart](https://example.com/quickstart): Set up in 10 minutes
+- [API reference](https://example.com/api): Every endpoint
+
+## Concepts
+
+- [How billing works](https://example.com/billing): Credits and limits
+```
+
+A companion `llms-full.txt` contains the full text of the listed pages rather than links.
+
+## The honest position on whether it helps
+
+**No major AI provider has publicly confirmed that it reads `llms.txt` for retrieval.** Support is asserted more often than it is demonstrated. Treat any claim that it drives citations as unproven.
+
+What can be said:
+
+- **It costs almost nothing.** For a docs site it is usually auto-generated.
+- **It cannot hurt**, provided it is accurate and does not expose pages you intended to keep private.
+- **It is not a substitute for the actual work.** A well-structured, crawlable, factual page is what gets cited. A file listing badly-structured pages does not make them citable.
+
+Anyone presenting `llms.txt` as the reason for citation gains is claiming more than the evidence supports.
+
+## Does Ryze support it?
+
+If your documentation runs on a platform that generates `llms.txt` automatically — Mintlify does, for example — you already have one, and pages are included as they are published.
+
+For a Shopify storefront, there is no automatic generation. It would need to be added as a static file at your domain root.
+
+## What to do instead, in priority order
+
+1. Make pages **crawlable and server-rendered** — see [why your brand isn't cited](/ai-visibility/not-cited)
+2. Make pages **narrow and factual** — one topic each, definition first
+3. Add **valid structured data** — see [structured data for AI search](/ai-visibility/structured-data-for-ai)
+4. Keep an **accurate XML sitemap**, which *is* consumed by crawlers that demonstrably matter
+5. Add `llms.txt` if it is free to do so
+
+Items 1–4 have evidence behind them. Item 5 is cheap insurance.
+
+## Related
+
+- [Structured data for AI search](/ai-visibility/structured-data-for-ai)
+- [Generative engine optimization](/concepts/generative-engine-optimization)

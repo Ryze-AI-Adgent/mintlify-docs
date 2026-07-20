@@ -1,0 +1,63 @@
+---
+title: "Changes not applied"
+description: "Why approved fixes or generated content have not appeared on your site, and how to trace what the agent actually did."
+---
+
+If Ryze reported work but you cannot see it on your site, work through these in order.
+
+## 1. Is it waiting for approval?
+
+The most common cause. Actions that change your accounts require approval by default — they sit pending until someone signs off.
+
+Check [Permissions & approvals](/claude/permissions) and look for pending items. Approved fixes ship within hours; unapproved ones ship never.
+
+## 2. Check Agent Activity
+
+**Agent Activity** logs every action with a timestamp. This is the authoritative record of what happened.
+
+Look for the specific change. Three possibilities:
+
+- **Not listed** — it was never executed. Go back to step 1, or check the connection.
+- **Listed as failed** — the action was attempted and rejected. The log usually says why.
+- **Listed as completed** — it shipped. Continue to step 3.
+
+## 3. Caching
+
+If the log says completed but the page looks unchanged, you are probably seeing a cached version.
+
+- Hard refresh, or check in a private window
+- Shopify and CDN caches can hold old content briefly
+- If you run a caching app, clear it
+
+## 4. Theme overrides
+
+Some theme code regenerates page elements on render, overwriting changes made at the data level. Titles and meta descriptions are the usual casualties.
+
+If a change reverts consistently after shipping, a theme or app is rewriting it. Check for SEO apps that manage the same fields — two systems writing the same tag will fight, and the last one to run wins.
+
+## 5. The wrong store or workspace
+
+If you manage several stores, confirm the change was made in the workspace connected to the store you are looking at.
+
+Each assistant connection is authorized against one workspace, and chats retain their original workspace. Start a new chat when switching. See [agency and multi-workspace](/plans/agency-multi-workspace).
+
+## 6. Content publishes on a schedule
+
+Generated articles are **spread across the monthly cycle**, not published on request. If you expected a month's content immediately, it is pacing, not failure. See [usage limits](/plans/usage-limits).
+
+## 7. Billing
+
+Suspended billing pauses agent work while retaining your data and configuration. Check **Billing → Manage**.
+
+## Indexing is not the same as publishing
+
+A change can be live and still not visible in search. Google must re-crawl and re-index, which takes days to weeks. Confirm the change on your own site first; search visibility follows separately.
+
+## Still stuck
+
+Email [support@get-ryze.ai](mailto:support@get-ryze.ai) with the page URL, the change you expected, and roughly when it was reported.
+
+## Related
+
+- [Permissions & approvals](/claude/permissions)
+- [Audit not completing](/troubleshooting/audit-not-completing)

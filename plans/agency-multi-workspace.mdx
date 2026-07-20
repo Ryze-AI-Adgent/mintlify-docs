@@ -1,0 +1,62 @@
+---
+title: "Agency and multi-workspace"
+description: "How agencies run Ryze across multiple clients: one workspace per client, team access, white-label branding, and per-client reporting."
+---
+
+Agencies run Ryze with **one workspace per client**. A workspace holds that client's connected accounts, data, content, and agent activity, isolated from every other workspace.
+
+## Why one workspace per client
+
+- **Data isolation.** A client's ad accounts, store, and analytics are only visible inside their workspace.
+- **Separate agent context.** Each workspace has its own [agent context](/agent/context) — what that client sells, who they sell to, tone of voice. This directly determines content quality, so sharing it across clients degrades output.
+- **Clean reporting.** Reports and activity logs are per workspace.
+- **Independent connections.** No risk of publishing to the wrong store.
+
+Create workspaces from your organization settings. See [Create a workspace](/workspaces/create-workspace).
+
+## Team access
+
+Invite colleagues and assign access per workspace, so a strategist working on three clients sees only those three. See [Invite teammates](/workspaces/invite-teammates) and [Workspace settings](/workspaces/settings).
+
+## White label
+
+Agencies reselling Ryze can present it under their own brand — branding and access controls are configured per workspace. See [White label branding](/white-label/branding) and [White label access](/white-label/access).
+
+This matters when clients see reports or log in directly.
+
+## Connecting the assistant
+
+Each Claude or ChatGPT connection is authorized against a **specific workspace**. When you connect, you choose which workspace the assistant may read.
+
+Practical consequences:
+
+- To work across several clients, authorize the workspaces you need and be explicit in chat about which client you are asking about
+- **Start a new chat when switching clients.** Existing chats keep their workspace context, and mixing clients in one conversation is how data ends up in the wrong report
+- Re-authorize after adding a workspace
+
+See [Connect Ryze to Claude](/claude/connect).
+
+## Reporting per client
+
+Reports are generated per workspace, so client reporting does not require manual separation. Slack and email alerts can be routed per workspace, and weekly summaries arrive per client rather than blended.
+
+See [Reports overview](/reports/overview) and [Scheduling](/reports/scheduling).
+
+## Billing
+
+Billing sits at the organization level, above workspaces. Invoices cover the organization rather than being issued per client, so agencies rebilling clients typically allocate internally from a single invoice. See [Billing FAQ](/plans/billing-faq).
+
+## Common mistakes
+
+- **One workspace for several clients.** Agent context becomes incoherent, content quality drops, and reporting cannot be separated afterwards.
+- **Reusing a chat across clients.** The assistant retains the workspace it was authorized against.
+- **Not setting agent context per workspace.** This is the single biggest determinant of output quality.
+
+## Pricing for agencies
+
+Requirements above the standard plans are handled case by case. Contact [support@get-ryze.ai](mailto:support@get-ryze.ai) with the number of clients and workspaces you expect to run.
+
+## Related
+
+- [Plans overview](/plans/overview)
+- [Managing multiple accounts](/integrations/managing-multiple-accounts)

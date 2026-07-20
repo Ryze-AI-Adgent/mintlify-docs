@@ -1,0 +1,61 @@
+---
+title: "Connect Meta Ads"
+description: "Connect a Meta ad account to Ryze for Facebook and Instagram campaign management, performance queries, and competitor ad library research."
+---
+
+Connecting Meta gives Ryze access to your Facebook and Instagram campaigns, and enables Meta ad library research for competitor intelligence.
+
+## Requirements
+
+- A Meta Business account with an ad account
+- At least **Advertiser** access on the ad account; **Admin** to allow changes
+- Access granted through Meta Business Manager rather than a personal profile, where possible
+
+## Connect
+
+<Steps>
+  <Step title="Open Integrations">
+    **Workspace Settings → Integrations**, then Meta under **Advertising**.
+  </Step>
+  <Step title="Authorize">
+    Sign in to Meta and approve access.
+  </Step>
+  <Step title="Pick the ad account">
+    Choose the ad account for this workspace. Business Manager users will see every account they have access to.
+  </Step>
+</Steps>
+
+Start a **new chat** afterwards.
+
+## What you can ask
+
+> How did my Meta campaigns perform last week compared to the week before?
+
+> Which creatives have the best ROAS this month?
+
+> Show me what competitors are running in the Meta ad library.
+
+## Competitor ad research
+
+Meta's ad library is public, and Ryze uses it to surface what competitors are currently running — creative formats, messaging, and how long ads have been live. Longevity is the useful signal: ads that have run for months are usually working.
+
+See [Competitor ad library](/ads/competitor-ad-library).
+
+## What the agent can do
+
+With approval: campaign creation and adjustment, budget management, and [AI creative generation](/ads/creative-generation). Changes require sign-off by default — see [Permissions & approvals](/claude/permissions).
+
+## Troubleshooting
+
+**No ad accounts listed.** The authorized Meta user lacks access. Check assignments in Business Manager.
+
+**Connection drops repeatedly.** Meta tokens expire more aggressively than Google's, particularly where two-factor policies or Business Manager role changes are involved. Reconnect from the card.
+
+**Attribution disagrees with GA4 or Shopify.** Expected. Meta uses its own attribution windows and modelling. Do not attempt exact reconciliation — track each consistently.
+
+**Missing conversion data.** Usually a Pixel or Conversions API configuration issue on the Meta side.
+
+## Related
+
+- [Meta Ads in Ryze](/ads/meta-ads)
+- [Paid ads overview](/ads/overview)

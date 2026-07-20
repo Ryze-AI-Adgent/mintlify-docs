@@ -1,0 +1,59 @@
+---
+title: "How Ryze tracks ChatGPT citations"
+description: "Ryze runs a set of buyer prompts against ChatGPT on a schedule and records whether your brand was mentioned, which URLs were cited, and which competitors appeared."
+---
+
+Ryze tracks ChatGPT citations by running a defined set of buyer prompts against ChatGPT on a schedule and recording what comes back.
+
+## What is recorded per run
+
+For every prompt run, Ryze captures:
+
+- Whether your **brand was named** in the answer text
+- Every **URL cited** as a source, and its domain
+- Which **competitor brands** appeared
+- **Where** in the answer your brand fell
+- The **full answer text**, so results can be re-examined later
+
+Aggregating across prompts and over time produces the metrics in [AI visibility metrics](/ai-visibility/metrics).
+
+## Why prompts, not keywords
+
+Conventional rank tracking checks a keyword and returns a position. That model does not transfer, because there is no ranked list in a generated answer — a page is either drawn in or it is not, and the result changes between runs.
+
+So the unit of measurement is a **prompt**: a full question a buyer would actually type. "best waterproof hiking boots for wide feet" rather than "hiking boots".
+
+## Mention vs citation
+
+Both are tracked because they have different causes.
+
+| | means | driven by |
+|---|---|---|
+| **Mention** | ChatGPT named your brand | training data, brand establishment |
+| **Citation** | ChatGPT linked one of your URLs | live retrieval of your pages |
+
+A citation without a mention means your page was useful but your brand was not the recommendation. A mention without a citation means ChatGPT knows you but read nothing — content work will not move that number. See [why your brand isn't cited](/ai-visibility/not-cited).
+
+## Why results move between runs
+
+ChatGPT decides per-query whether to search, and which results to use. Two identical prompts on the same day can produce different sources. This is expected behaviour, not a tracking fault.
+
+Consequences for reading the data:
+
+- **Never draw a conclusion from one run.** A single citation is not a trend, and a single miss is not a regression.
+- **Rate across many prompts over time is the only reliable signal.**
+- **Compare like with like** — the same prompt set, run the same way, against the same baseline.
+
+## What this does not capture
+
+Tracking measures what the model returns through the interface Ryze queries. It does not observe:
+
+- Answers inside individual users' private conversations
+- Personalised results shaped by a user's chat history or memory
+- Traffic attribution — a citation is not a confirmed visit
+
+## Related
+
+- [Perplexity and Gemini tracking](/ai-visibility/other-engines)
+- [Prompt monitoring](/ai-visibility/prompt-monitoring)
+- [Reading the citations report](/ai-visibility/citations-report)

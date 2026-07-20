@@ -1,0 +1,75 @@
+---
+title: "Technical audit"
+description: "What a technical SEO audit covers on an ecommerce site, how findings are prioritised, and which issues actually matter versus which are noise."
+---
+
+A technical audit checks that your site can be crawled, indexed, rendered, and understood. It is the foundation: content and links cannot compensate for a page that cannot be reached.
+
+## What is checked
+
+**Crawling** — `robots.txt` rules, redirect chains, server response codes, orphan pages, crawl traps from [faceted navigation](/shopify/faceted-navigation).
+
+**Indexation** — `noindex` directives, canonical correctness and conflicts, duplicate content, thin pages, soft 404s, parameter handling.
+
+**Rendering** — whether body content, prices, and specifications are present in served HTML rather than requiring JavaScript.
+
+**Structure** — hierarchy depth, internal link distribution, breadcrumbs, pagination, sitemap accuracy.
+
+**Structured data** — presence, completeness, validity, and agreement with the visible page.
+
+**Performance** — [Core Web Vitals](/concepts/core-web-vitals) against field data.
+
+**International** — `hreflang` reciprocity and correctness, where applicable.
+
+## Prioritisation: what actually matters
+
+Audit tools produce hundreds of findings. Most do not matter. Ranked by real impact:
+
+**Fix first — these block everything**
+- Pages that should be indexed but carry `noindex` or are blocked
+- Body content not rendered in HTML
+- Broken canonical logic causing wrong pages to be indexed
+- Redirect chains and loops on high-value URLs
+- Products unreachable by any crawl path
+
+**Fix next — these cost real traffic**
+- Duplicate and thin content at scale
+- Crawl traps consuming budget on large catalogues
+- Missing or invalid `Product` markup
+- Soft 404s across removed products
+- Core Web Vitals failures on key templates
+
+**Fix when convenient**
+- Missing alt text
+- Heading level inconsistencies
+- Meta description length
+- Minor structured data recommendations
+
+**Usually ignore**
+- Tool-generated warnings with no defined impact
+- "SEO scores" out of 100
+
+A store obsessing over alt text while half its catalogue is unindexable is optimising the wrong end.
+
+## Read the data, not just the crawl
+
+The most useful audit inputs are not from a crawler:
+
+- **Search Console → Pages** shows what Google actually did with each URL — the ground truth on indexation
+- **Search Console → Core Web Vitals** gives field data, not lab simulation
+- **Crawl stats** show where budget is actually spent
+
+A crawler tells you what could happen. Search Console tells you what did.
+
+## What Ryze does
+
+Ryze runs this audit against your connected store and Search Console data, prioritises by expected impact rather than by count, and ships fixes with approval — within hours of sign-off. See [what Ryze checks](/shopify/audit).
+
+## Cadence
+
+Full audit at onboarding, then continuous monitoring rather than periodic re-audits. Issues appear when themes change, apps are installed, and products are removed — a quarterly audit misses weeks of damage.
+
+## Related
+
+- [Technical SEO](/concepts/technical-seo)
+- [Shopify SEO audit](/shopify/audit)

@@ -1,0 +1,67 @@
+---
+title: "Ryze MCP server"
+description: "Ryze exposes your marketing accounts to Claude and ChatGPT through a remote MCP server at connector.get-ryze.ai/mcp."
+---
+
+Ryze exposes your connected marketing accounts to AI assistants through a remote **MCP** (Model Context Protocol) server. MCP is an open standard for connecting assistants to external tools and data.
+
+The server URL:
+
+```
+https://connector.get-ryze.ai/mcp
+```
+
+## How it fits together
+
+Three parts:
+
+1. **Your accounts** — connected once in **Workspace Settings → Integrations**
+2. **The Ryze agent** — reads those accounts and does the work
+3. **The MCP server** — exposes both to Claude and ChatGPT as callable tools
+
+The MCP server is the interface, not the engine. The agent continues running on its schedule whether or not a chat is open.
+
+## What it exposes
+
+Once connected, the assistant can call tools covering Google Ads, Meta Ads, GA4, Search Console, your store, and Ryze's own reporting and agent actions. The connector lists every available tool after connecting.
+
+## Setup
+
+- **Claude** — [Connect Ryze to Claude](/claude/connect). Requires a paid Claude plan (Pro, Team, or Max); the free plan does not support custom connectors.
+- **ChatGPT** — [Connect Ryze to ChatGPT](/chatgpt/connect).
+
+## Workspace scoping
+
+Each connection is authorized against **one workspace**. You choose which during authorization.
+
+Consequences:
+
+- To work across clients, authorize each workspace you need
+- **Start a new chat when switching workspaces** — an existing chat keeps its original context
+- Re-authorize after adding a workspace
+
+This scoping is what keeps agency clients isolated. See [agency and multi-workspace](/plans/agency-multi-workspace).
+
+## Permissions
+
+The assistant can read freely within the authorized workspace. Actions that change your accounts require approval by default. Configure this in [Permissions & approvals](/claude/permissions).
+
+<Note>
+Review approvals before enabling unattended changes, particularly on live ad accounts.
+</Note>
+
+## Troubleshooting
+
+**Claude does not see Ryze tools.** You connected mid-conversation. Start a new chat — existing chats do not pick up connectors.
+
+**Connector will not add.** Free Claude plan. Custom connectors need Pro, Team, or Max.
+
+**Tools return no data.** The underlying platform is not connected in Workspace Settings, or the wrong account was selected.
+
+**Wrong client's data.** The chat is authorized against a different workspace. Start a new chat with the right one.
+
+## Related
+
+- [Connect Ryze to Claude](/claude/connect)
+- [Permissions & approvals](/claude/permissions)
+- [Connect your platforms](/integrations/overview)

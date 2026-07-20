@@ -1,0 +1,56 @@
+---
+title: "Connect Google Analytics"
+description: "Connect a GA4 property to Ryze so it can attribute traffic, conversions, and revenue across SEO, paid ads, and CRO."
+---
+
+Google Analytics supplies the behaviour and conversion side of reporting — what visitors did after arriving. Ryze uses it to tie SEO and ad work to revenue rather than to traffic alone.
+
+## Requirements
+
+- A **GA4** property (Universal Analytics is no longer supported by Google)
+- At least Viewer access on the property
+- Ecommerce tracking configured, if you want revenue attribution
+
+## Connect
+
+<Steps>
+  <Step title="Open Integrations">
+    **Workspace Settings → Integrations**, then find Google Analytics under **Analytics**.
+  </Step>
+  <Step title="Authorize">
+    Sign in to Google and approve access.
+  </Step>
+  <Step title="Pick the property">
+    Choose the GA4 property for this workspace. If you have several, pick the one matching the store or site.
+  </Step>
+</Steps>
+
+Start a new chat afterwards.
+
+## What Ryze uses it for
+
+- Traffic by channel, so organic and paid can be separated
+- Conversion and revenue attribution
+- Landing page performance, which feeds CRO work
+- Unified attribution across ads, SEO, and CRO
+
+## Multiple properties
+
+You can connect more than one GA4 property in a workspace — useful where a brand runs several domains. See [Connect multiple accounts](/integrations/multiple-accounts).
+
+For separate clients, use a separate workspace.
+
+## Troubleshooting
+
+**No properties listed.** The authorized Google account lacks access. Sign in with an account that has it.
+
+**Revenue shows as zero.** Ecommerce tracking is likely not configured in GA4, or purchase events are not firing. This is a GA4 setup issue, not a Ryze one.
+
+**Numbers disagree with Shopify.** Expected. GA4 and Shopify attribute differently and use different session and conversion definitions. Use each consistently rather than trying to reconcile them exactly.
+
+**Connection drops.** Click **Reconnect** and re-authorize.
+
+## Related
+
+- [Connect Google Search Console](/integrations/google-search-console)
+- [Reports overview](/reports/overview)

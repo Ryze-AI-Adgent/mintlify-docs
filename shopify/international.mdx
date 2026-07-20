@@ -1,0 +1,58 @@
+---
+title: "Shopify Markets and international SEO"
+description: "How to run international SEO on Shopify Markets: URL structures, hreflang annotations, currency and language handling, and the duplicate content risks."
+---
+
+Shopify Markets handles selling into multiple countries — currencies, pricing, and domains. The SEO work is making sure each market's pages are discoverable and correctly attributed to their audience.
+
+## URL structures
+
+Shopify Markets supports:
+
+| structure | example | notes |
+|---|---|---|
+| Subfolders | `example.com/en-de/` | Default; simplest; inherits domain authority |
+| Country domains | `example.de` | Strongest local signal; authority must be built separately |
+| Subdomains | `de.example.com` | Supported; authority partially separate |
+
+**Subfolders are the right default for most stores.** They keep all authority on one domain, which matters more than the marginal local signal of a ccTLD — unless you have a genuine local business presence per country.
+
+## hreflang
+
+`hreflang` tells search engines which version to serve to which audience. Shopify generates these annotations automatically for Markets.
+
+Rules that are broken often:
+
+- **Annotations must be reciprocal.** If A points to B, B must point to A. One-directional annotations are ignored.
+- **Include a self-referencing annotation** on every page.
+- **Use `x-default`** for the fallback version when no other matches.
+- **Use correct codes** — language (`en`), or language-region (`en-GB`). `en-UK` is not valid; the country code is `GB`.
+
+Verify in Search Console → International Targeting, which reports missing return tags.
+
+## Language versus currency
+
+These are different problems and are frequently conflated.
+
+- **Different currency, same language** — for example UK and Australian English at different prices. These pages are near-duplicates. `hreflang` handles attribution; without it, they compete.
+- **Different language** — genuinely distinct content, far less duplication risk.
+
+A store selling in twelve currencies but one language has twelve near-identical page sets. Correct `hreflang` is what prevents that becoming a duplicate content problem.
+
+## Translation quality
+
+Machine-translated content published without review is thin content in another language. It also damages trust with the buyers you are trying to reach.
+
+If a market matters, translate properly. If it does not yet justify that, consider serving it in the primary language with local pricing rather than publishing poor translations.
+
+## Common failures
+
+- Market pages not indexed because they are unreachable — no internal links, missing from the sitemap
+- Automatic redirection by IP, which prevents crawlers from seeing other versions — offer a selector instead
+- `hreflang` pointing to redirecting or 404 URLs
+- Local prices in structured data not matching the market's displayed currency
+
+## Related
+
+- [Fixing duplicate content and canonicals](/shopify/duplicate-content)
+- [Technical SEO](/concepts/technical-seo)

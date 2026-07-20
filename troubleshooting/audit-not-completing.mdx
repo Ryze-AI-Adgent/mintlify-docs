@@ -1,0 +1,69 @@
+---
+title: "Audit not completing"
+description: "Why a Ryze site audit stalls or returns incomplete results, and what to check."
+---
+
+An audit that does not complete usually means Ryze cannot reach enough of your site, or a required connection is missing.
+
+## Check the connections first
+
+The audit draws on three sources. Missing any one degrades or blocks it:
+
+| source | without it |
+|---|---|
+| [Your store](/connect-shopify) | No catalogue data — the audit cannot run meaningfully |
+| [Google Search Console](/connect-gsc) | No query or indexation data; findings lose priority ordering |
+| Analytics | No behaviour data; CRO findings limited |
+
+Confirm each shows a **Connected** badge in **Workspace Settings → Integrations**, with no reconnect prompt.
+
+## Your store is not publicly reachable
+
+Ryze cannot audit what it cannot crawl.
+
+- **Password-protected store.** Remove the storefront password, or the audit sees nothing.
+- **Blocked in `robots.txt`.** Check you are not disallowing broad paths.
+- **Geo-blocking or aggressive bot protection** can reject the crawler.
+
+Test by opening your store in a private browser window with no session.
+
+## Very large catalogues take longer
+
+A catalogue of tens of thousands of products takes substantially longer than a few hundred. What looks stalled may be running.
+
+Check **Agent Activity** — if entries are still appearing with recent timestamps, it is working. If the last entry is hours old with no completion, it has stopped.
+
+## Search Console has no data yet
+
+A newly verified property has little history, and Google reports with a 2–3 day delay. If you connected Search Console today, the audit will have thin query data through no fault of its own.
+
+Wait a few days and re-run rather than concluding the audit failed.
+
+## The audit completed but findings look thin
+
+This is usually correct behaviour rather than a failure:
+
+- **Small catalogue** — fewer pages, fewer findings
+- **Recently audited** — a second run finds less because the first shipped fixes
+- **Genuinely clean site** — possible, if less common
+
+Ask directly to confirm:
+
+> What did the last audit find, and when did it run?
+
+## Nothing in Agent Activity at all
+
+If no audit entries exist:
+
+1. Confirm the store connection is live, not just present
+2. Check [permissions](/claude/permissions) — approval settings can hold work
+3. Check billing is current; suspended billing pauses agent work
+
+## Still stuck
+
+Email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your store domain and roughly when the audit was started.
+
+## Related
+
+- [Shopify SEO audit](/shopify/audit)
+- [Changes not applied](/troubleshooting/changes-not-applied)

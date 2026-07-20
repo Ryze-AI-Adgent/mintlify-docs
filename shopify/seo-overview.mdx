@@ -1,0 +1,60 @@
+---
+title: "Shopify SEO overview"
+description: "What Shopify handles for SEO by default, what it constrains, and where the real optimization work sits on a Shopify store."
+---
+
+Shopify handles a reasonable amount of SEO by default and constrains a few things you cannot change. Knowing which is which saves effort spent on problems that are not yours to fix.
+
+## What Shopify does by default
+
+- Generates `sitemap.xml` automatically, including products, collections, pages, and blog posts
+- Sets canonical tags on product and collection pages
+- Produces a `robots.txt` (editable via `robots.txt.liquid` on supported plans)
+- Serves over HTTPS with a CDN
+- Adds basic product structured data on most themes — quality varies significantly by theme
+
+## What Shopify constrains
+
+These are fixed by the platform and not worth fighting:
+
+- **URL structure.** Products live under `/products/`, collections under `/collections/`. The prefixes cannot be removed.
+- **Duplicate product URLs.** The same product is reachable at `/products/x` and `/collections/y/products/x`. Shopify canonicalises to the former.
+- **Limited server-side control.** No access to server config, so redirects and headers are handled through Shopify's own tooling.
+
+## Where the real work is
+
+In practice, most Shopify SEO gains come from a short list:
+
+| area | why it matters |
+|---|---|
+| [Product pages](/shopify/product-pages) | Thin, duplicated, or supplier-copied descriptions are the most common problem |
+| [Collection pages](/shopify/collection-pages) | Usually the highest-intent commercial pages, usually the thinnest |
+| [Product schema](/shopify/product-schema) | Theme-generated markup is often incomplete or invalid |
+| [Duplicate content](/shopify/duplicate-content) | Variants and collection paths generating near-identical pages |
+| [Faceted navigation](/shopify/faceted-navigation) | Filter combinations generating unbounded crawlable URLs |
+| [Site speed](/shopify/site-speed) | Apps and theme scripts accumulating over time |
+| [Redirects](/shopify/redirects) | Migrations and deleted products losing accumulated equity |
+
+## What Ryze does on a Shopify store
+
+Once your store is [connected](/connect-shopify), Ryze audits it, then ships fixes with approval:
+
+- Title and meta description rewrites
+- Schema markup implementation and repair
+- Catalogue feed optimization — title rewrites, GTIN assignment, category corrections, image upscaling
+- Internal linking adjustments
+- Core Web Vitals and speed work — image compression, lazy-loading, JavaScript reduction
+- Duplicate URL resolution and broken pagination fixes
+- Programmatic pages and product descriptions built from real demand signals
+
+No theme edits are required.
+
+## Primary references
+
+- [Shopify SEO documentation](https://help.shopify.com/en/manual/promoting-marketing/seo)
+- [Google Search Essentials](https://developers.google.com/search/docs/essentials)
+
+## Related
+
+- [What Ryze checks in a Shopify audit](/shopify/audit)
+- [Ecommerce site structure](/ecommerce/site-structure)

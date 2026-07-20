@@ -1,0 +1,66 @@
+---
+title: "Switching from Yoast"
+description: "How to move from Yoast SEO to Ryze, what Yoast handles that must be preserved, and the settings to record before deactivating."
+---
+
+Yoast is a WordPress plugin that manages on-page SEO settings. Ryze is an external agent that audits, fixes, and produces content across platforms.
+
+They are not equivalents, and the migration has one genuine risk: Yoast **stores data in your site** that disappears if you deactivate it carelessly.
+
+## What Yoast does
+
+- Title and meta description templates and per-post overrides
+- Canonical URL control
+- `noindex` / `nofollow` directives
+- XML sitemap generation
+- Schema markup output
+- Breadcrumbs
+- Redirect management (Premium)
+
+Several of these are structural. If Yoast stops emitting them, the pages change.
+
+## The risk
+
+<Note>
+Do not deactivate Yoast before confirming what replaces each function. Titles, meta descriptions, canonicals, and sitemaps all stop being emitted, which can affect indexation.
+</Note>
+
+## Before deactivating
+
+**1. Export your Yoast settings.** Yoast includes an export tool. Do this first.
+
+**2. Record per-post overrides.** Custom titles and meta descriptions written individually are real work. Export them — Yoast stores them as post meta, and several export plugins can extract them.
+
+**3. Record `noindex` settings.** Pages deliberately excluded — thin archives, tag pages, internal search — will become indexable if the directive disappears.
+
+**4. Record canonical overrides.** Any non-default canonical is deliberate and must be preserved.
+
+**5. Export redirects** if you use Yoast Premium. Losing these breaks previously-migrated URLs.
+
+**6. Note your sitemap URL.** Yoast generates `/sitemap_index.xml`. If it stops, submit whatever replaces it in Search Console.
+
+## What replaces what
+
+| Yoast function | after switching |
+|---|---|
+| Title / meta templates | WordPress theme, another plugin, or Ryze-shipped values |
+| Sitemap | WordPress core generates a basic one; verify it |
+| Canonicals | WordPress core handles standard cases; custom ones must be re-applied |
+| Schema | Must be replaced — core does not emit product or article schema |
+| Redirects | Must be replaced before deactivating Premium |
+
+Ryze audits and ships on-page fixes to WordPress via the [WordPress integration](/integrations/wordpress), but it is not a drop-in plugin replacement for every Yoast function.
+
+## The safer sequence
+
+1. Connect Ryze and run an audit **while Yoast is still active**
+2. Confirm what Ryze reports and what it will manage
+3. Establish replacements for schema, sitemap, and redirects
+4. Deactivate Yoast
+5. Re-crawl and compare against the pre-switch audit
+6. Watch Search Console → Pages for two weeks
+
+## Related
+
+- [WordPress integration](/integrations/wordpress)
+- [Technical audit](/ecommerce/technical-audit)

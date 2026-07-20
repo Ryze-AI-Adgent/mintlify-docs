@@ -1,0 +1,57 @@
+---
+title: "AI visibility metrics defined"
+description: "Definitions for every AI visibility metric Ryze reports: mention rate, citation share, share of voice, answer coverage, competitor overlap, and position within the answer."
+---
+
+Definitions for each AI visibility metric Ryze reports, what it is calculated from, and how to read it.
+
+## Mention rate
+
+The percentage of tracked answers in which your brand name appears in the answer text.
+
+```
+mention rate = answers naming your brand / total answers
+```
+
+A mention does not require a link. A model can name a brand from training data without reading any page. Mention rate therefore reflects brand establishment more than content quality.
+
+## Citation share
+
+The percentage of all source links across tracked answers that point to your domain.
+
+```
+citation share = citations to your domain / total citations across all domains
+```
+
+Counted by domain rather than by answer, so one answer citing four of your pages does not overstate performance. This is the metric most responsive to content work. See [citation share](/concepts/citation-share).
+
+## Share of voice
+
+Your mentions as a proportion of all brand mentions across the tracked answer set, so all tracked brands sum to 100%. Answers the competitive question: when a buyer asks, how often is it us versus them. See [share of voice in AI](/concepts/share-of-voice-ai).
+
+## Answer coverage
+
+The percentage of tracked prompts where your brand appeared at all — mentioned, cited, or both. The broadest presence measure. Useful as a top-line, too coarse for diagnosis.
+
+## Competitor overlap
+
+Which competing brands appear in the same answers as you, and how often. Identifies your real competitive set in AI answers, which frequently differs from the one you assume — models often surface adjacent categories or established players you do not track commercially.
+
+## Position within the answer
+
+Where your brand falls in the answer body — first recommendation, part of a list, or a passing mention at the end. First-position mentions carry disproportionate weight in a generated answer, because most readers stop early.
+
+## Reading these numbers
+
+**Compare against a baseline, not in isolation.** A 4% citation share means nothing without knowing what it was last month and what the leader holds.
+
+**Expect volatility.** Only a minority of cited URLs repeat between two runs of the same prompt. Week-to-week movement is largely noise; monthly trend across many prompts is signal.
+
+**Segment by query type.** Aggregate numbers hide the useful structure. Platform-worded prompts behave completely differently from problem-worded ones and should be read separately.
+
+**Mentions and citations move independently.** Rising citations with flat mentions is normal and expected early — it means your content is being found before your brand is established.
+
+## Related
+
+- [Reading the citations report](/ai-visibility/citations-report)
+- [Competitor share-of-voice](/ai-visibility/share-of-voice)

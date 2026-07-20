@@ -1,0 +1,68 @@
+---
+title: "Product variant markup"
+description: "How to handle Shopify product variants for SEO: when variants deserve their own URL, how to mark up variant-level pricing, and how to avoid duplicate content."
+---
+
+Variants — size, colour, material — are where Shopify SEO most often goes quietly wrong. The same product appears at multiple URLs with near-identical content, or variants are invisible because they exist only behind a picker.
+
+## When a variant deserves its own URL
+
+Give a variant its own indexable URL when **people search for it specifically** and it has distinguishing content.
+
+| give its own URL | keep on the parent page |
+|---|---|
+| Colour, when people search by colour | Size, in most cases |
+| Materially different models | Minor trim differences |
+| Different price points and specifications | Identical spec, different quantity |
+| Variants with their own imagery and copy | Variants indistinguishable in content |
+
+The test: would this variant page have anything unique to say? If not, it is a duplicate, and duplicates dilute rather than add.
+
+## Shopify's variant URLs
+
+Shopify exposes variants as query parameters:
+
+```
+/products/trail-boot?variant=41234567890
+```
+
+By default these are canonicalised to the parent product URL. That is usually correct — but it also means variant pages are not independently indexable, so a variant people search for specifically will not have its own page.
+
+Where a variant genuinely warrants targeting, the usual approach is a separate product with a canonical relationship managed deliberately, not a parameter.
+
+## Marking up variants
+
+Where a page presents several variants at different prices, do not mark up a single arbitrary price. Options:
+
+**Use `AggregateOffer`** for a price range:
+
+```json
+"offers": {
+  "@type": "AggregateOffer",
+  "lowPrice": "89.00",
+  "highPrice": "149.00",
+  "priceCurrency": "GBP",
+  "offerCount": 6,
+  "availability": "https://schema.org/InStock"
+}
+```
+
+**Or use `ProductGroup`** with `hasVariant` entries, which describes the relationship explicitly and is preferred where variants have distinct GTINs and prices.
+
+The rule that matters: **markup must match what the page displays.** Marking up the lowest variant price while the page shows the highest is a violation.
+
+## Avoiding variant duplicate content
+
+- Ensure canonicals point to the intended URL, consistently
+- Do not generate a separate indexable page per size
+- Do not let variant parameters accumulate crawlable combinations — see [faceted navigation](/shopify/faceted-navigation)
+- Check Search Console for "Duplicate, Google chose different canonical"
+
+## Out-of-stock variants
+
+An out-of-stock variant should not make the whole product look unavailable. Mark availability at the level it actually applies, and keep the product page live while any variant is purchasable.
+
+## Related
+
+- [Product structured data on Shopify](/shopify/product-schema)
+- [Fixing duplicate content and canonicals](/shopify/duplicate-content)

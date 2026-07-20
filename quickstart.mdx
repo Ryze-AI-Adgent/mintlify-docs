@@ -1,0 +1,72 @@
+---
+title: "Quickstart"
+description: "Connect Ryze to Claude, link your marketing accounts, and get your first answer — about 10 minutes end to end."
+---
+
+This is the shortest path from a new Ryze account to a useful answer. Budget about 10 minutes.
+
+<Note>
+You need a paid Claude plan (Pro, Team, or Max). The free plan does not support custom connectors.
+</Note>
+
+## 1. Create a workspace
+
+A workspace holds one brand's accounts and data. Agencies create one per client.
+
+Sign in at [reports.get-ryze.ai](https://reports.get-ryze.ai) and create your first workspace. See [Create a workspace](/workspaces/create-workspace).
+
+## 2. Connect your platforms
+
+Do this **before** connecting the assistant — Ryze can only answer about accounts it can read.
+
+Go to **Workspace Settings → Integrations** and connect, at minimum:
+
+- **Your store or CMS** — [Shopify](/integrations/shopify), WordPress, Webflow, or another
+- **Google Search Console** — the query and page data the SEO engine is built on
+- **Your ad accounts** — Google Ads, Meta, or both
+
+Full instructions: [Connect your platforms](/integrations/overview).
+
+## 3. Add Ryze to Claude
+
+Add Ryze as a custom connector using this URL:
+
+```
+https://connector.get-ryze.ai/mcp
+```
+
+Step-by-step with screenshots: [Connect Ryze to Claude](/claude/connect). Using ChatGPT instead? See [Connect Ryze to ChatGPT](/chatgpt/connect).
+
+## 4. Ask your first question
+
+Start a **new chat** — existing chats will not pick up the connection — and try:
+
+> Pull the last 7 days of Google Ads spend and break it down by campaign.
+
+> What queries am I getting impressions for in Search Console but ranking below position 10?
+
+> Audit my store and show me the biggest on-page SEO issues.
+
+## 5. Set approvals
+
+Before letting Ryze change anything, decide what it may do unattended. Actions that modify your accounts require approval by default. Review the settings in [Permissions & approvals](/claude/permissions).
+
+## Common first-run problems
+
+| symptom | cause |
+|---|---|
+| Claude does not see Ryze tools | Connected mid-chat — start a new chat |
+| "No data" for a platform | Not connected, or the wrong account chosen in Workspace Settings |
+| Connector will not add | Free Claude plan; custom connectors need Pro, Team, or Max |
+| Approval window errors on Shopify | Retry from the Integrations page, then contact support with your store domain |
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Your first 7 days" icon="calendar" href="/first-week">
+    What to expect in week one.
+  </Card>
+  <Card title="How Ryze works" icon="diagram-project" href="/how-ryze-works">
+    The engine, end to end.
+  </Card>
+</CardGroup>

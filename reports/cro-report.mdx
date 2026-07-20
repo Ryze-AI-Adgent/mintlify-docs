@@ -1,0 +1,57 @@
+---
+title: "CRO report"
+description: "How to read the Ryze CRO report: funnel performance, test results, page speed, and conversion by segment."
+---
+
+The CRO report covers conversion performance, what has been tested, and what changed as a result.
+
+## What it contains
+
+**Conversion by segment** — device, traffic source, new versus returning, landing page template. Segmented, because a blended rate conceals almost everything useful.
+
+**Funnel step completion** — where visitors leave between product page, cart, and purchase.
+
+**Revenue per visitor** — the metric that matters more than conversion rate alone.
+
+**Average order value** — so a conversion gain that cost you AOV is visible.
+
+**Test results** — variants run, the metric judged, sample size, and outcome.
+
+**Page performance** — Core Web Vitals on key templates, from field data.
+
+## Reading it
+
+**Segment or learn nothing.** A flat sitewide conversion rate can hide mobile falling while desktop rises. Always read device and source separately.
+
+**Revenue per visitor over conversion rate.** A variant that converts more at a lower order value can reduce revenue. If the two disagree, revenue per visitor is the one to trust.
+
+**Compare against your own baseline**, not an industry average. External benchmarks vary so much by category, price point, and traffic source that they cannot tell you whether your number is good. See [benchmarks](/cro/benchmarks).
+
+## Reading test results
+
+Each test reports the metric it was judged on and the sample it reached. Both matter.
+
+- **A result without adequate sample is not a result.** Small samples produce large apparent effects that do not persist.
+- **No difference is a real finding.** Most tests show no meaningful effect — that tells you to stop working on that element.
+- **At 95% confidence, one in twenty findings is false.** Across many tests, some winners are noise.
+
+See [A/B testing](/cro/ab-testing).
+
+## Latency
+
+CRO feedback is faster than SEO — days rather than weeks — but still requires enough conversions to reach significance. Low-traffic stores will see friction fixes reported but few powered test results, which is correct rather than a gap.
+
+## Requires analytics
+
+Funnel-level reporting depends on [Google Analytics](/integrations/google-analytics) with ecommerce tracking configured. Without it, the report covers page structure and speed but cannot show where in the funnel visitors leave.
+
+If funnel data looks empty, check GA4 purchase events are firing before assuming a Ryze problem.
+
+## Guarantees
+
+**Ecom Autopilot** advertises a 15% conversion lift or money back, measured against your own baseline — another reason to record one properly before starting. Confirm terms at purchase.
+
+## Related
+
+- [CRO overview](/cro/overview)
+- [CRO store audit](/cro/store-audit)

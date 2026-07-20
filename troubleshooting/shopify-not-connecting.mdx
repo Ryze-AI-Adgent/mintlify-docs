@@ -1,0 +1,64 @@
+---
+title: "Shopify not connecting"
+description: "Fixes for a Shopify store that will not connect to Ryze, or that shows as disconnected after working."
+---
+
+Connecting Shopify needs only your store domain. When it fails, it is almost always one of the following.
+
+## You entered the wrong domain
+
+Ryze needs the **`.myshopify.com`** domain, not your custom domain.
+
+```
+✓ yourstore.myshopify.com
+✗ yourstore.com
+```
+
+Find it in your Shopify admin under **Settings → Domains**, listed as the store's permanent domain.
+
+## The approval window did not open
+
+A popup blocker is the usual cause. Allow popups for Ryze and retry from the Integrations page.
+
+## You lack permission to approve
+
+Approving app access requires sufficient permissions on the Shopify store. If you are a staff account without app installation rights, the store owner or an admin must complete the approval.
+
+## The approval window reports an error
+
+Retry once from the Integrations page — transient failures happen. If it persists, email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your store domain.
+
+## It connected, then showed as disconnected
+
+Click **Reconnect** on the Shopify card and re-authorize. Access can be revoked by:
+
+- Uninstalling or reinstalling the app in Shopify
+- Changes to staff permissions
+- Store ownership transfer
+- Store plan changes or pausing
+
+After reconnecting, **start a new chat** in Claude or ChatGPT. Existing chats do not pick up the change.
+
+## It shows connected but Ryze sees no data
+
+Check, in order:
+
+1. **Right store?** If you manage several, confirm which is connected to this workspace.
+2. **Products published?** Products must be published to the Online Store sales channel to be visible.
+3. **Store password-protected?** A store behind a password cannot be crawled or audited.
+4. **New chat started?** This is the single most common cause of "it's connected but nothing works".
+
+## The assistant is reading the wrong store
+
+Each connection is authorized against **one workspace**. If you manage several stores, confirm which workspace the chat is authorized against, and start a new chat when switching.
+
+See [agency and multi-workspace](/plans/agency-multi-workspace).
+
+## Still stuck
+
+Email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your `.myshopify.com` domain and what you saw. Include the error text if there was one.
+
+## Related
+
+- [Connect your Shopify store](/connect-shopify)
+- [Connect your platforms](/integrations/overview)

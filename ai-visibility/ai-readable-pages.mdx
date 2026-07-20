@@ -1,0 +1,65 @@
+---
+title: "Making product pages AI-readable"
+description: "How to structure ecommerce product pages so AI systems and shopping agents can parse, compare, and cite them: server-rendered facts, complete attributes, and valid structured data."
+---
+
+An AI-readable product page states its facts as data a machine can extract, in HTML that does not require JavaScript to reveal.
+
+Most product pages fail this not because they lack information, but because the information exists only inside images, scripts, or persuasive prose.
+
+## Render the facts in HTML
+
+If the price, availability, and specifications only appear after JavaScript runs, many retrieval crawlers will never see them.
+
+- Serve body content, price, and availability in the initial HTML
+- Do not lock specifications inside tabs or accordions that load on click
+- Never put specifications only in an image — a spec table rendered as a JPEG is invisible
+
+**Check:** view source, or fetch the page with JavaScript disabled. What remains is roughly what a crawler gets.
+
+## State attributes as data, not prose
+
+"Perfect for long days on the trail" is unextractable. A machine cannot filter on it.
+
+Give every product complete, explicit attributes:
+
+- Material, dimensions, weight, capacity
+- Size and fit, including width where relevant
+- Compatibility and requirements
+- Care, warranty, and returns terms
+- Colour, and what variant options exist
+
+Missing attributes cause silent exclusion. An agent filtering for "wide fit under £150" drops any product whose data does not say so — it does not fall back to reading your copy.
+
+## Add valid structured data
+
+`Product` schema in JSON-LD is what makes a page machine-comparable. At minimum include `name`, `description`, `sku`, `brand`, `image`, and an `offers` block with `price`, `priceCurrency`, and `availability`.
+
+Two rules that are broken constantly:
+
+- **Markup must match the visible page.** A price in schema that differs from the rendered price is a violation and can result in loss of rich results.
+- **Availability must be accurate.** Stale `InStock` markup on a sold-out product causes exclusion once discovered, and erodes trust in the feed.
+
+See [structured data for AI search](/ai-visibility/structured-data-for-ai).
+
+## Write the description to be quoted
+
+Front-load the facts. First sentence states what the product is and its defining attribute. Persuasion after, if at all.
+
+Compare:
+
+> Discover our best-selling boot, crafted for adventurers who refuse to compromise.
+
+> A waterproof full-grain leather hiking boot with a Vibram sole, available in wide fit, weighing 540g per boot.
+
+The second can be extracted, compared, and cited. The first cannot.
+
+## Give every variant a real URL
+
+Variants hidden behind a picker are not individually addressable, so they cannot be cited or compared separately. Distinct, crawlable variant URLs with their own markup make each one retrievable.
+
+## Related
+
+- [Structured data for AI search](/ai-visibility/structured-data-for-ai)
+- [Agentic commerce](/concepts/agentic-commerce)
+- [Why your brand isn't cited](/ai-visibility/not-cited)

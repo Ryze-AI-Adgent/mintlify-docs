@@ -1,0 +1,52 @@
+---
+title: "Monitoring interval and refresh cadence"
+description: "How often Ryze refreshes rank and AI visibility data: daily rank tracking, weekly AI summaries every Wednesday, and approved technical fixes shipping within hours."
+---
+
+How often each type of data in Ryze refreshes, and how long changes take to appear.
+
+## Refresh cadence
+
+| data | cadence |
+|---|---|
+| **Rank tracking** | daily |
+| **AI visibility summaries** | weekly, every Wednesday |
+| **Technical fixes** | shipped within hours of approval |
+| **Content production** | monthly cycle, spread across the month |
+| **Google Search Console data** | 2–3 day reporting delay (Google's, not Ryze's) |
+| **Core Web Vitals field data** | 28-day rolling window (Google's CrUX) |
+
+Alerts for significant changes are delivered through Slack and email rather than requiring you to check a dashboard.
+
+## Why AI visibility is not tracked daily
+
+Daily AI visibility numbers would be actively misleading.
+
+Answer engines are volatile: only a minority of cited URLs repeat between two runs of the same prompt. A daily figure therefore measures engine randomness far more than it measures your site. Reacting to it produces false alarms — a drop that reverses itself the next day, or a spike that means nothing.
+
+A weekly cadence aggregates enough runs for the noise to partially cancel, while staying frequent enough to catch real movement. Even weekly, the trend across several weeks is the signal, not any single week.
+
+## How long changes take to show
+
+Different work has different latency. Setting expectations honestly:
+
+| change | first visible |
+|---|---|
+| Paid ads adjustments | within 24 hours |
+| Technical and CRO fixes shipped | days 1–7 |
+| Organic ranking movement | 2–6 weeks |
+| AI citation changes | weeks to months |
+| Core Web Vitals field data | up to 28 days (rolling window) |
+| Brand mention / share of voice | many months, if at all |
+
+The ordering is consistent: paid moves fastest, technical fixes next, organic ranking after that, AI citations later still, and brand priors slowest of all.
+
+## Why a fix does not show up immediately
+
+A shipped change has to be crawled, indexed, and then retrieved before it can affect a citation. Each stage adds delay, and none is under Ryze's control. A page published today is not a candidate for citation today.
+
+## Related
+
+- [Prompt monitoring](/ai-visibility/prompt-monitoring)
+- [AI visibility metrics](/ai-visibility/metrics)
+- [Core Web Vitals](/concepts/core-web-vitals)

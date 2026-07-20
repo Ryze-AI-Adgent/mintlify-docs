@@ -1,0 +1,56 @@
+---
+title: "Structured data for AI search"
+description: "Which Schema.org types matter for AI search and shopping agents, how to implement them in JSON-LD, and the validation rules that cause markup to be ignored."
+---
+
+Structured data is machine-readable markup describing what a page contains, using [Schema.org](https://schema.org) vocabulary. It is how a system knows a number on the page is a price rather than a weight.
+
+For AI search and shopping agents, it converts a page from prose to be interpreted into data to be used.
+
+## Format
+
+Use **JSON-LD** in a `<script type="application/ld+json">` block. It is Google's recommended format and is easier to maintain than microdata because it is separate from the visible markup.
+
+## The types that matter for ecommerce
+
+| type | use on | key properties |
+|---|---|---|
+| `Product` | product pages | `name`, `sku`, `brand`, `image`, `description`, `offers` |
+| `Offer` | inside `Product` | `price`, `priceCurrency`, `availability`, `url` |
+| `AggregateRating` | products with reviews | `ratingValue`, `reviewCount` |
+| `BreadcrumbList` | all pages | `itemListElement` |
+| `FAQPage` | genuine Q&A content | `mainEntity` |
+| `Organization` | homepage | `name`, `url`, `logo`, `sameAs` |
+| `ItemList` | collection pages | `itemListElement` |
+
+`Product` with a complete `offers` block carries the most weight for both shopping surfaces and agents.
+
+## Rules that cause markup to be ignored
+
+These are the failures that appear most often in audits:
+
+- **Markup must match the visible page.** Marking up a price, rating, or availability that differs from what a user sees is a violation and can cost rich results entirely.
+- **Do not mark up content that is not on the page.** Reviews, ratings, and FAQs must be genuinely present and visible.
+- **`FAQPage` requires real question-and-answer content**, not marketing copy reshaped into questions.
+- **Availability must track real inventory.** Stale `InStock` on a sold-out product is worse than no markup.
+- **Every required property must be present.** Incomplete `Product` markup is frequently ignored wholesale rather than partially honoured.
+
+## Validate
+
+- [Google Rich Results Test](https://search.google.com/test/rich-results) — eligibility for rich results
+- [Schema.org validator](https://validator.schema.org) — vocabulary correctness
+- Search Console's enhancement reports — errors across the whole site, which is where scale problems surface
+
+Validate the **rendered** page, not the template. Markup assembled by JavaScript may differ from what you expect.
+
+## Does it drive AI citations?
+
+Structured data reliably drives **rich results and shopping surfaces**. Its direct effect on citation in generated answers is less firmly established.
+
+The defensible position: structured data makes a page unambiguous, and unambiguous pages are easier to use as a source. It also happens to be required for surfaces where the effect *is* proven. It is worth doing on that basis alone — not because a specific citation lift can be promised.
+
+## Related
+
+- [Making product pages AI-readable](/ai-visibility/ai-readable-pages)
+- [Agentic commerce](/concepts/agentic-commerce)
+- [Technical SEO](/concepts/technical-seo)

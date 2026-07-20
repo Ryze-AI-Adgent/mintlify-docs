@@ -1,0 +1,53 @@
+---
+title: "Report scheduling"
+description: "How to schedule Ryze reports and alerts, the default cadences, and how to route them to Slack and email per workspace."
+---
+
+Ryze delivers reports on a schedule so you do not have to check a dashboard. Alerts fire on significant change rather than on a timetable.
+
+## Default cadences
+
+| output | cadence |
+|---|---|
+| AI visibility summary | Weekly, Wednesdays |
+| Rank tracking data | Daily |
+| Agent Activity | Continuous, as actions occur |
+| Alerts | On significant change |
+
+## Delivery channels
+
+- **Slack** — connect a channel per workspace
+- **Email** — to individuals or a distribution list
+- **Dashboards** — live, always current
+
+Agencies should route per workspace so each client's data goes to the right place. Mixing clients into one channel is the usual cause of a report reaching the wrong recipient. See [agency and multi-workspace](/plans/agency-multi-workspace).
+
+## Choosing a cadence
+
+Match the reporting interval to how fast the thing actually moves:
+
+- **Paid ads** — daily or weekly. Changes land within 24 hours.
+- **Technical fixes** — as they ship. Approved fixes go live within hours.
+- **Organic rankings** — weekly at most. Daily rank data exists, but daily *reporting* on it invites reacting to noise.
+- **AI visibility** — weekly, read monthly. Volatility makes anything faster misleading.
+- **CRO tests** — at conclusion, never mid-flight. Peeking at running tests is how false positives get acted on.
+
+<Note>
+Reporting more often than a metric meaningfully changes does not give you more information — it gives you more noise to react to.
+</Note>
+
+## Alerts
+
+Alerts are for things that need a decision: significant traffic drops, spend anomalies, indexation failures, connection losses.
+
+Keep them few. An alert channel that fires constantly gets muted, and then the one that mattered is missed too.
+
+## Scheduled agent work
+
+Report scheduling is separate from when the agent *works*. Unattended agent runs are configured in [Schedules](/agent/schedules), and what requires approval in [Permissions & approvals](/claude/permissions).
+
+## Related
+
+- [Exporting reports](/reports/exporting)
+- [Agent schedules](/agent/schedules)
+- [Reports overview](/reports/overview)

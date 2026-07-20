@@ -1,0 +1,81 @@
+---
+title: "Merchant listing markup"
+description: "Merchant listing markup adds price, availability, shipping, and returns data to product pages so they qualify for Google's free shopping listings and merchant experiences."
+---
+
+Merchant listing markup is `Product` structured data extended with the commerce properties Google needs to show a page in shopping experiences — including free product listings — without requiring a Merchant Center feed.
+
+It is the difference between a product page that can rank and a product page that can appear as a purchasable listing.
+
+## What it adds beyond basic Product schema
+
+| property | purpose |
+|---|---|
+| `gtin` / `mpn` | Matches your product to the global catalogue |
+| `shippingDetails` | Shipping cost and delivery time, shown in listings |
+| `hasMerchantReturnPolicy` | Returns window and conditions |
+| `priceValidUntil` | When the price expires |
+| `itemCondition` | New, refurbished, used |
+
+Shipping and returns data materially affect whether a listing is shown and how it compares — buyers filter on both.
+
+## GTINs matter more than they look
+
+The GTIN is how Google matches your listing to the same product sold elsewhere. Without it:
+
+- Your product may not be matched to the right catalogue entry
+- It may be excluded from comparison surfaces
+- Rich result eligibility can be lost
+
+Use the manufacturer's GTIN — `gtin13` for EAN, `gtin12` for UPC. Do not invent one, and do not reuse a GTIN across different products.
+
+For genuinely custom or handmade products with no GTIN, supply `mpn` and `brand` instead.
+
+## Shipping and returns example
+
+```json
+"shippingDetails": {
+  "@type": "OfferShippingDetails",
+  "shippingRate": {
+    "@type": "MonetaryAmount",
+    "value": "4.95",
+    "currency": "GBP"
+  },
+  "shippingDestination": {
+    "@type": "DefinedRegion",
+    "addressCountry": "GB"
+  }
+},
+"hasMerchantReturnPolicy": {
+  "@type": "MerchantReturnPolicy",
+  "applicableCountry": "GB",
+  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+  "merchantReturnDays": 30,
+  "returnMethod": "https://schema.org/ReturnByMail",
+  "returnFees": "https://schema.org/FreeReturn"
+}
+```
+
+## Rules
+
+- **Values must match your actual policies.** Marking up free returns you do not offer is a violation.
+- **Shipping data must reflect real rates** for the destination in question.
+- **Keep prices current.** `priceValidUntil` in the past can suppress the listing.
+- Markup and Merchant Center feed data must not contradict each other where both exist.
+
+## Validate
+
+Use the [Rich Results Test](https://search.google.com/test/rich-results) and Search Console's Merchant listings report, which surfaces catalogue-wide errors.
+
+## What Ryze does
+
+Ryze audits merchant listing completeness across the catalogue, flags missing GTINs and category errors, and ships feed and markup corrections with approval.
+
+## Primary reference
+
+- [Google merchant listing structured data](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing)
+
+## Related
+
+- [Product structured data on Shopify](/shopify/product-schema)
+- [Product variant markup](/shopify/product-variants)

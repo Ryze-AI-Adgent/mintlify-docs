@@ -1,0 +1,72 @@
+---
+title: "Shopify SEO audit: what Ryze checks"
+description: "The checks Ryze runs against a connected Shopify store, grouped by technical, on-page, structured data, catalogue, and performance."
+---
+
+When you [connect a Shopify store](/connect-shopify), Ryze audits it against your Search Console data, DataForSEO rankings, and your catalogue. This is the check list.
+
+## Technical
+
+- Crawlability — `robots.txt` rules blocking pages that should be indexable
+- Indexation — pages carrying `noindex`, and pages excluded in Search Console
+- Canonical tags — missing, self-referencing incorrectly, or pointing to the wrong URL
+- Redirect chains and loops
+- Broken internal links and 404s that still receive traffic or links
+- Pagination — broken or blocking access to deep catalogue pages
+- Sitemap accuracy — non-canonical or non-indexable URLs included
+- Duplicate URLs across collection paths and variants
+
+## On-page
+
+- Missing, duplicated, or truncated title tags
+- Missing or duplicated meta descriptions
+- Heading structure — multiple H1s, skipped levels
+- Thin product descriptions, and descriptions copied from the supplier
+- Thin or empty collection pages
+- Image alt text
+- Internal linking — orphan pages, and key pages with too few inbound internal links
+
+## Structured data
+
+- Presence of `Product` schema on product pages
+- Completeness of the `offers` block — `price`, `priceCurrency`, `availability`
+- Markup that contradicts the visible page, particularly price and availability
+- Invalid or partial markup that will be ignored
+- `BreadcrumbList` and `Organization` presence
+- Review markup validity where reviews exist
+
+## Catalogue and feed
+
+- Missing GTINs
+- Incorrect product categories
+- Product titles that will not perform in shopping surfaces
+- Low-resolution imagery
+- Out-of-stock products returning soft 404s or removed without redirects
+- Variant handling — near-duplicate pages without canonicals
+
+## Performance
+
+- Core Web Vitals — LCP, INP, CLS against field data
+- Unoptimised and oversized images
+- Render-blocking scripts, including accumulated app scripts
+- Excess JavaScript
+- Missing lazy-loading
+
+## What happens after the audit
+
+Findings are prioritised by expected impact rather than by count. Approved fixes ship within hours — see [permissions and approvals](/claude/permissions) to control what needs sign-off.
+
+Ask the assistant directly:
+
+> Audit my store and show me the biggest on-page SEO issues.
+
+> Which of my collection pages are thin, and what should they say?
+
+## Limits
+
+The audit reflects what Ryze can read through the Shopify connection and your connected analytics. It does not evaluate commercial factors — pricing position, product quality, or brand strength — which frequently matter more than any technical finding.
+
+## Related
+
+- [Shopify SEO overview](/shopify/seo-overview)
+- [Technical audit](/ecommerce/technical-audit)

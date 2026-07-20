@@ -1,0 +1,61 @@
+---
+title: "Large catalogue automation"
+description: "How to handle SEO on Shopify stores with thousands of products: crawl efficiency, description generation at scale, and prioritising what actually gets worked on."
+---
+
+Past a few thousand products, catalogue SEO stops being an editing task and becomes a systems task. You cannot hand-write ten thousand descriptions, and you should not try.
+
+## The problems that appear at scale
+
+**Crawl efficiency becomes the constraint.** Search engines will not crawl everything, so what they do crawl needs to be worth it. See [crawl budget](/concepts/crawl-budget).
+
+**Duplicate and thin content multiplies.** Supplier descriptions across thousands of SKUs, near-identical variants, and empty collections.
+
+**Coverage becomes invisible.** With 20,000 products you cannot tell which are indexed without tooling.
+
+**Long-tail demand is unreachable manually.** Most catalogue revenue sits in queries too specific to target one at a time.
+
+## Prioritise rather than treat everything equally
+
+Not every product deserves equal attention. Segment the catalogue:
+
+| segment | treatment |
+|---|---|
+| Top revenue products | Hand-quality descriptions, complete specs, full markup |
+| Products with impressions but poor rank | Highest ROI — demand is proven, the page is underperforming |
+| Long tail with no impressions | Automated descriptions, complete structured data |
+| Discontinued / permanently out of stock | [Redirect or 410](/shopify/redirects) |
+
+The second row is where Ryze focuses first: Search Console shows which pages already receive impressions without converting them into rank, which is proven demand against a fixable page.
+
+## Automate descriptions correctly
+
+Generating a description per product is the only viable approach at scale, but the failure mode is [thin content at scale](/concepts/programmatic-seo) — thousands of pages differing by a swapped noun.
+
+What separates working automation from spam:
+
+- Generation draws on **real per-product data** — actual specifications, materials, dimensions, compatibility
+- Output is **genuinely distinct**, not templated prose with variables
+- Products with **insufficient source data are skipped**, not generated badly
+- Output is **published in batches and measured** before scaling
+
+See [product descriptions at scale](/ecommerce/product-descriptions-at-scale).
+
+## Keep crawl focused
+
+- Block filter and sort parameters — see [faceted navigation](/shopify/faceted-navigation)
+- Keep the sitemap limited to canonical, indexable URLs
+- Ensure every product is reachable within a few clicks via collections and [internal linking](/ecommerce/internal-linking)
+- Remove or redirect dead products rather than leaving soft 404s
+
+## Measure by segment, not in aggregate
+
+A sitewide impressions number tells you nothing about a 20,000-product catalogue. Track indexation rate and impressions **per segment**, so you can see whether automated pages are earning anything or just accumulating.
+
+Pages that never earn impressions after a fair window should be consolidated or removed. Publishing without pruning is how catalogues degrade.
+
+## Related
+
+- [Programmatic SEO](/concepts/programmatic-seo)
+- [Crawl budget](/concepts/crawl-budget)
+- [Technical audit](/ecommerce/technical-audit)

@@ -1,0 +1,49 @@
+---
+title: "Programmatic SEO"
+description: "Programmatic SEO is the practice of generating large numbers of pages from a structured data source and a shared template, each targeting a distinct long-tail query."
+---
+
+Programmatic SEO is the practice of generating large numbers of pages from a structured data source and a shared template, each page targeting a distinct long-tail query.
+
+Instead of writing one page at a time, you define a pattern — *[product] for [use case]*, *[brand] vs [brand]*, *[service] in [city]* — and populate it from a dataset.
+
+## When it works
+
+Programmatic SEO works when three conditions hold:
+
+1. **Real, separable demand.** Each generated page targets a query people actually search, with distinct intent. If ten variants serve one intent, you have made nine duplicates.
+2. **Genuinely distinct data per page.** The differences must be substantive — real specifications, real prices, real comparisons — not a swapped noun in otherwise identical prose.
+3. **The page answers the query completely.** A generated page still has to be the best available answer, not a placeholder built to catch a keyword.
+
+## When it fails
+
+The characteristic failure is **thin content at scale**: thousands of near-identical pages differing only in a templated variable. Search engines classify these as low-value, and the outcome is usually worse than publishing nothing — wasted [crawl budget](/concepts/crawl-budget), diluted internal link equity, and sitewide quality signals dragged down.
+
+Other common failures:
+
+- Targeting keyword variants that all map to the same intent, producing internal competition
+- Generating pages for combinations with no search demand
+- Publishing everything at once rather than in measured batches
+- No mechanism for pruning pages that never earn impressions
+
+## What separates the two
+
+| works | fails |
+|---|---|
+| distinct data per page | one template, swapped words |
+| one page per distinct intent | many pages per intent |
+| complete answer to the query | keyword placeholder |
+| pruned when pages underperform | published and forgotten |
+
+## Practical guardrails
+
+- Publish in batches and measure impressions per batch in Search Console before scaling
+- Set a minimum data-completeness bar — do not generate a page when the underlying record is sparse
+- Give each page distinct internal links, not just a shared template footer
+- Track which generated pages earn impressions, and remove or consolidate those that never do
+- Keep generated pages out of the sitemap until they meet the quality bar
+
+## Related
+
+- [Technical SEO](/concepts/technical-seo)
+- [Crawl budget](/concepts/crawl-budget)

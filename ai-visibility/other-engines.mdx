@@ -1,0 +1,45 @@
+---
+title: "How Ryze tracks Perplexity, Gemini, and other engines"
+description: "Ryze tracks AI visibility across Perplexity, Google AI Overviews, Claude, Bing, and Shopify search alongside ChatGPT, using the same prompt-based method."
+---
+
+Ryze tracks the same prompt set across multiple answer engines, so you can see where you are visible and where you are not.
+
+## Engines covered
+
+| surface | what it is |
+|---|---|
+| **ChatGPT** | OpenAI's assistant, retrieval-driven for most commercial questions |
+| **Perplexity** | Answer engine that cites sources by default |
+| **Google AI Overviews** | AI answers above conventional Google results |
+| **Claude** | Anthropic's assistant |
+| **Google / Bing** | Conventional ranked search |
+| **Shopify** | Shopify's own search surfaces |
+
+## Why the results differ by engine
+
+The same prompt produces different answers and different sources on each engine, because each retrieves differently.
+
+- **Perplexity cites heavily and consistently.** It is built around showing sources, so citation counts run higher and are more stable than elsewhere. It is often the first engine where content work becomes visible.
+- **Google AI Overviews lean on conventional ranking.** Sources skew toward pages that already rank well in Google, so improvements here tend to follow SEO gains rather than lead them.
+- **ChatGPT is the most volatile.** It decides per-query whether to search at all, and source selection varies run to run.
+- **Claude retrieves selectively**, and behaviour depends on whether search is enabled for the conversation.
+
+## How to read cross-engine results
+
+**Do not average across engines.** A blended figure hides the structure that tells you what to do. Read each separately.
+
+**Expect Perplexity to move first.** If content work is going to show up anywhere, it usually shows there earliest — it retrieves aggressively and cites reliably.
+
+**Treat AI Overviews as an SEO output.** If you are not ranking in conventional Google results, you are unlikely to appear in the Overview. Fix ranking first.
+
+**Disagreement between engines is normal and useful.** Being cited on Perplexity but not ChatGPT usually means your pages are retrievable but not being selected — a relevance and clarity problem, not a crawlability one. Being cited nowhere points at something more basic. See [why your brand isn't cited](/ai-visibility/not-cited).
+
+## Coverage caveat
+
+Answer engines change their retrieval behaviour, interfaces, and citation formats frequently and without notice. Coverage reflects how each engine behaves when queried, and comparisons across long time ranges can be affected by changes on the engine's side rather than changes to your site.
+
+## Related
+
+- [How Ryze tracks ChatGPT citations](/ai-visibility/chatgpt-tracking)
+- [Monitoring interval](/ai-visibility/monitoring-interval)

@@ -1,0 +1,70 @@
+---
+title: "Orphan pages and canonical problems"
+description: "How to find and fix orphan pages with no internal links, and resolve canonical conflicts causing the wrong pages to be indexed."
+---
+
+Two related problems that cause pages to be ignored: pages nothing links to, and pages whose canonical signals contradict each other.
+
+## Orphan pages
+
+An orphan page has **no internal links pointing at it**. Crawlers may find it via the sitemap, but sitemaps aid discovery — links confer value. Orphans rank poorly or not at all.
+
+### How they happen
+
+- Products removed from all collections but not unpublished
+- Old landing pages left live after a campaign
+- Pages reachable only through filters, which are usually blocked
+- Products only reachable through deep pagination
+- Content published without being linked from anywhere
+
+### Finding them
+
+Compare the sitemap against your internal link graph. Ryze reports orphans in the [technical audit](/ecommerce/technical-audit).
+
+Search Console → Pages showing "Discovered — currently not indexed" for many URLs often indicates orphans: Google knows they exist but sees no reason to index them.
+
+### Fixing them
+
+Decide, per page:
+
+- **Should exist and matter** → link it from relevant categories and related products
+- **Should exist but is minor** → link from at least one sensible place
+- **Should not exist** → [redirect or remove](/shopify/redirects) it
+
+Do not fix orphans by adding a link block to every page. Indiscriminate linking dilutes the signal about what matters.
+
+## Canonical problems
+
+A canonical tag tells search engines which URL is the preferred version. It is a **hint**, not a directive — Google can and does override it when other signals disagree.
+
+### The symptom
+
+Search Console → Pages reports **"Duplicate, Google chose different canonical"**. This means your signals conflict and Google resolved them its own way.
+
+### Making signals agree
+
+All four must point at the same URL:
+
+1. The canonical tag
+2. Internal links
+3. The sitemap entry
+4. Redirect destinations
+
+The usual failure is internal links pointing at collection paths (`/collections/x/products/y`) while the canonical points at `/products/y`. Fix the links.
+
+### Common canonical mistakes
+
+- **Paginated pages canonicalised to page 1** — hides every product beyond the first page
+- **Canonical pointing at a redirecting URL** — resolve it to the final destination
+- **Canonical pointing at a `noindex` page** — contradictory signals
+- **Blocking a page in `robots.txt` and canonicalising it** — a blocked page is never crawled, so its canonical is never read
+- **Using `noindex` where a canonical is needed** — `noindex` removes the page rather than consolidating its signals
+
+## What Ryze does
+
+Ryze detects orphans, conflicting canonicals, and duplicate URLs during the audit, and ships internal linking and canonical fixes with approval.
+
+## Related
+
+- [Internal linking](/ecommerce/internal-linking)
+- [Fixing duplicate content and canonicals](/shopify/duplicate-content)

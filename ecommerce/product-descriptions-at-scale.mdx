@@ -1,0 +1,61 @@
+---
+title: "Product descriptions at scale"
+description: "How to generate unique, useful product descriptions across a large catalogue without producing thin content, and how Ryze does it from real product data."
+---
+
+Writing unique descriptions for a large catalogue by hand is not viable, and publishing the supplier's description is the most common SEO problem on ecommerce sites — identical text on hundreds of competing stores.
+
+Generation is the only workable answer at scale. Doing it badly is worse than doing nothing.
+
+## What separates useful generation from spam
+
+| works | fails |
+|---|---|
+| Built from real per-product data | Template with swapped nouns |
+| Distinct specifications per product | Same prose, different adjective |
+| Skips products with insufficient data | Generates something for everything |
+| Published in batches and measured | Published all at once, never reviewed |
+| Pruned when pages never earn impressions | Accumulates indefinitely |
+
+The failure mode is [thin content at scale](/concepts/programmatic-seo): thousands of near-identical pages that drag down sitewide quality signals and waste [crawl budget](/concepts/crawl-budget).
+
+## Source data determines quality
+
+Generation is only as good as what it draws on. Before generating, ensure products carry:
+
+- Material, dimensions, weight, capacity
+- Size and fit
+- Compatibility and requirements
+- Care, warranty, returns
+- What distinguishes this product from adjacent ones
+
+A product with three attributes will produce a description with nothing to say. **Skip it rather than generate padding.**
+
+## Structure that works
+
+1. **First sentence states what it is** and its defining attribute — factual, extractable, quotable
+2. **Specifications** as clear statements, not buried in prose
+3. **Use case** — who it suits, what it is for
+4. **Limits** — what it does not do, what it is not suitable for
+
+The last one is skipped almost universally and is the most useful. It also differentiates your text from the supplier's, which never states limitations.
+
+## Why this matters for AI visibility
+
+Extractable descriptions are what makes a product page citable and comparable. Atmospheric copy gives a model nothing to use, and gives a shopping agent nothing to filter on. See [making product pages AI-readable](/ai-visibility/ai-readable-pages).
+
+## How Ryze does it
+
+Ryze generates LLM-optimized product copy from your actual catalogue data, informed by real demand signals rather than keyword guesswork. Descriptions ship with approval, and output is paced across the monthly cycle rather than dumped at once.
+
+## Measure and prune
+
+Publish in batches. Track impressions per batch in Search Console. Pages that earn nothing after a fair window should be consolidated or removed.
+
+Publishing without pruning is how catalogues degrade over time.
+
+## Related
+
+- [Programmatic SEO](/concepts/programmatic-seo)
+- [Large catalogue automation](/shopify/large-catalogs)
+- [Product page optimisation](/shopify/product-pages)

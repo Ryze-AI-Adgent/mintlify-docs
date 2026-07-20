@@ -171,6 +171,167 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Other",
+        "hidden": true,
+        "searchable": true,
+        "groups": [
+          {
+            "group": "Get started",
+            "pages": [
+              "what-is-ryze",
+              "quickstart",
+              "how-ryze-works",
+              "connect-shopify",
+              "connect-gsc",
+              "first-week"
+            ]
+          },
+          {
+            "group": "AI visibility",
+            "pages": [
+              "ai-visibility/overview",
+              "ai-visibility/metrics",
+              "ai-visibility/chatgpt-tracking",
+              "ai-visibility/other-engines",
+              "ai-visibility/prompt-monitoring",
+              "ai-visibility/monitoring-interval",
+              "ai-visibility/citations-report",
+              "ai-visibility/share-of-voice",
+              "ai-visibility/not-cited",
+              "ai-visibility/ai-readable-pages",
+              "ai-visibility/llms-txt",
+              "ai-visibility/structured-data-for-ai"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "concepts/generative-engine-optimization",
+              "concepts/answer-engine-optimization",
+              "concepts/ai-visibility",
+              "concepts/llm-seo",
+              "concepts/agentic-commerce",
+              "concepts/share-of-voice-ai",
+              "concepts/citation-share",
+              "concepts/technical-seo",
+              "concepts/programmatic-seo",
+              "concepts/core-web-vitals",
+              "concepts/crawl-budget"
+            ]
+          },
+          {
+            "group": "Shopify",
+            "pages": [
+              "shopify/seo-overview",
+              "shopify/audit",
+              "shopify/product-pages",
+              "shopify/collection-pages",
+              "shopify/product-schema",
+              "shopify/merchant-listings",
+              "shopify/product-variants",
+              "shopify/duplicate-content",
+              "shopify/redirects",
+              "shopify/sitemaps",
+              "shopify/site-speed",
+              "shopify/faceted-navigation",
+              "shopify/large-catalogs",
+              "shopify/international"
+            ]
+          },
+          {
+            "group": "Ecommerce SEO",
+            "pages": [
+              "ecommerce/site-structure",
+              "ecommerce/category-pages",
+              "ecommerce/product-descriptions-at-scale",
+              "ecommerce/internal-linking",
+              "ecommerce/out-of-stock-products",
+              "ecommerce/technical-audit",
+              "ecommerce/keyword-research",
+              "ecommerce/content-programmatic",
+              "ecommerce/backlinks-mentions",
+              "ecommerce/seo-reporting"
+            ]
+          },
+          {
+            "group": "CRO",
+            "pages": [
+              "cro/overview",
+              "cro/store-audit",
+              "cro/product-page-conversion",
+              "cro/checkout-friction",
+              "cro/ab-testing",
+              "cro/benchmarks"
+            ]
+          },
+          {
+            "group": "Paid ads",
+            "pages": [
+              "ads/overview",
+              "ads/google-ads",
+              "ads/meta-ads",
+              "ads/creative-generation",
+              "ads/competitor-ad-library"
+            ]
+          },
+          {
+            "group": "Reports",
+            "pages": [
+              "reports/overview",
+              "reports/seo-audit",
+              "reports/ai-visibility-report",
+              "reports/cro-report",
+              "reports/competitors",
+              "reports/scheduling",
+              "reports/exporting"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/mcp-server",
+              "integrations/google-search-console",
+              "integrations/google-analytics",
+              "integrations/google-ads",
+              "integrations/meta-ads"
+            ]
+          },
+          {
+            "group": "Plans & billing",
+            "pages": [
+              "plans/overview",
+              "plans/whats-included",
+              "plans/usage-limits",
+              "plans/billing-faq",
+              "plans/agency-multi-workspace"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/shopify-not-connecting",
+              "troubleshooting/audit-not-completing",
+              "troubleshooting/changes-not-applied",
+              "troubleshooting/gsc-data-missing",
+              "troubleshooting/orphan-pages-canonicals",
+              "troubleshooting/crawl-errors",
+              "troubleshooting/ai-visibility-no-data"
+            ]
+          },
+          {
+            "group": "Migrate to Ryze",
+            "pages": [
+              "migrate/from-semrush",
+              "migrate/from-ahrefs",
+              "migrate/from-surfer",
+              "migrate/from-yoast",
+              "migrate/from-an-agency",
+              "migrate/import-your-data"
+            ]
+          }
+        ]
       }
     ]
   },

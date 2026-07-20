@@ -1,0 +1,58 @@
+---
+title: "How Ryze works"
+description: "Ryze runs a four-stage loop — audit, prioritise, execute, measure — over your connected marketing accounts, driven through an MCP connector in Claude or ChatGPT."
+---
+
+Ryze runs a four-stage loop over your connected accounts: **audit → prioritise → execute → measure**. The same loop applies to both SEO and paid ads; only the data sources and the actions differ.
+
+## The architecture
+
+Three layers:
+
+**Connected accounts.** Your store or CMS, Google Search Console, Google Analytics, and your ad platforms. Connected once in **Workspace Settings → Integrations**, per workspace.
+
+**The Ryze agent.** Reads those accounts, decides what to do, and executes — writing articles, shipping on-page fixes, adjusting campaigns, generating creatives. Everything it does is written to an activity log.
+
+**The MCP connector.** Exposes Ryze to Claude and ChatGPT as a set of tools, so you can query and direct the agent from an ordinary chat. The connector is the interface, not the engine — the agent keeps running whether or not a chat is open.
+
+## The loop
+
+<Steps>
+  <Step title="Audit">
+    Ryze pulls ground truth: Search Console (queries and pages you already appear for), DataForSEO (rankings, top pages, competitors), and your store (best products by revenue). For ads, it pulls campaign, spend, and conversion data.
+  </Step>
+  <Step title="Prioritise">
+    From that data Ryze derives what is worth acting on — keyword seeds anchored to what you sell and who you sell to, expanded through DataForSEO into real keyword ideas with actual volume and difficulty, then narrowed to the ones worth chasing.
+  </Step>
+  <Step title="Execute">
+    Priorities become work. Articles are written and published to your store or CMS with internal links to your key pages. An agent ships technical and GEO fixes. Off-page, Ryze produces guest posts and press releases and places reciprocal links.
+  </Step>
+  <Step title="Measure">
+    Results feed back into the next cycle's audit, so what ranked and what did not changes what gets prioritised next.
+  </Step>
+</Steps>
+
+## The monthly cycle
+
+The SEO engine runs on a monthly cycle tied to your billing date. Each cycle targets a volume of content and produces only the **deficit** — what is still missing for that month — so work already done is not duplicated. Output is spread across the month rather than published all at once.
+
+## Two content pools
+
+Article topics are planned in two pools so coverage is both focused and broad:
+
+- **Pool A — priority-anchored.** Built around your priority keywords and highest-value products. These drive traffic and internal links to your key pages.
+- **Pool B — open.** Expands into adjacent demand, mined from Search Console impressions, competitor gaps, and your wider catalogue.
+
+## Watching it work
+
+Because the engine runs on its own, **Agent Activity** is where you see what happened — every action with a timestamp: articles drafted, articles published, fixes shipped. The home page shows recent activity; the full log is under **Agent Logs**.
+
+## Control
+
+The agent does not act without permission on actions that change your accounts. Approval behaviour is configured in [Permissions & approvals](/claude/permissions), and [scheduled runs](/agent/schedules) control when unattended work happens.
+
+## Related
+
+- [SEO overview](/seo/introduction)
+- [How the SEO engine works](/seo/how-it-works)
+- [Credits & usage](/agent/credits)
