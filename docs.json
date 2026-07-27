@@ -58,6 +58,8 @@
               "integrations/overview",
               "integrations/multiple-accounts",
               "integrations/managing-multiple-accounts",
+              "integrations/shopify",
+              "integrations/shopify-custom-app",
               "integrations/wordpress",
               "integrations/framer",
               "integrations/wix",
