@@ -73,6 +73,8 @@
               "integrations/anthropic",
               "integrations/klaviyo",
               "integrations/hubspot",
+              "integrations/criteo",
+              "integrations/stackadapt",
               "integrations/faq"
             ]
           },

@@ -1,0 +1,39 @@
+---
+title: "Connect Criteo"
+description: "Connect your Criteo API credentials so Ryze can manage your commerce media campaigns and pull performance reporting."
+---
+
+Criteo connects with your **own API credentials** (client ID + client secret). Ryze uses them to read your advertiser portfolio, pull campaign statistics, and manage campaigns, ad sets, audiences, and budgets via the Criteo Marketing Solutions API.
+
+<Note>
+You need access to the **Criteo Developer Portal** with your Criteo account. The credentials are scoped to the advertisers your app is consented to — Ryze can only see and manage what you grant.
+</Note>
+
+## Step 1 — Create an app and generate credentials
+
+<Steps>
+  <Step title="Open the Developer Portal">
+    Go to [partners.criteo.com](https://partners.criteo.com) and sign in with your Criteo account.
+  </Step>
+  <Step title="Create an app">
+    In **My apps**, click **+** to create a new app. Name it `Ryze`, choose the **Marketing Solutions** service, and select the **Client Credentials** authentication method. Grant the app read and manage scopes for campaigns and analytics.
+  </Step>
+  <Step title="Consent the app to your advertisers">
+    Authorize the app for the advertiser accounts you want Ryze to manage — Criteo generates a consent link on the app page; approve it with your Criteo Commerce Growth login.
+  </Step>
+  <Step title="Generate the key">
+    On the app page, click **Generate new key**. A file downloads with your **client ID** and **client secret** — the secret is shown only once, so keep the file.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the Criteo card, paste the **Client ID** and **Client secret**, and click **Continue**. Ryze validates the credentials against your advertiser portfolio before saving.
+
+## Troubleshooting
+
+- **Credentials rejected** — check both values against the downloaded key file. If the secret is lost, generate a new key in the Developer Portal.
+- **Connected but no advertisers** — the app is not consented to any advertiser portfolio yet. Open your app in the Developer Portal and complete the consent flow.
+- **Reports look empty** — only advertisers with at least one campaign appear in statistics.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

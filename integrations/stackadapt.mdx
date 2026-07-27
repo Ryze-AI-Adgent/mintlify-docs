@@ -1,0 +1,33 @@
+---
+title: "Connect StackAdapt"
+description: "Connect your StackAdapt API token so Ryze can manage your programmatic campaigns and pull delivery reporting."
+---
+
+StackAdapt connects with your **own API token**. Ryze uses it to read advertisers, campaigns, and delivery stats, and to create and manage campaigns, campaign groups, and ads via the StackAdapt GraphQL API.
+
+<Note>
+StackAdapt issues API tokens **per account, on request** — there is no self-serve token page. The token carries your account's permissions, so Ryze can only touch what your StackAdapt seat can.
+</Note>
+
+## Step 1 — Request an API token
+
+<Steps>
+  <Step title="Contact StackAdapt">
+    Ask your StackAdapt account manager (or [support](https://support.stackadapt.com)) for a **GraphQL API token** for your account.
+  </Step>
+  <Step title="Copy the token">
+    StackAdapt sends the token directly. Store it somewhere safe — treat it like a password.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the StackAdapt card, paste the token into the **API token** field, and click **Continue**. Ryze validates the token against your account before saving and shows the account email on the integration card.
+
+## Troubleshooting
+
+- **Token rejected** — confirm you received a GraphQL API token (the legacy REST token is being sunset) and that it was copied in full.
+- **Unauthorized errors after connecting** — the token was revoked or rotated on StackAdapt's side. Request a fresh token and reconnect.
+- **Missing campaigns or advertisers** — the token only sees what your StackAdapt account can; check your seat's permissions with your account manager.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
