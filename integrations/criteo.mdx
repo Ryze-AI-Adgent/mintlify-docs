@@ -16,13 +16,20 @@ You need access to the **Criteo Developer Portal** with your Criteo account. The
     Go to [partners.criteo.com](https://partners.criteo.com) and sign in with your Criteo account.
   </Step>
   <Step title="Create an app">
-    In **My apps**, click **+** to create a new app. Name it `Ryze`, choose the **Marketing Solutions** service, and select the **Client Credentials** authentication method. Grant the app read and manage scopes for campaigns and analytics.
+    In **My apps**, click **+** to create a new app and name it `Ryze`. During activation, choose the **C-Growth and Marketing Solutions** service and grant read and manage permissions for campaigns and analytics.
+    <Frame><img src="/images/criteo-create-app.gif" alt="Choosing the C-Growth and Marketing Solutions service while activating an app in the Criteo Developer Portal" /></Frame>
+  </Step>
+  <Step title="Pick Client Credentials">
+    On the authentication method step, select **Client credentials** — it is built for a single Criteo client connecting its own data.
+    <Frame><img src="/images/criteo-client-credentials.jpg" alt="The authentication method step with the Client credentials option selected" /></Frame>
   </Step>
   <Step title="Consent the app to your advertisers">
-    Authorize the app for the advertiser accounts you want Ryze to manage — Criteo generates a consent link on the app page; approve it with your Criteo Commerce Growth login.
+    On the app page, click **Generate new URL** to create a consent link, open it, and approve access for the advertiser accounts you want Ryze to manage.
+    <Frame><img src="/images/criteo-consent.gif" alt="Generating a consent URL from the application details page" /></Frame>
   </Step>
   <Step title="Generate the key">
-    On the app page, click **Generate new key**. A file downloads with your **client ID** and **client secret** — the secret is shown only once, so keep the file.
+    Under **App credentials**, click **Generate new key**. A file downloads with your **client ID** and **client secret** — the secret is shown only once, so keep the file.
+    <Frame><img src="/images/criteo-generate-key.gif" alt="Generating an API key from the app page in the Criteo Developer Portal" /></Frame>
   </Step>
 </Steps>
 
