@@ -93,6 +93,7 @@
             "pages": [
               "billing/invoices-and-payment",
               "billing/manage-subscription",
+              "billing/referral-program",
               "billing/faq"
             ]
           },
