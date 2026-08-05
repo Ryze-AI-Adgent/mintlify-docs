@@ -11,6 +11,12 @@
     "family": "Plus Jakarta Sans"
   },
   "favicon": "/favicon.ico",
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_2EKyk5r94oAEpLqOk0GPV7b0mjAWmpBiQI77Lfw1S5k",
+      "apiHost": "https://us.i.posthog.com"
+    }
+  },
   "seo": {
     "metatags": {
       "description": "Help center for Ryze AI — the AI ad manager for Meta, Google, TikTok, and more.",
