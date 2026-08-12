@@ -49,6 +49,10 @@ If our defaults work for you, the default connection is faster. Otherwise, follo
     ```
     read_analytics,read_content,read_metaobjects,read_orders,read_products,read_publications,read_reports,read_themes,write_content,write_metaobjects,write_products,write_publications,write_themes
     ```
+
+    <Note>
+      A custom app can also grant scopes our default connection never requests. Add these only if you need them: `read_markets,write_markets` for market and domain settings, and `write_online_store_navigation` for URL redirects. Proposals that depend on these stay **Blocked** on the default connection, because those scopes are not part of the standard Ryze app.
+    </Note>
     <Frame><img src="/images/shopify-step-7.png" alt="Add the required scopes" /></Frame>
   </Step>
   <Step title="Add the redirect URL">
