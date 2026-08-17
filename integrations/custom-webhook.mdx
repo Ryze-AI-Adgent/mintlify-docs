@@ -17,11 +17,21 @@ Every time an article publishes, Ryze sends one HTTP request to your endpoint:
 {
   "slug": "example-article-slug",
   "title": "Article headline",
-  "content": "<p>Full HTML body…</p>",
+  "body_markdown": "Full article in Markdown...",
+  "body_html": "<p>Full article as rendered HTML...</p>",
+  "blocks": [],
+  "meta_title": "SEO title tag",
+  "meta_description": "SEO meta description.",
   "excerpt": "Short summary of the article.",
-  "publishedAt": "2026-08-16T20:00:00.000Z"
+  "primary_keyword": "example keyword",
+  "image": { "url": "https://.../featured.jpg", "alt": "Featured image alt text" },
+  "published_at": "2026-08-16T20:00:00.000Z",
+  "updated_at": "2026-08-16T20:00:00.000Z",
+  "status": "published"
 }
 ```
+
+Use whichever content field fits your renderer: `body_html` is ready-to-serve HTML, `body_markdown` is the same article in Markdown, and `blocks` carries Ryze's structured rich blocks (TL;DR, stats, FAQ) when the article has them. `image.url` is a permanently hosted copy of the featured image — save it or hotlink it. `primary_keyword` and `image` can be `null`.
 
 Your endpoint should **upsert by `slug`** — if an article with that slug already exists, replace it. Republishing an updated article sends the same slug again, and your upsert is what makes the update land. Return any `2xx` status to confirm; anything else (including redirects) is treated as a failure and shown in Ryze with your endpoint's response.
 
@@ -35,7 +45,7 @@ Your endpoint should **upsert by `slug`** — if an article with that slug alrea
     Generate a long random token and have the endpoint reject any request whose `Authorization: Bearer` header doesn't match it.
   </Step>
   <Step title="Save the article">
-    Parse the JSON body and store the article so your site renders it at a stable URL — ideally `your blog URL + slug` (see below). Upsert by `slug` and respond `200`.
+    Parse the JSON body, store the article (most receivers save `body_html` plus the meta fields) so your site renders it at a stable URL — ideally `your blog URL + slug` (see below). Upsert by `slug` and respond `200`.
   </Step>
 </Steps>
 
@@ -57,7 +67,7 @@ The article's public link is built as **Blog URL + slug** (e.g. `https://yoursit
 
 - **Publishing and updating** work fully — every publish and republish is a POST your endpoint upserts.
 - **Removing** an article is not part of the contract. When you delete an article in Ryze, the live copy stays on your site until you remove it there — Ryze tells you this wherever it applies.
-- **Images**: the payload carries the article HTML only. Featured images are not included.
+- **Images**: the featured image arrives as a hosted `image.url` you can save or hotlink. Inline article images are already embedded in `body_html`.
 
 ## Troubleshooting
 
