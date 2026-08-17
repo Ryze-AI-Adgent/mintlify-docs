@@ -1,0 +1,69 @@
+---
+title: "Connect a Custom Webhook"
+description: "Publish Ryze articles to any custom site or CMS through a webhook endpoint you control."
+---
+
+The Custom Webhook integration is for sites Ryze has no native integration for — custom CMSes, site builders, or your own stack. You build one small endpoint on your site; Ryze POSTs every article to it as JSON, and your endpoint saves it wherever your site reads content from.
+
+## How it works
+
+Every time an article publishes, Ryze sends one HTTP request to your endpoint:
+
+- **Method**: `POST`
+- **Headers**: `Authorization: Bearer <your token>`, `Content-Type: application/json`
+- **Body**:
+
+```json
+{
+  "slug": "example-article-slug",
+  "title": "Article headline",
+  "content": "<p>Full HTML body…</p>",
+  "excerpt": "Short summary of the article.",
+  "publishedAt": "2026-08-16T20:00:00.000Z"
+}
+```
+
+Your endpoint should **upsert by `slug`** — if an article with that slug already exists, replace it. Republishing an updated article sends the same slug again, and your upsert is what makes the update land. Return any `2xx` status to confirm; anything else (including redirects) is treated as a failure and shown in Ryze with your endpoint's response.
+
+## Step 1 — Build the endpoint on your site
+
+<Steps>
+  <Step title="Create a POST route">
+    Add an HTTPS endpoint on your site, e.g. `https://yoursite.com/api/articles/webhook`. Plain HTTP is not accepted.
+  </Step>
+  <Step title="Check the bearer token">
+    Generate a long random token and have the endpoint reject any request whose `Authorization: Bearer` header doesn't match it.
+  </Step>
+  <Step title="Save the article">
+    Parse the JSON body and store the article so your site renders it at a stable URL — ideally `your blog URL + slug` (see below). Upsert by `slug` and respond `200`.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Custom Webhook** card and fill in:
+
+- **Webhook URL** — the endpoint you built, e.g. `https://yoursite.com/api/articles/webhook`
+- **Bearer token** — the token your endpoint expects (stored encrypted)
+- **Blog URL** — where published articles appear publicly, e.g. `https://yoursite.com/blog`
+
+Click **Continue** and the integration is live — the next published article hits your endpoint.
+
+<Note>
+The article's public link is built as **Blog URL + slug** (e.g. `https://yoursite.com/blog/example-article-slug`). Make sure your site serves articles at that path — Ryze also uses it to periodically verify published pages are still live.
+</Note>
+
+## What the webhook can and can't do
+
+- **Publishing and updating** work fully — every publish and republish is a POST your endpoint upserts.
+- **Removing** an article is not part of the contract. When you delete an article in Ryze, the live copy stays on your site until you remove it there — Ryze tells you this wherever it applies.
+- **Images**: the payload carries the article HTML only. Featured images are not included.
+
+## Troubleshooting
+
+- **"rejected the article (HTTP 401/403)"** — the bearer token in Ryze doesn't match what your endpoint checks. Reconnect with the right token.
+- **"rejected the article (HTTP 30x)"** — your endpoint redirected. Ryze doesn't follow redirects; point the Webhook URL at the final address.
+- **"could not be reached"** — the endpoint is down, unreachable from the public internet, or not answering within 30 seconds.
+- **Article publishes but the page 404s** — your site isn't serving the article at `Blog URL + slug`; adjust the route or the Blog URL so they match.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -73,6 +73,7 @@
               "integrations/github",
               "integrations/ghost",
               "integrations/ryze-hosting",
+              "integrations/custom-webhook",
               "integrations/openai",
               "integrations/ahrefs",
               "integrations/semrush",
