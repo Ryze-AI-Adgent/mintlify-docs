@@ -131,6 +131,50 @@
         ]
       },
       {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "guides/overview",
+              "guides/platform-overview",
+              "guides/agent",
+              "guides/brand"
+            ]
+          },
+          {
+            "group": "SEO",
+            "pages": [
+              "guides/seo-setup",
+              "guides/writing-articles",
+              "guides/publishing",
+              "guides/blog-studio",
+              "guides/technical-audit",
+              "guides/ai-visibility",
+              "guides/backlink-exchange"
+            ]
+          },
+          {
+            "group": "Paid Ads",
+            "pages": [
+              "guides/paid-ads",
+              "guides/ad-creatives",
+              "guides/ad-templates",
+              "guides/competitor-ads"
+            ]
+          },
+          {
+            "group": "Automation",
+            "pages": [
+              "guides/approvals",
+              "guides/schedules",
+              "guides/reports",
+              "guides/connect-claude"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "SEO",
         "groups": [
           {
