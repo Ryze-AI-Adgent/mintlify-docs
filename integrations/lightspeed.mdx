@@ -1,0 +1,41 @@
+---
+title: "Connect Lightspeed eCom"
+description: "Connect your Lightspeed eCom store with an API key and secret so Ryze can publish blog articles straight to your store."
+---
+
+Lightspeed eCom connects with an **API key and secret** you create in your store's back office. Once connected, programmatic articles publish straight to the blog you pick on your Lightspeed store.
+
+## Step 1 — Create an API key in Lightspeed
+
+<Steps>
+  <Step title="Open Developers">
+    In your store's **Back office**, go to **Settings → Developers → API keys**.
+  </Step>
+  <Step title="Create a key">
+    Create a new key with **Blogs — read and write** access, and copy both the **API key** and the **API secret**.
+  </Step>
+  <Step title="Note your shop language code">
+    It's the language segment in your store URL — for example `en`, `us`, or `nl`.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Lightspeed eCom** card and fill in:
+
+- **API key** and **API secret** — from the key you just created
+- **Shop language code** — e.g. `en`
+
+Click **Continue**. Ryze detects your store's cluster automatically and verifies the credentials.
+
+## Step 3 — Choose the blog
+
+Pick the **Blog** articles should publish to. The card then shows the blog, cluster, and language.
+
+## Troubleshooting
+
+- **Credentials rejected** — check the key has **Blogs read/write** and that the secret belongs to the same key.
+- **No blogs listed** — create a blog in Lightspeed first (Back office → Content → Blogs), then reconnect.
+- **Wrong language** — the language code must match the segment in your storefront URL; reconnect with the right one.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

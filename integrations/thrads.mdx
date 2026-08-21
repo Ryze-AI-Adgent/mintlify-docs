@@ -1,0 +1,32 @@
+---
+title: "Connect Thrad"
+description: "Connect Thrad with an API key so Ryze can read and manage campaigns, ad groups, ads, and insights across Thrad and ChatGPT supply."
+---
+
+Thrad connects with an **API key** you create in the Thrad Platform dashboard. Once connected, the agent can read campaigns, ad groups, ads, and insights for your Thrad account — including ads running on ChatGPT supply — and manage them when you ask.
+
+## Step 1 — Create an API key in Thrad
+
+<Steps>
+  <Step title="Open API keys">
+    In the **Thrad Platform** dashboard, go to **Settings → API keys**.
+  </Step>
+  <Step title="Create a key">
+    Create a new key and copy it. Thrad keys start with `ak_`.
+  </Step>
+</Steps>
+
+<Note>
+Thrad allows **one active key per organization**. If you create a new one, the old one stops working — update Ryze if you rotate it.
+</Note>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Thrad** card, paste the key into **API key**, and click **Continue**. Ryze verifies the key and shows the ad account name on the card.
+
+## Troubleshooting
+
+- **Key rejected** — make sure you copied the full key starting with `ak_`, and that it's the currently active key for your organization.
+- **Connection stopped working** — someone created a new key in Thrad, which deactivated the one Ryze holds. Paste the new key via **Reconnect**.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

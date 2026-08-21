@@ -55,6 +55,12 @@ After the token is verified, pick the **site** that hosts your blog and the **CM
 
 Ryze maps your collection's fields automatically — title, slug, body, and the featured image land in the right places without manual field mapping.
 
+
+<Note>
+**Collections with extra required fields.** Ryze fills title, slug, body, excerpt, date, and the featured image. If your collection has *other* required fields (for example a `tag` or `category` field), Ryze fills them automatically with a value it finds on your existing items — a valid option, reference, plain text, or date. If a required field has no usable value to copy (or is an image, file, or multi-reference), Ryze tells you exactly which field to make optional or give a default, at setup time, instead of failing on every publish.
+</Note>
+
+
 ## Troubleshooting
 
 - **Token rejected** — make sure it's a **site token** from that site's settings, not a workspace token, and that the CMS scope is set to Read and write.

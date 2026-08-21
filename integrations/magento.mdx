@@ -1,0 +1,37 @@
+---
+title: "Connect Magento"
+description: "Connect your Magento 2 / Adobe Commerce store with an integration access token so Ryze can read and edit products, categories, and CMS pages."
+---
+
+Magento connects with an **integration access token** you create in the Magento admin. Once connected, the agent can read and edit products, categories, and CMS pages through the Magento 2 / Adobe Commerce REST API.
+
+## Step 1 — Create an integration in Magento
+
+<Steps>
+  <Step title="Open Integrations">
+    In the Magento admin, go to **System → Extensions → Integrations** and click **Add New Integration**.
+  </Step>
+  <Step title="Grant resources">
+    In the **API** tab, grant the **Catalog**, **Content**, and **Stores** resources.
+  </Step>
+  <Step title="Save and activate">
+    Save the integration, click **Activate**, approve the access, and copy the **Access Token**.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Magento** card and fill in:
+
+- **Store URL** — the root URL of your store, e.g. `https://store.example.com` (without `/rest`)
+- **Access token** — the integration access token you copied
+
+Click **Continue**. The card shows **Connected** with your store and its store views.
+
+## Troubleshooting
+
+- **Token rejected** — make sure the integration is **activated** (not just saved) and that you copied the Access Token, not the consumer key.
+- **Can't reach the store** — the Store URL must be the site root with `https://`, without `/rest` or an admin path.
+- **Category edits fail** — some category fields are read-only in the Magento API; the agent strips the standard ones automatically, but custom read-only attributes may need excluding on your side.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

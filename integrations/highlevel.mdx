@@ -1,0 +1,42 @@
+---
+title: "Connect HighLevel"
+description: "Connect a HighLevel (GoHighLevel) sub-account with a private integration token so Ryze can publish articles to your HighLevel blog."
+---
+
+HighLevel connects with a **private integration token** from the sub-account that owns your blog. Once connected, programmatic articles publish straight to the HighLevel blog you pick.
+
+<Note>
+HighLevel needs an existing blog in the sub-account. If there is no blog yet, create one in HighLevel first — the connection can't finish without one to publish to.
+</Note>
+
+## Step 1 — Create a private integration token
+
+<Steps>
+  <Step title="Open Private Integrations">
+    In the HighLevel **sub-account**, go to **Settings → Private Integrations**.
+  </Step>
+  <Step title="Create a token with Blogs scopes">
+    Create a token and grant the **Blogs** scopes (View and Edit Blogs). Copy the token.
+  </Step>
+  <Step title="Find the Location ID">
+    In the same sub-account, go to **Settings → Business Profile** and copy the **Location ID**.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **HighLevel** card and fill in:
+
+- **Private integration token** — the token you created
+- **Location ID** — from Business Profile
+- **Blog URL** — the public URL where your blog posts live, e.g. `https://yoursite.com/blog` (used to link published articles)
+
+Click **Continue**, then pick the **Blog** to publish to. The card shows the blog and location.
+
+## Troubleshooting
+
+- **Nothing saves / "couldn't complete"** — the sub-account has no blog, or the token is missing the Blogs scopes. Create a blog and re-create the token with **View and Edit Blogs** in the same location.
+- **"Token does not have access to this location"** — the token was created in a different sub-account than the Location ID. Both must come from the same sub-account.
+- **Blog URL rejected** — it must be a public `https://` URL.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

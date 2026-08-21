@@ -9,11 +9,15 @@ description: "Connect Google, Meta, Analytics and more so Claude can read your d
 
 Before Claude can answer questions about your accounts, connect your platforms in Ryze. This happens in your workspace settings, not in Claude.
 
-Ryze supports **50+ integrations** — connect any of them. They're grouped into three categories:
+Ryze supports **50+ integrations** — connect any of them. They're grouped into seven categories, matching the filters on the Integrations page:
 
-- **Analytics** — Google Analytics, Search Console, and more
-- **Advertising** — Google Ads, Meta, and every other ad platform
-- **Commerce & CMS** — Shopify, WordPress, Framer, and more
+- **AI** — Claude MCP, ChatGPT MCP, and bring-your-own Anthropic key
+- **Analytics** — Google Analytics, Search Console, Ahrefs, Semrush, PostHog, AppsFlyer
+- **Commerce & CMS** — Shopify, WordPress, Webflow, Framer, Wix, GitHub, Ghost, HubSpot, HighLevel, Lightspeed eCom, Magento, Directus, Custom Webhook, Ryze Hosting
+- **CRM** — Zoho CRM
+- **Advertising** — Google Ads, Meta Ads, LinkedIn Ads, Microsoft Ads, TikTok Ads, Snapchat Ads, Reddit Ads, Pinterest Ads, OpenAI Ads, Thrad, Criteo, StackAdapt
+- **Messaging** — Slack, Klaviyo, Mailchimp
+- **Files** — Google Drive
 
 ## Open Integrations
 
@@ -53,35 +57,67 @@ You can connect more than one account for the same platform in a single workspac
 
 ## Platform setup guides
 
+### Advertising
+
 <CardGroup cols={2}>
-  <Card title="WordPress" icon="wordpress" href="/integrations/wordpress">
-    Connect with an application password.
-  </Card>
-  <Card title="Framer" icon="f" href="/integrations/framer">
-    Connect with a project URL and API key.
-  </Card>
-  <Card title="GitHub" icon="github" href="/integrations/github">
-    Publish articles as JSON files committed to your repo.
-  </Card>
-  <Card title="OpenAI Ads" icon="robot" href="/integrations/openai">
-    Connect OpenAI Ads with an API key.
-  </Card>
-  <Card title="Klaviyo" icon="envelope" href="/integrations/klaviyo">
-    Connect Klaviyo with a private API key.
-  </Card>
-  <Card title="Ghost" icon="ghost" href="/integrations/ghost">
-    Publish to Ghost with an Admin API key.
-  </Card>
-  <Card title="Ryze Hosting" icon="globe" href="/integrations/ryze-hosting">
-    Host your blog on your own domain.
-  </Card>
-  <Card title="Ahrefs" icon="chart-line" href="/integrations/ahrefs">
-    Connect your own Ahrefs API key.
-  </Card>
-  <Card title="Semrush" icon="magnifying-glass-chart" href="/integrations/semrush">
-    Connect your own Semrush API key.
-  </Card>
-  <Card title="HubSpot" icon="hubspot" href="/integrations/hubspot">
-    Connect HubSpot CRM and CMS with OAuth.
-  </Card>
+  <Card title="Google Ads" icon="google" href="/integrations/google-ads">Connect with your Google login.</Card>
+  <Card title="Meta Ads" icon="meta" href="/integrations/meta-ads">Connect Facebook and Instagram ads.</Card>
+  <Card title="LinkedIn Ads" icon="linkedin" href="/integrations/linkedin-ads">Connect with your LinkedIn login.</Card>
+  <Card title="Microsoft Ads" icon="microsoft" href="/integrations/microsoft-ads">Connect with a Microsoft or Google login.</Card>
+  <Card title="TikTok Ads" icon="tiktok" href="/integrations/tiktok-ads">Connect with your TikTok for Business login.</Card>
+  <Card title="Snapchat Ads" icon="snapchat" href="/integrations/snapchat-ads">Connect with your Snapchat Ads login.</Card>
+  <Card title="Reddit Ads" icon="reddit" href="/integrations/reddit-ads">Connect with your Reddit Ads login.</Card>
+  <Card title="Pinterest Ads" icon="pinterest" href="/integrations/pinterest-ads">Connect with your Pinterest login.</Card>
+  <Card title="OpenAI Ads" icon="robot" href="/integrations/openai">Connect OpenAI Ads with an API key.</Card>
+  <Card title="Thrad" icon="bullhorn" href="/integrations/thrads">Connect Thrad with an API key.</Card>
+  <Card title="Criteo" icon="chart-simple" href="/integrations/criteo">Connect Criteo Marketing Solutions.</Card>
+  <Card title="StackAdapt" icon="layer-group" href="/integrations/stackadapt">Connect StackAdapt programmatic.</Card>
+</CardGroup>
+
+### Analytics
+
+<CardGroup cols={2}>
+  <Card title="Google Search Console" icon="google" href="/integrations/google-search-console">Queries, impressions, clicks, indexation.</Card>
+  <Card title="Google Analytics" icon="chart-line" href="/integrations/google-analytics">Traffic, landing pages, conversions.</Card>
+  <Card title="Ahrefs" icon="chart-line" href="/integrations/ahrefs">Connect your own Ahrefs API key.</Card>
+  <Card title="Semrush" icon="magnifying-glass-chart" href="/integrations/semrush">Connect your own Semrush API key.</Card>
+  <Card title="PostHog" icon="hedgehog" href="/integrations/posthog">Product analytics with a personal API key.</Card>
+  <Card title="AppsFlyer" icon="mobile" href="/integrations/appsflyer">Mobile attribution with a Pull API token.</Card>
+</CardGroup>
+
+### Commerce & CMS
+
+<CardGroup cols={2}>
+  <Card title="Shopify" icon="shopify" href="/integrations/shopify">One-click Shopify app, or a custom app.</Card>
+  <Card title="WordPress" icon="wordpress" href="/integrations/wordpress">Connect with an application password.</Card>
+  <Card title="Webflow" icon="webflow" href="/integrations/webflow">Publish into a CMS collection with a site token.</Card>
+  <Card title="Framer" icon="f" href="/integrations/framer">Connect with a project URL and API key.</Card>
+  <Card title="Wix" icon="wix" href="/integrations/wix">Auto-publish to your Wix blog.</Card>
+  <Card title="GitHub" icon="github" href="/integrations/github">Publish articles as files committed to your repo.</Card>
+  <Card title="Ghost" icon="ghost" href="/integrations/ghost">Publish to Ghost with an Admin API key.</Card>
+  <Card title="HubSpot" icon="hubspot" href="/integrations/hubspot">Connect HubSpot CRM and CMS with OAuth.</Card>
+  <Card title="HighLevel" icon="h" href="/integrations/highlevel">Publish to a HighLevel blog with a private token.</Card>
+  <Card title="Lightspeed eCom" icon="store" href="/integrations/lightspeed">Publish to your Lightspeed store blog.</Card>
+  <Card title="Magento" icon="cart-shopping" href="/integrations/magento">Products, categories and CMS pages via access token.</Card>
+  <Card title="Directus" icon="database" href="/integrations/directus">Publish into a Directus collection.</Card>
+  <Card title="Custom Webhook" icon="webhook" href="/integrations/custom-webhook">Publish to any CMS via your own endpoint.</Card>
+  <Card title="Ryze Hosting" icon="globe" href="/integrations/ryze-hosting">Host your blog on your own domain.</Card>
+</CardGroup>
+
+### CRM, Messaging & Files
+
+<CardGroup cols={2}>
+  <Card title="Zoho CRM" icon="address-book" href="/integrations/zoho-crm">Read and edit CRM records with OAuth.</Card>
+  <Card title="Slack" icon="slack" href="/integrations/slack">Ask the agent inside Slack.</Card>
+  <Card title="Klaviyo" icon="envelope" href="/integrations/klaviyo">Connect Klaviyo with a private API key.</Card>
+  <Card title="Mailchimp" icon="envelope-open" href="/integrations/mailchimp">Audiences, campaigns and reports via API key.</Card>
+  <Card title="Google Drive" icon="google-drive" href="/integrations/google-drive">Hand the agent Sheets, Docs and files you pick.</Card>
+</CardGroup>
+
+### AI
+
+<CardGroup cols={2}>
+  <Card title="Claude MCP" icon="robot" href="/claude/connect">Add Ryze to Claude as a connector.</Card>
+  <Card title="ChatGPT MCP" icon="comments" href="/chatgpt/connect">Add Ryze to ChatGPT as a connector.</Card>
+  <Card title="Anthropic (BYOK)" icon="key" href="/integrations/anthropic">Run chat on your own Anthropic API key.</Card>
 </CardGroup>

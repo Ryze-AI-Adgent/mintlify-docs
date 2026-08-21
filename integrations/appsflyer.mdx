@@ -1,0 +1,36 @@
+---
+title: "Connect AppsFlyer"
+description: "Connect AppsFlyer with a Pull API token so Ryze can read mobile attribution — installs, in-app events, and aggregate metrics."
+---
+
+AppsFlyer connects with a **Pull API V2.0 token** — read-only is enough. Once connected, the agent can pull installs, in-app events, and aggregate attribution metrics for your app and combine them with your ad platforms in one answer.
+
+## Step 1 — Get your Pull API token
+
+<Steps>
+  <Step title="Open the Security Center">
+    In AppsFlyer, go to **Security Center → Manage your AppsFlyer API tokens**.
+  </Step>
+  <Step title="Copy the V2.0 token">
+    Copy the **V2.0** token. A read-only token is sufficient.
+  </Step>
+  <Step title="Note your App ID">
+    You'll also need the app identifier: the Android package name (e.g. `com.company.app`) or the iOS id (e.g. `id123456`).
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **AppsFlyer** card and fill in:
+
+- **Pull API token (V2.0)** — the token you copied
+- **App ID** — the package name or iOS id; this becomes the default app for reports
+
+Click **Continue**. The card shows **Connected** with the default app.
+
+## Troubleshooting
+
+- **Token rejected** — make sure it's the **V2.0** Pull API token from the Security Center, not a legacy V1 token.
+- **Wrong app in reports** — the App ID you entered is the default; you can connect again with another App ID to add a second app.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

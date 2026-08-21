@@ -1,0 +1,28 @@
+---
+title: "Connect Mailchimp"
+description: "Connect Mailchimp with an API key so Ryze can read audiences, campaigns, automations, and reports."
+---
+
+Mailchimp connects with an **API key**. Once connected, the agent can read your audiences, campaigns, automations, and reports through the Marketing API.
+
+## Step 1 — Create an API key
+
+<Steps>
+  <Step title="Open API keys">
+    In Mailchimp, go to **Account & billing → Extras → API keys**.
+  </Step>
+  <Step title="Create a key">
+    Click **Create A Key** and copy it. The key ends with your datacenter, e.g. `-us21`.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Mailchimp** card, paste the key into **API key**, and click **Continue**. Ryze reads the datacenter from the key suffix and shows your account name on the card.
+
+## Troubleshooting
+
+- **Key rejected** — copy the full key including the `-usXX` suffix; without it Ryze can't route to your datacenter.
+- **Wrong account** — each key belongs to one Mailchimp account. Create the key while logged in to the account you want.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

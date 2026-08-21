@@ -55,6 +55,17 @@ Once verified, HTTPS is issued automatically and your blog is live at your domai
 
 With Ryze Hosting connected, it works like any other publishing destination — programmatic articles publish to your hosted blog on schedule. See [Programmatic Articles](/seo/programmatic).
 
+## Keeping the hosted blog out of Google
+
+If you publish the same articles to your own CMS as well, the hosted copy can compete with your site for the same searches. You can switch the hosted copy off search entirely: in **Blog Studio → SEO**, turn on **Keep this blog out of Google**.
+
+When it's on, three things change together so nothing contradicts: the blog's `robots.txt` disallows crawling, the sitemap lists no articles, and every hosted page (index and articles) carries a `noindex, nofollow` tag. The SEO panel notes that the blog is hidden while the toggle is on. Switch it off to let search engines index the hosted blog again.
+
+<Note>
+This only affects the Ryze-hosted copy — articles published to your own CMS are not touched. Hosted blogs on the default `*.byryze.com` address also don't take part in the [Backlink Exchange](/seo/backlink-exchange); a custom domain connected here does.
+</Note>
+
+
 ## Troubleshooting
 
 - **Not verifying** — DNS can take up to an hour. Confirm the record type matches your domain (CNAME for a subdomain, A for a root), and that the name and value are exact.

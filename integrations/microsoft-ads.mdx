@@ -1,0 +1,43 @@
+---
+title: "Connect Microsoft Ads"
+description: "Connect Microsoft Advertising so Ryze can read campaign performance, spend, and keyword insights, and include it in your dashboards."
+---
+
+Microsoft Ads connects with **OAuth** — you sign in to Microsoft Ads and approve access, no keys to copy. Once connected, you can ask the agent about campaign performance, spend, and keywords in plain language, in Ryze or through Claude and ChatGPT.
+
+## Connect in Ryze
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **Workspace Settings → Integrations** and find the **Microsoft Ads** card (use the **Advertising** filter or the search box).
+  </Step>
+  <Step title="Click Connect">
+    You're sent to Microsoft Ads to sign in. Use the login that has access to the ad account you want Ryze to work with.
+  </Step>
+  <Step title="Approve access">
+    Approve the permissions Microsoft Ads asks for. Ryze only requests what it needs to read performance data and manage the accounts you choose.
+  </Step>
+  <Step title="Pick the ad account">
+    Back in Ryze, choose the ad account. The card then shows **Connected** with the account name.
+  </Step>
+</Steps>
+
+<Note>
+When you click **Connect**, Ryze asks how you sign in to Microsoft Advertising — with a **Microsoft account** or with a **Google account**. Pick the one you actually use; the wrong choice sends you to a login that doesn't own the ad account.
+</Note>
+
+## Connect more than one account
+
+You can connect several Microsoft Ads accounts to the same workspace — click **Connect** again and sign in with the other login, or pick another account under the same login. Each connection is listed on the card. See [Connect multiple accounts](/integrations/multiple-accounts).
+
+## Troubleshooting
+
+- **Card shows "Reconnect needed"** — Microsoft Ads expired or revoked the access (password change, permission change, or a teammate reconnecting). Click **Reconnect** and sign in again.
+- **The account you want isn't listed** — the login you used doesn't have access to that ad account in Microsoft Ads. Sign in with a login that does, or ask the account owner to grant you access, then reconnect.
+- **Signed in but no ad account found** — you picked the wrong sign-in type (Microsoft vs Google). Disconnect and connect again with the other one.
+
+<Tip>
+After connecting, start a **new chat** in Claude or ChatGPT so it picks up the new tools.
+</Tip>
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

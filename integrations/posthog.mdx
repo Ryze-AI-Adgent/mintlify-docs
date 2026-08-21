@@ -1,0 +1,33 @@
+---
+title: "Connect PostHog"
+description: "Connect PostHog with a personal API key so Ryze can read product analytics — events, insights, funnels, and HogQL queries."
+---
+
+PostHog connects with a **personal API key**. Once connected, the agent can read events, insights, and funnels, and run HogQL queries against the project you pick — putting product analytics next to your ads and SEO data in one answer.
+
+## Step 1 — Create a personal API key
+
+<Steps>
+  <Step title="Open Personal API keys">
+    In PostHog, go to **Settings → Personal API keys** and click **Create key**.
+  </Step>
+  <Step title="Give it read access">
+    Grant read access to the projects you want, including the **Query** and **Insight** scopes. Copy the key — it starts with `phx_`.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **PostHog** card and fill in:
+
+- **Personal API key** — the `phx_` key
+- **Host** — `https://us.posthog.com` for US Cloud, `https://eu.posthog.com` for EU Cloud, or your self-hosted URL
+
+Click **Continue**, then pick the **Project**. The card shows the project and host.
+
+## Troubleshooting
+
+- **Key rejected** — check the host matches where your account lives (US vs EU), and that the key has the Query and Insight scopes.
+- **Project missing** — the key has no read access to that project. Edit the key's project access in PostHog and reconnect.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

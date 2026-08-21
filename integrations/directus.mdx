@@ -1,0 +1,39 @@
+---
+title: "Connect Directus"
+description: "Connect your Directus project with a static access token so Ryze can publish articles to a collection and manage content via the REST API."
+---
+
+Directus connects with a **static access token** from a Directus user whose role can read and write your blog collection. Once connected, programmatic articles publish into the collection you choose.
+
+## Step 1 — Create a static token in Directus
+
+<Steps>
+  <Step title="Pick a user">
+    In Directus, open the **User directory** and pick (or create) a user with the right role for your blog collection.
+  </Step>
+  <Step title="Generate a token">
+    On that user, find **Token**, click **Generate**, copy the token, and **save the user**.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Directus** card and fill in:
+
+- **Instance URL** — where your Directus Data Studio runs, e.g. `https://your-project.directus.app` (no trailing path)
+- **Static access token** — the token you generated
+- **Blog URL** — the public URL where your posts live, e.g. `https://yoursite.com/blog`
+
+Click **Continue**, then pick the **Collection** articles should publish to.
+
+<Note>
+If your Directus instance sits behind a proxy or load balancer that requires a custom request header, Ryze can send it on every request. Email [support@get-ryze.ai](mailto:support@get-ryze.ai) with the header name and value and we'll add it to your connection.
+</Note>
+
+## Troubleshooting
+
+- **Token rejected** — the token was generated but the user wasn't saved afterwards. Generate again and click Save.
+- **Collection missing** — the user's role can't see it. Grant the role read/write on the collection and reconnect.
+- **Instance unreachable** — the URL must be the Data Studio origin with `https://` and nothing after the domain.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
