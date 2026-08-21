@@ -1,0 +1,76 @@
+---
+title: "Connect a Custom MCP Server"
+description: "Give the Ryze agent tools from any remote MCP server — internal APIs, databases, or third-party services."
+---
+
+The Custom MCP Server integration connects the Ryze agent to any remote **MCP** (Model Context Protocol) server. MCP is an open standard for exposing tools to AI agents — if a service speaks MCP, the Ryze agent can use its tools alongside your marketing accounts: look up documentation, query an internal database, or act on a third-party service.
+
+This is the reverse of the [Ryze MCP server](/integrations/mcp-server): that one exposes Ryze to Claude and ChatGPT; this one pulls outside tools into the Ryze agent.
+
+## Connect a server
+
+<Steps>
+  <Step title="Open the connect dialog">
+    Go to **Workspace Settings → Integrations**, find **Custom MCP Server** and click **Connect**.
+  </Step>
+  <Step title="Enter the server details">
+    Give the connection a **Name** (so you can tell your servers apart) and paste the **Remote MCP server URL** — the HTTPS address where the server accepts MCP requests, for example `https://your-server.com/mcp`.
+  </Step>
+  <Step title="Click Add">
+    Ryze connects to the server and reads its tool list. If the server requires sign-in, you are redirected to its authorization page — approve access and you land back in Ryze, connected. Open servers connect immediately.
+  </Step>
+</Steps>
+
+The connection card shows the server's name and how many tools it exposes.
+
+<Note>
+The **Advanced settings** fields (OAuth Client ID and Secret) are only needed for servers that don't support automatic client registration. Most servers do — leave them empty unless the server's documentation says otherwise.
+</Note>
+
+## Requirements
+
+- **HTTPS only** — the server must be reachable at a public `https://` URL. Local servers (`localhost`, private networks) are not supported; expose them through a tunnel if you need to test one.
+- **Remote transport** — the server must speak MCP over Streamable HTTP, the current standard for remote servers. Local stdio servers cannot be connected.
+- **Auth** — open servers and OAuth-protected servers both work. OAuth sign-in, token storage, and refresh are handled for you; tokens are stored encrypted.
+
+## How the agent uses it
+
+After connecting, the agent gets two tools per server:
+
+- **List tools** — reads the server's catalog: each tool's name, description, and input schema
+- **Call tool** — runs one of those tools with arguments matching its schema
+
+Tool calls that can change data on the connected server go through the same approval flow as every other Ryze integration, so nothing writes without your say-so.
+
+## Multiple servers
+
+You can connect as many servers as you need — each **Add** creates a separate connection, listed under the integration with its name and host. The agent tells them apart and picks the right one for each call.
+
+## Finding MCP servers
+
+The MCP project maintains an official registry of published servers at [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io). Many services also document their MCP endpoint directly — search the service's docs for "MCP".
+
+Public servers you can try right now, no sign-in needed:
+
+| Server | URL | What it does |
+| --- | --- | --- |
+| Context7 | `https://mcp.context7.com/mcp` | Up-to-date documentation for any code library |
+| DeepWiki | `https://mcp.deepwiki.com/mcp` | Ask questions about any public GitHub repository |
+| Microsoft Learn | `https://learn.microsoft.com/api/mcp` | Search Microsoft's official documentation |
+| Hugging Face | `https://hf.co/mcp` | Search AI models and datasets |
+
+## Troubleshooting
+
+**"Must be a public https:// MCP server URL."** The URL is plain HTTP, points at localhost or a private address, or isn't a valid URL. Use the server's public HTTPS endpoint.
+
+**Connect fails immediately.** The URL doesn't answer MCP requests — check the server's docs for the exact MCP endpoint path (often ending in `/mcp`).
+
+**"This server does not support automatic client registration."** Open the server's developer settings, create an OAuth client with redirect URL `https://reports.get-ryze.ai/api/auth/mcp-server/callback`, and enter its Client ID and Secret under **Advanced settings**.
+
+**Tools stopped working.** The server may have revoked access — disconnect and reconnect to re-authorize.
+
+## Related
+
+- [Connect your platforms](/integrations/overview)
+- [Managing multiple accounts](/integrations/managing-multiple-accounts)
+- [Ryze MCP server](/integrations/mcp-server)

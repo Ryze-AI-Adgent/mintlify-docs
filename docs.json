@@ -78,6 +78,7 @@
               "integrations/ahrefs",
               "integrations/semrush",
               "integrations/anthropic",
+              "integrations/custom-mcp",
               "integrations/klaviyo",
               "integrations/hubspot",
               "integrations/criteo",
