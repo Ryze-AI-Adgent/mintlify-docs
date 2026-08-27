@@ -19,15 +19,15 @@
   },
   "seo": {
     "metatags": {
-      "description": "Help center for Ryze AI \u2014 the AI ad manager for Meta, Google, TikTok, and more.",
+      "description": "Help center for Ryze AI — the AI ad manager for Meta, Google, TikTok, and more.",
       "og:type": "website",
       "og:site_name": "Ryze AI",
       "og:title": "Ryze AI Help Center",
-      "og:description": "Connect your ad accounts, set up Ryze in Claude, and manage billing \u2014 all in one place.",
+      "og:description": "Connect your ad accounts, set up Ryze in Claude, and manage billing — all in one place.",
       "og:image": "/images/og.png",
       "twitter:card": "summary_large_image",
       "twitter:title": "Ryze AI Help Center",
-      "twitter:description": "Connect your ad accounts, set up Ryze in Claude, and manage billing \u2014 all in one place.",
+      "twitter:description": "Connect your ad accounts, set up Ryze in Claude, and manage billing — all in one place.",
       "twitter:image": "/images/og.png"
     }
   },
@@ -73,7 +73,6 @@
               "integrations/github",
               "integrations/ghost",
               "integrations/ryze-hosting",
-              "integrations/hostinger",
               "integrations/custom-webhook",
               "integrations/openai",
               "integrations/ahrefs",
