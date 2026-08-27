@@ -1,0 +1,54 @@
+---
+title: "Hostinger Website Builder"
+description: "Publish your Ryze SEO articles for a Hostinger Website Builder site using a blog subdomain — one DNS record, five minutes."
+---
+
+Hostinger Website Builder doesn't offer a public content API, so Ryze can't write articles directly into its pages the way it does with Shopify or WordPress. The supported setup is a **blog subdomain**: your articles live on `blog.yourdomain.com`, hosted by Ryze, fully under your domain — so all the SEO value accrues to your site.
+
+<Note>
+This works for any site whose platform has no writable blog API — Hostinger Website Builder, Squarespace personal plans, and most website builders. If your Hostinger plan runs **WordPress** instead of Website Builder, connect [WordPress](/integrations/wordpress) directly — that's the better path.
+</Note>
+
+## How it works
+
+- Ryze hosts your blog at `blog.yourdomain.com` — a subdomain of **your** root domain.
+- Articles publish there automatically on your content schedule.
+- Search engines treat the subdomain as part of your site's presence, and every article links back to your main pages.
+
+## Step 1 — Add one DNS record
+
+<Steps>
+  <Step title="Open your DNS settings">
+    In Hostinger's hPanel go to **Domains → your domain → DNS / Name Servers**. (If your DNS is managed elsewhere — Cloudflare, GoDaddy — open the DNS records there instead.)
+  </Step>
+  <Step title="Create the CNAME">
+    Add a new record:
+
+    | Type | Name | Target |
+    |------|------|--------|
+    | CNAME | `blog` | `cname.vercel-dns.com` |
+
+    Leave TTL at the default.
+  </Step>
+  <Step title="Save">
+    DNS changes usually propagate within minutes, occasionally up to an hour.
+  </Step>
+</Steps>
+
+## Step 2 — Connect the domain in Ryze
+
+<Steps>
+  <Step title="Open Blog settings">
+    In your workspace go to **SEO → Blog → Appearance / Domain**.
+  </Step>
+  <Step title="Enter your blog subdomain">
+    Type `blog.yourdomain.com` and click **Connect**. Ryze verifies the CNAME and issues the SSL certificate automatically.
+  </Step>
+  <Step title="Done">
+    Existing articles move to the new domain automatically, and every future article publishes there.
+  </Step>
+</Steps>
+
+<Note>
+If verification fails right after adding the record, wait a few minutes for DNS propagation and press **Connect** again. Still stuck? Write to [support@get-ryze.ai](mailto:support@get-ryze.ai) with your domain and we'll finish the setup with you.
+</Note>
