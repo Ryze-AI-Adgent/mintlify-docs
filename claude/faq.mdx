@@ -26,7 +26,7 @@ Add it as the **Remote MCP server URL** when setting up the connector. See [Conn
 </Accordion>
 
 <Accordion title="I get Error 2812 / a proxy error.">
-Disconnect and reconnect the Ryze connector in Claude, then open a **brand-new chat** and retry. If it still fails, email [support@get-ryze.ai](mailto:support@get-ryze.ai) — your account may need proxy access enabled on our side.
+This error only happens on the legacy Ryze connector. Remove every Ryze connector in Claude's **Settings → Connectors**, add the current one at `https://connector.get-ryze.ai/mcp` following [Connect Ryze to Claude](/claude/connect), and start a **new chat**. If you're still on the old platform, email [support@get-ryze.ai](mailto:support@get-ryze.ai) and we'll move you over.
 </Accordion>
 
 <Accordion title="Claude can't see my data.">
@@ -45,6 +45,38 @@ Yes. Create a workspace for that client, connect their accounts in it, then conn
 
 <Accordion title="Can I manage all my accounts in one chat?">
 Yes — connect them all to a single workspace and connect Claude to it. A workspace supports multiple accounts per platform, and you switch between them just by naming one in chat. See [Managing Multiple Accounts](/integrations/managing-multiple-accounts).
+</Accordion>
+
+<Accordion title="Where do I find my connection key / API key?">
+There isn't one. Ryze connects as a remote MCP server with OAuth sign-in — you add the URL `https://connector.get-ryze.ai/mcp` as a custom connector and approve access in the browser. If an older guide asked you for a "Ryze key", ignore it and follow [Connect Ryze to Claude](/claude/connect).
+</Accordion>
+
+<Accordion title="I connected a new platform in Ryze, but Claude doesn't show its tools.">
+Claude caches the connector's tool list when you add the connector, so platforms connected afterwards (Meta, TikTok, LinkedIn, GA4…) don't appear. Remove the Ryze connector in Claude (**Settings → Connectors**), add it again, then start a **new chat**. Reconnecting the platform on the Ryze side doesn't refresh Claude's cache.
+</Accordion>
+
+<Accordion title="I moved to the new Ryze platform and Claude stopped working.">
+Claude is still pointing at the legacy connector. Remove **every** Ryze connector in Claude's Settings → Connectors, add the current one at `https://connector.get-ryze.ai/mcp` and start a new chat. The same applies to ChatGPT — see [Connect Ryze to ChatGPT](/chatgpt/connect).
+</Accordion>
+
+<Accordion title="Claude only sees one of my workspaces. How do I switch?">
+Each connector authorization is tied to one workspace, chosen on the "Pick a workspace" screen. To switch, remove the Ryze connector, add it again and pick the other workspace when asked. To work several clients side by side, use separate Claude projects, each authorized against its own workspace.
+</Accordion>
+
+<Accordion title="Do I need Claude at all?">
+No. Everything works in the Ryze web app at reports.get-ryze.ai — chat, reports, creatives, scheduled tasks. Claude and ChatGPT are optional front-ends; the connector needs a paid Claude plan (Pro, Team or Max), billed by Anthropic separately from your Ryze subscription.
+</Accordion>
+
+<Accordion title="I added my own Anthropic key (or pay for Claude). Why are Ryze credits still being used?">
+Your own Anthropic key covers the AI steps of chat only. Work the agent does on the Ryze side — Agent mode, scheduled tasks, Approvals it applies, and fixed-cost tools like creative generation — runs on Ryze and draws credits. A Claude subscription can't be used as a key; only an Anthropic API key can. See [Credits & usage](/agent/credits).
+</Accordion>
+
+<Accordion title="Where did my chat history go?">
+Chats live where you ran them. Web-app chats are per workspace — switch workspace and you'll see a different history. Chats run from Claude or ChatGPT are stored in that tool's own history, not in Ryze. Chats from the legacy platform did not carry over to the new one.
+</Accordion>
+
+<Accordion title='I keep getting "Something went wrong — tap retry".'>
+It's a transient session error, not an account problem: retry the message, then start a new chat, then disconnect and reconnect the Ryze connector. If it keeps happening across new chats, check **Billing** — a past-due subscription or an empty credit balance shows up the same way. Very long chats can also hit a size limit; start a fresh chat per task.
 </Accordion>
 
 </AccordionGroup>
