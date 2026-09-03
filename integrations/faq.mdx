@@ -30,7 +30,27 @@ Connect whichever platforms you want Claude to read. Nothing else is required �
 </Accordion>
 
 <Accordion title="How do I connect Shopify?">
-Shopify needs a manual setup step. Email [support@get-ryze.ai](mailto:support@get-ryze.ai) and tell us which store domain you want connected.
+Go to **Workspace Settings → Integrations → Shopify**, enter your `.myshopify.com` domain (not your custom domain) and approve the Shopify prompt — no app creation or API keys. Use your own [custom app](/integrations/shopify-custom-app) only if you need extra scopes such as theme files or customer records. See [Connect Shopify](/integrations/shopify).
+</Accordion>
+
+<Accordion title="I manage clients through a Google Ads manager (MCC) account. Do I connect each client separately?">
+No. Connect the one Google login that has manager access and Ryze reaches the whole hierarchy. In a new chat ask "list all Google Ads accounts accessible to my login, including my MCC hierarchy", then name any client by name or customer ID. Cancelled or never-enabled accounts in the hierarchy may show a `CUSTOMER_NOT_ENABLED` notice — that's normal and doesn't block the live ones.
+</Accordion>
+
+<Accordion title="Ryze doesn't see all my ad accounts, or the integration card only shows my login email.">
+Ryze sees exactly what the connected login can reach. If an account is missing, reconnect from the Integrations page and tick **every** permission checkbox on Google's or Meta's consent screen, signed in with the login that actually has access — or add that login as a second account. The card shows only the login email; the accounts themselves are discovered when the agent queries them, so ask in a new chat to list them.
+</Accordion>
+
+<Accordion title="Meta reads work but changes are blocked, or Meta says 'Verify your account'.">
+Both are settings on Meta's side. For blocked changes, give the connected user **Manage ad account** on that ad account (Business settings → Ad accounts → People), then reconnect. For "Verify your account" (error 31), complete the verification prompt in Meta Business Manager — creating any ad manually there usually triggers it; reconnecting in Ryze doesn't clear it.
+</Accordion>
+
+<Accordion title="Search Console or Analytics says 'Requires setup' after I connected it.">
+The account is connected, but a property hasn't been chosen yet. Open the card under **Workspace Settings → Integrations**, pick the property for this workspace and save. The property you choose is only the default — the agent can still query every property on that Google login by name.
+</Accordion>
+
+<Accordion title="Can I connect Ryze to Cursor, Make, n8n, Zapier or another tool? Is there an API?">
+Yes — any tool that can add a remote MCP server. Add `https://connector.get-ryze.ai/mcp` as a custom MCP server in Cursor, or point the MCP/HTTP-MCP node in Make, n8n or Zapier at that URL, then authorize. There are no native one-click apps for these and no separate REST API key; the MCP endpoint is the supported path.
 </Accordion>
 
 </AccordionGroup>
