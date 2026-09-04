@@ -59,6 +59,18 @@ Public servers you can try right now, no sign-in needed:
 | Microsoft Learn | `https://learn.microsoft.com/api/mcp` | Search Microsoft's official documentation |
 | Hugging Face | `https://hf.co/mcp` | Search AI models and datasets |
 
+## Example: Lovable
+
+Lovable's MCP server lets the Ryze agent work on a Lovable project for you: read its files, send build instructions to Lovable's own agent, and publish.
+
+1. Connect with the URL `https://mcp.lovable.dev` and leave **Advanced settings** empty.
+2. Approve **Ryze AI** on the Lovable sign-in page. You land back in Ryze with the server's tools listed (`list_projects`, `read_file`, `send_message`, `deploy_project` and more).
+3. In chat, try "List my Lovable projects" or "Ask Lovable to add a pricing section to my landing page".
+
+<Note>
+`send_message` and `create_project` hand work to Lovable's agent and consume **your Lovable credits**, so the Ryze agent asks for approval before each one. Changes go live only after `deploy_project`.
+</Note>
+
 ## Troubleshooting
 
 **"Must be a public https:// MCP server URL."** The URL is plain HTTP, points at localhost or a private address, or isn't a valid URL. Use the server's public HTTPS endpoint.
