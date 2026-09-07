@@ -1,0 +1,92 @@
+---
+title: "Ryze Pixel"
+description: "One script on your site. Ryze routes every event to Meta, Google Ads, TikTok and GA4 server-side."
+---
+
+Ryze Pixel collects events from your website and forwards them to your ad platforms from Ryze's servers. You install one script tag; Ryze handles the Conversions API for Meta, conversion uploads for Google Ads, the Events API for TikTok and the Measurement Protocol for GA4. Server-side delivery survives ad blockers and browser tracking limits, and every destination shows sent versus received counts so you can see what actually landed.
+
+The pixel lives in your workspace under **Events**.
+
+## Install the script
+
+<Steps>
+  <Step title="Open Events and click Install manually">
+    The dialog shows your script tag with the workspace's public key (`data-key="rz_pk_…"`). Copy it.
+  </Step>
+  <Step title="Paste it before </head> on every page">
+    ```html
+    <script async src="https://px.get-ryze.ai/px.js" data-key="rz_pk_YOUR_KEY"></script>
+    ```
+    On most site builders this goes into the global head or custom code section. On Shopify, add it to `theme.liquid` right before `</head>`.
+  </Step>
+  <Step title="Add your domains under Allowed domains">
+    Events from any other host are dropped. Add every domain that serves the script, including staging if you want test traffic.
+  </Step>
+  <Step title="Wait for the first event">
+    Open your site once. The dialog switches from **Waiting for the first event…** to **First event received**, and the Events page starts filling.
+  </Step>
+</Steps>
+
+## What the script captures
+
+Page views, clicks and form submissions are captured automatically. Standard ecommerce and lead events are recognized by name and mapped to each platform's standard events:
+
+`page_view`, `view_content`, `add_to_cart`, `add_to_wishlist`, `view_cart`, `remove_from_cart`, `initiate_checkout`, `add_payment_info`, `purchase`, `lead`, `complete_registration`, `subscribe`, `contact`, `start_trial`, `schedule`, `search`, `login`.
+
+## Identify visitors and track your own events
+
+Once the script is loaded, `ryze` is available on the page.
+
+```js
+ryze.identify({ email: "jane@example.com", phone: "+14155550100" });
+ryze.track("purchase", { value: 129, currency: "USD", order_id: "48213" });
+ryze.track("DemoBooked", { plan: "pro" });
+```
+
+- `ryze.identify` attaches an email or phone to the session. Identified events match better on every platform, so call it as soon as you know who the visitor is: after login, on checkout, after a form submit.
+- `ryze.track` sends any event. Use a standard name from the list above to get the platform mapping for free, or your own name for custom events. Custom events show up on the Events page and can be mapped per destination.
+
+## Server-to-server purchases
+
+Send purchases from your backend when the browser cannot be trusted to fire them, for example after payment confirmation or for subscription renewals. The secret key is in **Install manually → Server-to-server**. Never ship it to the browser.
+
+```bash
+curl -X POST https://px.get-ryze.ai/s2s \
+  -H "x-ryze-key: rz_pk_YOUR_PUBLIC_KEY" \
+  -H "Authorization: Bearer rz_sk_YOUR_SECRET_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"events":[{"event":"purchase","order_id":"48213","value":129,"currency":"USD",
+       "user":{"email":"jane@example.com","phone":"+14155550100"},
+       "contents":[{"id":"sku-1","quantity":1,"item_price":129}]}]}'
+```
+
+Use `order_id` on every purchase. Ryze deduplicates by it, so a purchase that fires both in the browser and from your backend counts once. Rotate the secret from the same dialog if it ever leaks; the old key stops working immediately.
+
+## Add destinations
+
+Destinations are where events go. Ryze uses the ad accounts already connected under **Integrations**, so connect Meta, Google Ads, TikTok or GA4 there first.
+
+1. On Events, click **Add destination** and pick a platform.
+2. Choose the account and, for Meta and TikTok, the dataset or pixel. **Create new "Ryze Pixel"** lets Ryze create one through the API so you do not touch Events Manager.
+3. Events are mapped to the platform's standard events by default. Click **Customize** to change a mapping, send a custom name, or stop sending a specific event.
+4. Click **Enable destination**, then **Send test event**. Meta and TikTok accept a test event code so the test never counts as real.
+
+Per platform:
+
+- **Meta** — Conversions API into a dataset in your ad account. Optional test event code from Events Manager → Test events.
+- **Google Ads** — conversion upload with gclid, gbraid and wbraid plus enhanced conversions. Ryze creates the conversion actions it needs. Google only accepts a conversion once its click is six hours old, so uploads run six hours after each event.
+- **TikTok Ads** — Events API. Paste the access token generated on the pixel (Events Manager → your pixel → Settings → Events API).
+- **Google Analytics 4** — Measurement Protocol into your data stream. Paste the API secret from Admin → Data streams → Measurement Protocol API secrets. GA4 sends no delivery receipts, so a sent event means Google accepted the request.
+
+## Reading the Events page
+
+- **Events · 24h**, **Identified sessions**, **Purchases · 24h** and **Delivery** summarize the last day.
+- **Destinations** shows sent and received per platform with a health status. Click a row for the daily chart, the event mapping and recent deliveries with error codes.
+- **By event** shows every event name, its count and how it lands on each enabled destination.
+- Pause a destination with its switch. Events keep collecting; routing resumes when you switch it back on.
+
+## Troubleshooting
+
+- **Waiting for the first event never changes** — the script is not on the page, or the host is not in Allowed domains. Check the browser console for a request to `px.get-ryze.ai`.
+- **Sent but not received** — open the destination and read the error code on the failed deliveries. Expired tokens and missing permissions are the usual causes; reconnect the integration and retry.
+- **Purchases double-count** — pass the same `order_id` from the browser and from the server.
