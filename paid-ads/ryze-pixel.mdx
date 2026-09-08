@@ -17,7 +17,7 @@ The pixel lives in your workspace under **Events**.
     ```html
     <script async src="https://px.get-ryze.ai/px.js" data-key="rz_pk_YOUR_KEY"></script>
     ```
-    On most site builders this goes into the global head or custom code section. On Shopify, add it to `theme.liquid` right before `</head>`; that covers the storefront (`view_content`, `add_to_cart`), while purchases must come from your backend through the server API below, because the theme does not run on the checkout and thank-you pages of most stores.
+    On most site builders this goes into the global head or custom code section. On Shopify, add it to `theme.liquid` right before `</head>`; the theme does not run on the checkout and thank-you pages of most stores, so purchases there come from your backend through the server API below.
 
 If you load the script asynchronously and call `ryze` before it has loaded, queue the calls: `window.ryzeq = window.ryzeq || []; ryzeq.push(["track", "lead"]);` The script replays the queue when it starts.
 
