@@ -43,7 +43,7 @@ ryze.track("purchase", { value: 129, currency: "USD", order_id: "48213" });
 ryze.track("DemoBooked", { plan: "pro" });
 ```
 
-- `ryze.identify` attaches an email or phone to the session. Identified events match better on every platform, so call it as soon as you know who the visitor is: after login, on checkout, after a form submit.
+- `ryze.identify` attaches who the visitor is to the session. It accepts `email`, `phone`, `first_name`, `last_name`, `city`, `state`, `zip`, `country`, `gender`, `birthdate` and `external_id`; every value is normalized and hashed in the browser before it leaves the page, and the more of them you pass the better the match rate on every platform. Pass `country` whenever you know it, it is what turns a local phone number into an international one. Call it as soon as you know who the visitor is: after login, on checkout, after a form submit.
 - `ryze.track` sends any event. Use a standard name from the list above to get the platform mapping for free, or your own name for custom events. Custom events show up on the Events page and can be mapped per destination.
 
 ## Server-to-server purchases
