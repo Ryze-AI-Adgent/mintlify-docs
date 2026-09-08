@@ -17,7 +17,11 @@ The pixel lives in your workspace under **Events**.
     ```html
     <script async src="https://px.get-ryze.ai/px.js" data-key="rz_pk_YOUR_KEY"></script>
     ```
-    On most site builders this goes into the global head or custom code section. On Shopify, add it to `theme.liquid` right before `</head>`.
+    On most site builders this goes into the global head or custom code section. On Shopify, add it to `theme.liquid` right before `</head>`; that covers the storefront (`view_content`, `add_to_cart`), while purchases must come from your backend through the server API below, because the theme does not run on the checkout and thank-you pages of most stores.
+
+If you load the script asynchronously and call `ryze` before it has loaded, queue the calls: `window.ryzeq = window.ryzeq || []; ryzeq.push(["track", "lead"]);` The script replays the queue when it starts.
+
+Script attributes: `data-consent="required"` holds every event and cookie until `ryze.consent("grant")` (see Consent); `data-link-domains="checkout.example.com"` keeps the visitor and session across links to another domain, for example a hosted checkout; `data-hash-routing="on"` counts hash changes as page views; `data-autocapture="off"` disables click and form capture; `data-allow-localhost="on"` tracks local development, which is otherwise ignored.
   </Step>
   <Step title="Add your domains under Allowed domains">
     Events from any other host are dropped. Add every domain that serves the script, including staging if you want test traffic.
@@ -29,7 +33,7 @@ The pixel lives in your workspace under **Events**.
 
 ## What the script captures
 
-Page views, clicks and form submissions are captured automatically as plain interaction events: the click label and link, the form id and submit button text. The script never reads what visitors type and never decides on its own that something was a conversion. Conversions come from `ryze.track`, the server API or the Shopify integration. Standard ecommerce and lead events are recognized by name and mapped to each platform's standard events:
+Page views, clicks and form submissions are captured automatically as plain interaction events: the click label and link, the form id and submit button text. The script never reads what visitors type and never decides on its own that something was a conversion. Conversions come from `ryze.track` or the server API. Standard ecommerce and lead events are recognized by name and mapped to each platform's standard events:
 
 `page_view`, `view_content`, `add_to_cart`, `add_to_wishlist`, `view_cart`, `remove_from_cart`, `initiate_checkout`, `add_payment_info`, `purchase`, `lead`, `complete_registration`, `subscribe`, `contact`, `start_trial`, `schedule`, `search`, `login`.
 
@@ -46,6 +50,12 @@ ryze.track("DemoBooked", { plan: "pro" });
 - `ryze.identify` attaches an email or phone to the session. Identified events match better on every platform, so call it as soon as you know who the visitor is: after login, on checkout, after a form submit.
 - `ryze.track` sends any event. Use a standard name from the list above to get the platform mapping for free, or your own name for custom events. Custom events show up on the Events page and can be mapped per destination.
 
+## Consent
+
+By default the script starts tracking on load and sets its first-party cookies immediately. If your visitors need to opt in first, add `data-consent="required"` to the script tag: nothing is sent and no cookie is written until you call `ryze.consent("grant")`. Events fired before the grant are held in memory and sent afterwards in order, so a purchase that happens while the banner is open is not lost. `ryze.consent("revoke")` stops tracking, clears the stored identity and removes the Meta cookies. Granular consent works too: `ryze.consent({ analytics: true, marketing: false })` keeps analytics running but captures no click ids, writes no `_fbp`/`_fbc`, and marks every event so it is never forwarded to an ad platform; `sale_of_data: "ldu"` turns on Meta's Limited Data Use for CCPA traffic.
+
+A browser with Do Not Track or Global Privacy Control enabled is always treated as revoked and cannot be overridden. `ryze.reset()` starts a new anonymous visitor on the device, for example on logout, and drops the previous person's hashed identifiers and click ids. `ryze.identity()` returns the current anonymous id, session, Meta cookies and click ids for a page that wants to pass them to its own server. `window.ryzeBeforeSend = (event) => event` lets you edit or drop (return `null`) an event before it is captured.
+
 ## Server-to-server purchases
 
 Send purchases from your backend when the browser cannot be trusted to fire them, for example after payment confirmation or for subscription renewals. The secret key is in **Install manually → Server-to-server**. Never ship it to the browser.
@@ -60,7 +70,7 @@ curl -X POST https://px.get-ryze.ai/s2s \
        "contents":[{"id":"sku-1","quantity":1,"item_price":129}]}]}'
 ```
 
-Use `order_id` on every purchase. Ryze deduplicates by it, so a purchase that fires both in the browser and from your backend counts once. Rotate the secret from the same dialog if it ever leaks; the old key stops working immediately.
+Every event needs an `event_id`, an `order_id` or a `timestamp` (epoch milliseconds, at most 7 days in the past and one hour in the future); Ryze builds a stable id from them, so a retried webhook counts once. Use `order_id` on every purchase: a purchase that fires both in the browser and from your backend counts once, and Ryze merges the two, keeping the browser's session and click ids and adding your match keys. Optional fields: `anonymous_id`, `session_id`, `fbp`, `fbc` and `click` (as returned by `ryze.identity()`), `ip` and `user_agent` of the buyer (pass them, Meta requires the user agent to accept a website event), `url`, `contents`, `content_ids`, `content_type`, `num_items`, `properties`. The response is `{ accepted, rejected }`; a `400` names the event and the rule it broke, a `429` carries `Retry-After`, and a `5xx` should be retried with the same body, it is safe. Rotate the secret from the same dialog if it ever leaks; the old key stops working immediately.
 
 ## Add destinations
 
