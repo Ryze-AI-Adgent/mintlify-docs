@@ -49,7 +49,7 @@ The file contains everything your site needs to render the page:
   "excerpt": "Short summary for blog listing cards.",
   "primary_keyword": "ai ad agency",
   "image": {
-    "url": "https://<project>.supabase.co/storage/v1/object/public/programmatic-articles/<id>/featured.jpg",
+    "url": "https://<project>.supabase.co/storage/v1/object/public/workspace-article-images-public/<id>/featured.jpg",
     "alt": "Descriptive alt text for the featured image"
   },
   "published_at": "2026-06-12T10:00:00.000Z",
@@ -68,7 +68,7 @@ The file contains everything your site needs to render the page:
 | `meta_description` | SEO meta description |
 | `excerpt` | Short summary for listing pages |
 | `primary_keyword` | The keyword the article targets |
-| `image` | Featured image as `{ url, alt }`, or `null` when the article has none. The image is hosted by Ryze on a public CDN — use the URL directly. |
+| `image` | Featured image as `{ url, alt }`, or `null` when the article has none. The image is hosted by Ryze on a public CDN — use the URL directly. Only the host is stable: the path after it can change between articles, so allow the whole host in `next.config` `remotePatterns`, your CSP or any URL filter instead of pinning a path. |
 | `published_at` | First publish time (ISO 8601) |
 | `updated_at` | Last update time (ISO 8601) |
 | `status` | Always `published` |
