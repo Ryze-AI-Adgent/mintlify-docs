@@ -1,0 +1,145 @@
+---
+title: "Connect GitLab"
+description: "Publish articles as JSON files committed straight to your GitLab project."
+---
+
+The GitLab integration commits each published article as a JSON file to a project you choose. It's built for Git-based sites (Next.js, Astro, Hugo, or any static framework) hosted from GitLab.com or your own GitLab instance — your site reads the files from the project and renders them as blog pages.
+
+## How it works
+
+You connect with an access token, pick the project, and each published article lands as one commit in it. There is no app to install and nothing to approve on GitLab's side.
+
+## Step 1 — Create an access token
+
+<Steps>
+  <Step title="Open the project's access tokens">
+    In GitLab, open your project → **Settings → Access Tokens** (a personal access token from **User Settings → Access Tokens** works too).
+  </Step>
+  <Step title="Create the token">
+    Name it `Ryze`, choose the **Developer** role, tick the **api** scope, and set an expiry you are comfortable with. Copy the token — GitLab shows it once.
+  </Step>
+  <Step title="Connect in Ryze">
+    In **Workspace Settings → Integrations**, click **Connect** on the GitLab card and paste the token. Leave the GitLab URL empty for gitlab.com, or enter the base URL of your self-managed instance.
+  </Step>
+</Steps>
+
+## Step 2 — Choose where articles go
+
+After connecting, configure these settings:
+
+- **Project** — pick from the projects the token can reach, e.g. `your-group/your-site`.
+- **Blog URL** — the public URL where your articles are listed, e.g. `https://yoursite.com/blog`. Ryze appends each article's slug to build its live link.
+- **Branch** — the branch Ryze commits to. Defaults to the project's default branch.
+- **Folder path** — the folder where article files are written. Defaults to `blog/data`.
+
+## What lands in your project
+
+Each article becomes one JSON file at `<folder path>/<slug>.json` — for example `blog/data/ai-ad-agency.json`. The commit message is `RyzeAI Integration: publish <slug>` for new articles and `RyzeAI Integration: update <slug>` for re-publishes. Updating an article overwrites the same file in a new commit — no duplicates.
+
+The file has the same shape as the [GitHub integration](/integrations/github#what-lands-in-your-repo):
+
+```json
+{
+  "slug": "ai-ad-agency",
+  "title": "AI Ad Agency in 2026: What It Is and How to Pick One",
+  "body_markdown": "Full article body in Markdown...",
+  "body_html": "<p>The same body rendered as HTML...</p>",
+  "meta_title": "AI Ad Agency 2026 — Guide",
+  "meta_description": "Learn how to pick an AI ad agency in 2026...",
+  "excerpt": "Short summary for blog listing cards.",
+  "primary_keyword": "ai ad agency",
+  "image": {
+    "url": "https://<project>.supabase.co/storage/v1/object/public/workspace-article-images-public/<id>/featured.jpg",
+    "alt": "Descriptive alt text for the featured image"
+  },
+  "published_at": "2026-06-12T10:00:00.000Z",
+  "updated_at": "2026-06-12T10:00:00.000Z",
+  "status": "published"
+}
+```
+
+## Wiring it into your site
+
+Your site decides how to render the files. The typical pattern:
+
+1. Read all JSON files from the configured folder at build time (or through the GitLab API at request time).
+2. Generate a route per `slug` and render `body_html` (or `body_markdown` through your own renderer).
+3. Use `meta_title` and `meta_description` for the page's SEO tags, and `excerpt` on the blog index.
+4. When `image` is present, use `image.url` for the article's hero and `og:image`, and `image.alt` for the alt text. Handle `image: null` by falling back to a default or omitting the hero.
+
+If your host deploys on push (GitLab Pages, Vercel, Netlify), every published article triggers a deploy automatically — the commit Ryze makes is a normal Git push.
+
+## Manual setup
+
+If you chose **I'll do it manually** in the connect dialog (or would rather not let the agent touch your project), two files make published articles appear on your site.
+
+<Steps>
+  <Step title="Add the converter">
+    Commit this script to your project. It reads every article JSON in the Ryze folder and writes one page into your site's content folder in the format your site already uses.
+
+    ```js
+    // scripts/ryze-convert.mjs — turns each Ryze JSON into a Markdown page for your site
+    import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+    import { join } from "node:path";
+
+    const SOURCE = "blog/data";          // the Folder path from the Ryze integration settings
+    const TARGET = "content/blog";       // where your site reads posts from — match your existing posts
+
+    mkdirSync(TARGET, { recursive: true });
+    for (const file of readdirSync(SOURCE).filter((f) => f.endsWith(".json"))) {
+      const a = JSON.parse(readFileSync(join(SOURCE, file), "utf8"));
+      if (a.status !== "published") continue;
+      const frontmatter = [
+        "---",
+        `title: ${JSON.stringify(a.title)}`,
+        `description: ${JSON.stringify(a.meta_description ?? "")}`,
+        `date: ${a.published_at}`,
+        a.image ? `image: ${JSON.stringify(a.image.url)}` : null,
+        a.image ? `imageAlt: ${JSON.stringify(a.image.alt)}` : null,
+        "---",
+      ].filter(Boolean).join("\n");
+      writeFileSync(join(TARGET, `${a.slug}.md`), `${frontmatter}\n\n${a.body_markdown}\n`);
+    }
+    ```
+
+    Adjust the frontmatter keys to match the posts your site already has (open one of them and copy its fields). `image` is an object `{ url, alt }` or `null`, never a string.
+  </Step>
+  <Step title="Give CI a token that can push">
+    GitLab's built-in job token cannot push commits, so the job needs a token of its own. Create a personal access token with the **write_repository** scope (User Settings → Access Tokens; your account must be at least a Developer on the project) and save it as a masked CI/CD variable named `RYZE_PUSH_TOKEN` (Project → Settings → CI/CD → Variables). GitLab tokens expire (a year at most): when this one lapses, publishing stops until you store a new one.
+  </Step>
+  <Step title="Run it on every publish">
+    Add this job to `.gitlab-ci.yml` (create the file if the project has none). It runs the converter whenever Ryze commits into the folder and pushes the generated page back. Generated pages live outside the `changes` paths, so the job does not re-trigger itself.
+
+    ```yaml
+    ryze-publish:
+      image: node:22
+      rules:
+        - changes:
+            - "blog/data/**/*"
+      script:
+        - node scripts/ryze-convert.mjs
+        - git config user.name "Ryze"
+        - git config user.email "bot@get-ryze.ai"
+        - git add content/blog
+        - git diff --cached --quiet || git commit -m "Ryze: render published articles"
+        - git push "https://oauth2:${RYZE_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" "HEAD:${CI_COMMIT_BRANCH}"
+    ```
+
+    If your site deploys through GitLab Pages, the existing `pages` job runs on the pushed commit and picks the new page up. If it deploys on push through Vercel or Netlify, the pushed commit rebuilds the site by itself.
+  </Step>
+  <Step title="Check it end to end">
+    Publish one article from Ryze (or copy the example JSON above into the folder as `ryze-setup-test.json` and push). Watch the pipeline go green, open the generated file, then delete the test file. Only then trust it with real articles.
+  </Step>
+</Steps>
+
+Prefer not to do this by hand? Click **Set up with Agent** in the connect dialog: the agent reads your project, writes both files in a branch, runs a test article through the pipeline and opens a merge request for you to merge.
+
+## Notes
+
+- Ryze only ever writes inside the folder path you configure. It doesn't touch other files in the project.
+- If the folder doesn't exist yet, the first commit creates it.
+- To change the project, blog URL, branch or folder later, open the integration settings and update them — future publishes use the new values.
+- When the token expires, GitLab stops accepting commits: create a new token and reconnect with it.
+- To disconnect, remove the integration in Ryze and revoke the token in GitLab.
+
+Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
