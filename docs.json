@@ -71,7 +71,6 @@
               "integrations/wix",
               "integrations/webflow",
               "integrations/github",
-              "integrations/gitlab",
               "integrations/ghost",
               "integrations/ryze-hosting",
               "integrations/custom-webhook",
