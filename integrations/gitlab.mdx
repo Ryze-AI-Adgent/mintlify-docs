@@ -69,6 +69,71 @@ Your site decides how to render the files. The typical pattern:
 
 If your host deploys on push (GitLab Pages, Vercel, Netlify), every published article triggers a deploy automatically — the commit Ryze makes is a normal Git push.
 
+## Manual setup
+
+If you chose **I'll do it manually** in the connect dialog (or would rather not let the agent touch your project), two files make published articles appear on your site.
+
+<Steps>
+  <Step title="Add the converter">
+    Commit this script to your project. It reads every article JSON in the Ryze folder and writes one page into your site's content folder in the format your site already uses.
+
+    ```js
+    // scripts/ryze-convert.mjs — turns each Ryze JSON into a Markdown page for your site
+    import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+    import { join } from "node:path";
+
+    const SOURCE = "blog/data";          // the Folder path from the Ryze integration settings
+    const TARGET = "content/blog";       // where your site reads posts from — match your existing posts
+
+    mkdirSync(TARGET, { recursive: true });
+    for (const file of readdirSync(SOURCE).filter((f) => f.endsWith(".json"))) {
+      const a = JSON.parse(readFileSync(join(SOURCE, file), "utf8"));
+      if (a.status !== "published") continue;
+      const frontmatter = [
+        "---",
+        `title: ${JSON.stringify(a.title)}`,
+        `description: ${JSON.stringify(a.meta_description ?? "")}`,
+        `date: ${a.published_at}`,
+        a.image ? `image: ${JSON.stringify(a.image.url)}` : null,
+        a.image ? `imageAlt: ${JSON.stringify(a.image.alt)}` : null,
+        "---",
+      ].filter(Boolean).join("\n");
+      writeFileSync(join(TARGET, `${a.slug}.md`), `${frontmatter}\n\n${a.body_markdown}\n`);
+    }
+    ```
+
+    Adjust the frontmatter keys to match the posts your site already has (open one of them and copy its fields). `image` is an object `{ url, alt }` or `null`, never a string.
+  </Step>
+  <Step title="Give CI a token that can push">
+    GitLab's built-in job token cannot push commits, so the job needs a token of its own. Create a personal access token with the **write_repository** scope (User Settings → Access Tokens; your account must be at least a Developer on the project) and save it as a masked CI/CD variable named `RYZE_PUSH_TOKEN` (Project → Settings → CI/CD → Variables). GitLab tokens expire (a year at most): when this one lapses, publishing stops until you store a new one.
+  </Step>
+  <Step title="Run it on every publish">
+    Add this job to `.gitlab-ci.yml` (create the file if the project has none). It runs the converter whenever Ryze commits into the folder and pushes the generated page back. Generated pages live outside the `changes` paths, so the job does not re-trigger itself.
+
+    ```yaml
+    ryze-publish:
+      image: node:22
+      rules:
+        - changes:
+            - "blog/data/**/*"
+      script:
+        - node scripts/ryze-convert.mjs
+        - git config user.name "Ryze"
+        - git config user.email "bot@get-ryze.ai"
+        - git add content/blog
+        - git diff --cached --quiet || git commit -m "Ryze: render published articles"
+        - git push "https://oauth2:${RYZE_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" "HEAD:${CI_COMMIT_BRANCH}"
+    ```
+
+    If your site deploys through GitLab Pages, the existing `pages` job runs on the pushed commit and picks the new page up. If it deploys on push through Vercel or Netlify, the pushed commit rebuilds the site by itself.
+  </Step>
+  <Step title="Check it end to end">
+    Publish one article from Ryze (or copy the example JSON above into the folder as `ryze-setup-test.json` and push). Watch the pipeline go green, open the generated file, then delete the test file. Only then trust it with real articles.
+  </Step>
+</Steps>
+
+Prefer not to do this by hand? Click **Set up with Agent** in the connect dialog: the agent reads your project, writes both files in a branch, runs a test article through the pipeline and opens a merge request for you to merge.
+
 ## Notes
 
 - Ryze only ever writes inside the folder path you configure. It doesn't touch other files in the project.
