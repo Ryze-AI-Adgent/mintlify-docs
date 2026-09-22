@@ -1,0 +1,80 @@
+---
+title: "Connect GitLab"
+description: "Publish articles as JSON files committed straight to your GitLab project."
+---
+
+The GitLab integration commits each published article as a JSON file to a project you choose. It's built for Git-based sites (Next.js, Astro, Hugo, or any static framework) hosted from GitLab.com or your own GitLab instance — your site reads the files from the project and renders them as blog pages.
+
+## How it works
+
+You connect with an access token, pick the project, and each published article lands as one commit in it. There is no app to install and nothing to approve on GitLab's side.
+
+## Step 1 — Create an access token
+
+<Steps>
+  <Step title="Open the project's access tokens">
+    In GitLab, open your project → **Settings → Access Tokens** (a personal access token from **User Settings → Access Tokens** works too).
+  </Step>
+  <Step title="Create the token">
+    Name it `Ryze`, choose the **Developer** role, tick the **api** scope, and set an expiry you are comfortable with. Copy the token — GitLab shows it once.
+  </Step>
+  <Step title="Connect in Ryze">
+    In **Workspace Settings → Integrations**, click **Connect** on the GitLab card and paste the token. Leave the GitLab URL empty for gitlab.com, or enter the base URL of your self-managed instance.
+  </Step>
+</Steps>
+
+## Step 2 — Choose where articles go
+
+After connecting, configure these settings:
+
+- **Project** — pick from the projects the token can reach, e.g. `your-group/your-site`.
+- **Blog URL** — the public URL where your articles are listed, e.g. `https://yoursite.com/blog`. Ryze appends each article's slug to build its live link.
+- **Branch** — the branch Ryze commits to. Defaults to the project's default branch.
+- **Folder path** — the folder where article files are written. Defaults to `blog/data`.
+
+## What lands in your project
+
+Each article becomes one JSON file at `<folder path>/<slug>.json` — for example `blog/data/ai-ad-agency.json`. The commit message is `RyzeAI Integration: publish <slug>` for new articles and `RyzeAI Integration: update <slug>` for re-publishes. Updating an article overwrites the same file in a new commit — no duplicates.
+
+The file has the same shape as the [GitHub integration](/integrations/github#what-lands-in-your-repo):
+
+```json
+{
+  "slug": "ai-ad-agency",
+  "title": "AI Ad Agency in 2026: What It Is and How to Pick One",
+  "body_markdown": "Full article body in Markdown...",
+  "body_html": "<p>The same body rendered as HTML...</p>",
+  "meta_title": "AI Ad Agency 2026 — Guide",
+  "meta_description": "Learn how to pick an AI ad agency in 2026...",
+  "excerpt": "Short summary for blog listing cards.",
+  "primary_keyword": "ai ad agency",
+  "image": {
+    "url": "https://<project>.supabase.co/storage/v1/object/public/workspace-article-images-public/<id>/featured.jpg",
+    "alt": "Descriptive alt text for the featured image"
+  },
+  "published_at": "2026-06-12T10:00:00.000Z",
+  "updated_at": "2026-06-12T10:00:00.000Z",
+  "status": "published"
+}
+```
+
+## Wiring it into your site
+
+Your site decides how to render the files. The typical pattern:
+
+1. Read all JSON files from the configured folder at build time (or through the GitLab API at request time).
+2. Generate a route per `slug` and render `body_html` (or `body_markdown` through your own renderer).
+3. Use `meta_title` and `meta_description` for the page's SEO tags, and `excerpt` on the blog index.
+4. When `image` is present, use `image.url` for the article's hero and `og:image`, and `image.alt` for the alt text. Handle `image: null` by falling back to a default or omitting the hero.
+
+If your host deploys on push (GitLab Pages, Vercel, Netlify), every published article triggers a deploy automatically — the commit Ryze makes is a normal Git push.
+
+## Notes
+
+- Ryze only ever writes inside the folder path you configure. It doesn't touch other files in the project.
+- If the folder doesn't exist yet, the first commit creates it.
+- To change the project, blog URL, branch or folder later, open the integration settings and update them — future publishes use the new values.
+- When the token expires, GitLab stops accepting commits: create a new token and reconnect with it.
+- To disconnect, remove the integration in Ryze and revoke the token in GitLab.
+
+Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
