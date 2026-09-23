@@ -1,0 +1,41 @@
+---
+title: "Domains"
+description: "Run the app on your own domain and send client emails from your own address."
+---
+
+Clients can open the app and sign in on your own domain, and get emails from your own address instead of Ryze.
+
+Find it under **White Label → Domains** in your organization settings.
+
+<Note>
+  Domains are part of the **Agency** plan. You can connect them before turning white label on; they start working for clients once **Enable white label** is on. See [Branding](/white-label/branding#turn-it-on).
+</Note>
+
+## App domain
+
+Enter the address you want clients to use, for example `app.youragency.com`, and click **Connect**. Ryze shows the DNS record to add at your DNS provider. Some providers can add it for you in one click.
+
+DNS changes usually apply within minutes, sometimes up to 48 hours. Ryze checks automatically, and the card shows **Live** once the domain works. From then on, your branded login page and the links in client emails use your domain.
+
+## Email sender
+
+Enter the address client emails should come from, for example `reports@youragency.com`, and click **Connect**. Add the DNS records shown on the card at your DNS provider. Once the domain is **Verified**, client emails go out from your address.
+
+Until then, emails still carry your branding and come from a Ryze address.
+
+## Change or remove a domain
+
+To switch to a different domain, click **Remove**, then connect the new one. Removing the app domain sends clients back to the Ryze address to sign in; removing the sender sends emails from a Ryze address again, still with your branding inside.
+
+A domain that is never verified is removed automatically after about two days, so it does not block anyone.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Branding" icon="palette" href="/white-label/branding">
+    Colors, logo, and the white label switch.
+  </Card>
+  <Card title="Client Access" icon="users" href="/white-label/access">
+    Branded login link and inviting clients.
+  </Card>
+</CardGroup>

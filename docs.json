@@ -136,6 +136,7 @@
             "group": "White Label",
             "pages": [
               "white-label/branding",
+              "white-label/domains",
               "white-label/access"
             ]
           },
