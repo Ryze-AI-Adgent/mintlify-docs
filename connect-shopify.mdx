@@ -50,7 +50,7 @@ After connecting, start a **new chat** in Claude or ChatGPT so the assistant pic
 
 ## Upgrading to a custom app (theme access, redirects)
 
-The standard connection covers products, publishing, and content edits. Some fixes need broader permissions the standard app cannot request — theme file edits (`write_themes`), URL redirects, and navigation changes. For those, connect through a **custom app** you create in your Shopify admin.
+The standard connection covers products, publishing, and content edits. Theme file edits, URL redirects, and navigation changes need your own **custom app**: Shopify allows theme file writes only with a separate exemption the standard Ryze app does not have, and redirects need a scope the standard app does not request. You create the custom app in the Shopify **Dev Dashboard** — follow [Connect Shopify Custom App](/integrations/shopify-custom-app) for the full walkthrough.
 
 <Warning>
 Installing the custom app in Shopify is **not enough by itself**. Ryze keeps using the token from your original connection, with the original permissions — reconnecting on top does not refresh it either. You must **delete the existing connection and connect again through the Custom app tab**.
@@ -58,13 +58,13 @@ Installing the custom app in Shopify is **not enough by itself**. Ryze keeps usi
 
 <Steps>
   <Step title="Create the custom app in Shopify">
-    In Shopify admin, go to **Settings → Apps and sales channels → Develop apps** and create an app. In its **Configuration**, enable the Admin API scopes you need — include `write_themes` and the URL redirect scope — then press **Install app**.
+    Shopify no longer creates custom apps inside the admin — new ones are built in the **Dev Dashboard**. Follow [Steps 1–3 of the custom app guide](/integrations/shopify-custom-app): create the app, add the scopes (include `write_themes`, plus `write_online_store_navigation` for URL redirects), **Release** the version, and **Install** it on your store.
   </Step>
   <Step title="Delete the current connection in Ryze">
     In **Workspace Settings → Integrations → Shopify**, delete the existing connection. Do not use Reconnect — the old token would survive with the old permissions.
   </Step>
   <Step title="Connect again via the Custom app tab">
-    Pick **Shopify** again, switch to the **Custom app** tab, and enter your store domain plus the app's **Client ID** and **Client secret** (Shopify admin → your app → **API credentials**).
+    Pick **Shopify** again, switch to the **Custom app** tab, and enter your store domain plus the app's **Client ID** and **Client secret** (Dev Dashboard → your app → **Settings**).
   </Step>
 </Steps>
 
