@@ -19,7 +19,7 @@ curl -X POST https://reports.get-ryze.ai/api/v1/agent/signup \
   -d '{ "email": "you@company.com", "domain": "company.com", "name": "My agent" }'
 ```
 
-- Ryze emails an 8-digit code with the subject **"… is your Ryze code"**. It is valid for 1 hour.
+- Ryze emails an 8-digit code with the subject **"… is your Ryze code"**. It is valid for 1 hour. The email tells the user to share it only with their own agent.
 - `domain` is the business website. Free email domains such as gmail.com are refused.
 - `name` is optional and labels the key in your settings.
 
@@ -103,7 +103,7 @@ A tool that ran but refused answers HTTP 200 with a `status`:
 | `subscription_required` | No active plan. `message` holds the payment link. |
 | `out_of_credits` | The plan's credits are used up. |
 | `not_allowed` | The platform refused the action. |
-| `not_found` | The object does not exist. |
+| `not_found` | The object or the tool name does not exist. |
 | `not_connected` | The platform is not connected. Use a connection link. |
 
 ```json
@@ -116,6 +116,7 @@ Problems with the request itself answer with an HTTP error and `{ "error": "..."
 |---|---|
 | 400 | Invalid signup or verify body, wrong code |
 | 401 | Missing, invalid or revoked key |
+| 403 | The key is valid but its user has no workspace |
 | 429 | Rate limit reached |
 
 ## Limits
