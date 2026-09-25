@@ -76,11 +76,11 @@ curl -X POST https://reports.get-ryze.ai/api/v1/tools/native__list_connections \
   -d '{ "args": {} }'
 ```
 
-When the key covers several workspaces, pass `"workspace"` inside `args`: the id, the name or the website from `native__get_workspaces`.
+When the key covers several workspaces, pass `"workspace"` inside `args`: a name from `native__get_workspaces`.
 
 ## 4. Subscription
 
-A new account has no subscription yet. `native__get_workspaces`, `native__list_connections`, `native__create_connection_link` and `native__get_connection_link` work without one, so the agent can connect platforms right away. Every other tool answers `subscription_required`; its `message` holds the payment link: send it to the user and retry after they pay.
+A new account has no subscription yet. Tools whose entry in `GET /api/v1/tools` has `requires_plan: false` work without one: today `native__get_workspaces`, `native__list_connections`, `native__create_connection_link` and `native__get_connection_link`, so the agent can connect platforms right away. Every other tool answers `subscription_required`; its `message` holds the link to start or fix the plan: send it to the user and retry after they do.
 
 ## 5. Connect ad accounts
 
@@ -103,7 +103,7 @@ A tool that ran but refused answers HTTP 200 with a `status`:
 | `status` | Meaning |
 |---|---|
 | `invalid_arguments` | Wrong or missing arguments, or a request that can't be done as asked (for example the platform is already connected). `message` says why. Tool arguments go inside `args`, never next to it. |
-| `subscription_required` | No active plan. `message` holds the payment link. |
+| `subscription_required` | No active plan, or its payment failed. `message` holds the link to fix it. |
 | `out_of_credits` | The plan's credits are used up. |
 | `not_allowed` | The platform refused the action. |
 | `not_found` | The object, the tool or the provider does not exist. |
