@@ -51,7 +51,8 @@
               "claude/connect",
               "chatgpt/connect",
               "claude/permissions",
-              "claude/faq"
+              "claude/faq",
+              "agent-api"
             ]
           },
           {

@@ -1,0 +1,84 @@
+---
+title: "Ryze API for agents"
+description: "Let your AI agent sign up for Ryze, get an API key, and call every Ryze tool over MCP or REST."
+---
+
+Your agent can create a Ryze account, get an API key and start working without you opening the app. You only step in three times: to read an email code, to sign in to an ad platform, and to pay.
+
+## 1. Sign up
+
+The agent sends your email and your website:
+
+```bash
+curl -X POST https://reports.get-ryze.ai/api/v1/agent/signup \
+  -H "Content-Type: application/json" \
+  -d '{ "email": "you@company.com", "domain": "company.com", "name": "My agent" }'
+```
+
+Ryze emails an 8-digit code to that address. `name` is optional and labels the key in your settings.
+
+## 2. Verify
+
+You give the agent the code from the email. The agent sends it back:
+
+```bash
+curl -X POST https://reports.get-ryze.ai/api/v1/agent/verify \
+  -H "Content-Type: application/json" \
+  -d '{ "email": "you@company.com", "code": "12345678" }'
+```
+
+The response carries the key. It is shown once, so the agent should store it:
+
+```json
+{
+  "api_key": "rk_live_...",
+  "workspace_id": "...",
+  "mcp_url": "https://connector.get-ryze.ai/mcp",
+  "api_url": "https://reports.get-ryze.ai/api/v1",
+  "docs_url": "https://help.get-ryze.ai/agent-api"
+}
+```
+
+A new email gets a new account with a workspace for the domain. An email that already has a Ryze account gets a key for the workspaces that account can open.
+
+## 3. Call tools
+
+The key works the same way over MCP and over REST. Both expose the same tools.
+
+### MCP
+
+Connect your MCP client to `https://connector.get-ryze.ai/mcp` with the header `Authorization: Bearer rk_live_...`.
+
+### REST
+
+List the tools, with their descriptions and input schemas:
+
+```bash
+curl https://reports.get-ryze.ai/api/v1/tools \
+  -H "Authorization: Bearer rk_live_..."
+```
+
+Call one by name:
+
+```bash
+curl -X POST https://reports.get-ryze.ai/api/v1/tools/native__list_connections \
+  -H "Authorization: Bearer rk_live_..." \
+  -H "Content-Type: application/json" \
+  -d '{ "args": {} }'
+```
+
+When the key covers several workspaces, pass `"workspace"` inside `args`. `native__get_workspaces` lists them.
+
+## 4. Subscription
+
+A new account has no subscription yet, so every tool except `native__get_workspaces` answers with a payment link. The agent sends it to you, you pay, and the next call works.
+
+## 5. Connect ad accounts
+
+`native__list_connections` shows what is connected and what is missing. To connect a platform, the agent calls `native__create_connection_link` with the provider, for example `meta_ads`, and sends you the link. You sign in to the platform and pick the accounts Ryze should use. The link stays valid for 30 days.
+
+Links work for platforms you connect by signing in: Google Ads, Google Analytics, Search Console, Google Drive, Meta, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit, Pinterest, HubSpot, Slack, Zoho and GitHub. Shopify and platforms that need an API key are connected in the Ryze app.
+
+## Manage keys
+
+Your keys are listed in the app under **Settings → Profile → API keys**. **Revoke** stops a key at once.
