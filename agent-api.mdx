@@ -76,11 +76,11 @@ curl -X POST https://reports.get-ryze.ai/api/v1/tools/native__list_connections \
   -d '{ "args": {} }'
 ```
 
-When the key covers several workspaces, pass `"workspace"` inside `args`: the name or id from `native__get_workspaces`.
+When the key covers several workspaces, pass `"workspace"` inside `args`: the id, the name or the website from `native__get_workspaces`.
 
 ## 4. Subscription
 
-A new account has no subscription yet, so every tool except `native__get_workspaces` is refused with `subscription_required`. The `message` holds the payment link: send it to the user and retry after they pay.
+A new account has no subscription yet. `native__get_workspaces`, `native__list_connections`, `native__create_connection_link` and `native__get_connection_link` work without one, so the agent can connect platforms right away. Every other tool answers `subscription_required`; its `message` holds the payment link: send it to the user and retry after they pay.
 
 ## 5. Connect ad accounts
 
