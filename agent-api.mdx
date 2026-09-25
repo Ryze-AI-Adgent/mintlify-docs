@@ -75,9 +75,9 @@ A new account has no subscription yet, so every tool except `native__get_workspa
 
 ## 5. Connect ad accounts
 
-`native__list_connections` shows what is connected and what is missing. To connect a platform, the agent calls `native__create_connection_link` with the provider, for example `meta_ads`, and sends you the link. You sign in to the platform and pick the accounts Ryze should use. The link works once and stays valid for 7 days.
+`native__list_connections` shows what is connected and what is missing. To connect a platform, the agent calls `native__create_connection_link` with the provider, for example `meta_ads`, and sends you the link. The link signs you in to Ryze and opens the connect screen for that platform: sign in to the platform and pick the accounts Ryze should use, exactly as in the app.
 
-Links work for Google Ads, Google Analytics, Search Console, Google Drive, Meta, LinkedIn, TikTok, Snapchat, Reddit, Pinterest, HubSpot, Slack and Zoho. Shopify, GitHub, Microsoft Ads and platforms that need an API key are connected in the Ryze app. If the workspace already has Slack or Google Drive connected, the link is refused, so it never replaces an existing connection.
+The link works once and expires after 24 hours. Treat it like a password until you open it: anyone who opens it is signed in to your Ryze account. If the workspace already has a single-account platform such as Slack or Google Drive connected, the link is refused so it never replaces an existing connection.
 
 ## Manage keys
 
