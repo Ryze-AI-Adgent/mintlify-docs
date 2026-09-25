@@ -90,9 +90,9 @@ Connect a platform in 3 steps:
 - send the returned `url` to the user: it opens the platform's sign-in or a page for its API key, then they pick the accounts Ryze should use
 - poll `native__get_connection_link` with the returned `link_id` and the same `workspace` every ~30 seconds until `status` is `connected`; the platform's tools then appear in `GET /api/v1/tools`
 
-`status` is `waiting` until the user signs in, `connected` once the platform is connected (the user may still be picking accounts for a minute), and `expired` when the link is gone (check `native__list_connections` then). In Claude and ChatGPT the link shows as a card with a Connect button that turns green by itself once the platform is connected.
+`status` is `waiting` until the user signs in, `connected` once the platform is connected (the user may still be picking accounts for a minute), and `expired` when the link is gone (check `native__list_connections` then). In Claude and ChatGPT the link shows as a card with a Connect button that turns green by itself once the platform is connected (after 20 minutes it stops checking and offers a Check again button).
 
-The link works once and expires after 24 hours (a sign-in started just before that gets 15 more minutes to finish). It never signs anyone in to Ryze: whoever opens it can only connect a platform to that workspace.
+The link works once and expires after 24 hours; a sign-in started in its last 15 minutes still gets 15 minutes to finish. It never signs anyone in to Ryze: whoever opens it can only connect a platform to that workspace.
 
 Links work for every platform Ryze connects except GitHub, custom MCP servers and Ryze Sites, which are set up in the Ryze app. OAuth platforms open their sign-in (Microsoft Ads with a Microsoft account; Shopify asks for the store domain first). Platforms connected with an API key, such as Klaviyo, Semrush or WordPress, open a page where the user pastes it. If a platform that allows one connection per workspace is already connected, the link is refused so it never replaces it.
 
