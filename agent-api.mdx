@@ -6,32 +6,33 @@ description: "Let your AI agent sign up for Ryze, get an API key, and call every
 Your agent can create a Ryze account, get an API key and start working without you opening the app. You step in three times:
 
 - read the code from the email
-- click the link to connect an ad platform
 - pay, when the agent sends you the payment link
+- click the link to connect an ad platform
 
 ## 1. Sign up
 
-The agent sends your email and your website:
+The agent sends your email:
 
 ```bash
 curl -X POST https://reports.get-ryze.ai/api/v1/agent/signup \
   -H "Content-Type: application/json" \
-  -d '{ "email": "you@company.com", "domain": "company.com", "name": "My agent" }'
+  -d '{ "email": "you@company.com" }'
 ```
 
-- Ryze emails an 8-digit code with the subject **"… is your Ryze code"**. It is valid for 1 hour. The email tells the user to share it only with their own agent.
-- `domain` is the business website. Free email domains such as gmail.com are refused.
-- `name` is optional and labels the key in your settings.
+Ryze emails an 8-digit code with the subject **"… is your Ryze code"**. It is valid for 1 hour. The email tells the user to share it only with their own agent. Calling signup again sends a new code; use the newest one.
 
 ## 2. Verify
 
-You give the agent the code. The agent sends it back:
+You give the agent the code. The agent sends it back with your website:
 
 ```bash
 curl -X POST https://reports.get-ryze.ai/api/v1/agent/verify \
   -H "Content-Type: application/json" \
-  -d '{ "email": "you@company.com", "code": "12345678" }'
+  -d '{ "email": "you@company.com", "code": "12345678", "domain": "company.com", "name": "My agent" }'
 ```
+
+- `domain` is the business website. Free email domains such as gmail.com are refused.
+- `name` is optional and labels the key in your settings.
 
 The response carries the key. It is shown once, so the agent should store it:
 
@@ -46,7 +47,7 @@ The response carries the key. It is shown once, so the agent should store it:
 ```
 
 - A new email gets a new account with a workspace for the domain.
-- An email that already has a Ryze account gets a key for the workspaces it can open. `workspace_id` is the one whose website matches `domain`, or `null` when there are several and none matches.
+- An email that already has a Ryze account gets a key for the workspaces it can open (its 20 newest). `workspace_id` is the one whose website matches `domain`, or `null` when none matches; `native__get_workspaces` lists them all.
 - Lost the response? Run signup and verify again. An existing account just gets another key, and old keys keep working until revoked.
 
 ## 3. Call tools
@@ -55,7 +56,7 @@ The key works the same way over MCP and REST. Both expose the same tools.
 
 ### MCP
 
-Connect your MCP client to `https://connector.get-ryze.ai/mcp` with the header `Authorization: Bearer rk_live_...`.
+Connect your MCP client to `https://connector.get-ryze.ai/mcp` with the header `Authorization: Bearer rk_live_...`. Keys work on `/mcp` only, not on `/sse`. After a platform is connected, list the tools again to see its tools.
 
 ### REST
 
@@ -99,11 +100,11 @@ A tool that ran but refused answers HTTP 200 with a `status`:
 
 | `status` | Meaning |
 |---|---|
-| `invalid_arguments` | Wrong or missing arguments. `message` names the field. |
+| `invalid_arguments` | Wrong or missing arguments. `message` names the field. Tool arguments go inside `args`, never next to it. |
 | `subscription_required` | No active plan. `message` holds the payment link. |
 | `out_of_credits` | The plan's credits are used up. |
 | `not_allowed` | The platform refused the action. |
-| `not_found` | The object or the tool name does not exist. |
+| `not_found` | The object, the tool or the provider does not exist. |
 | `not_connected` | The platform is not connected. Use a connection link. |
 
 ```json
