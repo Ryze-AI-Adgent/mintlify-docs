@@ -3,7 +3,11 @@ title: "Ryze API for agents"
 description: "Let your AI agent sign up for Ryze, get an API key, and call every Ryze tool over MCP or REST."
 ---
 
-Your agent can create a Ryze account, get an API key and start working without you opening the app. You only step in three times: to read an email code, to sign in to an ad platform, and to pay.
+Your agent can create a Ryze account, get an API key and start working without you opening the app. You step in three times:
+
+- read the code from the email
+- click the link to connect an ad platform
+- pay, when the agent sends you the payment link
 
 ## 1. Sign up
 
@@ -15,11 +19,13 @@ curl -X POST https://reports.get-ryze.ai/api/v1/agent/signup \
   -d '{ "email": "you@company.com", "domain": "company.com", "name": "My agent" }'
 ```
 
-Ryze emails an 8-digit code to that address. `domain` must be the business website; free email domains are refused. `name` is optional and labels the key in your settings.
+- Ryze emails an 8-digit code with the subject **"… is your Ryze code"**. It is valid for 1 hour.
+- `domain` is the business website. Free email domains such as gmail.com are refused.
+- `name` is optional and labels the key in your settings.
 
 ## 2. Verify
 
-You give the agent the code from the email. The agent sends it back:
+You give the agent the code. The agent sends it back:
 
 ```bash
 curl -X POST https://reports.get-ryze.ai/api/v1/agent/verify \
@@ -39,11 +45,13 @@ The response carries the key. It is shown once, so the agent should store it:
 }
 ```
 
-A new email gets a new account with a workspace for the domain. An email that already has a Ryze account gets a key for the workspaces that account can open; `workspace_id` is the one whose website matches `domain`, or `null` when there are several and none matches.
+- A new email gets a new account with a workspace for the domain.
+- An email that already has a Ryze account gets a key for the workspaces it can open. `workspace_id` is the one whose website matches `domain`, or `null` when there are several and none matches.
+- Lost the response? Run signup and verify again. An existing account just gets another key, and old keys keep working until revoked.
 
 ## 3. Call tools
 
-The key works the same way over MCP and over REST. Both expose the same tools.
+The key works the same way over MCP and REST. Both expose the same tools.
 
 ### MCP
 
@@ -51,14 +59,14 @@ Connect your MCP client to `https://connector.get-ryze.ai/mcp` with the header `
 
 ### REST
 
-List the tools, with their descriptions and input schemas:
+List the tools with their descriptions and input schemas:
 
 ```bash
 curl https://reports.get-ryze.ai/api/v1/tools \
   -H "Authorization: Bearer rk_live_..."
 ```
 
-Call one by name:
+Call one by name. Arguments go inside `args`:
 
 ```bash
 curl -X POST https://reports.get-ryze.ai/api/v1/tools/native__list_connections \
@@ -71,13 +79,53 @@ When the key covers several workspaces, pass `"workspace"` inside `args`. `nativ
 
 ## 4. Subscription
 
-A new account has no subscription yet, so every tool except `native__get_workspaces` answers with a payment link. The agent sends it to you, you pay, and the next call works.
+A new account has no subscription yet, so every tool except `native__get_workspaces` is refused with `subscription_required`. The `message` holds the payment link: send it to the user and retry after they pay.
 
 ## 5. Connect ad accounts
 
-`native__list_connections` shows what is connected and what is missing. To connect a platform, the agent calls `native__create_connection_link` with the provider, for example `meta_ads`, and sends you the link. The link signs you in to Ryze and opens the connect screen for that platform: sign in to the platform and pick the accounts Ryze should use, exactly as in the app.
+Connect a platform in 3 steps:
 
-The link works once and expires after 24 hours. Treat it like a password until you open it: anyone who opens it is signed in to your Ryze account. If the workspace already has a single-account platform such as Slack or Google Drive connected, the link is refused so it never replaces an existing connection.
+- call `native__create_connection_link` with the provider, for example `meta_ads`
+- send the returned `url` to the user: one click opens the platform's sign-in, then they pick the accounts Ryze should use
+- poll `native__list_connections` every ~30 seconds until the provider shows `connected: true`; its tools then appear in `GET /api/v1/tools`
+
+The link works once and expires after 24 hours. It never signs anyone in to Ryze: whoever opens it can only connect a platform to that workspace.
+
+Links work for Google Ads, Google Analytics, Search Console, Google Drive, Meta, LinkedIn, TikTok, Snapchat, Reddit, Pinterest, HubSpot, Slack and Zoho. Shopify, GitHub, Microsoft Ads and platforms that need an API key are connected in the Ryze app. If Slack or Google Drive is already connected, the link is refused so it never replaces a connection.
+
+## Errors
+
+A tool that ran but refused answers HTTP 200 with a `status`:
+
+| `status` | Meaning |
+|---|---|
+| `invalid_arguments` | Wrong or missing arguments. `message` names the field. |
+| `subscription_required` | No active plan. `message` holds the payment link. |
+| `out_of_credits` | The plan's credits are used up. |
+| `not_allowed` | The platform refused the action. |
+| `not_found` | The object does not exist. |
+| `not_connected` | The platform is not connected. Use a connection link. |
+
+```json
+{ "status": "subscription_required", "message": "... https://reports.get-ryze.ai/pay/..." }
+```
+
+Problems with the request itself answer with an HTTP error and `{ "error": "..." }`:
+
+| HTTP | When |
+|---|---|
+| 400 | Invalid signup or verify body, wrong code |
+| 401 | Missing, invalid or revoked key |
+| 429 | Rate limit reached |
+
+## Limits
+
+| What | Limit |
+|---|---|
+| Signups per email | 5 per hour |
+| Signups per IP | 10 per hour |
+| Verify attempts per email | 10 per hour |
+| Requests per API key | 1,200 per hour |
 
 ## Manage keys
 
