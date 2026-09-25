@@ -88,7 +88,9 @@ Connect a platform in 3 steps:
 
 - call `native__create_connection_link` with the provider, for example `meta_ads`
 - send the returned `url` to the user: one click opens the platform's sign-in, then they pick the accounts Ryze should use
-- poll `native__list_connections` every ~30 seconds until the provider shows `connected: true`; its tools then appear in `GET /api/v1/tools`
+- poll `native__get_connection_link` with the returned `link_id` every ~30 seconds until `status` is `connected`; the platform's tools then appear in `GET /api/v1/tools`
+
+`status` is `waiting` until the user signs in, `connected` once the platform is connected, and `expired` when the link is gone (check `native__list_connections` then). In Claude and ChatGPT the link shows as a card with a Connect button that turns green by itself once the platform is connected.
 
 The link works once and expires after 24 hours. It never signs anyone in to Ryze: whoever opens it can only connect a platform to that workspace.
 
