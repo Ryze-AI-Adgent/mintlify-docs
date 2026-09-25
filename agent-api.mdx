@@ -120,6 +120,7 @@ Problems with the request itself answer with an HTTP error and `{ "error": "..."
 | 400 | Invalid signup or verify body, wrong code |
 | 401 | Missing, invalid or revoked key |
 | 403 | The key is valid but its user has no workspace |
+| 404 | The path is not an endpoint. The API is `POST /api/v1/agent/signup`, `POST /api/v1/agent/verify`, `GET /api/v1/tools` and `POST /api/v1/tools/{name}`. |
 | 429 | The code email could not be sent right now. Wait a minute and call signup again. |
 
 ## Manage keys
