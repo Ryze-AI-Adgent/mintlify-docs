@@ -1,0 +1,101 @@
+---
+title: "Connect Lovable"
+description: "Publish articles to a site built with Lovable. Ryze signs in, adds the article files and clicks Publish."
+---
+
+Lovable has no publishing API. To publish, Ryze signs in to Lovable with the login you give it, asks Lovable's chat to add the article files to your project, and clicks **Publish**, the way you would. Your login and password are stored encrypted.
+
+<Warning>
+**Publish deploys the whole project.** Any changes you made in Lovable but haven't published yet go live with the next article.
+</Warning>
+
+## Before you connect
+
+- **An email and password login.** Google and GitHub sign-in don't work.
+- **Two-factor authentication off** for that login. If Lovable asks for a verification code, the connection is refused.
+- **Lovable credits.** Connecting, each publish batch and each unpublish send a prompt to Lovable, and prompts spend your Lovable credits. See [Credits](#credits).
+
+## Connect in Ryze
+
+<Steps>
+  <Step title="Copy the project link">
+    Open the project in Lovable and copy the link from the browser address bar. It looks like `https://lovable.dev/projects/…`.
+  </Step>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the Lovable card.
+  </Step>
+  <Step title="Fill in the fields">
+    - **Project URL** — the link you copied
+    - **Lovable email** — your Lovable login
+    - **Password** — the password for that login
+  </Step>
+  <Step title="Click Connect">
+    The dialog shows each step as it happens: **Logging in to Lovable**, **Checking your Lovable plan and credits**, **Lovable is setting up your blog**, then **Saving the connection**. Setup usually takes 1–2 minutes.
+  </Step>
+</Steps>
+
+### What the setup prompt does
+
+During connect, Ryze sends Lovable one prompt that sets up the blog:
+
+- Articles become JSON files in `src/content/articles/`, one file per article.
+- `/blogs` lists every article, newest first.
+- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns.
+- If your site already has a blog, Lovable rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation.
+
+The prompt asks Lovable not to change anything else on the site. **Every reconnect sends this prompt again.**
+
+## How publishing works
+
+Articles go out in the daily publishing window that starts at 20:00 UTC, in batches of up to 5 articles per site. For each batch Ryze:
+
+1. Attaches the article files and sends **one** prompt asking Lovable to copy them into `src/content/articles/`. Lovable copies the files as they are and never rewrites the text.
+2. Clicks **Publish**.
+3. Opens each article on your live site and checks its title, meta description and text. This check waits up to 2 minutes.
+
+Each article lives at your published site's address plus `/blogs/{slug}`.
+
+## Credits
+
+| Action | Prompts | Lovable credits in our tests |
+| --- | --- | --- |
+| Connect or reconnect (setup) | 1 | about 1 |
+| Publish batch of up to 5 articles | 1 | about 0.4 for 3 articles |
+| Unpublish an article | 1 | varies |
+| Clicking **Publish** | 0 | free |
+
+These are approximate. Lovable decides the cost of each prompt.
+
+Ryze checks your credit balance before every prompt. When the workspace is out of credits, publishing stops with a message until you add credits in Lovable or the daily credits come back.
+
+## When Lovable is busy with your own prompt
+
+Before it sends anything, Ryze checks whether Lovable is working on one of your prompts. If it is, Ryze leaves the project alone:
+
+- **Scheduled publishing** waits 30 minutes and tries again, up to twice. If Lovable is still busy, the articles stay due and go out in the next daily window. Until then the article shows a "Publishing was postponed" warning.
+- **Publish, Republish or Unpublish from the article page** stops with "Lovable is working on one of your prompts right now. Try again in a few minutes."
+
+### Paused projects
+
+If your project has a paused task (for example, it ran out of credits mid-prompt), Ryze's prompt goes into the same chat and Lovable resumes your paused task along with it, on your credits. Ryze never clicks **Finish up** or **Resume** itself.
+
+## Republish and unpublish
+
+- **Republish** replaces the article file in place. If the slug changed, the same prompt deletes the old file, so the old address stops working.
+- **Unpublish** sends one prompt that deletes the article file, clicks **Publish**, and waits until the page is gone from your live site.
+
+## Troubleshooting
+
+| Message | What to do |
+| --- | --- |
+| The builder rejected this login and password | Check the login and password, then connect again. |
+| The builder asked for a verification code on login | Turn off two-factor authentication for this login, or use a collaborator login without it, then connect again. |
+| This login has no access to that project | Check the project link, or log in with the project owner's account. |
+| Lovable is out of credits for this project's workspace | Add credits in Lovable, or wait for the daily credits. |
+| Lovable is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
+| The builder did not finish the request in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| The builder's Publish did not finish in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| The published site does not show the article yet | Try again in a few minutes. Scheduled publishing retries on its own. |
+| Another publish for this project is still running | Wait a few minutes for it to finish. |
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

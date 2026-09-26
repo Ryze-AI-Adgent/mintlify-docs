@@ -1,0 +1,68 @@
+---
+title: "Connect Squarespace"
+description: "Connect your Squarespace site with a login so Ryze can publish articles to your blog."
+---
+
+Squarespace has no blog API. To publish, Ryze signs in to your site with the login you give it and adds each article in the blog editor, the way a person would. Your login and password are stored encrypted.
+
+## Before you connect
+
+- **An email and password login.** Use the account of the site owner or a contributor with **Content Editor** access.
+- **Two-factor authentication off** for that login. If Squarespace asks for a verification code, the connection is refused. A contributor account without two-factor authentication works.
+- **A blog on the site.** If there isn't one yet, add a Blog page in Squarespace (**Pages → + → Blog**).
+
+## Connect in Ryze
+
+<Steps>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the Squarespace card.
+  </Step>
+  <Step title="Fill in the fields">
+    - **Site URL** — your site address, the `squarespace.com` one or your own domain, e.g. `https://yoursite.squarespace.com`
+    - **Squarespace email** — the owner or contributor login
+    - **Squarespace password** — the password for that login
+  </Step>
+  <Step title="Click Connect">
+    The dialog shows each step as it happens: **Logging in to Squarespace**, **Finding your Squarespace site and blogs**, then **Saving the connection**.
+  </Step>
+</Steps>
+
+If the site has one blog, Ryze picks it. If it has several, open the Squarespace integration settings and choose one in the **Blog** picker. Nothing publishes until a blog is selected.
+
+## How publishing works
+
+Articles go out in the daily publishing window that starts at 20:00 UTC. Ryze opens one browser session per site and publishes up to 5 articles in it, one after another. For each article it:
+
+1. Creates a draft with the article's title and slug.
+2. Pastes the body into the editor.
+3. Uploads the featured image and places body images as image blocks.
+4. Saves the excerpt, SEO title and meta description, then publishes the post.
+
+The post lives at your blog's address plus the article slug.
+
+If the featured image or a body image fails to upload, the article still publishes. It gets a warning in your articles list that says which images were skipped.
+
+Publishing is safe to repeat. Ryze finds its own post by slug, so a retry never creates a second copy. It never overwrites a post it didn't create.
+
+## Republish and unpublish
+
+- **Republish** replaces the post in place in one session.
+- **Unpublish** deletes the post from your Squarespace blog.
+
+## Troubleshooting
+
+| Message | What to do |
+| --- | --- |
+| Squarespace rejected this email and password | Check the login and password, then connect again. |
+| Squarespace asked for a verification code on login | Turn off two-factor authentication for this account, or use a contributor account without it, then connect again. |
+| Squarespace login did not finish | Check the login and password, then connect again. |
+| This Squarespace account cannot edit the site | Use the site URL from **Squarespace → Website** and an owner or contributor login with Content Editor access. |
+| Squarespace blog not selected | Pick a blog in the Squarespace integration settings. |
+| The Squarespace blog selected for publishing no longer exists | Pick another blog in the Squarespace integration settings. |
+| The Squarespace blog already has a post at "…" that Ryze did not create | Rename the article slug, or remove that post in Squarespace. |
+| The Squarespace blog already has a draft at "…" that Ryze does not recognise | Delete that draft in Squarespace (or rename the article slug), then publish again. |
+| Squarespace refused to save the new post / saved the post at a different address | Change the article slug to letters, digits and hyphens, then publish again. |
+| Another Squarespace publish for this site is still running | Wait a few minutes. Scheduled publishing goes through once the other publish finishes. |
+| The Squarespace blog editor did not open | Try publishing again in a few minutes. |
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
