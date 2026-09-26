@@ -1,0 +1,104 @@
+---
+title: "Connect GoDaddy Airo"
+description: "Publish articles to a site built with GoDaddy Airo. Ryze signs in, adds the article files and clicks Publish."
+---
+
+GoDaddy Airo has no publishing API. To publish, Ryze signs in to GoDaddy with the login you give it, asks Airo's chat to add the article files to your project, and clicks **Publish**, the way you would. Your login and password are stored encrypted.
+
+<Warning>
+**Publish deploys the whole project.** Any changes you made in Airo but haven't published yet go live with the next article.
+</Warning>
+
+## Before you connect
+
+- **Your GoDaddy username or customer number and password.** You'll find your customer number in Airo under **Menu**.
+- **No verification code on login.** If GoDaddy asks for a code when Ryze signs in, the connection is refused. Turn off two-step verification for this login first.
+- **An Airo plan that can publish a live site.** Ryze checks the plan during connect and refuses a plan that can't publish.
+- **Airo AI credits.** Connecting, each publish batch and each unpublish send a prompt to Airo, and prompts spend your Airo AI credits. See [Credits](#credits).
+
+<Note>
+The free Airo address (`*.airoapp.ai`) tells search engines not to index the site. For articles to show up in Google, connect your own domain to the site in Airo.
+</Note>
+
+## Connect in Ryze
+
+<Steps>
+  <Step title="Copy the project link">
+    Open the project in Airo and copy the link from the browser address bar. It looks like `https://airo-builder.godaddy.com/develop/…`.
+  </Step>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the GoDaddy Airo card.
+  </Step>
+  <Step title="Fill in the fields">
+    - **Project URL** — the link you copied
+    - **GoDaddy username or customer #** — your username or customer number
+    - **Password** — the password for that login
+  </Step>
+  <Step title="Click Connect">
+    The dialog shows each step as it happens: **Logging in to GoDaddy Airo**, **Checking your GoDaddy Airo plan and credits**, **GoDaddy Airo is setting up your blog**, then **Saving the connection**. Setup usually takes 1–2 minutes.
+  </Step>
+</Steps>
+
+### What the setup prompt does
+
+During connect, Ryze sends Airo one prompt that sets up the blog:
+
+- Articles become JSON files in `src/data/articles/`, one file per article.
+- `/blogs` lists every article, newest first.
+- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns.
+- If your site already has a blog, Airo rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation.
+
+The prompt asks Airo not to change anything else on the site. **Every reconnect sends this prompt again.**
+
+## How publishing works
+
+Articles go out in the daily publishing window that starts at 20:00 UTC, in batches of up to 5 articles per site. For each batch Ryze:
+
+1. Attaches the article files and sends **one** prompt asking Airo to copy them into `src/data/articles/`. Airo copies the files as they are and never rewrites the text.
+2. Clicks **Publish** and waits for GoDaddy to finish the deployment.
+3. Opens each article on your live site and checks its title, meta description and text. This check waits up to 2 minutes.
+
+Each article lives at your published site's address plus `/blogs/{slug}`.
+
+## Credits
+
+| Action | Prompts | Airo credits in our tests |
+| --- | --- | --- |
+| Connect or reconnect (setup) | 1 | about 4 |
+| Publish batch of up to 5 articles | 1 | about 1 |
+| Republish one article | 1 | about 1 |
+| Unpublish an article | 1 | about 1 |
+| Clicking **Publish** | 0 | free |
+
+These are approximate. Airo decides the cost of each prompt.
+
+Ryze checks your credits before every prompt. When the account is out of credits, publishing stops with a message until you add credits or the monthly credits come back.
+
+## When Airo is busy with your own prompt
+
+Before it sends anything, Ryze checks whether Airo is working on one of your prompts. If it is, Ryze leaves the project alone:
+
+- **Scheduled publishing** waits 30 minutes and tries again, up to twice. If Airo is still busy, the articles stay due and go out in the next daily window. Until then the article shows a "Publishing was postponed" warning.
+- **Publish, Republish or Unpublish from the article page** stops with "GoDaddy Airo is working on one of your prompts right now. Try again in a few minutes."
+
+## Republish and unpublish
+
+- **Republish** replaces the article file in place. If the slug changed, the same prompt deletes the old file, so the old address stops working.
+- **Unpublish** sends one prompt that deletes the article file, clicks **Publish**, and waits until the page is gone from your live site.
+
+## Troubleshooting
+
+| Message | What to do |
+| --- | --- |
+| The builder rejected this login and password | Check the username or customer number and the password, then connect again. |
+| The builder asked for a verification code on login | Turn off two-step verification for this login, then connect again. |
+| This login has no access to that project | Check the project link, or log in with the project owner's account. |
+| This Airo plan cannot publish sites | Upgrade to an Airo plan that includes a live site. |
+| GoDaddy Airo is out of credits for this account | Add credits, or wait for the monthly credits in Airo. |
+| GoDaddy Airo is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
+| The builder did not finish the request in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| The builder's Publish did not finish in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| The published site does not show the article yet | Try again in a few minutes. Scheduled publishing retries on its own. |
+| Another publish for this project is still running | Wait a few minutes for it to finish. |
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

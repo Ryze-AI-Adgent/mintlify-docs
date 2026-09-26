@@ -1,0 +1,109 @@
+---
+title: "Connect Base44"
+description: "Publish articles to an app built with Base44. Ryze signs in, saves the article files into the app and clicks Publish."
+---
+
+Base44 has no publishing API. To publish, Ryze signs in to Base44 with the login you give it, saves the article files into your app, and clicks **Publish**, the way you would. Your login and password are stored encrypted.
+
+<Warning>
+**Publish deploys the whole app.** Any changes you made in Base44 but haven't published yet go live with the next article.
+</Warning>
+
+## Before you connect
+
+- **An email and password login.** Google, Apple and GitHub sign-in don't work.
+- **No verification code on login.** If Base44 asks for a code when Ryze signs in, the connection is refused.
+- **A Base44 plan that can publish apps.**
+- **Base44 message credits** for the setup prompt, unpublishing and slug changes. Regular publishing doesn't use credits. See [Credits](#credits).
+
+## Connect in Ryze
+
+<Steps>
+  <Step title="Copy the app link">
+    Open the app in the Base44 editor and copy the link from the browser address bar. It looks like `https://app.base44.com/apps/…/editor/preview`.
+  </Step>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the Base44 card.
+  </Step>
+  <Step title="Fill in the fields">
+    - **Project URL** — the link you copied
+    - **Base44 email** — your Base44 login
+    - **Password** — the password for that login
+  </Step>
+  <Step title="Click Connect">
+    The dialog shows each step as it happens: **Logging in to Base44**, **Checking your Base44 plan and credits**, **Base44 is setting up your blog**, then **Saving the connection**. In our tests the first setup took about 4 minutes and a reconnect about 1 minute.
+  </Step>
+</Steps>
+
+### What the setup prompt does
+
+During connect, Ryze sends Base44 one prompt that sets up the blog:
+
+- Articles become JSON files in `src/content/articles/`, one file per article.
+- `/blogs` lists every article, newest first, and `/blogs/{slug}.html` shows one article.
+- A build step writes every article as a ready HTML page with its title, meta description, canonical link and body, so search engines can read it without running JavaScript.
+- The same build step writes `sitemap.xml` (your public pages and every article) and `robots.txt`. They replace the ones Base44 generates.
+- If your app already has a blog, Base44 rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation.
+
+The prompt asks Base44 not to change anything else and not to install new packages. **Every reconnect sends this prompt again.**
+
+## Article URLs
+
+Articles live at `https://{your-app}.base44.app/blogs/{slug}.html`.
+
+The `.html` ending is on purpose. Base44 hosting serves a prerendered page only at an address with a file extension. At an address without one, search engines get the app's generic page instead of the article. Visitors who open `/blogs/{slug}` without `.html` still see the article, but the `.html` address is the one Ryze uses in links, the canonical tag and the sitemap.
+
+Ryze builds these addresses from your app's `base44.app` address.
+
+## How publishing works
+
+Articles go out in the daily publishing window that starts at 20:00 UTC, in batches of up to 5 articles per site. For each batch Ryze:
+
+1. Saves each article file straight into the app. No prompt is sent and no credits are spent.
+2. Clicks **Publish**. Base44 runs the build, which also writes the HTML pages and the sitemap.
+3. Opens each article on your live site and checks its title, meta description and text. This check waits up to 2 minutes.
+
+## Credits
+
+| Action | Prompts | Base44 message credits in our tests |
+| --- | --- | --- |
+| First connect (setup) | 1 | about 3 |
+| Reconnect (setup again) | 1 | about 1.5–2 |
+| Publish batch of up to 5 articles | 0 | none |
+| Republish with a changed slug | 1 | about 0.7 |
+| Unpublish an article | 1 | about 0.7 |
+| Clicking **Publish** | 0 | free |
+
+These are approximate. Base44 decides the cost of each prompt.
+
+Before every prompt Ryze checks your plan and remaining credits. When the account is out of message credits, prompts stop with a message until you add credits or the monthly credits come back.
+
+## When Base44 is busy with your own prompt
+
+Before it saves a file or clicks Publish, Ryze checks whether Base44 is working on one of your prompts. If it is, Ryze leaves the app alone:
+
+- **Scheduled publishing** waits 30 minutes and tries again, up to twice. If Base44 is still busy, the articles stay due and go out in the next daily window. Until then the article shows a "Publishing was postponed" warning.
+- **Publish, Republish or Unpublish from the article page** stops with "Base44 is working on one of your prompts right now. Try again in a few minutes."
+
+## Republish and unpublish
+
+- **Republish** saves the new article file in place. If the slug changed, Ryze sends one prompt to delete the old file, so the old address stops working.
+- **Unpublish** sends one prompt that deletes the article file, clicks **Publish**, and waits until the page is gone from your live site.
+
+## Troubleshooting
+
+| Message | What to do |
+| --- | --- |
+| The builder rejected this login and password | Check the email and password, then connect again. |
+| The builder asked for a verification code on login | Turn off two-factor authentication for this login, then connect again. |
+| This login has no access to that project | Check the app link, or log in with the app owner's account. |
+| Base44 does not allow this workspace to publish apps | Check the Base44 plan and workspace settings. |
+| Base44 is out of message credits for this account | Add credits, or wait for the monthly credits in Base44. |
+| Base44 could not publish the app because its build failed | Open the app in Base44 and fix the build (Base44 offers **Resolve with AI** on the error). |
+| Base44 did not save the article file | Nothing to do. Publishing retries on its own. |
+| Base44 is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
+| The builder's Publish did not finish in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| The published site does not show the article yet | Try again in a few minutes. Scheduled publishing retries on its own. |
+| Another publish for this project is still running | Wait a few minutes for it to finish. |
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
