@@ -68,13 +68,13 @@ When a schedule fires, Ryze:
 
 1. **Starts a fresh chat** and runs your task as the agent.
 2. **Writes the result** — the agent does the work and ends with a short recap: the verdict and the key numbers.
-3. **Emails you** that recap (if email is on) in your daily digest: one email per day at 17:00 UTC with a row per finished run, each row carrying the run's recap and a link to open the full chat. A run that hits a problem is marked in the same email.
+3. **Emails you** (if email is on) in your daily digest: one email per day at 17:00 UTC with a row per finished run, each row carrying the first lines of the run's recap and a link to open the full chat. A run that hits a problem is marked in the same email.
 
 <Frame>
   <img src="/images/schedules-run-result.png" alt="A finished scheduled run with the agent's recap" />
 </Frame>
 
-The email carries the recap. The full reasoning and detail live in the chat behind each row's link.
+The email carries the headline of each recap. The full recap, reasoning and detail live in the chat behind each row's link.
 
 <Note>
 Scheduled-run chats are read-only — they're a record of what the agent did, not a conversation you continue. To change what runs, edit the task.
