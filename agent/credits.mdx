@@ -7,29 +7,32 @@ You pay for the AI's thinking, not its plumbing. Every time the model reasons �
 
 ## How a message is charged
 
-Each AI step costs by the model you've picked:
+Every AI step costs **0.5 credits**.
 
-| Model | Cost per AI step |
-| --- | --- |
-| **Fast** | 0.25 credits |
-| **Smart** (default) | 0.5 credits |
-| **Powerful** | 1.5 credits |
+There is no model to pick. Ryze chooses the right model for each reply, and the step price is the same whichever one it uses.
 
 A simple reply is one step. When the AI pulls data or edits a campaign, it takes an extra step per round of tool results it reads — the tool calls themselves are free.
 
-Two tools carry a fixed cost on top, because they do heavy lifting:
+A few tools carry a fixed cost on top, because they do heavy lifting:
 
 | Tool | Cost |
 | --- | --- |
-| **Ad creative generation** | 5 credits each |
+| **Ad creative** (built and rendered from a brief, or re-rendered after an edit) | 2.5 credits per creative |
+| **Generated photo** (an image the agent generates to use inside a creative) | 0.5 credits per image |
+| **UGC video** | 10 credits per video |
 | **SEO data lookup** (rankings, backlinks, keyword data) | 0.5 credits each |
+| **Competitor ad search** (Ad Library) | 0.5 credits each |
+| **Reddit search** | 0.5 credits each |
+| **Web search** and **web page fetch** | 0.1 credits each |
 
-### Examples (on Smart)
+Everything else the agent calls is free: Google Ads, Meta, GA4, Search Console, your store and your CMS.
+
+### Examples
 
 - **"Hey agent!"** → one step. **0.5 credits.**
 - **"What's my Google Ads spend this week?"** → pull data, then answer: two steps. **1 credit.**
 - **"Compare ROAS across my Meta and Google campaigns."** → a few rounds of reports, then the comparison: ~4 steps. **~2 credits.**
-- **"Generate 3 ad creatives for our spring launch."** → two steps + three creatives. **16 credits.**
+- **"Generate 3 ad creatives for our spring launch."** → three creatives (7.5), a few steps, and 0.5 for each photo the agent generates. **Usually 9–12 credits.**
 
 <Frame>
   <img src="/images/credits-used-breakdown.png" alt="A reply showing the credits used" />
@@ -37,11 +40,17 @@ Two tools carry a fixed cost on top, because they do heavy lifting:
 
 ## Agent runs
 
-Work the agent does on its own — [scheduled tasks](/agent/schedules) and applying [Approvals](/agent/approvals) — is billed the same way: per AI step, at the Smart rate (0.5 credits), plus the fixed-cost tools above.
+Work the agent does on its own — [scheduled tasks](/agent/schedules) and applying [Approvals](/agent/approvals) — is billed the same way: 0.5 credits per AI step, plus the fixed-cost tools above.
 
 **Background research for Approvals is free.** The agent scanning your accounts for opportunities costs nothing — you only pay when you approve a fix and the agent goes to apply it.
 
 Failed runs aren't charged, same as chat.
+
+## Through Claude or ChatGPT
+
+When you use Ryze through the [Claude](/claude/connect) or ChatGPT connector, the thinking happens in your assistant, on your Claude or ChatGPT plan. Ryze charges **no AI steps** there. Pulling data and making changes in your ad accounts through the connector is free; only the fixed-cost tools above (an SEO data lookup, a competitor ad search) use credits.
+
+Ad creatives and UGC videos are generated inside the Ryze app, not through the connector.
 
 ## See the cost of any reply
 
@@ -56,8 +65,9 @@ Hover the credit icon under any AI message to see exactly what it cost.
 You're only billed for work that lands:
 
 - **Failed runs and errors** — if a reply hits an error, it doesn't cost credits.
-- **Tool calls** — pulling data, editing campaigns, publishing content: free. You pay for the AI steps around them, plus the two fixed-cost tools above.
+- **Tool calls** — pulling data, editing campaigns, publishing content: free. You pay for the AI steps around them, plus the fixed-cost tools above.
 - **Approvals research** — the background scanning that files proposals is on us.
+- **Managed Campaigns** — the agents that set up and manage a [Managed Campaign](/paid-ads/managed-campaigns) don't use credits. Those are priced on ad spend.
 - **Chat on your own Anthropic key** — if you connect your own [Anthropic key](/integrations/anthropic), AI steps cost nothing — only the fixed-cost tools do.
 
 ## Track your usage
@@ -96,7 +106,6 @@ Buy credit packs anytime from **Billing**. Top-up credits carry over from period
 ## Good to know
 
 - A reply that pulls data does more thinking, so it costs more — hover the credit icon to see the breakdown.
-- Pick the model to match the job: Fast for quick lookups, Powerful when it's genuinely hard. The step price follows.
 - Credits don't expire while your subscription is active. Unused plan credits roll over — each billing period's allowance is added on top of your remaining balance, and top-up credits stay too. All credits expire when the subscription ends (see the [Refund and Cancellation Policy](https://www.get-ryze.ai/refund-policy)).
 - The Usage page breaks consumption down by workspace and by user, so you can see who's spending.
 
@@ -104,7 +113,7 @@ Buy credit packs anytime from **Billing**. Top-up credits carry over from period
 
 <CardGroup cols={2}>
   <Card title="AI Ad Creatives" icon="image" href="/paid-ads/ai-creatives">
-    What a 5-credit creative generation looks like.
+    How the agent builds and renders ad creatives.
   </Card>
   <Card title="Invoices & Payment" icon="receipt" href="/billing/invoices-and-payment">
     Manage your subscription and payment method.
