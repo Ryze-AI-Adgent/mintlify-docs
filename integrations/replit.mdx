@@ -1,0 +1,96 @@
+---
+title: "Connect Replit"
+description: "Publish articles to an app built with Replit. Ryze signs in, asks Replit Agent to add the article files and clicks Republish."
+---
+
+Replit has no publishing API. To publish, Ryze signs in to Replit with the login you give it, asks Replit Agent to add the article files to your app, and clicks **Republish**, the way you would. Your login and password are stored encrypted.
+
+This works for apps built and published with Replit, on a `.replit.app` address or your own domain.
+
+<Warning>
+**Republish deploys the whole app.** Any changes you made in Replit but haven't published yet go live with the next article.
+</Warning>
+
+## Before you connect
+
+- **An email and password login.** Google, GitHub, X, Apple, Facebook and SSO sign-in don't work. If you sign in one of those ways, invite a second Replit account that has a password to the app and connect with that one.
+- **Two-factor authentication off** for that login. If Replit asks for a verification code, the connection is refused.
+- **Replit Agent credits.** Connecting, each publish batch and each unpublish send a prompt to Replit Agent, and prompts spend your Agent credits.
+- **Plan mode off** in the Agent chat. Ryze's prompts ask Agent to change files in the app.
+
+<Note>
+Replit's free plan can publish, but free deployments expire after 30 days. To keep the site and its articles live, use a paid Replit plan.
+</Note>
+
+## Connect in Ryze
+
+<Steps>
+  <Step title="Copy the project link">
+    Open the app in the Replit workspace and copy the link from the browser address bar. It looks like `https://replit.com/@you/YourApp`. Don't use the address of your live site.
+  </Step>
+  <Step title="Open Integrations">
+    In **Workspace Settings → Integrations**, click **Connect** on the Replit card.
+  </Step>
+  <Step title="Fill in the fields">
+    - **Project URL** — the link you copied
+    - **Replit email or username** — your Replit login
+    - **Password** — the password for that login
+  </Step>
+  <Step title="Click Connect">
+    The dialog shows each step as it happens: **Logging in to Replit**, **Checking your Replit plan and credits**, **Replit is setting up your blog**, then **Saving the connection**. In our test the first setup took about 8 minutes.
+  </Step>
+</Steps>
+
+### What the setup prompt does
+
+During connect, Ryze sends Replit Agent one prompt that sets up the blog:
+
+- Articles become JSON files in `content/articles/`, one file per article.
+- `/blogs` lists every article, newest first.
+- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns.
+- Every article is added to your `sitemap.xml`, and `robots.txt` points to the sitemap.
+- If your site already has a blog, Agent rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation and styles the pages like the rest of your site.
+
+The prompt asks Agent not to change anything else in the app. **Every reconnect sends this prompt again.**
+
+## How publishing works
+
+Articles go out in the daily publishing window, in batches of up to 5 articles per site. For each batch Ryze:
+
+1. Attaches the article files and sends **one** prompt asking Replit Agent to copy them into `content/articles/`. Agent copies the files as they are and never rewrites the text.
+2. Clicks **Republish**. A republish takes about a minute or two.
+3. Opens each article on your live site to check that it's there.
+
+Each article lives at your published site's address plus `/blogs/{slug}`. If your app has a custom domain in Replit, Ryze uses it. Otherwise it uses the `.replit.app` address.
+
+## When Replit Agent is busy with your own prompt
+
+Before it sends anything, Ryze checks whether Replit Agent is working on one of your prompts. If it is, Ryze leaves the app alone:
+
+- **Scheduled publishing** skips the app and publishes the article on the next nightly run.
+- **Publish, Republish or Unpublish from the article page** stops with "Replit Agent is working on one of your prompts right now. Try again in a few minutes."
+
+## Republish and unpublish
+
+- **Republish** replaces the article file in place.
+- **Unpublish** sends one prompt that deletes the article file, then clicks **Republish**.
+
+## Troubleshooting
+
+| Message | What to do |
+| --- | --- |
+| The builder rejected this login and password | Check the email or username and the password, then connect again. |
+| The builder's login page did not show the field Ryze expected | Your account signs in with Google, GitHub or another provider. Invite a Replit account with an email and password to the app and connect with that one. |
+| The builder asked for a verification code on login | Turn off two-factor authentication for this login, or use a collaborator login without it, then connect again. |
+| Enter the project address | Copy the link from the Replit workspace address bar (`replit.com/@you/YourApp`), not your live site's address. |
+| This login has no access to that project | Check the project link, or log in with the app owner's account. |
+| Replit is out of Agent credits for this account | Add credits, or wait for the monthly credits in Replit. |
+| This Replit plan cannot publish the app | Upgrade the Replit plan, or unpublish another app if you're on the free plan. |
+| Replit could not publish the app because its build or deployment failed | Open the app in Replit and fix the publish error. |
+| Replit Agent is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
+| The builder did not finish the request in time | Check that Plan mode is off in the Agent chat, then try again in a few minutes. |
+| The builder's Publish did not finish in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| The published site does not show the article yet | Try again in a few minutes. Scheduled publishing retries on its own. |
+| Another publish for this project is still running | Wait a few minutes for it to finish. |
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
