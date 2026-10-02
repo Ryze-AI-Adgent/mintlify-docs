@@ -1,0 +1,59 @@
+---
+title: "Connect Sanity"
+description: "Connect your Sanity project with an Editor API token so Ryze can publish articles as documents in your dataset."
+---
+
+Sanity connects with an **API token** that has Editor permissions. This is for sites whose content lives in Sanity and whose front end (Next.js, Astro or similar) is your own. Once connected, programmatic articles publish as documents of the type your blog posts already use.
+
+## Step 1 — Create an API token in Sanity
+
+<Steps>
+  <Step title="Open your project">
+    Go to [sanity.io/manage](https://www.sanity.io/manage) and open your project. Copy the **Project ID** shown there. It's also in your `sanity.config.ts`.
+  </Step>
+  <Step title="Add a token">
+    Open **API → Tokens**, click **Add API token**, give it a name like `Ryze`, choose **Editor** permissions, and copy the token.
+  </Step>
+</Steps>
+
+<Warning>
+Use a token with **Editor** permissions. A read-only (Viewer) token can't publish, and Ryze rejects it when you connect.
+</Warning>
+
+## Step 2 — Connect in Ryze
+
+In **Workspace Settings → Integrations**, click **Connect** on the **Sanity** card and fill in:
+
+- **Project ID** — the ID you copied, e.g. `abc123de`
+- **API token** — the Editor token you created
+- **Dataset** (optional) — leave empty to use `production`
+- **Blog URL** — the public URL your site serves posts under. A post with the slug `my-post` must live at `{Blog URL}/my-post`, e.g. `https://yoursite.com/blog/my-post`
+
+Click **Continue**, then pick the **Document type** your blog posts use.
+
+<Note>
+The dataset needs at least one **published** post of that type. Ryze reads your newest posts to learn their fields: title, slug, body (Portable Text, markdown or HTML), excerpt, SEO title and description, publish date and main image. If every recent post has an author and a category, Ryze copies those references from the newest post.
+</Note>
+
+## How publishing works
+
+- Each article becomes a **published** document, not a draft. Its images are uploaded as Sanity assets.
+- On **republish**, Ryze updates its own document and keeps any fields it doesn't manage. If someone left an unpublished Studio draft of a Ryze article, it's discarded.
+- **Unpublish** deletes Ryze's document and its draft.
+- Edits you make to a Ryze article in Studio are replaced the next time Ryze republishes it. Change the article in Ryze instead.
+- Articles can contain images in the body. Make sure your body field allows images (add `{type: 'image'}` to the body array in your schema), otherwise Studio shows them as unknown blocks.
+- Ryze never edits or deletes posts it didn't create. If one of your posts already uses the same slug, publishing stops and asks you to rename the article slug.
+
+Your site has to show new documents of that type. Most front ends pick them up on their own. If your site is a static build, set up a rebuild (for example, a Sanity webhook to your host) so new articles go live.
+
+## Troubleshooting
+
+- **Token rejected** — check that the Project ID matches the one on sanity.io/manage, and that the token belongs to that project.
+- **Token can read but cannot write** — the token has Viewer permissions. Create a new one with **Editor** permissions and connect again.
+- **No such project or dataset** — copy the Project ID from sanity.io/manage and check the dataset name (most projects use `production`).
+- **No document types to pick** — the dataset has no published documents yet. Publish at least one blog post in Sanity Studio, then pick its type.
+- **Sanity publish not configured** — make sure at least one published post of the chosen type has a slug and a body.
+- **A document with this slug already exists** — one of your own posts uses that slug. Rename the article slug in Ryze, or remove that document in Sanity.
+- **Article published but 404 on the site** — check the Blog URL matches where your site serves posts, and rebuild the site if it's static.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
