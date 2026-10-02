@@ -40,6 +40,8 @@ The dataset needs at least one **published** post of that type. Ryze reads your 
 - Each article becomes a **published** document, not a draft. Its images are uploaded as Sanity assets.
 - On **republish**, Ryze updates its own document and keeps any fields it doesn't manage. If someone left an unpublished Studio draft of a Ryze article, it's discarded.
 - **Unpublish** deletes Ryze's document and its draft.
+- Edits you make to a Ryze article in Studio are replaced the next time Ryze republishes it. Change the article in Ryze instead.
+- Articles can contain images in the body. Make sure your body field allows images (add `{type: 'image'}` to the body array in your schema), otherwise Studio shows them as unknown blocks.
 - Ryze never edits or deletes posts it didn't create. If one of your posts already uses the same slug, publishing stops and asks you to rename the article slug.
 
 Your site has to show new documents of that type. Most front ends pick them up on their own. If your site is a static build, set up a rebuild (for example, a Sanity webhook to your host) so new articles go live.
