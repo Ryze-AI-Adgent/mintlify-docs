@@ -484,6 +484,34 @@
     {
       "source": "/plans/billing-faq",
       "destination": "/billing/faq"
+    },
+    {
+      "source": "/overview",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/what-ryze-does",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/billing/overview",
+      "destination": "/billing/manage-subscription"
+    },
+    {
+      "source": "/connect/claude",
+      "destination": "/claude/connect"
+    },
+    {
+      "source": "/connect/faq",
+      "destination": "/claude/faq"
+    },
+    {
+      "source": "/connect/ad-accounts",
+      "destination": "/integrations/overview"
+    },
+    {
+      "source": "/help/contact",
+      "destination": "/introduction"
     }
   ]
 }
