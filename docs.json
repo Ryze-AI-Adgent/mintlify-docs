@@ -50,6 +50,7 @@
             "pages": [
               "claude/connect",
               "chatgpt/connect",
+              "grok/connect",
               "claude/permissions",
               "claude/faq",
               "agent-api"
