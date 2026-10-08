@@ -130,6 +130,7 @@
             "pages": [
               "workspaces/create-workspace",
               "workspaces/settings",
+              "workspaces/media",
               "workspaces/invite-teammates",
               "workspaces/delete-account",
               "workspaces/faq"
