@@ -1,6 +1,7 @@
 ---
 title: "llms.txt: what it is and whether it helps"
 description: "llms.txt is a proposed markdown file at a site's root that lists its most useful pages for large language models. Adoption by major AI systems is not confirmed."
+noindex: true
 ---
 
 `llms.txt` is a proposed standard: a markdown file at the root of a site (`/llms.txt`) that lists the pages most useful to a large language model, with short descriptions.
@@ -42,7 +43,7 @@ Anyone presenting `llms.txt` as the reason for citation gains is claiming more t
 
 If your documentation runs on a platform that generates `llms.txt` automatically — Mintlify does, for example — you already have one, and pages are included as they are published.
 
-For a Shopify storefront, there is no automatic generation. It would need to be added as a static file at your domain root.
+The [Technical Audit](/seo/optimizations) checks whether your site has an `llms.txt`. Whether the agent can add one depends on the platform: on a GitHub-built site it adds the file, and on self-hosted WordPress it can propose a plugin. Shopify themes cannot serve a file at the domain root, so on Shopify there is no reliable way to add one — and, as above, little reason to worry about it.
 
 ## What to do instead, in priority order
 

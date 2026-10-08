@@ -1,6 +1,7 @@
 ---
 title: "Fixing duplicate content and canonicals"
 description: "The duplicate content patterns specific to Shopify — collection paths, variant parameters, and supplier descriptions — and how canonical tags resolve them."
+noindex: true
 ---
 
 Duplicate content on Shopify is mostly structural: the platform exposes the same product at several URLs by design. The rest is copy duplicated across stores.
@@ -57,7 +58,7 @@ Canonicals cannot help here — the duplication is across domains. The only fix 
 
 ## What Ryze does
 
-Ryze detects duplicate URLs and conflicting canonicals during the [audit](/shopify/audit), and ships duplicate URL resolution with approval.
+The [Technical Audit](/seo/optimizations) flags duplicate titles and descriptions and canonical tags that point to broken or looping URLs. **Fix with agent** rewrites the duplicated fields; canonical tags on Shopify come from the theme, so fixing them is a theme edit.
 
 ## Related
 

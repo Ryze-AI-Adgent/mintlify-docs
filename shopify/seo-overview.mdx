@@ -1,6 +1,7 @@
 ---
 title: "Shopify SEO overview"
 description: "What Shopify handles for SEO by default, what it constrains, and where the real optimization work sits on a Shopify store."
+noindex: true
 ---
 
 Shopify handles a reasonable amount of SEO by default and constrains a few things you cannot change. Knowing which is which saves effort spent on problems that are not yours to fix.
@@ -37,17 +38,11 @@ In practice, most Shopify SEO gains come from a short list:
 
 ## What Ryze does on a Shopify store
 
-Once your store is [connected](/connect-shopify), Ryze audits it, then ships fixes with approval:
+Once your store is [connected](/integrations/shopify), the weekly [Technical Audit](/seo/optimizations) checks the top pages from your Search Console: meta titles and descriptions, JSON-LD schema, canonical tags, robots.txt, sitemap, broken links, images, page speed, HTTPS, and llms.txt.
 
-- Title and meta description rewrites
-- Schema markup implementation and repair
-- Catalogue feed optimization — title rewrites, GTIN assignment, category corrections, image upscaling
-- Internal linking adjustments
-- Core Web Vitals and speed work — image compression, lazy-loading, JavaScript reduction
-- Duplicate URL resolution and broken pagination fixes
-- Programmatic pages and product descriptions built from real demand signals
+Each issue has a **Fix with agent** button. The agent fixes what your Shopify connection allows — product, collection, and page SEO fields, alt text, and theme files such as `robots.txt.liquid` or a schema snippet — and tells you exactly what to change yourself where it can't.
 
-No theme edits are required.
+The [Content Plan](/seo/programmatic) adds articles built from real demand to your store's blog.
 
 ## Primary references
 
@@ -56,5 +51,5 @@ No theme edits are required.
 
 ## Related
 
-- [What Ryze checks in a Shopify audit](/shopify/audit)
+- [Technical Audit](/seo/optimizations)
 - [Ecommerce site structure](/ecommerce/site-structure)

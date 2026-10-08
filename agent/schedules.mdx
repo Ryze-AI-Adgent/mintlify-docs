@@ -1,62 +1,31 @@
 ---
 title: "Scheduled Tasks"
-description: "Have the agent run a task on a repeating schedule or once at a specific time, and email you the result — a weekly recap, a daily spend check, or a one-off reminder before a sale ends."
+description: "Have the agent run a task on a repeating schedule or once at a specific time, and send you the result — a weekly recap, a daily spend check, or a one-off reminder before a sale ends."
 ---
 
 <Note>
   Prefer video? Watch the [Scheduled tasks guide](/guides/schedules).
 </Note>
 
-Set a task once and Ryze runs it on its own — either **repeating** (every day, week, or month) or **one-time** at a specific moment in the future. Each run does the work in a fresh chat and emails you the result, so the report is waiting in your inbox instead of being something you have to go pull.
+Set a task once and Ryze runs it on its own — either **repeating** (every day, week, or month) or **one-time** at a specific moment in the future. Each run does the work in a fresh chat and sends you the result by email or Slack, so the report is waiting for you instead of being something you have to go pull.
 
 One-time tasks are great for reminders and one-off checks — "pull this report tomorrow at 9am", or "check spend after the sale ends Friday". After a one-time task runs, it's marked **Completed** and won't run again.
 
-Find it under **Schedules** in the sidebar.
-
-<Frame>
-  <img src="/images/schedules-page.png" alt="The Scheduled tasks page with saved tasks" />
-</Frame>
+Find it under **Schedules** in the sidebar, in the **AI Marketer** group.
 
 ## Create a scheduled task
 
-Click **New task** and pick how you want to set it up.
+Click **Create with Agent** and just say what you want in chat. The agent briefly explains how scheduled tasks work, asks a few questions to nail down what to do and when it should run, then creates the schedule for you.
 
-<Frame>
-  <img src="/images/schedules-new-task.png" alt="The New task menu with Create with Agent and Set up manually" />
-</Frame>
+Prefer a starting point? Click **View templates** to browse ready-made automations and build one with the agent. See [Templates](/agent/templates).
 
-### Ask the agent
-
-Pick **Create with Agent** and just say what you want in chat. The agent asks a couple of questions to nail down the cadence and what to report, then creates the schedule for you.
-
-<Frame>
-  <img src="/images/schedules-with-agent.png" alt="Setting up a scheduled task by chatting with the agent" />
-</Frame>
-
-It also offers this on its own — ask a question you'll clearly want answered again next week and the agent suggests a recurring task, or mention a specific moment ("check this after the sale ends Friday") and it suggests a one-time task for that time.
-
-### Set it up manually
-
-Pick **Set up manually** to fill in the details yourself.
-
-<Frame>
-  <img src="/images/schedules-create-dialog.png" alt="The manual scheduled task creation dialog" />
-</Frame>
-
-- **Name** — what this task is, e.g. "Weekly Google Ads recap".
-- **Task** — the instructions the agent runs each time. Write it like a prompt: what to check, what to report.
+The agent also offers this on its own — ask a question you'll clearly want answered again next week and it suggests a recurring task, or mention a specific moment ("check this after the sale ends Friday") and it suggests a one-time task for that time.
 
 <Tip>
-**Write the task as one instruction to carry out now**, not as a routine. The cadence already lives in the schedule, so "Produce a concise paid-media report for yesterday, compared with the prior day and the same weekday last week" works; "Every morning, produce a concise paid-media report…" reads, at run time, like a request to set up a schedule rather than to do the work. Ryze now runs both the same way, but the direct wording is clearer for the agent and for anyone reading the task later.
+**Describe the task as one instruction to carry out now**, not as a routine. The cadence already lives in the schedule, so "Produce a concise paid-media report for yesterday, compared with the prior day and the same weekday last week" is clearer for the agent — and for anyone reading the task later — than "Every morning, produce a concise paid-media report…".
 </Tip>
 
-
-- **When should this run?** — choose **repeating** or **one-time**.
-  - **Repeating** — daily, weekly (pick a day), or monthly (pick a date), at the time and timezone you choose.
-  - **One-time** — pick a date and time (interpreted in the timezone you select). It must be in the future, and it runs exactly once.
-- **Email me when each run finishes** — on by default. Turn it off if you only want the result in the chat.
-
-New tasks are **active as soon as you create them**.
+New tasks are **active as soon as they're created**.
 
 <Warning>
 Runs are billed per AI step like any agent work (see [Credits & Usage](/agent/credits)), and the agent can use every tool it has access to — including changing or deleting things in your connected accounts. Write the task carefully and use at your own risk.
@@ -68,29 +37,28 @@ When a schedule fires, Ryze:
 
 1. **Starts a fresh chat** and runs your task as the agent.
 2. **Writes the result** — the agent does the work and ends with a short recap: the verdict and the key numbers.
-3. **Emails you** that recap (if email is on), with a link to open the full chat.
+3. **Sends the recap** to the task's recipients — by email, to Slack channels, or both — with a link to open the full chat.
 
-<Frame>
-  <img src="/images/schedules-run-result.png" alt="A finished scheduled run with the agent's recap" />
-</Frame>
-
-The email is a short headline. The full reasoning and detail live in the chat behind the **View full report** link.
+The message is a short headline. The full reasoning and detail live in the chat behind the link.
 
 <Note>
 Scheduled-run chats are read-only — they're a record of what the agent did, not a conversation you continue. To change what runs, edit the task.
 </Note>
 
+If your organization is out of credits, or the workspace has reached its monthly credit cap, the run is skipped and the task shows why.
+
 ## Manage a task
 
-Open any task to see its run history, trigger it on demand, or change it.
-
-<Frame>
-  <img src="/images/schedules-detail.png" alt="A scheduled task detail page with recent runs" />
-</Frame>
+Open any task to see its instructions, schedule, next run, and recent runs.
 
 - **Run now** — fire the task immediately. For a one-time task this is a one-off extra run — it doesn't use up the scheduled time, which still fires as planned.
 - **Toggle (Active / Paused)** — pause or resume a repeating schedule. Paused tasks don't run and don't bill. (One-time tasks show **Completed** once they've run.)
-- **Edit / Delete** — from the menu. Deleting a task stops all future runs and removes its history.
+- **Refine with Agent** — opens a chat where the agent sums up the task and asks what you'd like to change — instructions, timing, or something else. It changes nothing until you answer.
+- **Edit** — change the task yourself:
+  - **Name** and **Task** — the instructions the agent runs each time. Write it like a prompt: what to check, what to report.
+  - **When should this run?** — **On a repeating schedule** (every day, week, or month, at the time and timezone you choose) or **Once, at a specific time** (it must be in the future and runs exactly once).
+  - **Recipients** — **Slack channels** and **Email recipients** that get the result of each run. For a private Slack channel, invite @Ryze AI there first.
+- **Delete** — stops all future runs and removes the task's run history. This can't be undone.
 
 ## Related
 
@@ -98,7 +66,7 @@ Open any task to see its run history, trigger it on demand, or change it.
   <Card title="Credits" icon="coins" href="/agent/credits">
     How runs are billed.
   </Card>
-  <Card title="Approvals" icon="circle-check" href="/agent/approvals">
+  <Card title="Inbox and approvals" icon="circle-check" href="/agent/approvals">
     Improvements the agent proposes on its own.
   </Card>
 </CardGroup>

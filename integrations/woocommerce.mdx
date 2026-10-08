@@ -1,0 +1,46 @@
+---
+title: "Connect WooCommerce"
+description: "Connect your WooCommerce store with a REST API key so Ryze can report on orders, revenue, refunds, products, customers, and coupons."
+---
+
+WooCommerce connects with a **REST API key** (consumer key and secret). Once connected, the agent can read orders, revenue, refunds, products, customers, and coupons from your store — and update orders or products if you give the key write access.
+
+## Step 1 — Create a REST API key
+
+<Steps>
+  <Step title="Add a key">
+    In WordPress, go to **WooCommerce → Settings → Advanced → REST API → Add key**.
+  </Step>
+  <Step title="Choose permissions">
+    **Read** is enough for reporting. Choose **Read/Write** if the agent should update orders or products.
+  </Step>
+  <Step title="Copy both values">
+    Copy the **consumer key** (starts with `ck_`) and **consumer secret** (starts with `cs_`).
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+On the **Integrations** page, click **Connect** on the **WooCommerce** card and fill in:
+
+- **Store URL** — the WordPress site running WooCommerce, e.g. `https://yourstore.com`
+- **Consumer key**
+- **Consumer secret**
+
+Click **Continue**.
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+<Note>
+To publish articles to a WordPress blog, connect [WordPress](/integrations/wordpress) as well — the WooCommerce connection covers store data.
+</Note>
+
+## Troubleshooting
+
+- **"The store must be served over HTTPS"** — WooCommerce keys are only sent over HTTPS. Use your store's `https://` address.
+- **"Consumer keys start with ck_" / "Consumer secrets start with cs_"** — the values are swapped or incomplete. Copy both again.
+- **Updates are rejected** — the key is read-only. Create a new key with **Read/Write** and connect again.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

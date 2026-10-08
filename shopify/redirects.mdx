@@ -1,6 +1,7 @@
 ---
 title: "URL redirects and migrations"
 description: "How to manage URL redirects on Shopify, what to redirect when products are removed, and how to run a migration without losing accumulated ranking and citation history."
+noindex: true
 ---
 
 A redirect preserves the value a URL has accumulated — links, rankings, and citation history — when that URL changes or disappears. Losing redirects during a migration is one of the few SEO mistakes that is both severe and permanent.
@@ -46,11 +47,11 @@ Losing traffic in a migration is almost always a redirect failure. Before switch
 
 ## Redirect chains
 
-`A → B → C` should be collapsed to `A → C`. Chains accumulate silently over years of small changes and waste crawl budget on large stores. Ryze flags them during the [audit](/shopify/audit).
+`A → B → C` should be collapsed to `A → C`. Chains accumulate silently over years of small changes and waste crawl budget on large stores. Check them with a crawler after every migration.
 
 ## Why this matters beyond rankings
 
-A moved page loses accumulated citation history in AI answers as well as search rankings. Since [citations are volatile](/ai-visibility/citations-report) to begin with, a broken URL is unlikely to be re-earned quickly. Decide slugs once and keep them.
+A moved page loses accumulated citation history in AI answers as well as search rankings. Since citations are volatile to begin with, a broken URL is unlikely to be re-earned quickly. Decide slugs once and keep them.
 
 ## Related
 

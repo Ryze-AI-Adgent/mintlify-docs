@@ -5,14 +5,14 @@ description: "One script on your site. Ryze routes every event to Meta, Google A
 
 Ryze Pixel collects events from your website and forwards them to your ad platforms from Ryze's servers. You install one script tag; Ryze handles the Conversions API for Meta, conversion uploads for Google Ads, the Events API for TikTok and the Measurement Protocol for GA4. Server-side delivery survives ad blockers and browser tracking limits, and every destination shows sent versus received counts so you can see what actually landed.
 
-The pixel lives in your workspace under **Events**.
+The pixel lives under **Analytics → Web Analytics** in the sidebar. The page has four tabs: **Web Analytics** (visitors, page views, sources, countries and devices), **Web Vitals** (page speed from real visitors), **Events** (every event and how it lands on each platform) and **Destinations** (where events are forwarded).
 
 ## Install the script
 
-The fastest path is **Install → Install with Agent** on the Web Analytics page: the agent checks which CMS is connected (Shopify, WordPress, Webflow or GitHub), places the script tag before `</head>` itself and confirms it is served. If no writable CMS is connected it gives you the exact place to paste it. To do it by hand:
+The fastest path is **Install → Install with Agent** at the top of the Web Analytics page: the agent checks which CMS is connected (Shopify, WordPress, Webflow or GitHub), places the script tag before `</head>` itself and confirms it is served. If no writable CMS is connected it gives you the exact place to paste it. To do it by hand:
 
 <Steps>
-  <Step title="Open Events and click Install manually">
+  <Step title="Click Install → Install manually">
     The dialog shows your script tag with the workspace's public key (`data-key="rz_pk_…"`). Copy it.
   </Step>
   <Step title="Paste it before </head> on every page">
@@ -25,11 +25,8 @@ If you load the script asynchronously and call `ryze` before it has loaded, queu
 
 Script attributes: `data-consent="required"` holds every event and cookie until `ryze.consent("grant")` (see Consent); `data-link-domains="checkout.example.com"` keeps the visitor and session across links to another domain, for example a hosted checkout; `data-hash-routing="on"` counts hash changes as page views; `data-track-search="on"` makes a different query string a different page (by default a filter or sort is the same page); `data-autocapture="off"` disables click and form capture; `data-allow-localhost="on"` tracks local development, which is otherwise ignored.
   </Step>
-  <Step title="Add your domains under Allowed domains">
-    Events from any other host are dropped. Add every domain that serves the script, including staging if you want test traffic.
-  </Step>
   <Step title="Wait for the first event">
-    Open your site once. The dialog switches from **Waiting for the first event…** to **First event received**, and the Events page starts filling.
+    Open your site once. The dialog switches from **Waiting for the first event…** to **First event received**, and the page starts filling.
   </Step>
 </Steps>
 
@@ -52,7 +49,7 @@ ryze.track("DemoBooked", { plan: "pro" });
 ```
 
 - `ryze.identify` attaches who the visitor is to the session. It accepts `email`, `phone`, `first_name`, `last_name`, `city`, `state`, `zip`, `country`, `gender`, `birthdate` and `external_id`; every value is normalized and hashed in the browser before it leaves the page, and the more of them you pass the better the match rate on every platform. Pass `country` whenever you know it, it is what turns a local phone number into an international one. Call it as soon as you know who the visitor is: after login, on checkout, after a form submit.
-- `ryze.track` sends any event. Use a standard name from the list above to get the platform mapping for free, or your own name for custom events. Custom events show up on the Events page and can be mapped per destination.
+- `ryze.track` sends any event. Use a standard name from the list above to get the platform mapping for free, or your own name for custom events. Custom events show up on the **Events** tab and can be mapped per destination.
 
 ## Consent
 
@@ -62,7 +59,7 @@ A browser with Global Privacy Control enabled is always treated as revoked and c
 
 ## Server-to-server purchases
 
-Send purchases from your backend when the browser cannot be trusted to fire them, for example after payment confirmation or for subscription renewals. The secret key is in **Install manually → Server-to-server**. Never ship it to the browser.
+Send purchases from your backend when the browser cannot be trusted to fire them, for example after payment confirmation or for subscription renewals. The secret key is in **Install → Install manually → Server-to-server**. Never ship it to the browser.
 
 ```bash
 curl -X POST https://px.get-ryze.ai/s2s \
@@ -80,7 +77,7 @@ Every event needs an `event_id`, an `order_id` or a `timestamp` (epoch milliseco
 
 Destinations are where events go. Ryze uses the ad accounts already connected under **Integrations**, so connect Meta, Google Ads, TikTok or GA4 there first.
 
-1. On Events, click **Add destination** and pick a platform.
+1. On the **Destinations** tab, click **Add destination** and pick a platform.
 2. Choose the account and, for Meta and TikTok, the dataset or pixel. **Create new "Ryze Pixel"** lets Ryze create one through the API so you do not touch Events Manager.
 3. Events are mapped to the platform's standard events by default. Click **Customize** to change a mapping, send a custom name, or stop sending a specific event.
 4. Click **Enable destination**, then **Send test event**. Meta and TikTok accept a test event code so the test never counts as real.
@@ -89,18 +86,18 @@ Per platform:
 
 - **Meta** — Conversions API into a dataset in your ad account. Optional test event code from Events Manager → Test events.
 - **Google Ads** — conversion upload with gclid, gbraid and wbraid plus enhanced conversions. Ryze creates the conversion actions it needs. Google only accepts a conversion once its click is six hours old, so uploads run six hours after each event.
-- **TikTok Ads** — Events API. Paste the access token generated on the pixel (Events Manager → your pixel → Settings → Events API).
+- **TikTok Ads** — Events API. Paste the access token generated on the pixel (TikTok Ads Manager → Tools → Events → Data sources → your pixel → Settings → Generate Access Token). One token covers every pixel of the ad account.
 - **Google Analytics 4** — Measurement Protocol into your data stream. Paste the API secret from Admin → Data streams → Measurement Protocol API secrets. GA4 sends no delivery receipts, so a sent event means Google accepted the request.
 
-## Reading the Events page
+## Reading the tabs
 
-- **Events · 24h**, **Identified sessions**, **Purchases · 24h** and **Delivery** summarize the last day.
-- **Destinations** shows sent and received per platform with a health status. Click a row for the daily chart, the event mapping and recent deliveries with error codes.
-- **By event** shows every event name, its count and how it lands on each enabled destination.
-- Pause a destination with its switch. Events keep collecting; routing resumes when you switch it back on.
+- **Events** — **Events · 24h**, **Conversions sent · 24h** and **Purchases · 24h** summarize the last day. **By event** lists every event name, its count, how many carry an identified visitor, and how it lands on each enabled destination.
+- **Destinations** — sent, received and delivery rate per platform with a health status, plus the share of events carrying each match key. Click a row for the daily chart, the event mapping and recent deliveries with error codes. If a platform keeps rejecting an event, **Fix with agent** hands the error to the agent.
+- Pause a destination with its **Enabled** switch. Events keep collecting; routing resumes when you switch it back on.
 
 ## Troubleshooting
 
-- **Waiting for the first event never changes** — the script is not on the page, or the host is not in Allowed domains. Check the browser console for a request to `px.get-ryze.ai`.
+- **Waiting for the first event never changes** — check that the script is on the page: the browser console should show a request to `px.get-ryze.ai`.
+- **Events come from the wrong domain** — the pixel accepts events from the domain it was set up for: your workspace's website address, or, if none was set, the domain of the first event it received. If that's not the domain you need, email [support@get-ryze.ai](mailto:support@get-ryze.ai).
 - **Sent but not received** — open the destination and read the error code on the failed deliveries. Expired tokens and missing permissions are the usual causes; reconnect the integration and retry.
 - **Purchases double-count** — pass the same `order_id` from the browser and from the server.

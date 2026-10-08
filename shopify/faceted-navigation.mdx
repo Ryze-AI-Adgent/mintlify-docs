@@ -1,6 +1,7 @@
 ---
 title: "Faceted navigation and filters"
 description: "How Shopify filter and sort URLs generate unbounded crawlable combinations, and how to control which of them are crawled and indexed."
+noindex: true
 ---
 
 Faceted navigation is filtering and sorting on collection pages — by size, colour, price, brand. Each combination generates a URL, and combinations multiply.
@@ -32,7 +33,7 @@ The principle: **if people search for it, it deserves a page. If they do not, it
 
 ## How to control it
 
-**`robots.txt` to prevent crawling.** On Shopify Plus you can edit `robots.txt.liquid` to disallow filter and sort parameters. This is the effective lever, because it stops the crawl before it happens.
+**`robots.txt` to prevent crawling.** You can edit `robots.txt.liquid` in your theme to disallow filter and sort parameters. This is the effective lever, because it stops the crawl before it happens.
 
 ```
 Disallow: /*sort_by*

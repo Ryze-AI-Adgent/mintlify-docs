@@ -9,24 +9,24 @@ description: "Common questions about connecting your platforms."
 Open the platform's card on the **Integrations** page, click **View**, then **Add one more account** and authorize the other login. Both accounts stay connected in the same workspace. See [Connect multiple accounts](/integrations/multiple-accounts).
 </Accordion>
 
-<Accordion title="Which account does Claude use by default?">
-The **primary** account. Click the **star** next to an account to make it the primary. To use a different one, just ask Claude — for example, "show my other Google Ads account" — and it will use that account for the request.
+<Accordion title="Which account does the agent use by default?">
+The **primary** account. Click the **star** next to an account to make it the primary. To use a different one, just ask the agent — for example, "show my other Google Ads account" — and it will use that account for the request.
 </Accordion>
 
 <Accordion title="How do I set the primary account?">
-In the platform's dialog, click the **star** next to an account. A filled star marks the primary; an empty star means it isn't primary yet. Setting a new primary only changes Claude's default — nothing gets disconnected.
+In the platform's dialog, click the **star** next to an account. A filled star marks the primary; an empty star means it isn't primary yet. Setting a new primary only changes the agent's default — nothing gets disconnected.
 </Accordion>
 
 <Accordion title="I manage many accounts. How should I set this up?">
-Connect the accounts you need on each platform and set a primary. If you manage a large number and want help structuring workspaces, email [support@get-ryze.ai](mailto:support@get-ryze.ai).
+Connect the logins you need on each platform and set a primary. If one login reaches many ad accounts or sites, click **View** on the card and pick **Agent default accounts** — the agent works with those first and can still reach the rest when you name them. For separate clients, use separate workspaces.
 </Accordion>
 
 <Accordion title="An account shows as disconnected even though it's active.">
-Click **Reconnect** on the platform card on the **Integrations** page, then start a new chat in Claude.
+Click **Reconnect** on the platform card on the **Integrations** page, then start a new chat.
 </Accordion>
 
 <Accordion title="I connected GSC and GA4 — is there anything else to do?">
-Connect whichever platforms you want Claude to read. Nothing else is required — just start a new chat after connecting.
+Connect whichever other platforms you want the agent to read — for SEO, the store or CMS your articles publish to. Then start a new chat.
 </Accordion>
 
 <Accordion title="How do I connect Shopify?">
@@ -38,19 +38,27 @@ No. Connect the one Google login that has manager access and Ryze reaches the wh
 </Accordion>
 
 <Accordion title="Ryze doesn't see all my ad accounts, or the integration card only shows my login email.">
-Ryze sees exactly what the connected login can reach. If an account is missing, reconnect from the Integrations page and tick **every** permission checkbox on Google's or Meta's consent screen, signed in with the login that actually has access — or add that login as a second account. The card shows only the login email; the accounts themselves are discovered when the agent queries them, so ask in a new chat to list them.
+Ryze sees exactly what the connected login can reach. If an account is missing, reconnect from the Integrations page and tick **every** permission checkbox on Google's or Meta's consent screen, signed in with the login that actually has access — or add that login with **View** → **Add one more account**. To see the ad accounts a login reaches, click **View** on the card and open **Agent default accounts**, or ask the agent in a new chat to list them.
 </Accordion>
 
 <Accordion title="Meta reads work but changes are blocked, or Meta says 'Verify your account'.">
 Both are settings on Meta's side. For blocked changes, give the connected user **Manage ad account** on that ad account (Business settings → Ad accounts → People), then reconnect. For "Verify your account" (error 31), complete the verification prompt in Meta Business Manager — creating any ad manually there usually triggers it; reconnecting in Ryze doesn't clear it.
 </Accordion>
 
-<Accordion title="Search Console or Analytics says 'Requires setup' after I connected it.">
-The account is connected, but a property hasn't been chosen yet. Open the card on the **Integrations** page, pick the property for this workspace and save. The property you choose is only the default — the agent can still query every property on that Google login by name.
+<Accordion title="Search Console or Analytics says 'Require setup' after I connected it.">
+The account is connected, but the site or property hasn't been chosen yet. Click **View** on the card on the **Integrations** page, pick the **Site** (Search Console) or **Property** (Google Analytics 4) for this workspace and click **Save**. Your choice is only the default — the agent can still query every site or property on that Google login by name.
 </Accordion>
 
 <Accordion title="Can I connect Ryze to Cursor, Make, n8n, Zapier or another tool? Is there an API?">
 Yes — any tool that can add a remote MCP server. Add `https://connector.get-ryze.ai/mcp` as a custom MCP server in Cursor, or point the MCP/HTTP-MCP node in Make, n8n or Zapier at that URL, then authorize. There are no native one-click apps for these and no separate REST API key; the MCP endpoint is the supported path.
+</Accordion>
+
+<Accordion title="I connected LinkedIn, TikTok or another ad platform. Where do I pick the ad account?">
+There's no ad account to pick — Ryze sees every ad account the connected login can reach. To tell the agent which ones to use first, click **View** on the card and choose **Agent default accounts**. See [Connect other ad platforms](/integrations/ad-platforms).
+</Accordion>
+
+<Accordion title="Where do I find the API key for a platform?">
+Each platform's setup guide says where to find it — see the list in [Integrations overview](/integrations/overview#platform-setup-guides). The connect window on the Integrations page also shows a hint under each field.
 </Accordion>
 
 </AccordionGroup>

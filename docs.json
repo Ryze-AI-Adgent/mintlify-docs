@@ -42,11 +42,161 @@
           {
             "group": "Getting Started",
             "pages": [
-              "introduction"
+              "introduction",
+              "home",
+              "agent/approvals"
             ]
           },
           {
-            "group": "MCP",
+            "group": "Connect Your Platforms",
+            "pages": [
+              "integrations/overview",
+              "integrations/google-search-console",
+              "integrations/google-analytics",
+              "integrations/google-ads",
+              "integrations/meta-ads",
+              "integrations/ad-platforms",
+              {
+                "group": "More ad platforms",
+                "pages": [
+                  "integrations/criteo",
+                  "integrations/stackadapt",
+                  "integrations/openai",
+                  "integrations/thrads"
+                ]
+              },
+              {
+                "group": "Where articles are published",
+                "pages": [
+                  "integrations/shopify",
+                  "integrations/shopify-custom-app",
+                  "integrations/wordpress",
+                  "integrations/webflow",
+                  "integrations/wix",
+                  "integrations/framer",
+                  "integrations/ghost",
+                  "integrations/squarespace",
+                  "integrations/duda",
+                  "integrations/bigcommerce",
+                  "integrations/contentful",
+                  "integrations/sanity",
+                  "integrations/directus",
+                  "integrations/magento",
+                  "integrations/lightspeed",
+                  "integrations/github",
+                  "integrations/lovable",
+                  "integrations/godaddy-airo",
+                  "integrations/base44",
+                  "integrations/replit",
+                  "integrations/ryze-hosting",
+                  "integrations/custom-webhook"
+                ]
+              },
+              {
+                "group": "Stores & analytics",
+                "pages": [
+                  "integrations/woocommerce",
+                  "integrations/posthog",
+                  "integrations/mixpanel",
+                  "integrations/amplitude",
+                  "integrations/clarity",
+                  "integrations/appsflyer",
+                  "integrations/adjust",
+                  "integrations/callrail"
+                ]
+              },
+              {
+                "group": "CRM & email",
+                "pages": [
+                  "integrations/hubspot",
+                  "integrations/zoho-crm",
+                  "integrations/highlevel",
+                  "integrations/klaviyo",
+                  "integrations/mailchimp",
+                  "integrations/omnisend",
+                  "integrations/instantly"
+                ]
+              },
+              {
+                "group": "Work tools",
+                "pages": [
+                  "integrations/slack",
+                  "integrations/clickup",
+                  "integrations/google-drive"
+                ]
+              },
+              {
+                "group": "AI & custom",
+                "pages": [
+                  "integrations/anthropic",
+                  "integrations/ahrefs",
+                  "integrations/semrush",
+                  "integrations/custom-mcp"
+                ]
+              },
+              "integrations/multiple-accounts",
+              "integrations/managing-multiple-accounts",
+              "integrations/faq"
+            ]
+          },
+          {
+            "group": "AI Marketer",
+            "pages": [
+              "agent/credits",
+              "agent/schedules",
+              "agent/templates",
+              "agent/reports"
+            ]
+          },
+          {
+            "group": "SEO",
+            "pages": [
+              "seo/introduction",
+              "seo/how-it-works",
+              "seo/optimizations",
+              "seo/programmatic",
+              "seo/keywords",
+              {
+                "group": "Backlinks & PR",
+                "pages": [
+                  "seo/backlinks",
+                  "seo/guest-posts",
+                  "seo/press",
+                  "seo/backlink-exchange"
+                ]
+              },
+              "seo/preferences",
+              "seo/ai-visibility",
+              "chrome-extension",
+              "seo/faq"
+            ]
+          },
+          {
+            "group": "Paid Ads",
+            "pages": [
+              "paid-ads/introduction",
+              "paid-ads/managed-campaigns",
+              "paid-ads/ai-creatives",
+              "paid-ads/competitors",
+              "paid-ads/faq"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "paid-ads/ryze-pixel",
+              "analytics/performance"
+            ]
+          },
+          {
+            "group": "Brand & Media",
+            "pages": [
+              "agent/context",
+              "workspaces/media"
+            ]
+          },
+          {
+            "group": "Claude, ChatGPT & API",
             "pages": [
               "claude/connect",
               "chatgpt/connect",
@@ -57,100 +207,45 @@
             ]
           },
           {
-            "group": "Connect Your Platforms",
+            "group": "Account & Billing",
             "pages": [
-              "integrations/overview",
-              "integrations/multiple-accounts",
-              "integrations/managing-multiple-accounts",
-              "integrations/shopify",
-              "integrations/shopify-custom-app",
-              "integrations/wordpress",
-              "integrations/framer",
-              "integrations/wix",
-              "integrations/webflow",
-              "integrations/github",
-              "integrations/ghost",
-              "integrations/squarespace",
-              "integrations/lovable",
-              "integrations/godaddy-airo",
-              "integrations/base44",
-              "integrations/replit",
-              "integrations/ryze-hosting",
-              "integrations/custom-webhook",
-              "integrations/openai",
-              "integrations/ahrefs",
-              "integrations/semrush",
-              "integrations/anthropic",
-              "integrations/custom-mcp",
-              "integrations/klaviyo",
-              "integrations/hubspot",
-              "integrations/criteo",
-              "integrations/stackadapt",
-              "integrations/google-drive",
-              "integrations/linkedin-ads",
-              "integrations/microsoft-ads",
-              "integrations/tiktok-ads",
-              "integrations/snapchat-ads",
-              "integrations/reddit-ads",
-              "integrations/pinterest-ads",
-              "integrations/thrads",
-              "integrations/appsflyer",
-              "integrations/posthog",
-              "integrations/lightspeed",
-              "integrations/magento",
-              "integrations/highlevel",
-              "integrations/directus",
-              "integrations/sanity",
-              "integrations/zoho-crm",
-              "integrations/slack",
-              "integrations/mailchimp",
-              "integrations/faq"
-            ]
-          },
-          {
-            "group": "Agent",
-            "pages": [
-              "agent/context",
-              "agent/approvals",
-              "agent/reports",
-              "agent/schedules",
-              "agent/credits"
-            ]
-          },
-          {
-            "group": "Billing",
-            "pages": [
-              "billing/invoices-and-payment",
-              "billing/manage-subscription",
-              "billing/referral-program",
-              "billing/faq"
-            ]
-          },
-          {
-            "group": "Workspaces & Team",
-            "pages": [
-              "workspaces/create-workspace",
-              "workspaces/settings",
-              "workspaces/media",
-              "workspaces/invite-teammates",
-              "workspaces/delete-account",
-              "workspaces/faq"
-            ]
-          },
-          {
-            "group": "White Label",
-            "pages": [
-              "white-label/branding",
-              "white-label/domains",
-              "white-label/access"
-            ]
-          },
-          {
-            "group": "Security & Compliance",
-            "pages": [
-              "security/overview",
-              "security/data-storage",
-              "security/data-processing"
+              "plans/overview",
+              {
+                "group": "Billing",
+                "pages": [
+                  "billing/manage-subscription",
+                  "billing/invoices-and-payment",
+                  "billing/referral-program",
+                  "billing/faq"
+                ]
+              },
+              {
+                "group": "Workspaces & Team",
+                "pages": [
+                  "workspaces/create-workspace",
+                  "workspaces/settings",
+                  "workspaces/invite-teammates",
+                  "workspaces/notifications",
+                  "workspaces/delete-account",
+                  "workspaces/faq"
+                ]
+              },
+              {
+                "group": "White Label",
+                "pages": [
+                  "white-label/branding",
+                  "white-label/domains",
+                  "white-label/access"
+                ]
+              },
+              {
+                "group": "Security & Compliance",
+                "pages": [
+                  "security/overview",
+                  "security/data-storage",
+                  "security/data-processing"
+                ]
+              }
             ]
           }
         ]
@@ -200,94 +295,9 @@
         ]
       },
       {
-        "tab": "SEO",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "seo/introduction",
-              "seo/how-it-works"
-            ]
-          },
-          {
-            "group": "Foundations",
-            "pages": [
-              "seo/keywords"
-            ]
-          },
-          {
-            "group": "On-Page",
-            "pages": [
-              "seo/programmatic",
-              "seo/optimizations"
-            ]
-          },
-          {
-            "group": "Off-Page",
-            "pages": [
-              "seo/guest-posts",
-              "seo/press",
-              "seo/backlinks",
-              "seo/backlink-exchange"
-            ]
-          },
-          {
-            "group": "More",
-            "pages": [
-              "seo/faq"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Paid Ads",
-        "groups": [
-          {
-            "group": "Paid Ads",
-            "pages": [
-              "paid-ads/introduction",
-              "paid-ads/managed-campaigns",
-              "paid-ads/ai-creatives",
-              "paid-ads/competitors",
-              "paid-ads/ryze-pixel",
-              "paid-ads/faq"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Other",
+        "tab": "Learn SEO & GEO",
         "hidden": true,
-        "searchable": true,
         "groups": [
-          {
-            "group": "Get started",
-            "pages": [
-              "what-is-ryze",
-              "quickstart",
-              "how-ryze-works",
-              "connect-shopify",
-              "connect-gsc",
-              "first-week"
-            ]
-          },
-          {
-            "group": "AI visibility",
-            "pages": [
-              "ai-visibility/overview",
-              "ai-visibility/metrics",
-              "ai-visibility/chatgpt-tracking",
-              "ai-visibility/other-engines",
-              "ai-visibility/prompt-monitoring",
-              "ai-visibility/monitoring-interval",
-              "ai-visibility/citations-report",
-              "ai-visibility/share-of-voice",
-              "ai-visibility/not-cited",
-              "ai-visibility/ai-readable-pages",
-              "ai-visibility/llms-txt",
-              "ai-visibility/structured-data-for-ai"
-            ]
-          },
           {
             "group": "Concepts",
             "pages": [
@@ -305,10 +315,19 @@
             ]
           },
           {
+            "group": "AI visibility",
+            "pages": [
+              "ai-visibility/share-of-voice",
+              "ai-visibility/not-cited",
+              "ai-visibility/ai-readable-pages",
+              "ai-visibility/llms-txt",
+              "ai-visibility/structured-data-for-ai"
+            ]
+          },
+          {
             "group": "Shopify",
             "pages": [
               "shopify/seo-overview",
-              "shopify/audit",
               "shopify/product-pages",
               "shopify/collection-pages",
               "shopify/product-schema",
@@ -330,19 +349,12 @@
               "ecommerce/category-pages",
               "ecommerce/product-descriptions-at-scale",
               "ecommerce/internal-linking",
-              "ecommerce/out-of-stock-products",
-              "ecommerce/technical-audit",
-              "ecommerce/keyword-research",
-              "ecommerce/content-programmatic",
-              "ecommerce/backlinks-mentions",
-              "ecommerce/seo-reporting"
+              "ecommerce/out-of-stock-products"
             ]
           },
           {
             "group": "CRO",
             "pages": [
-              "cro/overview",
-              "cro/store-audit",
               "cro/product-page-conversion",
               "cro/checkout-friction",
               "cro/ab-testing",
@@ -350,56 +362,11 @@
             ]
           },
           {
-            "group": "Paid ads",
-            "pages": [
-              "ads/overview",
-              "ads/google-ads",
-              "ads/meta-ads",
-              "ads/creative-generation",
-              "ads/competitor-ad-library"
-            ]
-          },
-          {
-            "group": "Reports",
-            "pages": [
-              "reports/overview",
-              "reports/seo-audit",
-              "reports/ai-visibility-report",
-              "reports/cro-report",
-              "reports/competitors",
-              "reports/scheduling",
-              "reports/exporting"
-            ]
-          },
-          {
-            "group": "Integrations",
-            "pages": [
-              "integrations/mcp-server",
-              "integrations/google-search-console",
-              "integrations/google-analytics",
-              "integrations/google-ads",
-              "integrations/meta-ads"
-            ]
-          },
-          {
-            "group": "Plans & billing",
-            "pages": [
-              "plans/overview",
-              "plans/whats-included",
-              "plans/usage-limits",
-              "plans/agency-multi-workspace"
-            ]
-          },
-          {
             "group": "Troubleshooting",
             "pages": [
               "troubleshooting/shopify-not-connecting",
-              "troubleshooting/audit-not-completing",
-              "troubleshooting/changes-not-applied",
-              "troubleshooting/gsc-data-missing",
               "troubleshooting/orphan-pages-canonicals",
-              "troubleshooting/crawl-errors",
-              "troubleshooting/ai-visibility-no-data"
+              "troubleshooting/crawl-errors"
             ]
           },
           {
@@ -514,6 +481,194 @@
     {
       "source": "/help/contact",
       "destination": "/introduction"
+    },
+    {
+      "source": "/what-is-ryze",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/quickstart",
+      "destination": "/introduction"
+    },
+    {
+      "source": "/how-ryze-works",
+      "destination": "/seo/how-it-works"
+    },
+    {
+      "source": "/connect-shopify",
+      "destination": "/integrations/shopify"
+    },
+    {
+      "source": "/connect-gsc",
+      "destination": "/integrations/google-search-console"
+    },
+    {
+      "source": "/first-week",
+      "destination": "/home"
+    },
+    {
+      "source": "/ai-visibility/overview",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/ai-visibility/metrics",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/ai-visibility/chatgpt-tracking",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/ai-visibility/other-engines",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/ai-visibility/prompt-monitoring",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/ai-visibility/monitoring-interval",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/ai-visibility/citations-report",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/shopify/audit",
+      "destination": "/seo/optimizations"
+    },
+    {
+      "source": "/ecommerce/technical-audit",
+      "destination": "/seo/optimizations"
+    },
+    {
+      "source": "/ecommerce/keyword-research",
+      "destination": "/seo/keywords"
+    },
+    {
+      "source": "/ecommerce/content-programmatic",
+      "destination": "/seo/programmatic"
+    },
+    {
+      "source": "/ecommerce/backlinks-mentions",
+      "destination": "/seo/backlinks"
+    },
+    {
+      "source": "/ecommerce/seo-reporting",
+      "destination": "/agent/reports"
+    },
+    {
+      "source": "/cro/overview",
+      "destination": "/plans/overview"
+    },
+    {
+      "source": "/cro/store-audit",
+      "destination": "/plans/overview"
+    },
+    {
+      "source": "/ads/overview",
+      "destination": "/paid-ads/introduction"
+    },
+    {
+      "source": "/ads/google-ads",
+      "destination": "/paid-ads/introduction"
+    },
+    {
+      "source": "/ads/meta-ads",
+      "destination": "/paid-ads/introduction"
+    },
+    {
+      "source": "/ads/creative-generation",
+      "destination": "/paid-ads/ai-creatives"
+    },
+    {
+      "source": "/ads/competitor-ad-library",
+      "destination": "/paid-ads/competitors"
+    },
+    {
+      "source": "/reports/overview",
+      "destination": "/agent/reports"
+    },
+    {
+      "source": "/reports/seo-audit",
+      "destination": "/seo/optimizations"
+    },
+    {
+      "source": "/reports/ai-visibility-report",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/reports/cro-report",
+      "destination": "/agent/reports"
+    },
+    {
+      "source": "/reports/competitors",
+      "destination": "/paid-ads/competitors"
+    },
+    {
+      "source": "/reports/scheduling",
+      "destination": "/agent/schedules"
+    },
+    {
+      "source": "/reports/exporting",
+      "destination": "/agent/reports"
+    },
+    {
+      "source": "/integrations/mcp-server",
+      "destination": "/claude/connect"
+    },
+    {
+      "source": "/plans/whats-included",
+      "destination": "/plans/overview"
+    },
+    {
+      "source": "/plans/usage-limits",
+      "destination": "/agent/credits"
+    },
+    {
+      "source": "/plans/agency-multi-workspace",
+      "destination": "/plans/overview"
+    },
+    {
+      "source": "/troubleshooting/audit-not-completing",
+      "destination": "/seo/optimizations"
+    },
+    {
+      "source": "/troubleshooting/changes-not-applied",
+      "destination": "/agent/approvals"
+    },
+    {
+      "source": "/troubleshooting/gsc-data-missing",
+      "destination": "/integrations/google-search-console"
+    },
+    {
+      "source": "/troubleshooting/ai-visibility-no-data",
+      "destination": "/seo/ai-visibility"
+    },
+    {
+      "source": "/integrations/linkedin-ads",
+      "destination": "/integrations/ad-platforms#linkedin-ads"
+    },
+    {
+      "source": "/integrations/microsoft-ads",
+      "destination": "/integrations/ad-platforms#microsoft-ads"
+    },
+    {
+      "source": "/integrations/tiktok-ads",
+      "destination": "/integrations/ad-platforms#tiktok-ads"
+    },
+    {
+      "source": "/integrations/snapchat-ads",
+      "destination": "/integrations/ad-platforms#snapchat-ads"
+    },
+    {
+      "source": "/integrations/reddit-ads",
+      "destination": "/integrations/ad-platforms#reddit-ads"
+    },
+    {
+      "source": "/integrations/pinterest-ads",
+      "destination": "/integrations/ad-platforms#pinterest-ads"
     }
   ]
 }

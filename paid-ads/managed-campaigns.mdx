@@ -1,16 +1,24 @@
 ---
 title: "Managed Campaigns"
-description: "Set a budget and a goal — the agent builds, launches, and manages your ads every day."
+description: "Set a budget and a goal — the agent builds, launches, and keeps reviewing your ads."
 ---
 
-Managed Campaigns are autonomous. You set the mandate — budget, platforms, conversion goal, targeting, landing page — and the agent does the rest: creates the ads, launches them on your connected ad accounts, and reviews performance daily.
+Managed Campaigns are autonomous. You set the mandate — budget, platforms, conversion goal, location, landing page — and the agent does the rest: creates the ads, launches them on your connected ad accounts, and keeps reviewing performance.
+
+Find them under **Ads → Managed Campaigns** in the sidebar.
 
 ## How it works
 
-1. **Create a campaign** — pick your daily budget, the platforms (and ad accounts) to run on, the conversion goal, and your landing page. If you pick more than one platform, you choose how the budget splits between them.
-2. **The setup agent launches it** — it checks your landing page and conversion tracking, generates on-brand creatives, builds the campaign structure, and activates it. If anything needs your input, it pauses and asks you right on the campaign page.
-3. **A manager reviews it daily** — it reads performance, pauses losers, shifts budget to winners inside your total, and rotates fresh creatives when the current ones fatigue. Anything beyond your mandate — a higher budget, a new platform, a different goal — becomes an approval you decide on.
-4. **You watch Progress** — every run ends with a short report on the campaign page, and each entry links to the full agent chat.
+1. **Create a campaign** — click **New Managed Campaign**, then pick where the ads run (platforms and ad accounts), your budget, the conversion goal and the landing page. If you pick more than one platform, you choose how the budget splits between them. Anything the agent should know — offers to push, claims to avoid — goes in **Anything the agent should know?**
+2. **The agent sets it up** — it checks your landing page and conversion tracking, generates on-brand creatives, builds the campaign structure, and launches it. If anything needs your input, it stops and asks you right on the campaign page.
+3. **The agent keeps reviewing it** — it reads performance, pauses losers, shifts budget to winners inside your total, and rotates fresh creatives when the current ones fatigue. It sets the date of its next review itself — you see it in **Next check** on the campaign page.
+4. **You watch Progress** — every run ends with a short note in **Progress** on the campaign page, and each entry links to the full agent chat.
+
+Inside the mandate the agent acts on its own. Anything beyond it — a higher budget, a new platform, a different goal — comes to your [Inbox](/agent/approvals) as an approval you decide on.
+
+## Platforms
+
+Managed Campaigns run on Meta, Google Ads, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit and OpenAI Ads — on whichever of them you've connected under **Integrations**.
 
 ## What the agent will never do
 
@@ -18,9 +26,10 @@ Managed Campaigns are autonomous. You set the mandate — budget, platforms, con
 - Add platforms, widen targeting, or change your landing page on its own.
 - Touch anything in your ad account outside the campaign it manages.
 
-## Weekly report
+## Steer the campaign
 
-Every Friday the manager emails the account owner a recap: spend, results, cost per result and ROAS versus last week, what it changed, and the plan for next week. If your Slack is connected, the recap lands there too.
+- **Tell agent** — send instructions in your own words ("stop pushing the bundle offer, lead with free shipping"). The agent acts on them inside the mandate and reports back in Progress.
+- **Edit mandate** — change the budget, location, landing page or the split between platforms. The agent applies the difference on the ad platforms.
 
 ## Pricing
 
@@ -37,19 +46,18 @@ Managed Campaigns are charged as a percent of actual ad spend, billed monthly on
 
 The exact fee for your budget is shown right under the budget field when you create a campaign — for example, $50/day is about $1,517/mo of ad spend and about $76/mo in fees.
 
-You only pay for spend the agent actually manages. Pausing or archiving a campaign stops its fees with it.
-
-## Your consent
-
-Before your first campaign, you confirm two things once per organization: that the agent may autonomously create ads and spend your advertising budget within each campaign's mandate, and that Ryze charges the management fee described above. Until then, no campaign can be created and nothing is spent.
+You only pay for spend the agent actually manages. Pausing a campaign stops its fees with it.
 
 ## FAQ
 
 **Can I stop it at any time?**
-Yes — Pause on the campaign page stops all delivery on the platforms immediately. Archive ends the campaign for good; your ads and history stay in your ad account.
+Yes — **Pause** on the campaign page stops all delivery on the platforms. **Resume** turns it back on. To remove a campaign from Ryze, pause it first, then choose **Delete** from the menu; ads already created on the ad platforms stay in your ad account.
 
 **What if the agent has a question?**
-The campaign switches to "Needs your input" and shows the question on its page. Answer in the reply box and the agent picks up exactly where it stopped.
+The campaign shows "The agent needs your input" with its questions. Answer in the reply box and the agent picks up exactly where it stopped. Campaigns waiting for you also show up in the **Needs you** list on Home.
 
 **Whose ad accounts does it use?**
-Yours. The agent works inside the ad accounts you connected — spend goes to Meta or Google as usual, and everything it builds is visible in your Ads Manager.
+Yours. The agent works inside the ad accounts you connected — spend goes to the ad platforms as usual, and everything it builds is visible in each platform's own ads manager.
+
+**I got "You already have … active campaigns" when creating a campaign. What now?**
+You've reached the number of campaigns that can run at once. Ask the agent to end one of the current campaigns, then create the new one.

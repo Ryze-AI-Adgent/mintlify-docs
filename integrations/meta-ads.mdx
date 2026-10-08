@@ -1,9 +1,9 @@
 ---
 title: "Connect Meta Ads"
-description: "Connect a Meta ad account to Ryze for Facebook and Instagram campaign management, performance queries, and competitor ad library research."
+description: "Connect Meta Ads to Ryze for Facebook and Instagram performance questions and campaign management with your approval."
 ---
 
-Connecting Meta gives Ryze access to your Facebook and Instagram campaigns, and enables Meta ad library research for competitor intelligence.
+Connecting Meta Ads gives Ryze access to your Facebook and Instagram campaigns — performance, spend, and audiences.
 
 ## Requirements
 
@@ -15,17 +15,20 @@ Connecting Meta gives Ryze access to your Facebook and Instagram campaigns, and 
 
 <Steps>
   <Step title="Open Integrations">
-    Open **Integrations** in the left sidebar, then find Meta under **Advertising**.
+    Open **Integrations** in the left sidebar and find **Meta Ads** under **Advertising**.
   </Step>
-  <Step title="Authorize">
-    Sign in to Meta and approve access.
-  </Step>
-  <Step title="Pick the ad account">
-    Choose the ad account for this workspace. Business Manager users will see every account they have access to.
+  <Step title="Click Connect">
+    You're redirected to Meta. Sign in and approve access — keep every requested permission checked.
   </Step>
 </Steps>
 
-Start a **new chat** afterwards.
+There's no ad account to pick. Ryze sees every ad account that login can reach, and the card shows **Connected**. Start a **new chat** so the agent picks up the connection.
+
+## Choose the accounts the agent uses by default
+
+Click **View** on the card and use **Agent default accounts** to select the ad accounts the agent should work with first. It can still reach all the others — just name one in chat. See [Agent default accounts](/integrations/multiple-accounts#agent-default-accounts).
+
+To connect another Meta login, click **View** → **Add one more account**.
 
 ## What you can ask
 
@@ -33,29 +36,26 @@ Start a **new chat** afterwards.
 
 > Which creatives have the best ROAS this month?
 
-> Show me what competitors are running in the Meta ad library.
-
-## Competitor ad research
-
-Meta's ad library is public, and Ryze uses it to surface what competitors are currently running — creative formats, messaging, and how long ads have been live. Longevity is the useful signal: ads that have run for months are usually working.
-
-See [Competitor ad library](/ads/competitor-ad-library).
+> Which ad sets are spending without conversions?
 
 ## What the agent can do
 
-With approval: campaign creation and adjustment, budget management, and [AI creative generation](/ads/creative-generation). Changes require sign-off by default — see [Permissions & approvals](/claude/permissions).
+With approval: campaign creation and adjustment, budget management, and [AI ad creatives](/paid-ads/ai-creatives). Changes require sign-off by default — see [Approvals](/agent/approvals) and [Permissions & approvals](/claude/permissions).
+
+To see what competitors are running on Meta, use [Competitor Ads](/paid-ads/competitors).
 
 ## Troubleshooting
 
-**No ad accounts listed.** The authorized Meta user lacks access. Check assignments in Business Manager.
+**An ad account is missing.** The connected Meta user lacks access to it. Check assignments in Business Manager, or connect the right login with **Add one more account**.
 
-**Connection drops repeatedly.** Meta tokens expire more aggressively than Google's, particularly where two-factor policies or Business Manager role changes are involved. Reconnect from the card.
+**Card shows Reconnect needed.** Meta access expires more often than Google's, particularly after two-factor or Business Manager role changes. Click **Reconnect** and sign in again.
 
-**Attribution disagrees with GA4 or Shopify.** Expected. Meta uses its own attribution windows and modelling. Do not attempt exact reconciliation — track each consistently.
+**Attribution disagrees with GA4 or Shopify.** Expected. Meta uses its own attribution windows and modelling. Track each consistently rather than reconciling exactly.
 
 **Missing conversion data.** Usually a Pixel or Conversions API configuration issue on the Meta side.
 
 ## Related
 
-- [Meta Ads in Ryze](/ads/meta-ads)
-- [Paid ads overview](/ads/overview)
+- [Paid Ads introduction](/paid-ads/introduction)
+- [Managed campaigns](/paid-ads/managed-campaigns)
+- [Connect multiple accounts](/integrations/multiple-accounts)

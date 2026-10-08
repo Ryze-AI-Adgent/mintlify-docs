@@ -1,9 +1,9 @@
 ---
 title: "Connect Google Analytics"
-description: "Connect a GA4 property to Ryze so it can attribute traffic, conversions, and revenue across SEO, paid ads, and CRO."
+description: "Connect a GA4 property to Ryze so it can attribute traffic, conversions, and revenue across SEO and paid ads."
 ---
 
-Google Analytics supplies the behaviour and conversion side of reporting — what visitors did after arriving. Ryze uses it to tie SEO and ad work to revenue rather than to traffic alone.
+Google Analytics supplies the behaviour and conversion side of reporting — what visitors did after arriving. Ryze uses it to tie SEO and ad work to revenue rather than to traffic alone. On the Integrations page it's called **Google Analytics 4**.
 
 ## Requirements
 
@@ -15,42 +15,43 @@ Google Analytics supplies the behaviour and conversion side of reporting — wha
 
 <Steps>
   <Step title="Open Integrations">
-    Open **Integrations** in the left sidebar, then find Google Analytics under **Analytics**.
+    Open **Integrations** in the left sidebar and find **Google Analytics 4** under **Analytics**.
   </Step>
-  <Step title="Authorize">
-    Sign in to Google and approve access.
+  <Step title="Click Connect">
+    You're redirected to Google. Sign in and approve access — keep every requested permission checked.
   </Step>
-  <Step title="Pick the property">
-    Choose the GA4 property for this workspace. If you have several, pick the one matching the store or site.
+  <Step title="Choose the Property">
+    Back in Ryze, the Google Analytics 4 window opens on its own. Pick the **Property** for this workspace (listed as *account — property*) and click **Save**.
   </Step>
 </Steps>
 
-Start a new chat afterwards.
+Until a Property is saved, the card shows **Require setup**. Click **View** to finish.
+
+## Change the Property or default accounts later
+
+Click **View** on the card to change the **Property**, pick **Agent default accounts** (the properties the agent looks at first when you don't name one — see [Agent default accounts](/integrations/multiple-accounts#agent-default-accounts)), or connect another Google login with **Add one more account**.
 
 ## What Ryze uses it for
 
 - Traffic by channel, so organic and paid can be separated
 - Conversion and revenue attribution
-- Landing page performance, which feeds CRO work
-- Unified attribution across ads, SEO, and CRO
+- Landing page performance
 
 ## Multiple properties
 
-You can connect more than one GA4 property in a workspace — useful where a brand runs several domains. See [Connect multiple accounts](/integrations/multiple-accounts).
-
-For separate clients, use a separate workspace.
+A brand running several domains can connect more than one Google login and choose a property for each. See [Connect multiple accounts](/integrations/multiple-accounts). For separate clients, use a separate workspace.
 
 ## Troubleshooting
 
-**No properties listed.** The authorized Google account lacks access. Sign in with an account that has it.
+**No properties to pick.** The Google login you used lacks access. Connect with a login that has it.
 
 **Revenue shows as zero.** Ecommerce tracking is likely not configured in GA4, or purchase events are not firing. This is a GA4 setup issue, not a Ryze one.
 
 **Numbers disagree with Shopify.** Expected. GA4 and Shopify attribute differently and use different session and conversion definitions. Use each consistently rather than trying to reconcile them exactly.
 
-**Connection drops.** Click **Reconnect** and re-authorize.
+**Card shows Reconnect needed.** Click **Reconnect** and sign in to Google again.
 
 ## Related
 
 - [Connect Google Search Console](/integrations/google-search-console)
-- [Reports overview](/reports/overview)
+- [Reports](/agent/reports)
