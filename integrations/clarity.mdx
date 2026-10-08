@@ -1,0 +1,34 @@
+---
+title: "Connect Microsoft Clarity"
+description: "Connect a Microsoft Clarity project with a Data Export API token so the agent can read scroll depth, engagement time, rage and dead clicks, and popular pages."
+---
+
+Microsoft Clarity connects with a **Data Export API token** for one Clarity project. Once connected, the agent can read behavior analytics: scroll depth, engagement time, rage and dead clicks, and popular pages.
+
+## Step 1 — Generate a token in Clarity
+
+In Clarity, open your project, then **Settings → Data Export → Generate new API token**, and copy it. Each token belongs to one project.
+
+<Note>
+Clarity allows **10 export requests per project per day**, so the agent can pull a limited amount of Clarity data each day.
+</Note>
+
+## Step 2 — Connect in Ryze
+
+On the **Integrations** page, click **Connect** on the **Microsoft Clarity** card and fill in:
+
+- **Data Export API token**
+- **Project name** (optional) — only used to label this connection, e.g. `Main website`
+
+Click **Continue**.
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+## Troubleshooting
+
+- **Token rejected** — generate a new token in **Settings → Data Export** for the right project and connect again.
+- **No more data today** — the project has used Clarity's daily export requests. Try again the next day.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

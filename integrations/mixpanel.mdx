@@ -1,0 +1,42 @@
+---
+title: "Connect Mixpanel"
+description: "Connect a Mixpanel project with a service account so the agent can query events, funnels, retention, and saved reports."
+---
+
+Mixpanel connects with a **service account**. Once connected, the agent can query events, segmentation, funnels, retention, saved Insights reports, and JQL for one Mixpanel project.
+
+## Step 1 — Create a service account
+
+<Steps>
+  <Step title="Add a service account">
+    In Mixpanel, go to **Organization Settings → Service Accounts → Add Service Account**. Give it at least the **Analyst** role on the project you want to connect.
+  </Step>
+  <Step title="Copy the credentials">
+    Copy the service account **username** and **secret**. The secret is shown only once.
+  </Step>
+  <Step title="Find the project details">
+    Copy the **Project ID** from **Project Settings → Overview** (or the number after `/project/` in the Mixpanel URL), and check where the project stores data under **Project Settings → Data Residency**.
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+On the **Integrations** page, click **Connect** on the **Mixpanel** card and fill in:
+
+- **Service account username**
+- **Service account secret**
+- **Project ID** — numbers only, e.g. `3018123`
+- **Data residency** — `us`, `eu`, or `in`, matching the project's data residency
+
+Click **Continue**.
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+## Troubleshooting
+
+- **"Project ID must be numeric"** — copy only the number, not the full URL.
+- **Credentials rejected or no data** — check that the service account has a role on this project and that **Data residency** matches the project.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

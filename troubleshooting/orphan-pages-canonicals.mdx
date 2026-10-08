@@ -1,6 +1,7 @@
 ---
 title: "Orphan pages and canonical problems"
 description: "How to find and fix orphan pages with no internal links, and resolve canonical conflicts causing the wrong pages to be indexed."
+noindex: true
 ---
 
 Two related problems that cause pages to be ignored: pages nothing links to, and pages whose canonical signals contradict each other.
@@ -19,7 +20,7 @@ An orphan page has **no internal links pointing at it**. Crawlers may find it vi
 
 ### Finding them
 
-Compare the sitemap against your internal link graph. Ryze reports orphans in the [technical audit](/ecommerce/technical-audit).
+Compare the sitemap against your internal link graph with a crawler.
 
 Search Console → Pages showing "Discovered — currently not indexed" for many URLs often indicates orphans: Google knows they exist but sees no reason to index them.
 
@@ -62,7 +63,7 @@ The usual failure is internal links pointing at collection paths (`/collections/
 
 ## What Ryze does
 
-Ryze detects orphans, conflicting canonicals, and duplicate URLs during the audit, and ships internal linking and canonical fixes with approval.
+The [Technical Audit](/seo/optimizations) flags canonical tags that point to broken or looping URLs and indexable pages missing from your sitemap. **Fix with agent** fixes what your site connection allows and tells you what to change yourself.
 
 ## Related
 

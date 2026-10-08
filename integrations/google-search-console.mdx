@@ -1,35 +1,43 @@
 ---
 title: "Connect Google Search Console"
-description: "Connect Google Search Console to Ryze for the query, impression, and indexation data the SEO engine is built on."
+description: "Connect Google Search Console so Ryze picks keywords from your own search data and tracks whether Google indexes and ranks your pages."
 ---
 
 <Note>
   Prefer video? Watch the [Setting up SEO guide](/guides/seo-setup).
 </Note>
 
-Google Search Console supplies the queries and pages you already appear for. **It is required.** Ryze SEO does not run without it: keyword setup, the topic engine and every article that follows stay blocked until Search Console is connected **and a property is selected**. Connect it before you finish onboarding.
+Google Search Console supplies the queries and pages you already appear for. Connect it before you start SEO: without it, Ryze can't pick keywords from your own search data or show whether Google indexed and ranked the articles it publishes.
 
 ## Requirements
 
 - A verified Search Console property for your site
-- At least **Full** user access on that property
+- A Google login with access to that property
 - The property type matching how your site is served — a Domain property covers all subdomains and protocols; a URL-prefix property covers only that exact prefix
 
 ## Connect
 
 <Steps>
   <Step title="Open Integrations">
-    Open **Integrations** in the left sidebar. Use the search box or the **Analytics** filter to find Search Console.
+    Open **Integrations** in the left sidebar. Use the **Search integrations** box or the **Analytics** filter to find **Google Search Console**.
   </Step>
   <Step title="Click Connect">
-    You are redirected to Google to sign in and approve access.
+    You're redirected to Google. Sign in and approve access — keep every requested permission checked.
   </Step>
-  <Step title="Pick the property">
-    Choose the property for the site this workspace covers. Until a property is selected the connection counts as incomplete and the SEO pipeline stays blocked, even though the integration shows as connected.
+  <Step title="Check the Site">
+    Back in Ryze, the Google Search Console window opens on its own. Ryze pre-selects the **Site** that matches your workspace domain. Check it, change it if needed, and click **Save**.
   </Step>
 </Steps>
 
-Start a **new chat** in Claude or ChatGPT afterwards so the assistant picks up the connection.
+Until a Site is saved, the card shows **Require setup**. Click **View** to finish.
+
+## Change the Site or default accounts later
+
+Click **View** on the card. There you can:
+
+- change the **Site** for this workspace;
+- pick **Agent default accounts** — the sites the agent looks at first when you don't name one. It can still reach every site on that login. See [Agent default accounts](/integrations/multiple-accounts#agent-default-accounts);
+- add another Google login with **Add one more account**.
 
 ## What Ryze uses it for
 
@@ -45,11 +53,11 @@ Google reports with a **2–3 day delay** and provides up to **16 months** of hi
 
 ## Troubleshooting
 
-**No properties listed.** The Google account you authorized has no property access. Sign in with the account that does.
+**No sites to pick.** The Google login you used has no access to a verified property. Connect with the login that does, or add it with **Add one more account**.
 
 **Data looks incomplete.** Check the property type — a URL-prefix property for `https://www.example.com/` excludes `https://example.com/` traffic.
 
-**Connection drops.** Click **Reconnect** and re-authorize. Google tokens can be revoked by password changes or admin policy.
+**Card shows Reconnect needed.** Click **Reconnect** and sign in to Google again. Google access can be revoked by a password change or an admin policy.
 
 ## Related
 

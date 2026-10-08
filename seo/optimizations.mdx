@@ -7,42 +7,32 @@ description: "Ryze crawls your site, surfaces the technical and GEO issues holdi
   Prefer video? Watch the [Technical audit guide](/guides/technical-audit).
 </Note>
 
-Optimizations are the on-page fixes Ryze finds and ships. It crawls your site, detects what's hurting your rankings, and an agent applies the fix — you don't have to touch code.
+Technical Audit checks the technical health of your site — the issues that can block Google and AI assistants from reading and ranking it — and an agent ships the fixes for you, so you don't have to touch code.
 
-Find them under **Technical Audit** in the SEO sidebar. Issues are detected across the top 300 pages in your Google Search Console.
+Find it under **SEO → Technical Audit** in the sidebar. The audit checks the top 300 pages from your Google Search Console, ranked by impressions — the pages that carry your traffic.
 
-<Frame>
-  <img src="/images/seo-optimizations.png" alt="The Optimizations page listing detected issues" />
-</Frame>
+## Scores
 
-## Two kinds of fixes
+- **Health Score** — 0–100 technical health of your site, weighted across SEO, LLM readiness and page speed.
+- **SEO Optimization Score** — meta tags, links, sitemap, canonicals.
+- **LLM Optimization Score** — llms.txt, AI crawlers, structured data: how well AI assistants (ChatGPT, Claude, Gemini, Perplexity) can read and cite your site.
+- **Page Speed Score** — Core Web Vitals from real Chrome users.
 
-- **SEO Optimization (technical)** — classic on-page issues: meta tags, headers, crawlability, and other technical fixes for your store.
-- **GEO Optimization** — fixes that improve how AI engines (ChatGPT, Claude, Perplexity) read and cite your site.
+Click **What we check** for the full list of checks: llms.txt, JSON-LD schema, robots.txt, sitemap, SSL certificate, meta title and description, broken links, image optimization, page speed and canonical tags.
 
-## Run a crawl
+## Run a scan
 
-Click **Run crawl** to scan your site and surface issues. It takes a few minutes — you can close the page while it works. Detected issues land in the list, grouped by type and showing how many URLs each one affects.
+The audit runs weekly on its own. Click **Run Scan** to run it anytime — it takes a few minutes, and you can close the page while it works.
+
+## Read the issues
+
+**Issues Detected** lists every problem with its severity — **Critical**, **Warning** or **Notice**. Switch between **Group by page** (each page with its score and issues, plus a row for site-wide checks) and **Group by issue** (each issue with the number of affected pages).
 
 ## Fix with the agent
 
-Each issue has a **Fix with agent** button. Click it and the agent applies the fix for you, across the affected URLs — no manual editing.
+Click **Fix with agent** on a page or an issue and the agent applies the fix for you across the affected pages — no manual editing. Important issues also show up in the **Needs you** list on Home.
 
-<Frame>
-  <img src="/images/seo-fix-with-agent.png" alt="An issue detail with the Fix with agent button" />
-</Frame>
-
-Issues move through clear states, available as tabs:
-
-| Tab | Meaning |
-|-----|---------|
-| **To fix** | Detected and waiting for a fix. |
-| **Fixed** | The agent has shipped the fix. |
-| **Passed** | No problem found — nothing to do. |
-| **Blocked** | Couldn't be fixed automatically. |
-| **Not applicable** | Doesn't apply to your site. |
-
-You can also **Export CSV** of the issue list, or **Re-index** a page to ask Google to re-crawl it after a fix.
+If an issue is known and you accept it, open its actions menu and click **Acknowledge**; **Reopen** brings it back.
 
 ## Related
 

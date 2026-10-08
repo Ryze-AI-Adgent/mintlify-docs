@@ -1,31 +1,27 @@
 ---
 title: "Overview"
-description: "Connect Google, Meta, Analytics and more so Claude can read your data."
+description: "Connect Google, Meta, your store or CMS, analytics and more so Ryze can read your data and publish for you."
 ---
 
 <Note>
   Prefer video? Watch the [Publishing to your site guide](/guides/publishing).
 </Note>
 
-Before Claude can answer questions about your accounts, connect your platforms in Ryze. This happens in your workspace settings, not in Claude.
+Connect your platforms in Ryze so the agent can read your data and act on it — in Ryze, and in Claude or ChatGPT if you've connected them. Everything happens on the **Integrations** page, not in Claude.
 
-Ryze supports **50+ integrations** — connect any of them. They're grouped into seven categories, matching the filters on the Integrations page:
+Ryze supports **50+ integrations**. They're grouped into seven categories, matching the filters on the Integrations page:
 
-- **AI** — Claude MCP, ChatGPT MCP, and bring-your-own Anthropic key
-- **Analytics** — Google Analytics, Search Console, Ahrefs, Semrush, PostHog, AppsFlyer
-- **Commerce & CMS** — Shopify, WordPress, Webflow, Framer, Wix, GitHub, Ghost, Squarespace, Lovable, GoDaddy Airo, Base44, Replit, HubSpot, HighLevel, Lightspeed eCom, Magento, Directus, Sanity, Custom Webhook, Ryze Hosting
-- **CRM** — Zoho CRM
-- **Advertising** — Google Ads, Meta Ads, LinkedIn Ads, Microsoft Ads, TikTok Ads, Snapchat Ads, Reddit Ads, Pinterest Ads, OpenAI Ads, Thrad, Criteo, StackAdapt
-- **Messaging** — Slack, Klaviyo, Mailchimp
+- **AI** — Anthropic, Claude MCP, ChatGPT MCP, Grok Bot, Custom MCP Server
+- **Analytics** — Google Analytics 4, Google Search Console, AppsFlyer, Adjust, Ahrefs, Semrush, Mixpanel, Amplitude, PostHog, CallRail, Microsoft Clarity
+- **Commerce & CMS** — Shopify, WordPress, Framer, GitHub, HubSpot, Wix, Ryze Hosting, Ghost, Lightspeed eCom, Webflow, Magento, HighLevel, Directus, Custom Webhook, WooCommerce, Duda, Squarespace, Lovable, GoDaddy Airo, Base44, Replit, BigCommerce, Contentful, Sanity
+- **CRM** — Zoho CRM, ClickUp
+- **Advertising** — Google Ads, Meta Ads, LinkedIn Ads, OpenAI Ads, Thrad, Microsoft Ads, Snapchat Ads, TikTok Ads, Reddit Ads, Pinterest Ads, Criteo, StackAdapt
+- **Messaging** — Klaviyo, Slack, Mailchimp, Instantly, Omnisend
 - **Files** — Google Drive
 
 ## Open Integrations
 
 Open **Integrations** in the left sidebar. Use the **Search integrations** box or the category filters to find any platform.
-
-<Frame>
-  <img src="/images/integrations-overview.png" alt="The Integrations page" />
-</Frame>
 
 ## Connect a platform
 
@@ -33,27 +29,32 @@ Open **Integrations** in the left sidebar. Use the **Search integrations** box o
   <Step title="Click Connect">
     Find the platform's card and click **Connect**.
   </Step>
-  <Step title="Authorize">
-    For Google, Meta, and other OAuth platforms, you're redirected to that platform to sign in and approve access. For API-key platforms (like Framer and WordPress), you enter your credentials instead.
+  <Step title="Sign in or enter credentials">
+    For Google, Meta, and other sign-in platforms, you're redirected to that platform to sign in and approve access. For platforms that use an API key or token (like Framer or Duda), you paste your credentials and click **Continue**.
   </Step>
-  <Step title="Pick an account">
-    If asked, choose the specific account or property — for example, the Google Ads account or GA4 property.
+  <Step title="Finish setup if asked">
+    Some platforms need one more choice after connecting — for example, the **Site** for Search Console or the **Property** for Google Analytics. The window opens on its own; pick the option and click **Save**. Until then the card shows **Require setup**.
   </Step>
 </Steps>
 
 The card then shows a **Connected** badge.
 
 <Tip>
-After connecting a new platform, start a **new chat** in Claude so it picks up the change.
+After connecting a new platform, start a **new chat** so the agent picks up the change.
 </Tip>
+
+## Manage a connected platform
+
+Click **View** on a connected card to:
+
+- change the site, property, or other selection, then click **Save**;
+- choose **Agent default accounts** — the accounts the agent uses first on platforms like Google Ads and Meta Ads;
+- connect another login with **Add one more account**, where the platform supports it — see [Connect multiple accounts](/integrations/multiple-accounts);
+- disconnect the account with the trash icon.
 
 ## Reconnect a platform
 
-If a platform stops working or shows as disconnected, click **Reconnect** on its card and re-authorize. Then start a new chat in Claude.
-
-## Connect multiple accounts
-
-You can connect more than one account for the same platform in a single workspace — for example, two Google Ads logins or several GA4 accounts. See [Connect multiple accounts](/integrations/multiple-accounts).
+If a card shows **Reconnect needed**, click **Reconnect** and sign in again. Then start a new chat.
 
 ## Platform setup guides
 
@@ -62,12 +63,7 @@ You can connect more than one account for the same platform in a single workspac
 <CardGroup cols={2}>
   <Card title="Google Ads" icon="google" href="/integrations/google-ads">Connect with your Google login.</Card>
   <Card title="Meta Ads" icon="meta" href="/integrations/meta-ads">Connect Facebook and Instagram ads.</Card>
-  <Card title="LinkedIn Ads" icon="linkedin" href="/integrations/linkedin-ads">Connect with your LinkedIn login.</Card>
-  <Card title="Microsoft Ads" icon="microsoft" href="/integrations/microsoft-ads">Connect with a Microsoft or Google login.</Card>
-  <Card title="TikTok Ads" icon="tiktok" href="/integrations/tiktok-ads">Connect with your TikTok for Business login.</Card>
-  <Card title="Snapchat Ads" icon="snapchat" href="/integrations/snapchat-ads">Connect with your Snapchat Ads login.</Card>
-  <Card title="Reddit Ads" icon="reddit" href="/integrations/reddit-ads">Connect with your Reddit Ads login.</Card>
-  <Card title="Pinterest Ads" icon="pinterest" href="/integrations/pinterest-ads">Connect with your Pinterest login.</Card>
+  <Card title="Other ad platforms" icon="bullhorn" href="/integrations/ad-platforms">LinkedIn, Microsoft, TikTok, Snapchat, Reddit, and Pinterest Ads.</Card>
   <Card title="OpenAI Ads" icon="robot" href="/integrations/openai">Connect OpenAI Ads with an API key.</Card>
   <Card title="Thrad" icon="bullhorn" href="/integrations/thrads">Connect Thrad with an API key.</Card>
   <Card title="Criteo" icon="chart-simple" href="/integrations/criteo">Connect Criteo Marketing Solutions.</Card>
@@ -82,7 +78,12 @@ You can connect more than one account for the same platform in a single workspac
   <Card title="Ahrefs" icon="chart-line" href="/integrations/ahrefs">Connect your own Ahrefs API key.</Card>
   <Card title="Semrush" icon="magnifying-glass-chart" href="/integrations/semrush">Connect your own Semrush API key.</Card>
   <Card title="PostHog" icon="hedgehog" href="/integrations/posthog">Product analytics with a personal API key.</Card>
+  <Card title="Mixpanel" icon="chart-column" href="/integrations/mixpanel">Product analytics with a service account.</Card>
+  <Card title="Amplitude" icon="chart-area" href="/integrations/amplitude">Product analytics with project keys.</Card>
+  <Card title="Microsoft Clarity" icon="arrow-pointer" href="/integrations/clarity">Behavior analytics with a Data Export token.</Card>
+  <Card title="CallRail" icon="phone" href="/integrations/callrail">Calls, transcripts, and tracking numbers.</Card>
   <Card title="AppsFlyer" icon="mobile" href="/integrations/appsflyer">Mobile attribution with a Pull API token.</Card>
+  <Card title="Adjust" icon="mobile-screen" href="/integrations/adjust">Mobile attribution with an API token.</Card>
 </CardGroup>
 
 ### Commerce & CMS
@@ -90,9 +91,15 @@ You can connect more than one account for the same platform in a single workspac
 <CardGroup cols={2}>
   <Card title="Shopify" icon="shopify" href="/integrations/shopify">One-click Shopify app, or a custom app.</Card>
   <Card title="WordPress" icon="wordpress" href="/integrations/wordpress">Connect with an application password.</Card>
+  <Card title="WooCommerce" icon="cart-shopping" href="/integrations/woocommerce">Store data with a REST API key.</Card>
   <Card title="Webflow" icon="webflow" href="/integrations/webflow">Publish into a CMS collection with a site token.</Card>
   <Card title="Framer" icon="f" href="/integrations/framer">Connect with a project URL and API key.</Card>
   <Card title="Wix" icon="wix" href="/integrations/wix">Auto-publish to your Wix blog.</Card>
+  <Card title="Duda" icon="window-maximize" href="/integrations/duda">Publish to your Duda site with API credentials.</Card>
+  <Card title="BigCommerce" icon="store" href="/integrations/bigcommerce">Publish to your BigCommerce blog with an API account.</Card>
+  <Card title="Contentful" icon="layer-group" href="/integrations/contentful">Publish entries with a personal access token.</Card>
+  <Card title="Sanity" icon="feather" href="/integrations/sanity">Publish documents to your Sanity dataset with an API token.</Card>
+  <Card title="Directus" icon="database" href="/integrations/directus">Publish into a Directus collection.</Card>
   <Card title="GitHub" icon="github" href="/integrations/github">Publish articles as files committed to your repo.</Card>
   <Card title="Ghost" icon="ghost" href="/integrations/ghost">Publish to Ghost with an Admin API key.</Card>
   <Card title="Squarespace" icon="squarespace" href="/integrations/squarespace">Publish to your Squarespace blog with a login.</Card>
@@ -104,8 +111,6 @@ You can connect more than one account for the same platform in a single workspac
   <Card title="HighLevel" icon="h" href="/integrations/highlevel">Publish to a HighLevel blog with a private token.</Card>
   <Card title="Lightspeed eCom" icon="store" href="/integrations/lightspeed">Publish to your Lightspeed store blog.</Card>
   <Card title="Magento" icon="cart-shopping" href="/integrations/magento">Products, categories and CMS pages via access token.</Card>
-  <Card title="Directus" icon="database" href="/integrations/directus">Publish into a Directus collection.</Card>
-  <Card title="Sanity" icon="feather" href="/integrations/sanity">Publish documents to your Sanity dataset with an API token.</Card>
   <Card title="Custom Webhook" icon="webhook" href="/integrations/custom-webhook">Publish to any CMS via your own endpoint.</Card>
   <Card title="Ryze Hosting" icon="globe" href="/integrations/ryze-hosting">Host your blog on your own domain.</Card>
 </CardGroup>
@@ -114,9 +119,12 @@ You can connect more than one account for the same platform in a single workspac
 
 <CardGroup cols={2}>
   <Card title="Zoho CRM" icon="address-book" href="/integrations/zoho-crm">Read and edit CRM records with OAuth.</Card>
+  <Card title="ClickUp" icon="list-check" href="/integrations/clickup">Tasks, lists, and docs with a personal API token.</Card>
   <Card title="Slack" icon="slack" href="/integrations/slack">Ask the agent inside Slack.</Card>
   <Card title="Klaviyo" icon="envelope" href="/integrations/klaviyo">Connect Klaviyo with a private API key.</Card>
   <Card title="Mailchimp" icon="envelope-open" href="/integrations/mailchimp">Audiences, campaigns and reports via API key.</Card>
+  <Card title="Omnisend" icon="envelope-open-text" href="/integrations/omnisend">Email and SMS marketing with an API key.</Card>
+  <Card title="Instantly" icon="paper-plane" href="/integrations/instantly">Cold email campaigns with a v2 API key.</Card>
   <Card title="Google Drive" icon="google-drive" href="/integrations/google-drive">Hand the agent Sheets, Docs and files you pick.</Card>
 </CardGroup>
 
@@ -125,5 +133,7 @@ You can connect more than one account for the same platform in a single workspac
 <CardGroup cols={2}>
   <Card title="Claude MCP" icon="robot" href="/claude/connect">Add Ryze to Claude as a connector.</Card>
   <Card title="ChatGPT MCP" icon="comments" href="/chatgpt/connect">Add Ryze to ChatGPT as a connector.</Card>
+  <Card title="Grok Bot" icon="x" href="/grok/connect">Use Ryze inside Grok Bot.</Card>
+  <Card title="Custom MCP Server" icon="plug" href="/integrations/custom-mcp">Let the agent use tools from your own MCP server.</Card>
   <Card title="Anthropic (BYOK)" icon="key" href="/integrations/anthropic">Run chat on your own Anthropic API key.</Card>
 </CardGroup>

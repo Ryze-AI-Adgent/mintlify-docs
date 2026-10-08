@@ -1,30 +1,33 @@
 ---
 title: "Connect Google Ads"
-description: "Connect a Google Ads account to Ryze so you can query spend, ROAS, and performance through Claude, and let the agent manage campaigns with approval."
+description: "Connect Google Ads to Ryze so you can ask about spend, ROAS, and performance, and let the agent manage campaigns with your approval."
 ---
 
 Connecting Google Ads lets you ask about campaign performance in plain language and lets the agent act on campaigns under your approval settings.
 
 ## Requirements
 
-- A Google Ads account with at least read access; standard or admin access to allow changes
-- For agencies, connect the manager (MCC) login once — the agent can reach every client account under it; name the client in chat
+- A Google login with access to at least one Google Ads account; standard or admin access to allow changes
+- For agencies: connect the manager (MCC) login once — the agent can reach every client account under it; name the client in chat
 
 ## Connect
 
 <Steps>
   <Step title="Open Integrations">
-    Open **Integrations** in the left sidebar, then find Google Ads under **Advertising**.
+    Open **Integrations** in the left sidebar and find **Google Ads** under **Advertising**.
   </Step>
-  <Step title="Authorize">
-    Sign in to Google and approve access.
-  </Step>
-  <Step title="Pick the account">
-    Choose the specific Google Ads account.
+  <Step title="Click Connect">
+    You're redirected to Google. Sign in with the login that has access to your ad accounts and approve access — keep every requested permission checked.
   </Step>
 </Steps>
 
-Start a **new chat** afterwards.
+That's it — there's no account to pick. Ryze sees every Google Ads account that login can reach, and the card shows **Connected**. Start a **new chat** so the agent picks up the connection.
+
+## Choose the accounts the agent uses by default
+
+If the login reaches many ad accounts, click **View** on the card and use **Agent default accounts** to select the ones the agent should work with first. It can still reach all the others — just name one in chat. See [Agent default accounts](/integrations/multiple-accounts#agent-default-accounts).
+
+To connect a second Google login, click **View** → **Add one more account**.
 
 ## What you can ask
 
@@ -36,25 +39,24 @@ Start a **new chat** afterwards.
 
 ## What the agent can do
 
-With approval, the agent can create and adjust campaigns, manage budgets, and generate ad creatives. Actions that change your account require sign-off by default — configure this in [Permissions & approvals](/claude/permissions).
+With approval, the agent can create and adjust campaigns, manage budgets, and generate ad creatives. Actions that change your account require sign-off by default — see [Approvals](/agent/approvals) and [Permissions & approvals](/claude/permissions).
 
 <Note>
 Review approval settings before enabling unattended changes on a live spending account. This is the connection where a misconfiguration costs real money.
 </Note>
 
-## Multiple accounts
-
-A workspace can hold several Google Ads accounts — useful for brands running separate accounts by region or business unit. See [Connect multiple accounts](/integrations/multiple-accounts) and [Managing multiple accounts](/integrations/managing-multiple-accounts).
-
 ## Troubleshooting
 
-**No accounts listed.** The authorized Google account has no Ads access, or the account sits under an MCC you did not authorize.
+**"This Google account has no access to a Google Ads account."** You signed in with a login that isn't on any Google Ads account. Connect again with the login that has access to your ad account.
 
-**Changes rejected.** The authorized user likely has read-only access. Google Ads permissions are set in Google, not in Ryze.
+**An account is missing.** The connected login can't reach it, or it sits under a manager account you didn't sign in with. Connect the right login with **Add one more account**.
+
+**Changes rejected.** The connected user likely has read-only access. Google Ads permissions are set in Google, not in Ryze.
 
 **Data looks delayed.** Google Ads reporting lags for recent conversions, particularly view-through and cross-device.
 
 ## Related
 
-- [Paid ads overview](/ads/overview)
-- [Google Ads in Ryze](/ads/google-ads)
+- [Paid Ads introduction](/paid-ads/introduction)
+- [Managed campaigns](/paid-ads/managed-campaigns)
+- [Connect multiple accounts](/integrations/multiple-accounts)

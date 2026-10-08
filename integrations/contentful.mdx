@@ -1,0 +1,47 @@
+---
+title: "Connect Contentful"
+description: "Connect your Contentful space with a personal access token so Ryze can publish articles as entries and manage content."
+---
+
+Contentful connects with a **personal access token** for the Content Management API. Once connected, programmatic articles publish as entries of your blog post content type, and the agent can manage content in the space.
+
+## Step 1 — Get your Space ID and token
+
+<Steps>
+  <Step title="Copy the Space ID">
+    In Contentful, open **Settings → General settings** and copy the **Space ID**.
+  </Step>
+  <Step title="Create a personal access token">
+    Open **Settings → CMA tokens → Create personal access token** and copy the token (it starts with `CFPAT-`).
+  </Step>
+</Steps>
+
+<Note>
+The token acts with your role. Create it from an account that can publish entries in this space.
+</Note>
+
+## Step 2 — Connect in Ryze
+
+On the **Integrations** page, click **Connect** on the **Contentful** card and fill in:
+
+- **Space ID** — e.g. `yadj1kx9rmg0`
+- **Personal access token**
+- **Environment (optional)** — leave empty to publish to `master`
+- **Blog URL** — the public `https://` address where your blog posts live, e.g. `https://yoursite.com/blog`. Ryze uses it to link published articles.
+
+Click **Continue**. Then choose the **Content type** your blog posts use — each article becomes one entry of it — and click **Save**.
+
+If articles already publish somewhere else, Ryze asks **Publish to Contentful?** Click **Publish to Contentful** to switch new articles there, or keep the current destination. You can change this any time in SEO settings.
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+## Troubleshooting
+
+- **"No content types in this environment."** — create a blog post content type in Contentful first, then click **View** on the card and choose it.
+- **"Must be a valid https:// blog URL"** — enter the full public address of your blog, starting with `https://`.
+- **Entries aren't published** — the token's owner can't publish in this space. Create the token from an account with publishing rights.
+- **Card shows Require setup** — the Content type wasn't saved. Click **View**, choose it, and click **Save**.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

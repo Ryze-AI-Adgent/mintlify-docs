@@ -1,74 +1,55 @@
 ---
-title: "Agent Context"
-description: "The brand context every Ryze agent reads on every turn — shape what the AI writes about you, how it sounds, and what it links to."
+title: "Brand"
+description: "The brand context every Ryze agent reads on every turn — shape what the AI writes about you, how it sounds, and what it remembers."
 ---
 
 <Note>
   Prefer video? Watch the [Setting up your brand guide](/guides/brand).
 </Note>
 
-Everything Ryze produces — programmatic articles, on-page copy, off-page mentions, ad creatives, reports — is shaped by one place: your **Brand** context. It's the brief the agents read on every turn. Get it right and every output sounds like you, sells what you actually sell, and points at the pages and sources you care about.
+Everything Ryze produces — programmatic articles, on-page copy, off-page mentions, ad creatives, reports — is shaped by one place: your **Brand** profile. It's the brief the agents read on every turn. Get it right and every output sounds like you, sells what you actually sell, and follows your rules.
 
-Find it under **Brand** in the workspace sidebar. It's split into three tabs: **Identity**, **Visual**, and **Context**.
+Find it under **Brand** in the sidebar. Ryze builds the first version by reading your site; after that you refine it by hand, or click **Improve Brand Profile** and the agent reviews what's there, flags anything weak or missing, and asks before changing anything.
 
-<Frame>
-  <img src="/images/seo-agent-context-identity.webp" alt="The Brand page Identity tab — what you sell, industry, and tone of voice" />
-</Frame>
+At the top is your brand description — what the company does, for whom, and what makes it different. Below it, four tabs: **Identity**, **Visual**, **Context**, and **Memory**.
 
-## Rules for every agent
+## Identity — what you sell and how you sound
 
-These apply to everything the agent does, across SEO, paid ads, and content.
-
-### Identity — what you sell and how you sound
-
-- **What you sell.** A short description of your offer, plus your **industry**. This anchors topic planning, keyword relevance, and the angle of every piece — so a deceased-loved-one persona platform never gets written up like a generic SaaS.
-- **Tone of voice.** How the writing should feel. Be specific and prescriptive — the agent follows this literally. For example: *"Writes with quiet emotional directness — short sentences, plain language, a willingness to sit with hard feelings rather than paper over them. Avoids corporate enthusiasm, feature-list marketing, and hollow superlatives."*
+- **What you sell.** Your **offer**, plus your **industry**. This anchors topic planning, keyword relevance, and the angle of every piece — so a deceased-loved-one persona platform never gets written up like a generic SaaS.
+- **Tone of voice.** How the brand should sound. Be specific and prescriptive — the agent follows this literally. For example: *"Writes with quiet emotional directness — short sentences, plain language, a willingness to sit with hard feelings rather than paper over them. Avoids corporate enthusiasm, feature-list marketing, and hollow superlatives."*
 
 The more concrete the tone, the less generic the output. Vague tone ("professional, friendly") gives you vague, average copy.
 
-### What the agent should always remember
+## Visual — colors and fonts
 
-Free-form notes the agent reads before doing anything. This is your lever for facts, claims, and guardrails:
+Your brand **colors** and **fonts**, which the agent applies to every ad creative it generates.
 
-<Frame>
-  <img src="/images/seo-agent-context-notes.webp" alt="The Brand page Context tab — what the agent should always remember, writing style preferences, and blog examples" />
-</Frame>
+Logos, product photos and videos don't live here — upload them to **Media** in the sidebar, and the agent picks from them before it looks anywhere else. See [Media library](/workspaces/media) and [AI Ad Creatives](/paid-ads/ai-creatives).
+
+## Context — what the agent should always remember
+
+Free-form notes the agent reads before doing anything, in chat and in background work. This is your lever for facts, claims, and guardrails:
 
 - Hard facts about your product, pricing, and positioning the AI must get right.
 - Claims you *can* make and ones you **must not** (legal, medical, compliance).
 - Differentiators and proof points you want surfaced.
 - Competitors or comparisons to avoid.
+- Sources you want cited — industry reports, your own research, authoritative sites in your space — and sources to avoid.
 
-### Writing style preferences
+## Memory — what the agent has learned
 
-Finer-grained rules than tone of voice — the mechanics of how a sentence is built. Things like: short paragraphs, no em dashes, British spelling, never start with "In today's world", always use active voice. The agent applies these to every draft.
+Short facts and rules about your business, one per memory: "Never set a daily budget above $200 without asking", "campaigns are set up per country". The agent adds memories itself when you tell it something it should keep in mind next time, and you can **Add memory**, **Edit** or **Delete** any of them. Delete a memory and the agent no longer sees it.
 
-## Rules for programmatic articles and blog
+## Writing rules for articles
 
-These blocks steer the content engine specifically.
-
-### Blog examples
-
-Paste a few URLs or excerpts of writing you want the agent to emulate — your best existing posts, or a competitor's tone you admire. The agent uses them as a stylistic reference, matching structure and rhythm rather than copying.
-
-### External references (pSEO)
-
-Programmatic articles and off-page mentions naturally cite and link out to sources. You steer that in the "always remember" notes:
-
-- **Name the sources you want cited** — industry reports, your own research, authoritative sites in your space.
-- **Name what to avoid** — competitors you don't want to send link equity to, low-quality sources, anything off-brand.
-- **Point at your own pages.** Programmatic articles anchor internal links to your own key pages — drawn automatically from your store and Search Console. Context shapes the *external* references; your real pages shape the *internal* ones.
-
-## Rules for creatives
-
-The **Visual** tab holds your brand colors and fonts, which the agent applies to every ad creative it generates. Product photos and videos live in **Media** in the sidebar: upload them there and the agent picks from them before it looks anywhere else. See [Media library](/workspaces/media) and [AI Ad Creatives](/paid-ads/ai-creatives) for how they're used.
+Rules that only apply to SEO articles — tone for articles, custom writing instructions (short paragraphs, no em dashes, British spelling), and article examples the writer mimics for structure and style — live in **SEO → Preferences → Content**. See [SEO Preferences](/seo/preferences).
 
 ## Why it matters
 
 The agents run on this context every single turn — there's no separate "settings" they forget. Edit the Brand page once and the change shows up in the next article, the next optimization, the next creative. It's the highest-leverage place in Ryze: a few minutes here changes everything downstream.
 
 <Note>
-Brand context is per-workspace. If you run [multiple workspaces](/workspaces/create-workspace), each one carries its own identity, tone, and notes — so a single account can serve very different brands without bleed-over.
+Brand is per-workspace. If you run [multiple workspaces](/workspaces/create-workspace), each one carries its own identity, tone, notes and memories — so a single account can serve very different brands without bleed-over.
 </Note>
 
 ## Related
@@ -77,7 +58,7 @@ Brand context is per-workspace. If you run [multiple workspaces](/workspaces/cre
   <Card title="Programmatic Articles" icon="newspaper" href="/seo/programmatic">
     See the context turned into full, published drafts.
   </Card>
-  <Card title="Approvals" icon="circle-check" href="/agent/approvals">
+  <Card title="Inbox and approvals" icon="circle-check" href="/agent/approvals">
     Improvements the agent proposes on its own.
   </Card>
 </CardGroup>

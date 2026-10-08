@@ -1,0 +1,30 @@
+---
+title: "Connect Instantly"
+description: "Connect Instantly with a v2 API key so the agent can work with cold email campaigns, sending accounts, leads, and campaign analytics."
+---
+
+Instantly connects with a **v2 API key**. Once connected, the agent can report on cold email campaigns, sending accounts, leads, and campaign analytics — and manage campaigns if the key allows it.
+
+## Step 1 — Create a v2 API key
+
+In Instantly, go to **Settings → Integrations → API Keys → Create** and choose **v2**. Pick the scope:
+
+- `all:read` — reporting only
+- `all:all` — the agent can also manage campaigns
+
+Copy the key.
+
+## Step 2 — Connect in Ryze
+
+On the **Integrations** page, click **Connect** on the **Instantly** card, paste the key into **API key (v2)**, and click **Continue**.
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+## Troubleshooting
+
+- **Key rejected** — make sure you created a **v2** key and copied all of it.
+- **Campaign changes are rejected** — the key is scoped to `all:read`. Create a key with `all:all` and connect again.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

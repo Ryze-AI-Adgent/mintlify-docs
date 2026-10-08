@@ -1,6 +1,7 @@
 ---
 title: "Sitemaps on Shopify"
 description: "How Shopify generates sitemaps automatically, what they include, their limits, and how to submit and troubleshoot them in Google Search Console."
+noindex: true
 ---
 
 Shopify generates and maintains `sitemap.xml` automatically at your domain root. You do not create it, and on most plans you cannot edit it directly.
@@ -22,7 +23,7 @@ Shopify updates these as you add, change, and remove content. Only canonical, in
 
 ## Submit it
 
-In [Google Search Console](/connect-gsc), go to **Sitemaps** and submit `sitemap.xml`. Do the same in Bing Webmaster Tools.
+In [Google Search Console](/integrations/google-search-console), go to **Sitemaps** and submit `sitemap.xml`. Do the same in Bing Webmaster Tools.
 
 Submit once. Resubmitting repeatedly does not increase crawl rate and is not a fix for anything.
 
@@ -45,7 +46,7 @@ Submit once. Resubmitting repeatedly does not increase crawl rate and is not a f
 
 ## Custom sitemap needs
 
-Shopify Plus allows `robots.txt.liquid` editing, which lets you reference additional sitemaps — useful when content lives on a subdomain or a separate platform.
+Editing `robots.txt.liquid` in your theme lets you reference additional sitemaps — useful when content lives on a subdomain or a separate platform.
 
 If your documentation or blog is hosted separately, it has its own sitemap and must be submitted separately.
 

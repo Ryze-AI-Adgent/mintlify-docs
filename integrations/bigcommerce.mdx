@@ -1,0 +1,44 @@
+---
+title: "Connect BigCommerce"
+description: "Connect your BigCommerce store with a store-level API account so Ryze can publish blog posts and work with products, categories, pages, redirects, and orders."
+---
+
+BigCommerce connects with a **store-level API account**. Once connected, programmatic articles can publish to your BigCommerce blog, and the agent can work with products, categories, pages, redirects, and orders.
+
+## Step 1 — Create an API account in BigCommerce
+
+<Steps>
+  <Step title="Create the API account">
+    In BigCommerce, go to **Settings → Store-level API accounts → Create API account**.
+  </Step>
+  <Step title="Set the scopes">
+    For publishing, set **Content — modify** and **Information & Settings — read-only**. Add **Products — modify** and **Orders — read-only** if the agent should edit product SEO and report revenue.
+  </Step>
+  <Step title="Copy the token and API path">
+    After saving, copy the **access token** and the **API path** shown with it (it looks like `https://api.bigcommerce.com/stores/abc123xyz/v3/`).
+  </Step>
+</Steps>
+
+## Step 2 — Connect in Ryze
+
+On the **Integrations** page, click **Connect** on the **BigCommerce** card and fill in:
+
+- **Store hash or API path** — paste the API path, or just the store hash from it (e.g. `abc123xyz`)
+- **Access token**
+- **WebDAV username (optional)** and **WebDAV password (optional)** — let Ryze set the featured image on each blog post. Find them in BigCommerce under **Settings → File access (WebDAV)**. Leave both empty to publish without post thumbnails.
+
+Click **Continue**.
+
+If articles already publish somewhere else, Ryze asks **Publish to BigCommerce?** Click **Publish to BigCommerce** to switch new articles there, or keep the current destination. You can change this any time in SEO settings.
+
+<Tip>
+After connecting, start a **new chat** so the agent picks up the new integration.
+</Tip>
+
+## Troubleshooting
+
+- **"Paste the API path or the store hash"** — the first field doesn't look like a store hash. Paste the full API path shown with your token.
+- **"Enter both the WebDAV username and password, or leave both empty."** — fill in both WebDAV fields or neither.
+- **Publishing fails or product edits are rejected** — the API account is missing a scope. Create a new API account with the scopes above and connect again.
+
+Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
