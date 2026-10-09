@@ -48,6 +48,17 @@
             ]
           },
           {
+            "group": "MCP",
+            "pages": [
+              "claude/connect",
+              "chatgpt/connect",
+              "grok/connect",
+              "claude/permissions",
+              "claude/faq",
+              "agent-api"
+            ]
+          },
+          {
             "group": "Connect Your Platforms",
             "pages": [
               "integrations/overview",
@@ -149,42 +160,8 @@
             ]
           },
           {
-            "group": "SEO",
-            "pages": [
-              "seo/introduction",
-              "seo/how-it-works",
-              "seo/optimizations",
-              "seo/programmatic",
-              "seo/keywords",
-              {
-                "group": "Backlinks & PR",
-                "pages": [
-                  "seo/backlinks",
-                  "seo/guest-posts",
-                  "seo/press",
-                  "seo/backlink-exchange"
-                ]
-              },
-              "seo/preferences",
-              "seo/ai-visibility",
-              "chrome-extension",
-              "seo/faq"
-            ]
-          },
-          {
-            "group": "Paid Ads",
-            "pages": [
-              "paid-ads/introduction",
-              "paid-ads/managed-campaigns",
-              "paid-ads/ai-creatives",
-              "paid-ads/competitors",
-              "paid-ads/faq"
-            ]
-          },
-          {
             "group": "Analytics",
             "pages": [
-              "paid-ads/ryze-pixel",
               "analytics/performance"
             ]
           },
@@ -193,17 +170,6 @@
             "pages": [
               "agent/context",
               "workspaces/media"
-            ]
-          },
-          {
-            "group": "Claude, ChatGPT & API",
-            "pages": [
-              "claude/connect",
-              "chatgpt/connect",
-              "grok/connect",
-              "claude/permissions",
-              "claude/faq",
-              "agent-api"
             ]
           },
           {
@@ -246,6 +212,50 @@
                   "security/data-processing"
                 ]
               }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "SEO",
+        "groups": [
+          {
+            "group": "SEO",
+            "pages": [
+              "seo/introduction",
+              "seo/how-it-works",
+              "seo/optimizations",
+              "seo/programmatic",
+              "seo/keywords",
+              {
+                "group": "Backlinks & PR",
+                "pages": [
+                  "seo/backlinks",
+                  "seo/guest-posts",
+                  "seo/press",
+                  "seo/backlink-exchange"
+                ]
+              },
+              "seo/preferences",
+              "seo/ai-visibility",
+              "chrome-extension",
+              "seo/faq"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Paid Ads",
+        "groups": [
+          {
+            "group": "Paid Ads",
+            "pages": [
+              "paid-ads/introduction",
+              "paid-ads/managed-campaigns",
+              "paid-ads/ai-creatives",
+              "paid-ads/competitors",
+              "paid-ads/ryze-pixel",
+              "paid-ads/faq"
             ]
           }
         ]
