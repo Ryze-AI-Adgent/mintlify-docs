@@ -26,6 +26,14 @@ The first sync usually takes 3–5 minutes — the page updates on its own when 
 You can track up to 5 competitors per workspace. Pick the brands you actually compete with for the most useful view.
 </Tip>
 
+**No ads showing for a competitor?** Ryze looks the brand up by the name and domain you entered:
+
+- **Meta** — ads are found by the brand name, then matched to the brand's Facebook page by the domain and name in the ads. Once the page is matched, Ryze pulls its ads from all countries.
+- **Google** — ads are found by the domain, in your workspace's market: the one you confirmed in the setup chat, or **Target market** under **SEO → Preferences** if you have SEO. When no market is set, Ryze uses the US. The market is taken when you add the competitor.
+- **LinkedIn** — ads are found by the advertiser name.
+
+If nothing shows up after the first sync, check that the name matches the brand's Facebook page and that the domain is the one its ads link to. To correct either, stop tracking the brand (trash icon on its chip) and add it again, then click **Re-sync**. The brand may also simply not be running ads right now.
+
 ## Browse their ads
 
 On **Tracked Competitors**, each brand is a chip at the top — click one to see only its ads. Use the filters to narrow things down:
@@ -55,9 +63,15 @@ Alerts are off by default — turn them on per competitor.
 
 ## Turn an ad into your own
 
-Found an ad worth borrowing? Click **Iterate with AI** to drop its copy straight into chat, then ask Ryze to rework it for your brand.
+Found an ad worth borrowing? Open it and click **Iterate with AI** (available for text and image ads, not for video). Ryze opens a chat with the ad's image attached, if it has one:
+
+- If the ad has copy — a headline, text or call to action — the chat asks for 3 stronger variations of that copy:
 
 > Here's a competitor's ad copy. Write me 3 stronger variations I can use.
+
+- If it has no copy, the chat asks Ryze to create your own version of the ad.
+
+Then keep going in the chat to rework it for your brand.
 
 <Tip>
 Pair this with [AI Ad Creatives](/paid-ads/ai-creatives) — rewrite the copy, then generate matching visuals on your brand.
@@ -69,7 +83,7 @@ Pair this with [AI Ad Creatives](/paid-ads/ai-creatives) — rewrite the copy, t
   <Card title="AI Ad Creatives" icon="image" href="/paid-ads/ai-creatives">
     Generate on-brand creatives from a brief.
   </Card>
-  <Card title="Overview" icon="bullseye" href="/paid-ads/introduction">
+  <Card title="Paid Ads overview" icon="bullseye" href="/paid-ads/introduction">
     What Paid Ads can do.
   </Card>
 </CardGroup>

@@ -1,13 +1,19 @@
 ---
 title: "Connect Multiple Accounts"
-description: "Connect several accounts for the same platform and choose which one Claude uses by default."
+description: "Connect several accounts for the same platform, choose which one the agent uses by default, and decide when to use separate workspaces."
 ---
 
 You can connect more than one account for the same platform in a single workspace — for example, two Google Ads logins or several GA4 accounts. Each account is kept separately, with its own property or ad-account selection, and you choose which one is **primary**.
 
+## Which platforms support several accounts
+
+You can connect several accounts to: Google Analytics 4, Google Search Console, Google Ads, Meta Ads, LinkedIn Ads, Microsoft Ads, TikTok Ads, Snapchat Ads, Reddit Ads, Pinterest Ads, OpenAI Ads, Thrad, Shopify, WordPress, HubSpot, HighLevel, Zoho CRM, AppsFlyer and Custom MCP Server.
+
+Every other platform holds one connection per workspace. To switch to another account there, click **View** on the card, disconnect the current account with the trash icon, and connect again.
+
 ## What is the primary account?
 
-When a platform has more than one connected account, one of them is the **primary**. The primary is the account Claude uses **by default** when you don't name a specific one. You can change it at any time, and you can still ask Claude to use any of the other accounts (see [Using a specific account in Claude](#using-a-specific-account-in-claude)).
+When a platform has more than one connected account, one of them is the **primary**. The primary is the account the agent — in Ryze, Claude or ChatGPT — uses **by default** when you don't name a specific one. You can change it at any time, and you can still ask the agent to use any of the other accounts (see [Use a specific account](#use-a-specific-account)).
 
 A platform with a single connected account doesn't need a primary — that account is always used.
 
@@ -38,11 +44,13 @@ Next to the account field is a **star**:
 - A **filled** star marks the current primary.
 - An **empty** star means that account isn't primary — click it to make it the primary.
 
-Setting a new primary only changes Claude's default; it doesn't disconnect anything.
+Setting a new primary only changes the agent's default; it doesn't disconnect anything.
 
 ## Agent default accounts
 
 For platforms where you manage many accounts — an agency running dozens of clients through one Google Search Console or Google Ads login — you can pick which accounts the **Ryze agent** works with by default. Open the platform's dialog and use **Agent default accounts** to select them.
+
+**Agent default accounts** is available for Google Analytics 4, Google Search Console, Google Ads, Meta Ads, LinkedIn Ads, Microsoft Ads, TikTok Ads, Snapchat Ads, Reddit Ads and Pinterest Ads. Slack has **Default notification channels** instead — the channels where agent results and notifications go.
 
 <Frame>
   <img src="/images/integrations-default-accounts.png" alt="Selecting agent default accounts in the Google Search Console dialog" />
@@ -54,16 +62,19 @@ For platforms where you manage many accounts — an agency running dozens of cli
 
 This applies everywhere the agent works: platform chat, scheduled tasks, and MCP.
 
-## Using a specific account in Claude
+## Use a specific account
 
-By default Claude uses the **primary** account. To work with another one, just ask — no setup required:
+By default the agent uses the **primary** account. To work with another one, just ask — in Ryze, Claude or ChatGPT, no setup required:
 
-> **You:** Claude, show my connected Google Analytics accounts.
+> **You:** Show my connected Google Analytics accounts.
 
 > **You:** Pull last week's spend for my other Google Ads account.
 
-Claude lists the connected accounts and uses the one you point to.
+The agent lists the connected accounts and uses the one you point to. It sees a new account or a changed primary from your next message.
 
-<Tip>
-After adding an account or changing the primary, start a **new chat** in Claude so it picks up the change.
-</Tip>
+## One workspace or many?
+
+The rule of thumb: **one workspace = one business.**
+
+- Several accounts that belong to the **same business or brand** — multiple Google Ads logins, regional GA4 properties, a second Meta ad account — connect them all to **one workspace**. Chats, reports, scheduled tasks and the agent in Claude or ChatGPT can then work across all of them.
+- **Different clients or separate businesses** — give each its **own workspace**. Every workspace keeps its own connections, team, settings and data, so client accounts never mix, and you switch between workspaces in seconds. See [Create a Workspace](/workspaces/create-workspace).

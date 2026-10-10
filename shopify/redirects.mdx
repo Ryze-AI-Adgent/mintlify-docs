@@ -8,7 +8,7 @@ A redirect preserves the value a URL has accumulated — links, rankings, and ci
 
 ## Creating redirects on Shopify
 
-URL redirects are managed in the Shopify admin under **Online Store → Navigation → URL Redirects**. Shopify issues them as `301` (permanent), which is what you want for anything that has moved for good.
+URL redirects are managed in the Shopify admin under **Content → Menus → View URL Redirects** (older admins show this under **Online Store → Navigation**). Shopify issues them as `301` (permanent), which is what you want for anything that has moved for good.
 
 You can bulk import redirects via CSV, which is essential for migrations.
 
@@ -20,7 +20,7 @@ You can bulk import redirects via CSV, which is essential for migrations.
 | Product temporarily out of stock | **Do not redirect.** Keep the page live — see [out-of-stock products](/ecommerce/out-of-stock-products) |
 | Collection merged into another | 301 to the surviving collection |
 | Product renamed (handle changed) | Shopify creates this automatically; verify it exists |
-| Page deleted with no equivalent | 410, or 301 to the most relevant parent |
+| Page deleted with no equivalent | Let it return 404 (Shopify serves 404 for deleted products and pages and has no built-in way to send 410), or 301 to the most relevant parent |
 | Domain change | 301 every URL to its new equivalent |
 
 ## Redirect to the closest equivalent, not the homepage
@@ -52,6 +52,10 @@ Losing traffic in a migration is almost always a redirect failure. Before switch
 ## Why this matters beyond rankings
 
 A moved page loses accumulated citation history in AI answers as well as search rankings. Since citations are volatile to begin with, a broken URL is unlikely to be re-earned quickly. Decide slugs once and keep them.
+
+## What Ryze does
+
+The [Technical Audit](/seo/optimizations) finds broken pages that still get search clicks. **Fix with agent** creates the 301 redirect in Shopify only when your connection has redirect access — that needs a [Shopify Custom App](/integrations/shopify-custom-app) with the `write_online_store_navigation` scope. The standard Shopify connection can't create redirects, so the agent gives you the exact from → to pairs to add under **Content → Menus → View URL Redirects**.
 
 ## Related
 

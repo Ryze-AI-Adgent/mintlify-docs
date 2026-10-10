@@ -1,9 +1,9 @@
 ---
 title: "Connect CallRail"
-description: "Connect CallRail with an API key so the agent can read calls, transcripts, call summaries, and tracking numbers."
+description: "Connect CallRail with an API key so the agent can read calls, transcripts, call summaries, and tracking numbers, and tag or qualify calls."
 ---
 
-CallRail connects with an **API key**. Once connected, the agent can read calls, transcripts, call summaries, and tracking numbers from your CallRail account.
+CallRail connects with an **API key**. Once connected, the agent can read calls, transcripts, call summaries, and tracking numbers from your CallRail account — and make changes when you ask.
 
 ## Step 1 — Create an API key
 
@@ -19,9 +19,13 @@ On the **Integrations** page, click **Connect** on the **CallRail** card, paste 
 
 Then choose the **Account** the agent reads calls from and click **Save**. If the key has access to only one account, Ryze picks it for you.
 
-<Tip>
-After connecting, start a **new chat** so the agent picks up the new integration.
-</Tip>
+## What the agent can do
+
+- **Read** — calls (with transcripts, summaries and sentiment when your plan includes Conversation Intelligence), companies, trackers, form submissions, tags and users
+- **Change** — tag or qualify calls, add notes, and create tags when you ask
+- **Delete** — delete tags when you explicitly ask
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 ## Troubleshooting
 

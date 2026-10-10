@@ -34,6 +34,8 @@ Other common failures:
 | distinct data per page | one template, swapped words |
 | one page per distinct intent | many pages per intent |
 | complete answer to the query | keyword placeholder |
+| skips records with insufficient data | generates something for everything |
+| published in batches and measured | published all at once, never reviewed |
 | pruned when pages underperform | published and forgotten |
 
 ## Practical guardrails
@@ -44,7 +46,12 @@ Other common failures:
 - Track which generated pages earn impressions, and remove or consolidate those that never do
 - Keep generated pages out of the sitemap until they meet the quality bar
 
+## How Ryze does it
+
+Ryze's [Content Plan](/seo/programmatic) is programmatic SEO run along these guardrails: every topic is planned from a real keyword with search volume and difficulty, written in full, published up to 3 a day on weekdays rather than all at once, and linked to the pages you want to rank.
+
 ## Related
 
+- [Content Plan](/seo/programmatic)
 - [Technical SEO](/concepts/technical-seo)
 - [Crawl budget](/concepts/crawl-budget)

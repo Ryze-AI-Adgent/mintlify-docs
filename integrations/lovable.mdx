@@ -40,10 +40,11 @@ During connect, Ryze sends Lovable one prompt that sets up the blog:
 
 - Articles become JSON files in `src/content/articles/`, one file per article.
 - `/blogs` lists every article, newest first.
-- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns.
+- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns, plus an absolute canonical link.
+- Your site's **sitemap.xml** lists `/blogs` and every article, keeping every URL it already has, and **robots.txt** gets a `Sitemap:` line, keeping every rule it already has. If these were static files, the prompt replaces them with server routes that serve the same content.
 - If your site already has a blog, Lovable rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation.
 
-The prompt asks Lovable not to change anything else on the site. **Every reconnect sends this prompt again.**
+The prompt asks Lovable not to change anything else on the site and not to install new packages. **Every reconnect sends this prompt again.** The connect dialog shows this summary before you connect.
 
 ## How publishing works
 
@@ -90,6 +91,9 @@ If your project has a paused task (for example, it ran out of credits mid-prompt
 | --- | --- |
 | The builder rejected this login and password | Check the login and password, then connect again. |
 | The builder asked for a verification code on login | Turn off two-factor authentication for this login, or use a collaborator login without it, then connect again. |
+| The builder's login page did not show the field Ryze expected | This account signs in with Google, GitHub or an emailed link. Invite a collaborator account that signs in with an email and password, and connect with that one. |
+| Enter the project address / Enter the project URL from the builder's address bar | Copy the project link from the builder's address bar (`https://lovable.dev/projects/…`), not your live site's address. |
+| Lovable won't open this project for this login: the project uses connections this account can't access | In Lovable, share the project's connections with this account (or use a login that already has them), then connect again. |
 | This login has no access to that project | Check the project link, or log in with the project owner's account. |
 | Lovable is out of credits for this project's workspace | Add credits in Lovable, or wait for the daily credits. |
 | Lovable is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |

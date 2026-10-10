@@ -6,7 +6,7 @@ noindex: true
 
 Citation share is the percentage of all source links in AI-generated answers that point to a given domain, across a defined set of questions.
 
-Where [share of voice](/concepts/share-of-voice-ai) counts brand *mentions*, citation share counts *URLs used as sources*. It is the more actionable of the two, because citations come from live retrieval and retrieval responds to content.
+Where [share of voice](/concepts/share-of-voice-ai) counts brand *mentions*, citation share counts *URLs used as sources*. It is the more actionable of the two. Mentions come from the model's training data and move slowly; citations come from live retrieval and respond to content — see [AI visibility](/concepts/ai-visibility).
 
 ## How it is calculated
 
@@ -20,10 +20,10 @@ Counting by domain rather than by answer avoids over-crediting a single answer t
 
 ## What the distribution usually looks like
 
-Across broad commercial query sets, cited domains typically fall into recognisable bands:
+In our experience, across broad commercial query sets, cited domains fall into recognisable bands:
 
 - **Official platform properties** — the vendor's own site for platform-worded questions, often a large share
-- **Documentation and help centres** — a consistently large share, because they are factual and directly answer specific questions
+- **Documentation and help centres** — often a large share, because they are factual and directly answer specific questions
 - **Primary specifications** — standards bodies, search engine developer docs
 - **Editorial and comparison sites** — variable, often thinner than expected
 - **A long tail** — many domains at fractions of a percent each
@@ -32,9 +32,9 @@ The documentation band is the one a vendor can realistically enter, which is why
 
 ## Interpreting the number
 
-- **Volatility is normal.** Only a minority of cited URLs repeat between two runs of the same query. Judge by rate across many queries over time.
+- **Volatility is normal.** The cited URLs often change between two runs of the same query. Judge by rate across many queries over time.
 - **Zero is a real starting point.** A domain with no retrievable, factual pages will not appear at all, and no amount of query variation will surface it.
-- **Query phrasing caps the ceiling.** In clusters where one platform's own domains take most citations, third-party citation share is structurally limited. Measure those clusters separately.
+- **Query phrasing caps the ceiling.** For prompts where one platform's own domains take most citations, third-party citation share is structurally limited. Judge those prompts separately.
 - **Citation share and conversions are not the same thing.** A cited page still has to be a page worth landing on.
 
 ## Related

@@ -27,7 +27,7 @@ Your site needs the **Wix Blog** app installed — that's where Ryze publishes. 
     <Frame><img src="/images/wix-step-2.png" alt="The Generate API Key page with API Keys selected in the sidebar" /></Frame>
   </Step>
   <Step title="Grant permissions">
-    Under **Permissions**, tick **All permissions** — the simplest option that's guaranteed to work. (The minimum Ryze actually needs is **Blog**, **Media**, **Members**, and **Site read**, but All permissions saves you picking them one by one.)
+    Under **Permissions**, tick **All permissions** — the simplest option that's guaranteed to work. (The minimum Ryze needs to connect and publish is **Blog**, **Media**, **Members**, and **Site** read, but All permissions saves you picking them one by one. The hint in the Ryze connect window also lists **Data** and **Stores**: grant them if you want the agent to read or edit other Wix data, such as store products or collections, when you ask. They aren't needed to publish.)
     <Frame><img src="/images/wix-step-3.png" alt="Selecting All permissions for the API key" /></Frame>
   </Step>
   <Step title="Generate and copy the key">
@@ -66,6 +66,7 @@ Click **Continue**. Ryze verifies the key against your site and you're connected
 ## Troubleshooting
 
 - **API key or Site ID rejected** — double-check both values, and confirm the key has access to this site (use **All sites** or include this site under **Specific sites**).
+- **"Wix rejected the request for this site."** — check three things: the Site ID, that the Wix Blog app is installed on the site, and that the API key has the **Blog** permission and is allowed on this site.
 - **Blog not found** — install the **Wix Blog** app from the App Market, then reconnect.
 - **Missing permissions** — regenerate the key with **All permissions** selected and reconnect.
 - **Wrong site** — make sure the Site ID comes from the dashboard URL of the exact site you want to publish to, not the Account ID.

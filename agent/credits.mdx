@@ -1,6 +1,6 @@
 ---
 title: "Credits & Usage"
-description: "How Ryze charges credits for chat and agent runs, and where to track what you spend."
+description: "How Ryze charges credits for chat and agent runs, what happens when they run out, and where to track what you spend."
 ---
 
 You pay for the AI's thinking, not its plumbing. Every time the model reasons — reads your question, looks at tool results, writes an answer — that's one AI step, and steps are what cost credits.
@@ -39,23 +39,19 @@ Everything else the agent calls is free: Google Ads, Meta, GA4, Search Console, 
 
 ## Agent runs
 
-Work the agent does on its own — [scheduled tasks](/agent/schedules) and applying [Approvals](/agent/approvals) — is billed the same way: 0.5 credits per AI step, plus the fixed-cost tools above.
+Work the agent does on its own — [scheduled tasks](/agent/schedules), applying [Approvals](/agent/approvals), and agent tasks you start with **Fix with agent** — is billed the same way: 0.5 credits per AI step, plus the fixed-cost tools above.
 
-**Background research for Approvals is free.** The agent scanning your accounts for opportunities costs nothing — you only pay when you approve a fix and the agent goes to apply it.
+**Background research for Approvals is free.** The agent scanning your accounts for opportunities costs nothing — you only pay when you approve a fix and the agent goes to apply it. Research does pause while your organization's credit balance is at zero, so if proposals stop arriving, check your balance first.
 
 ## Through Claude or ChatGPT
 
-When you use Ryze through the [Claude](/claude/connect) or ChatGPT connector, the thinking happens in your assistant, on your Claude or ChatGPT plan. Ryze charges **no AI steps** there. Pulling data and making changes in your ad accounts through the connector is free; only the fixed-cost tools above (an SEO data lookup, a competitor ad search) use credits.
+When you use Ryze through the [Claude](/claude/connect) or ChatGPT connector, the thinking happens in your assistant, on your Claude or ChatGPT plan. Ryze charges **no AI steps** there. Pulling data and making changes in your ad accounts through the connector is free; only the competitor ad search (Ad Library) uses credits.
 
-Ad creatives and UGC videos are generated inside the Ryze app, not through the connector.
+Ad creatives, UGC videos, SEO data lookups and web search run inside the Ryze app, not through the connector.
 
 ## See the cost of any reply
 
 Hover the credit icon under any AI message to see exactly what it cost.
-
-<Frame>
-  <img src="/images/credits-used-tooltip.png" alt="Hovering a message to see the credits used" />
-</Frame>
 
 ## What you're not charged for
 
@@ -64,15 +60,32 @@ These don't use credits:
 - **Tool calls** — pulling data, editing campaigns, publishing content: free. You pay for the AI steps around them, plus the fixed-cost tools above.
 - **Approvals research** — the background scanning that files proposals is on us.
 - **Managed Campaigns** — the agents that set up and manage a [Managed Campaign](/paid-ads/managed-campaigns) don't use credits. Those are priced on ad spend.
-- **Chat on your own Anthropic key** — if you connect your own [Anthropic key](/integrations/anthropic), AI steps cost nothing — only the fixed-cost tools do.
+- **Chat on your own Anthropic key** — if you connect your own [Anthropic key](/integrations/anthropic), AI steps in chat cost nothing — only the fixed-cost tools do. Agent tasks and other work the agent does on its own always run on Ryze credits.
+
+## Your balance at a glance
+
+The coin counter in the top bar shows how many credits you have left. It turns amber below 100 credits and red at zero. If the workspace has a monthly credit cap, it shows what's left under the cap.
+
+Click it to see:
+
+- **credits remaining**
+- **Next top-up** and a date — when your plan adds its next allowance
+- **Buy credits** — buy a credit pack (in a workspace with a cap, only the organization owner sees this button)
+- **This workspace: N of M this month** — the workspace's credit cap and how much of it is used, if a cap is set
+- **Connect to Claude** — run the AI on your Claude subscription instead of Ryze credits (see [Through Claude or ChatGPT](#through-claude-or-chatgpt))
+
+## When credits run out
+
+- The chat shows **Out of credits** with **Buy credits**, or **Add your key** to chat on your own [Anthropic key](/integrations/anthropic).
+- If the workspace hit its monthly cap, the chat shows **Workspace credit cap reached**. The organization owner can raise the cap in **Organization Settings → Usage → Credit caps**.
+- [Scheduled tasks](/agent/schedules) skip their runs, with a note on the task, until you top up.
+- Approvals research pauses until your balance is above zero.
+
+Only the organization owner sees **Organization Settings** (Usage, Billing). If you're a member, ask the owner to top up or raise the cap.
 
 ## Track your usage
 
 Open **Organization Settings → Usage** to see consumption across your whole organization.
-
-<Frame>
-  <img src="/images/nav-organization-settings.png" alt="Opening Organization Settings" />
-</Frame>
 
 The Usage page shows:
 
@@ -81,10 +94,6 @@ The Usage page shows:
 - **Credits by day** — daily consumption trend.
 - **By workspace and by user** — who and what is spending.
 - **Credit caps** — a monthly credit limit per workspace, counted from your billing day. Leave it empty for no limit.
-
-<Frame>
-  <img src="/images/usage-page.png" alt="The Usage page with balance, spend, and breakdowns" />
-</Frame>
 
 ## Running low? Top up
 
@@ -96,15 +105,12 @@ Buy credit packs anytime from **Billing**. Top-up credits carry over from month 
 | 300 credits | $99 |
 | 600 credits | $179 |
 
-<Frame>
-  <img src="/images/billing-credits.png" alt="Buying credit packs on the Billing page" />
-</Frame>
-
 ## Good to know
 
 - A reply that pulls data does more thinking, so it costs more — hover the credit icon to see the breakdown.
 - Unused plan credits roll over — each billing period's allowance is added on top of your remaining balance, and top-up credits stay too.
 - The Usage page breaks consumption down by workspace and by user, so you can see who's spending.
+- Inviting your first teammate adds 200 bonus credits to your organization, once per organization. You'll see the offer as **Invite a team member, get 200 credits** in the chat. See [Invite teammates](/workspaces/invite-teammates).
 
 ## Related
 

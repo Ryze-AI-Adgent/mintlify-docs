@@ -1,0 +1,84 @@
+---
+title: "Chat with the AI Marketer"
+description: "Open the agent from any page, attach files, choose how much it may change without asking, and find past chats and agent tasks in Chat History."
+---
+
+The chat is where you talk to the **AI Marketer** — ask a question, give it a task, or follow up on its work. It reads your connected accounts and can make changes in them, so it's worth knowing how the chat works.
+
+## Two ways to open it
+
+- **The AI Marketer button** in the top bar (or **⌘J** / **Ctrl+J**) opens the agent in a side panel on whatever page you're on. In the panel you'll find **Recent chats (last 20 chats)**, **New chat**, and **Open as full chat** to move the conversation to a full page.
+- **AI Marketer → New chat** in the sidebar opens a full-page chat.
+
+Many buttons across the app open the side panel and send their prompt to the agent right away — for example **Create with Agent**, **Generate Report**, **Update Report**, **Improve Brand Profile**, **Fix with agent** and any card on the [Templates](/agent/templates) page. That run starts immediately and uses credits like any other message (see [Credits & Usage](/agent/credits)).
+
+## Write a message
+
+- **Attach files.** In a full-page chat, click **+** → **Attach files** → **Upload from computer**, **Choose from Media** or **Upload from Drive**. In the side panel, the paperclip button opens the same three options. You can also drag files onto the chat.
+- **Reference ads** (in the **+** menu) attaches your own ads or ad templates as references for a new creative. **Image aspect** sets the shape of the creatives the agent makes, or leaves it on **Auto**.
+- **Record voice** — click the microphone, speak, then **Stop & send**. Your recording is transcribed into the message box.
+- **Stop generating** — the square button stops the reply while the agent is still answering.
+
+Attachments can be images, PDF, DOCX, XLSX or CSV files — up to 3 images and 3 documents per message. Images can be up to 10 MB each, documents up to 20 MB. Images from Google Drive aren't supported — upload them from your computer instead.
+
+## Tool approvals
+
+The **Tool approvals** picker in the message box decides how much the agent may do in your connected accounts without asking:
+
+| Option | What happens |
+|---|---|
+| **Manual approve** | Every tool that touches your data needs your approval. |
+| **Approve write & delete** | Reads run freely; changes need your approval. |
+| **Skip all approvals** | The agent runs every tool on its own. |
+
+<Warning>
+The default is **Skip all approvals**, so the agent can change things in your connected accounts — budgets, campaigns, content — without asking first. If you want to confirm changes, switch to **Approve write & delete** or **Manual approve**. Your choice is remembered in this browser.
+</Warning>
+
+When a tool is waiting for you, the chat shows **Approve** and **Deny** (or **Approve all** and **Deny all** when there are several).
+
+## Agent tasks
+
+Some actions, such as **Fix with agent** on a Technical Audit item, start an **agent task**: the agent works through the job on its own and reports back when it's done, and you can leave while it runs. **Stop agent** halts it after its current step. Agent tasks are billed like any agent run and are listed under **Chat History → Agent tasks**.
+
+## While you chat
+
+- **Assets** — the panel at the top right of a chat has three sections: **Tasks** (the agent's to-do list for this chat), **Generations** (creatives and reports made in this chat) and **Context** (files you attached).
+- Under each reply: **Copy**, and the coin icon showing **N credits used**. Hover it for the breakdown.
+- **Chat options** menu at the top: **Rename** or **Delete**. Deleting removes the chat and its messages for good.
+- If you see "Long chats slow the agent down — a fresh one keeps it sharp.", click **New chat** and continue there.
+
+The agent can make mistakes. Review what it produces before you rely on it.
+
+## If something goes wrong
+
+| Message | What to do |
+|---|---|
+| **Out of credits** | Click **Buy credits**, or **Add your key** to run chat on your own [Anthropic key](/integrations/anthropic). |
+| **Workspace credit cap reached** | This workspace used its monthly credit limit. The organization owner can raise it in **Organization Settings → Usage**. |
+| **Paid Ads is inactive** | Your subscription is inactive. Click **Manage billing**. |
+| **Conversation is too large** | Remove large attachments or start a new chat. |
+| **Agent is over capacity** | The AI provider is briefly overloaded. Retry in a few seconds. |
+| **Something went wrong** | Click **Retry** to send your message again. |
+
+## Chat History
+
+Open **AI Marketer → Chat History**. The page, titled **Chats**, lists the conversations in this workspace, most recently updated first. Use **Search chats** to find one.
+
+- **Chats** — your conversations.
+- **Agent tasks** — jobs the agent ran on its own, with a status: **Queued**, **Running**, **Done** or **Failed**.
+
+Hover a row and open its menu to **Rename** or **Delete** it. **New chat** starts a new conversation.
+
+Chats created by [scheduled tasks](/agent/schedules), by applying [approvals](/agent/approvals), from Slack and by agent tasks open read-only ("This chat is read-only."). They're a record of what the agent did — to continue, start a new chat.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Credits & Usage" icon="coins" href="/agent/credits">
+    What each message and agent run costs.
+  </Card>
+  <Card title="Templates" icon="table-cells" href="/agent/templates">
+    Ready-made prompts to start from.
+  </Card>
+</CardGroup>

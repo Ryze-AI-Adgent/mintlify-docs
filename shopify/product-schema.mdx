@@ -10,11 +10,16 @@ Most Shopify themes generate some product markup. Its quality varies widely, and
 
 ## Required and recommended properties
 
-For product rich results, Google requires:
+Google has two sets of rules:
+
+- **Merchant listings** (free product listings) require `name`, `image` and an `offers` object with `price` (greater than zero) and `priceCurrency`; `availability` is recommended.
+- **Product snippets** require `name` plus at least one of `offers`, `review` or `aggregateRating`.
+
+In practice, ship all of these:
 
 - `name`
 - `image`
-- `offers` containing `price`, `priceCurrency`, and `availability`
+- `offers` with `price`, `priceCurrency` and `availability`
 
 Strongly recommended:
 
@@ -53,7 +58,7 @@ Strongly recommended:
 
 **Stale availability.** `InStock` on a sold-out product misleads shopping surfaces and agents, and erodes feed trust.
 
-**Missing `offers`.** `Product` without a valid offer is not eligible for product rich results.
+**Missing `offers`.** `Product` without a valid offer is not eligible for merchant listings, and without reviews or ratings it is not eligible for product snippets either.
 
 **Duplicate markup.** A theme and an app both emitting `Product` schema produces conflicting blocks on one page. Check the rendered source, not the template.
 
@@ -71,11 +76,13 @@ Always validate the **rendered** page.
 
 ## What Ryze does
 
-The [Technical Audit](/seo/optimizations) checks JSON-LD schema on your top pages. **Fix with agent** adds or repairs the markup through a theme snippet when your Shopify connection allows theme edits.
+The [Technical Audit](/seo/optimizations) checks JSON-LD schema on your top pages. **Fix with agent** adds or repairs the markup through a theme snippet. Theme edits require a [Shopify Custom App](/integrations/shopify-custom-app) connection with the `write_themes` scope; on the standard Shopify connection the agent tells you what to add to your theme instead.
 
 ## Primary reference
 
 - [Google product structured data](https://developers.google.com/search/docs/appearance/structured-data/product)
+- [Merchant listing structured data](https://developers.google.com/search/docs/appearance/structured-data/merchant-listing)
+- [Product snippet structured data](https://developers.google.com/search/docs/appearance/structured-data/product-snippet)
 
 ## Related
 

@@ -28,8 +28,9 @@ Webflow connects with a **site API token** — a token you generate in your site
     | **CMS** | Read and write |
     | **Assets** | Read and write |
     | **Sites** | Read-only |
+    | **Pages** | Read and write (optional) |
 
-    CMS is how articles are created and published, Assets is where featured images are uploaded, and Sites lets Ryze list your sites so you can pick one.
+    CMS is how articles are created and published, Assets is where featured images are uploaded, and Sites lets Ryze list your sites so you can pick one. Pages is optional for publishing — grant it if you want the agent to fix page-level SEO (titles, meta descriptions) on your static pages.
   </Step>
   <Step title="Copy the token">
     Click **Create token** and copy it right away.
@@ -66,5 +67,7 @@ Ryze maps your collection's fields automatically — title, slug, body, and the 
 - **Token rejected** — make sure it's a **site token** from that site's settings, not a workspace token, and that the CMS scope is set to Read and write.
 - **Collection missing from the list** — the token only sees the site it was created on; generate the token on the site that hosts your blog.
 - **Images not appearing** — the **Assets** scope must be Read and write; regenerate the token if it was read-only.
+- **"This Webflow token can read your site but not write to it — publishing would fail."** — shown when you save the collection with a token that has no CMS write access. Generate a new token with **CMS** set to Read and write (and **Pages** Read and write if you want page-level SEO fixes), then connect again.
+- **The agent can't change a page's title or meta description** — the token has no **Pages** access. Generate a token with **Pages** set to Read and write and connect again.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

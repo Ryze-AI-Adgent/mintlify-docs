@@ -1,9 +1,9 @@
 ---
 title: "Connect Mailchimp"
-description: "Connect Mailchimp with an API key so Ryze can read audiences, campaigns, automations, and reports."
+description: "Connect Mailchimp with an API key so the agent can read and manage audiences, campaigns, automations, and reports."
 ---
 
-Mailchimp connects with an **API key**. Once connected, the agent can read your audiences, campaigns, automations, and reports through the Marketing API.
+Mailchimp connects with an **API key**. Once connected, the agent can read your audiences, campaigns, automations, and reports through the Marketing API. It can also make changes when you ask, including sending a campaign — see [What the agent can do](#what-the-agent-can-do).
 
 ## Step 1 — Create an API key
 
@@ -18,7 +18,15 @@ Mailchimp connects with an **API key**. Once connected, the agent can read your 
 
 ## Step 2 — Connect in Ryze
 
-On the **Integrations** page, click **Connect** on the **Mailchimp** card, paste the key into **API key**, and click **Continue**. Ryze reads the datacenter from the key suffix and shows your account name on the card.
+On the **Integrations** page, click **Connect** on the **Mailchimp** card, paste the key into **API key**, and click **Continue**. Ryze reads the datacenter from the key suffix. The card shows **Connected** — click **View** to see the account name.
+
+## What the agent can do
+
+- **Read** — audiences, members, segments, campaigns and their content, automations, templates, and reports (opens, clicks, revenue)
+- **Change** — add or update subscribers, create and edit campaigns, and **send** a campaign when you ask
+- **Delete** — remove lists, members or campaigns when you explicitly ask
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 ## Troubleshooting
 

@@ -6,7 +6,7 @@ description: "Common questions about workspaces and team access."
 <AccordionGroup>
 
 <Accordion title="How do I add a teammate?">
-Open **Workspace Settings → Team**, click **Invite member**, and enter their email. They'll get a sign-in link. See [Invite Teammates](/workspaces/invite-teammates).
+Open **Workspace Settings → Team**, click **Invite member**, and enter their email. They're added to the workspace right away and get an email with a sign-in link. See [Invite teammates](/workspaces/invite-teammates).
 </Accordion>
 
 <Accordion title="Should I use separate workspaces for different clients?">
@@ -22,27 +22,35 @@ Use the workspace switcher at the top-left and pick another workspace.
 </Accordion>
 
 <Accordion title="How do I delete a workspace?">
-Open **Organization Settings → Workspaces** and click **Delete workspace** on the one you no longer need. This removes its connections, settings and data for good, so double-check you're in the right one.
+Open **Organization Settings → Workspaces** and click **Delete workspace** on the one you no longer need. This removes its connections, settings and data for good, so double-check you're in the right one. Only the organization owner can delete workspaces, and an organization always keeps at least one, so the last workspace can't be deleted.
 </Accordion>
 
 <Accordion title="How do I remove a teammate?">
-To remove someone from one workspace, open **Workspace Settings → Team** and choose **Remove from workspace** next to their name. To remove them from every workspace at once, open **Organization Settings → Users** and choose **Remove from organization**.
+To remove someone from one workspace, open **Workspace Settings → Team** and choose **Remove from workspace** next to their name. To remove them from every workspace at once, open **Organization Settings → Users** and choose **Remove from organization**. Only the organization owner sees the remove option, and the owner can't be removed.
 </Accordion>
 
 <Accordion title="Can I invite someone whose email already has a Ryze account?">
-Yes. Invite them from **Workspace Settings → Team** as usual; they accept the email invite (check spam) and the workspace appears in their switcher. Every teammate gets their own login — no need to share passwords.
+Yes. Invite them from **Workspace Settings → Team** as usual. They're added right away, and the workspace appears in their switcher the next time they sign in; the email (check spam) just gives them a sign-in link. Every teammate gets their own login — no need to share passwords.
 </Accordion>
 
 <Accordion title="I run several websites. Do I need separate Ryze accounts?">
 No — one account handles multiple sites. Create a workspace per site or brand and connect that site's accounts inside it. The property you pick when connecting Search Console or Analytics is only the default; the agent can work across every property on the connected Google login.
 </Accordion>
 
-<Accordion title="I can't sign in: the code or reset link never arrives.">
-Some mail hosts (often Microsoft/Outlook domains) quarantine the one-time code. Check your spam or quarantine folder and mark our emails as not spam, or email [support@get-ryze.ai](mailto:support@get-ryze.ai) from your account address. If you see "Signups not allowed for OTP", there's no account under that email yet: create one at reports.get-ryze.ai/signup or check which address you registered with.
+<Accordion title="I can't sign in: the code or reset email never arrives.">
+Some mail hosts (often Microsoft/Outlook domains) quarantine the one-time code. Check your spam or quarantine folder and mark our emails as not spam, or email [support@get-ryze.ai](mailto:support@get-ryze.ai) from your account address. If you see "No account found with this email.", there's no account under that address yet: click **Sign up instead**, or check which address you registered with. Forgot your password? Click **Sign in with password** → **Forgot password?** → **Send reset code**. See [Sign in and passwords](/workspaces/sign-in).
 </Accordion>
 
-<Accordion title="I signed in with Google and my organization is gone.">
-Nothing is deleted. Signing in with Google and signing in with the email code can create two different identities for the same address, and one of them is empty. Use the sign-in method you originally signed up with; if you need the two merged, email [support@get-ryze.ai](mailto:support@get-ryze.ai).
+<Accordion title="I signed in and my organization is gone.">
+Nothing is deleted. Ryze signs you in by email only — there's no Google sign-in — so an empty account usually means you used a different email address than the one you signed up with. Sign out and sign in with your original address. If you still can't find your organization, email [support@get-ryze.ai](mailto:support@get-ryze.ai).
+</Accordion>
+
+<Accordion title="Why can't I see Organization Settings or Billing?">
+Only the organization owner — the person who created the organization — can open **Organization Settings**, manage billing, create and delete workspaces, and remove people. Everyone else is a member of the workspaces they were added to. See [Owner and members](/workspaces/invite-teammates#owner-and-members).
+</Accordion>
+
+<Accordion title="Can I transfer ownership of the organization?">
+Not from the app. If the owner needs to change, email [support@get-ryze.ai](mailto:support@get-ryze.ai) from the current owner's address.
 </Accordion>
 
 <Accordion title="How do I rename my workspace or organization?">

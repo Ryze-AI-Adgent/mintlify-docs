@@ -15,7 +15,7 @@ Proposals land on **Home**, in the **Needs you** list — the badge on Home show
 
 Every proposal is specific and grounded in your data — never "consider improving X". Open one to see:
 
-- **Summary** — what's wrong, what it costs you, and why it matters, with real numbers from your accounts.
+- **Title and description** at the top — what's wrong, what it costs you, and why it matters, with real numbers from your accounts.
 - **Entity** — the exact account and campaigns the change touches.
 - **Proposed changes** — a before/after table of every change the agent wants to make.
 - **Evidence** — the data the agent pulled to reach its conclusion.
@@ -27,6 +27,13 @@ Each proposal is labeled **SEO** or **Paid Ads**, so you can tell at a glance wh
 - **Approve** — the agent applies the change to your account and verifies it landed. Use the arrow next to the button to pick **Approve with a note** when you want something done differently — for example "keep the daily budget at €20" or "apply only to the UK campaign". The agent reads your note before touching anything.
 - **Reject** — nothing is touched. You can add an optional reason, which helps the agent propose better changes next time.
 
+## After you decide
+
+- An approved card moves to **Applying**, then to **Applied** — with an **Agent note** on what was done — or to **Failed**, with **Why it wasn't applied**. **Already resolved** means the agent re-checked and the problem was already gone.
+- Your note from **Approve with a note** is shown on the card as **Your note**.
+- **Expected impact** shows the estimated effect (**est.**) or, once there's data, the measured one (**measured**).
+- **Tracing** → **View research run** or **View apply run** opens the agent's chat for that card, so you can see exactly what it looked at and did.
+
 ## Blocked proposals
 
 Sometimes the agent finds a real problem but can't fix it from its side — a tag that must be installed on your website, a pixel that needs verifying, a platform it has no access to. Those proposals arrive as **Blocked**: the same evidence and proposed changes, plus a blocker note that tells you exactly what to do and where.
@@ -36,17 +43,18 @@ Sometimes the agent finds a real problem but can't fix it from its side — a ta
 
 ## Opportunities
 
-Besides fixes, the agent files a second kind of proposal: an **opportunity** — demand you aren't capturing yet rather than something that's broken. Examples: a search query with volume and no page on your site, an ad set running a single creative, a thread where competitors are named and you aren't.
+Besides fixes, the agent files a second kind of proposal: an **Opportunity** — demand you aren't capturing yet rather than something that's broken. Today these are SEO cards: a search query with real volume where you're outside the top 20, or a question AI assistants keep answering without naming you.
 
-An opportunity has no "before", so instead of a before/after table it shows a **draft** of the new thing:
+Each opportunity proposes **one new article for your Content Plan**. Instead of a before/after table, the card shows **Setup**:
 
-- **Body** — long text ready to use, such as a reply, a thread, or a pitch email, with a copy button.
-- **Fields** — the settings for the new thing: budget, audience, page path, title.
-- **Assets** — generated ad creatives, where relevant.
+- **Title**, **Primary keyword** and **Archetype** (the type of article)
+- **Monthly searches**, when there's volume data
+- **What it must cover** — the points the article has to answer
+- **Replaces** and **Replaced topic searches** — when the article takes the place of a topic already planned
 
-Each card says who can apply it. **Can be applied by Ryze** cards work like fixes — **Approve** and the agent does it. **Can be applied by you** cards are for things only a human can post under your brand's own name; those offer **I applied it** and **Not for us** instead of Approve/Reject.
+Under **Who can apply it**, the card says **Can be applied by Ryze**: click **Approve** and Ryze writes the article and publishes it like any other Content Plan article. Click **Reject** to skip it.
 
-The agent keeps a small backlog of opportunities per workspace, so you see a handful at a time rather than a flood.
+The agent keeps a short backlog, so you see at most a couple of opportunities at a time.
 
 ## Other items in your Inbox
 
@@ -54,11 +62,15 @@ The Inbox isn't only proposals. It also collects anything else that's waiting on
 
 ## Get notified
 
-Click **Notifications** at the top of the Inbox to choose who hears about new approvals — pick Slack channels, email recipients, or both, then **Save**.
+Click **Notifications** at the top of the Inbox to choose who hears about new approvals — pick Slack channels, email recipients, or both, then **Save**. **Also add recipients to this workspace** gives each email address you add a seat in the workspace, with access to everything in it.
+
+## Proposals from scheduled tasks
+
+A [scheduled task](/agent/schedules) that finds a change worth making — a budget, bid, targeting, keyword, creative or content change — files it as a card here too. The agent can't read replies to the result email, so don't answer it with "approve" or new instructions: open **Home → Needs you** or the **Inbox** and click **Approve** or **Reject** on the card. To give the agent new instructions, start a new chat or edit the task.
 
 ## How proposals are found
 
-The agent runs research on a regular cadence per product, in the background — no setup needed. It only files a proposal when it finds something concrete and worth your attention; quiet accounts produce no noise. Research runs are free — you only spend credits when you approve a fix and the agent applies it (see [Credits & Usage](/agent/credits)).
+The agent runs research on a regular cadence per product, in the background — no setup needed. It only files a proposal when it finds something concrete and worth your attention; quiet accounts produce no noise. Research runs are free — you only spend credits when you approve a fix and the agent applies it. The agent does pause research while your organization's credit balance is at zero, so if proposals stop arriving, check your balance first (see [Credits & Usage](/agent/credits)).
 
 ## Related
 

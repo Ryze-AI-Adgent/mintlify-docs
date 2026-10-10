@@ -6,7 +6,7 @@ description: "Common questions about connecting your platforms."
 <AccordionGroup>
 
 <Accordion title="How do I add a second account for the same platform?">
-Open the platform's card on the **Integrations** page, click **View**, then **Add one more account** and authorize the other login. Both accounts stay connected in the same workspace. See [Connect multiple accounts](/integrations/multiple-accounts).
+Open the platform's card on the **Integrations** page, click **View**, then **Add one more account** and authorize the other login. Both accounts stay connected in the same workspace. Not every platform supports this — see [which platforms support several accounts](/integrations/multiple-accounts#which-platforms-support-several-accounts). On the others, disconnect the current account in **View** and connect the new one.
 </Accordion>
 
 <Accordion title="Which account does the agent use by default?">
@@ -22,11 +22,11 @@ Connect the logins you need on each platform and set a primary. If one login rea
 </Accordion>
 
 <Accordion title="An account shows as disconnected even though it's active.">
-Click **Reconnect** on the platform card on the **Integrations** page, then start a new chat.
+Click **Reconnect** on the platform card on the **Integrations** page. If the card shows **View** instead (another account still works), open **View** and click **Reconnect** on the broken account.
 </Accordion>
 
 <Accordion title="I connected GSC and GA4 — is there anything else to do?">
-Connect whichever other platforms you want the agent to read — for SEO, the store or CMS your articles publish to. Then start a new chat.
+Connect whichever other platforms you want the agent to read — for SEO, the store or CMS your articles publish to. The agent sees new connections from your next message.
 </Accordion>
 
 <Accordion title="How do I connect Shopify?">
@@ -34,11 +34,11 @@ Go to **Integrations → Shopify**, enter your `.myshopify.com` domain (not your
 </Accordion>
 
 <Accordion title="I manage clients through a Google Ads manager (MCC) account. Do I connect each client separately?">
-No. Connect the one Google login that has manager access and Ryze reaches the whole hierarchy. In a new chat ask "list all Google Ads accounts accessible to my login, including my MCC hierarchy", then name any client by name or customer ID. Cancelled or never-enabled accounts in the hierarchy may show a `CUSTOMER_NOT_ENABLED` notice — that's normal and doesn't block the live ones.
+No. Connect the one Google login that has manager access and Ryze reaches the whole hierarchy. Ask the agent "list all Google Ads accounts accessible to my login, including my MCC hierarchy", then name any client by name or customer ID. Cancelled or never-enabled accounts in the hierarchy may show a `CUSTOMER_NOT_ENABLED` notice — that's normal and doesn't block the live ones.
 </Accordion>
 
 <Accordion title="Ryze doesn't see all my ad accounts, or the integration card only shows my login email.">
-Ryze sees exactly what the connected login can reach. If an account is missing, reconnect from the Integrations page and tick **every** permission checkbox on Google's or Meta's consent screen, signed in with the login that actually has access — or add that login with **View** → **Add one more account**. To see the ad accounts a login reaches, click **View** on the card and open **Agent default accounts**, or ask the agent in a new chat to list them.
+Ryze sees exactly what the connected login can reach. If an account is missing, reconnect from the Integrations page and tick **every** permission checkbox on Google's or Meta's consent screen, signed in with the login that actually has access — or add that login with **View** → **Add one more account**. To see the ad accounts a login reaches, click **View** on the card and open **Agent default accounts**, or ask the agent to list them.
 </Accordion>
 
 <Accordion title="Meta reads work but changes are blocked, or Meta says 'Verify your account'.">
@@ -50,11 +50,11 @@ The account is connected, but the site or property hasn't been chosen yet. Click
 </Accordion>
 
 <Accordion title="Can I connect Ryze to Cursor, Make, n8n, Zapier or another tool? Is there an API?">
-Yes — any tool that can add a remote MCP server. Add `https://connector.get-ryze.ai/mcp` as a custom MCP server in Cursor, or point the MCP/HTTP-MCP node in Make, n8n or Zapier at that URL, then authorize. There are no native one-click apps for these and no separate REST API key; the MCP endpoint is the supported path.
+Yes — any tool that can add a remote MCP server. Add `https://connector.get-ryze.ai/mcp` as a custom MCP server in Cursor, or point the MCP/HTTP-MCP node in Make, n8n or Zapier at that URL, then authorize. There are no native one-click apps for these. For scripts and your own agents, create an API key in **Workspace Settings → Profile → API keys** and call the same tools over MCP or REST — see [Ryze API for agents](/agent-api).
 </Accordion>
 
 <Accordion title="I connected LinkedIn, TikTok or another ad platform. Where do I pick the ad account?">
-There's no ad account to pick — Ryze sees every ad account the connected login can reach. To tell the agent which ones to use first, click **View** on the card and choose **Agent default accounts**. See [Connect other ad platforms](/integrations/ad-platforms).
+There's no ad account to pick — Ryze sees every ad account the connected login can reach. On LinkedIn, Microsoft, TikTok, Snapchat, Reddit and Pinterest Ads, click **View** on the card and choose **Agent default accounts** to tell the agent which ones to use first. OpenAI Ads, Thrad, Criteo and StackAdapt have no default-accounts picker — name the account in chat if you have several. See [Connect other ad platforms](/integrations/ad-platforms).
 </Accordion>
 
 <Accordion title="Where do I find the API key for a platform?">

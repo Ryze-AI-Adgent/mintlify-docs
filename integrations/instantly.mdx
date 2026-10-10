@@ -3,7 +3,7 @@ title: "Connect Instantly"
 description: "Connect Instantly with a v2 API key so the agent can work with cold email campaigns, sending accounts, leads, and campaign analytics."
 ---
 
-Instantly connects with a **v2 API key**. Once connected, the agent can report on cold email campaigns, sending accounts, leads, and campaign analytics — and manage campaigns if the key allows it.
+Instantly connects with a **v2 API key**. Once connected, the agent can report on cold email campaigns, sending accounts, leads, and campaign analytics — and, with an `all:all` key, make changes when you ask.
 
 ## Step 1 — Create a v2 API key
 
@@ -18,13 +18,17 @@ Copy the key.
 
 On the **Integrations** page, click **Connect** on the **Instantly** card, paste the key into **API key (v2)**, and click **Continue**.
 
-<Tip>
-After connecting, start a **new chat** so the agent picks up the new integration.
-</Tip>
+## What the agent can do
+
+- **Read** — campaigns and their analytics (sends, opens, replies, bounces, opportunities), sending accounts and warmup health, emails, and leads
+- **Change** (`all:all` key) — add leads to a campaign, edit, activate or pause campaigns, and reply to email threads when you ask
+- **Delete** (`all:all` key) — delete leads or campaigns when you explicitly ask
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step. Lead searches count as changes too, so with **Approve write & delete** on you're also asked to approve them.
 
 ## Troubleshooting
 
 - **Key rejected** — make sure you created a **v2** key and copied all of it.
-- **Campaign changes are rejected** — the key is scoped to `all:read`. Create a key with `all:all` and connect again.
+- **Campaign changes are rejected** — the key is scoped to `all:read`. Create a key with `all:all`, then disconnect Instantly in **View** and connect again with the new key.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -35,7 +35,19 @@ The private API key is shown only once. If you lose it, delete it in Klaviyo and
 
 ## Step 2 — Connect in Ryze
 
-On the **Integrations** page, click **Connect** on the Klaviyo card, then paste your key into the **Private API key** field and click **Continue**. Ryze verifies the key against your Klaviyo account and confirms the account name.
+On the **Integrations** page, click **Connect** on the Klaviyo card, then paste your key into the **Private API key** field and click **Continue**. Ryze verifies the key against your Klaviyo account. The card shows **Connected** — click **View** to see the account name.
+
+## What the agent can do
+
+- **Read** — campaigns, flows, lists, segments, metrics, and performance reports (opens, clicks, conversions, revenue)
+- **Change** — create and manage campaigns, lists and flows when you ask (needs a **Full Access** key)
+- **Delete** — delete lists and other objects when you explicitly ask (needs a **Full Access** key)
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
+
+<Note>
+Klaviyo serves performance reports through requests that Ryze counts as changes. With **Approve write & delete** on, you're also asked to approve report requests.
+</Note>
 
 ## Troubleshooting
 

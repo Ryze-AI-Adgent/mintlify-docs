@@ -20,7 +20,7 @@ Use **JSON-LD** in a `<script type="application/ld+json">` block. It is Google's
 | `Offer` | inside `Product` | `price`, `priceCurrency`, `availability`, `url` |
 | `AggregateRating` | products with reviews | `ratingValue`, `reviewCount` |
 | `BreadcrumbList` | all pages | `itemListElement` |
-| `FAQPage` | genuine Q&A content | `mainEntity` |
+| `FAQPage` | optional — no Google rich result since May 2026; keeps visible Q&A machine-readable for AI systems | `mainEntity` |
 | `Organization` | homepage | `name`, `url`, `logo`, `sameAs` |
 | `ItemList` | collection pages | `itemListElement` |
 
@@ -32,7 +32,7 @@ These are the failures that appear most often in audits:
 
 - **Markup must match the visible page.** Marking up a price, rating, or availability that differs from what a user sees is a violation and can cost rich results entirely.
 - **Do not mark up content that is not on the page.** Reviews, ratings, and FAQs must be genuinely present and visible.
-- **`FAQPage` requires real question-and-answer content**, not marketing copy reshaped into questions.
+- **`FAQPage` earns no Google rich result anymore** (discontinued 7 May 2026). Keep it only for genuine question-and-answer content that is visible on the page — never marketing copy reshaped into questions.
 - **Availability must track real inventory.** Stale `InStock` on a sold-out product is worse than no markup.
 - **Every required property must be present.** Incomplete `Product` markup is frequently ignored wholesale rather than partially honoured.
 

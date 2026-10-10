@@ -1,6 +1,6 @@
 ---
 title: "Connect Meta Ads"
-description: "Connect Meta Ads to Ryze for Facebook and Instagram performance questions and campaign management with your approval."
+description: "Connect Meta Ads to Ryze for Facebook and Instagram performance questions and campaign management under your approval settings."
 ---
 
 Connecting Meta Ads gives Ryze access to your Facebook and Instagram campaigns — performance, spend, and audiences.
@@ -22,7 +22,7 @@ Connecting Meta Ads gives Ryze access to your Facebook and Instagram campaigns �
   </Step>
 </Steps>
 
-There's no ad account to pick. Ryze sees every ad account that login can reach, and the card shows **Connected**. Start a **new chat** so the agent picks up the connection.
+There's no ad account to pick. Ryze sees every ad account that login can reach, and the card shows **Connected**. The agent can use it from your next message.
 
 ## Choose the accounts the agent uses by default
 
@@ -40,7 +40,11 @@ To connect another Meta login, click **View** → **Add one more account**.
 
 ## What the agent can do
 
-With approval: campaign creation and adjustment, budget management, and [AI ad creatives](/paid-ads/ai-creatives). Changes require sign-off by default — see [Approvals](/agent/approvals) and [Permissions & approvals](/claude/permissions).
+Campaign creation and adjustment, budget management, and [AI ad creatives](/paid-ads/ai-creatives).
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
+
+Improvements the agent finds on its own go to your [Inbox](/agent/approvals) instead: nothing there changes until you approve. In Claude, approvals are set in Claude itself — set write and delete tools to **Needs approval** to be asked first (see [Permissions & approvals](/claude/permissions)).
 
 To see what competitors are running on Meta, use [Competitor Ads](/paid-ads/competitors).
 

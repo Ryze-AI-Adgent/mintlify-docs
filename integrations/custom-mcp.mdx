@@ -21,7 +21,7 @@ This is the reverse of the [Ryze MCP server](/claude/connect): that one exposes 
   </Step>
 </Steps>
 
-The connection card shows the server's name and how many tools it exposes.
+The card then shows **Connected**. Click **View** to see the connection, labelled with the name you gave and the server's host.
 
 <Note>
 The **Advanced settings** fields (OAuth Client ID and Secret) are only needed for servers that don't support automatic client registration. Most servers do — leave them empty unless the server's documentation says otherwise.
@@ -35,16 +35,16 @@ The **Advanced settings** fields (OAuth Client ID and Secret) are only needed fo
 
 ## How the agent uses it
 
-After connecting, the agent gets two tools per server:
+After connecting, the agent gets two tools — **List tools** and **Call tool** — and picks the right server by name when you have several:
 
 - **List tools** — reads the server's catalog: each tool's name, description, and input schema
 - **Call tool** — runs one of those tools with arguments matching its schema
 
-Tool calls that can change data on the connected server go through the same approval flow as every other Ryze integration, so nothing writes without your say-so.
+Ryze can't tell which of the server's tools only read data, so every **Call tool** counts as a change. By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 ## Multiple servers
 
-You can connect as many servers as you need — each **Add** creates a separate connection, listed under the integration with its name and host. The agent tells them apart and picks the right one for each call.
+You can connect as many servers as you need. To add another one, click **View** on the **Custom MCP Server** card, then **Add one more account**, and fill in the new server's details. Each server is a separate connection, shown in the **View** window with its name and host. The agent tells them apart and picks the right one for each call.
 
 ## Finding MCP servers
 
@@ -68,7 +68,7 @@ Lovable's MCP server lets the Ryze agent work on a Lovable project for you: read
 3. In chat, try "List my Lovable projects" or "Ask Lovable to add a pricing section to my landing page".
 
 <Note>
-`send_message` and `create_project` hand work to Lovable's agent and consume **your Lovable credits**, so the Ryze agent asks for approval before each one. Changes go live only after `deploy_project`.
+`send_message` and `create_project` hand work to Lovable's agent and consume **your Lovable credits**. Set **Tool approvals** to **Approve write & delete** if you want to approve each call first. Changes go live only after `deploy_project`.
 </Note>
 
 ## Troubleshooting
@@ -78,6 +78,10 @@ Lovable's MCP server lets the Ryze agent work on a Lovable project for you: read
 **Connect fails immediately.** The URL doesn't answer MCP requests — check the server's docs for the exact MCP endpoint path (often ending in `/mcp`).
 
 **"This server does not support automatic client registration."** Open the server's developer settings, create an OAuth client with redirect URL `https://reports.get-ryze.ai/api/auth/mcp-server/callback`, and enter its Client ID and Secret under **Advanced settings**.
+
+**"This MCP server only accepts OAuth clients it has registered in advance, and Ryze is not on its list yet."** The server allows neither automatic client registration nor an unregistered client. Ask the server's vendor to register Ryze as an MCP client with the redirect URL `https://reports.get-ryze.ai/api/auth/mcp-server/callback`, then enter the Client ID and Secret they give you under **Advanced settings**.
+
+**"This connection attempt expired — try connecting again."** More than 10 minutes passed on the server's sign-in page. Start again and click **Add**.
 
 **Tools stopped working.** The server may have revoked access — disconnect and reconnect to re-authorize.
 

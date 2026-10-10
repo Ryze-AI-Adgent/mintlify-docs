@@ -43,7 +43,9 @@ Anyone presenting `llms.txt` as the reason for citation gains is claiming more t
 
 If your documentation runs on a platform that generates `llms.txt` automatically — Mintlify does, for example — you already have one, and pages are included as they are published.
 
-The [Technical Audit](/seo/optimizations) checks whether your site has an `llms.txt`. Whether the agent can add one depends on the platform: on a GitHub-built site it adds the file, and on self-hosted WordPress it can propose a plugin. Shopify themes cannot serve a file at the domain root, so on Shopify there is no reliable way to add one — and, as above, little reason to worry about it.
+The [Technical Audit](/seo/optimizations) checks whether `yourdomain.com/llms.txt` returns content; a missing file is a Warning under your **LLM Optimization Score**.
+
+On Shopify you usually have one already: Shopify storefronts now publish an AI discovery file (`/agents.md`) and answer `/llms.txt` with it — open `yourstore.com/llms.txt` to confirm. On other platforms it depends on the connection: on a GitHub-built site the agent adds the file for you; on self-hosted WordPress it proposes an llms.txt plugin and installs it only with your OK; on Webflow and WordPress.com it gives you the steps, because those platforms don't expose the file through their APIs.
 
 ## What to do instead, in priority order
 

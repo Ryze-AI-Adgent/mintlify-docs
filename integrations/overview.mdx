@@ -1,5 +1,5 @@
 ---
-title: "Overview"
+title: "Integrations overview"
 description: "Connect Google, Meta, your store or CMS, analytics and more so Ryze can read your data and publish for you."
 ---
 
@@ -7,7 +7,7 @@ description: "Connect Google, Meta, your store or CMS, analytics and more so Ryz
   Prefer video? Watch the [Publishing to your site guide](/guides/publishing).
 </Note>
 
-Connect your platforms in Ryze so the agent can read your data and act on it — in Ryze, and in Claude or ChatGPT if you've connected them. Everything happens on the **Integrations** page, not in Claude.
+Connect your platforms in Ryze so the agent can read your data and act on it — in Ryze, and in Claude or ChatGPT if you've connected them. Most platforms are connected on the **Integrations** page; you can also connect many of them from Claude or ChatGPT with a link (see [below](#connect-from-claude-or-chatgpt-with-a-link)).
 
 Ryze supports **50+ integrations**. They're grouped into seven categories, matching the filters on the Integrations page:
 
@@ -21,7 +21,11 @@ Ryze supports **50+ integrations**. They're grouped into seven categories, match
 
 ## Open Integrations
 
-Open **Integrations** in the left sidebar. Use the **Search integrations** box or the category filters to find any platform.
+Open **Integrations** in the left sidebar. Use the **Search integrations** box or the filters to find any platform:
+
+- **All** — every platform.
+- **Connected** — only what this workspace has already connected, including the Claude, ChatGPT and Grok connectors. Handy to check what's connected or to disconnect something. If nothing is connected yet, it shows *No integrations connected yet*.
+- **AI**, **Analytics**, **Commerce & CMS**, **CRM**, **Advertising**, **Messaging**, **Files** — the categories listed above.
 
 ## Connect a platform
 
@@ -37,11 +41,21 @@ Open **Integrations** in the left sidebar. Use the **Search integrations** box o
   </Step>
 </Steps>
 
-The card then shows a **Connected** badge.
+The card then shows a **Connected** badge. In Ryze, the agent can use the new connection from your next message — there's no need to start a new chat.
 
-<Tip>
-After connecting a new platform, start a **new chat** so the agent picks up the change.
-</Tip>
+## Connect from Claude or ChatGPT with a link
+
+You can also ask Ryze in Claude or ChatGPT to connect a platform. The agent sends you a one-time link:
+
+1. Open the link. Sign in to the platform, or paste its API key on the page. Where the page shows **Where do I find these?**, it opens that platform's setup guide.
+2. If asked, pick the accounts Ryze should use.
+3. When the page says the platform is connected (for example, *Google Ads is connected*), close the tab and go back to your chat.
+
+In Claude or ChatGPT, start a new chat to use the new platform. If its tools still don't appear, refresh the Ryze connector — see the [Claude FAQ](/claude/faq) or [Connect Ryze to ChatGPT](/chatgpt/connect#connected-a-new-platform-after-installing).
+
+A link works once and for 24 hours. If the page says *This connection link has expired or was already used*, ask the agent for a new one.
+
+Some platforms can only be connected in the Ryze app — including Ryze Hosting, GitHub, Custom MCP Server, and the Claude, ChatGPT and Grok connectors.
 
 ## Manage a connected platform
 
@@ -54,7 +68,20 @@ Click **View** on a connected card to:
 
 ## Reconnect a platform
 
-If a card shows **Reconnect needed**, click **Reconnect** and sign in again. Then start a new chat.
+If a card shows **Reconnect needed** and has a **Reconnect** button, click it and sign in again.
+
+If the platform still has another working account, the card shows **View** instead. Click **View** — it opens on the broken account — and click **Reconnect** there.
+
+## Don't see your platform?
+
+Search for it first. If nothing matches, click **Request an integration** and tell us what you need.
+
+If you want to publish articles to a site Ryze doesn't connect to yet, you still have options:
+
+- **Ryze Hosting** — Ryze hosts your blog on a free Ryze subdomain right away, or on your own subdomain such as `blog.yoursite.com` after you add one DNS record. No CMS needed. See [Ryze Hosting](/integrations/ryze-hosting).
+- **Custom-coded site** (Next.js, Vercel, Netlify, Hugo and similar) — publish articles as files committed to your repository with [GitHub](/integrations/github), or have your developer receive each article through a [Custom Webhook](/integrations/custom-webhook).
+- **Someone else builds your site** — invite them to your workspace (**Workspace Settings → Team** — see [Invite teammates](/workspaces/invite-teammates)) or send them this page.
+- **Weebly, Square Online, Pixieset, Google Sites and similar** — there's no publishing connection for these yet. Use Ryze Hosting for the blog and link to it from your site's menu.
 
 ## Platform setup guides
 
@@ -112,7 +139,7 @@ If a card shows **Reconnect needed**, click **Reconnect** and sign in again. The
   <Card title="Lightspeed eCom" icon="store" href="/integrations/lightspeed">Publish to your Lightspeed store blog.</Card>
   <Card title="Magento" icon="cart-shopping" href="/integrations/magento">Products, categories and CMS pages via access token.</Card>
   <Card title="Custom Webhook" icon="webhook" href="/integrations/custom-webhook">Publish to any CMS via your own endpoint.</Card>
-  <Card title="Ryze Hosting" icon="globe" href="/integrations/ryze-hosting">Host your blog on your own domain.</Card>
+  <Card title="Ryze Hosting" icon="globe" href="/integrations/ryze-hosting">Host your blog on a free Ryze subdomain or your own domain.</Card>
 </CardGroup>
 
 ### CRM, Messaging & Files

@@ -21,7 +21,7 @@ A competitive view divides each brand's mentions by the total mentions across al
 ## What makes the number meaningful
 
 - **The query set defines the result.** A set weighted toward branded or niche questions inflates the score. Use unbranded, buying-intent questions a prospect would actually ask.
-- **Set size matters.** Answer engines are volatile. Tens of queries produce noise; hundreds produce a signal.
+- **Set size matters.** Answer engines are volatile, so read many answers, not one. In Ryze each tracked prompt — up to 50 — is asked on four assistants (ChatGPT, Claude, Gemini and Perplexity), so one refresh yields up to 200 answers; compare refreshes over time rather than judging a single run.
 - **Query wording changes the field entirely.** Questions phrased around a platform tend to be dominated by that platform's own properties, leaving little room for third-party brands. Questions phrased around the problem are far more open.
 - **Compare like with like.** Only track movement against a baseline captured with the same query set and the same engine.
 
@@ -34,7 +34,7 @@ They measure different things and can move independently.
 | **Share of voice** | how often your brand is *named* | training data, brand presence |
 | **[Citation share](/concepts/citation-share)** | how often your *URLs* are used as sources | retrievable, well-structured content |
 
-Share of voice is the harder number to move and the slower to respond. It reflects how established a brand is in the model's knowledge, which content work influences only indirectly.
+Share of voice is the harder number to move and the slower to respond. Mentions come from the model's training data and move slowly; citations come from live retrieval and respond to content — see [AI visibility](/concepts/ai-visibility).
 
 ## Related
 

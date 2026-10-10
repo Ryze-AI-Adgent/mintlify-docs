@@ -1,24 +1,26 @@
 ---
 title: "Connect Ryze Hosting"
-description: "Publish your Ryze blog to a domain you own — no CMS required. Ryze hosts the pages; you point one DNS record at them."
+description: "Publish your Ryze blog without a CMS — on a free Ryze subdomain with no setup, or on a domain you own with one DNS record."
 ---
 
 <Note>
   Prefer video? Watch the [Blog Studio guide](/guides/blog-studio).
 </Note>
 
-Ryze Hosting is a publishing destination for sites without a CMS. Ryze hosts your blog, and you point a domain you own at it — a subdomain like `blog.example.com` or your root domain. Articles then publish straight to your own branded blog, with HTTPS handled for you.
+Ryze Hosting is a publishing destination for sites without a CMS. Ryze hosts your blog — on a free Ryze subdomain such as `your-brand.byryze.com`, or on a domain you own, like `blog.example.com`. Articles then publish straight to your blog, with HTTPS handled for you.
 
-<Frame>
-  <img src="/images/ryze-hosting-connect.png" alt="The Ryze Hosting dialog with the domain field" />
-</Frame>
+Your site runs on a platform Ryze doesn't connect to? Host the blog here and link to it from your site — see [Don't see your platform?](/integrations/overview#dont-see-your-platform).
 
-## Step 1 — Add your domain
+## Step 1 — Choose where your blog lives
 
-On the **Integrations** page, click **Connect** on the **Ryze Hosting** card and enter the domain you want your blog to live on.
+On the **Integrations** page, click **Connect** on the **Ryze Hosting** card. Ryze asks you to *Choose where your hosted blog lives*:
 
-- **A subdomain** (recommended) — e.g. `blog.example.com`, keeping your main site untouched.
-- **Your root domain** — e.g. `example.com`, if the whole domain is for the blog.
+- **Free Ryze subdomain** — `your-brand.byryze.com`. Type a name (letters, numbers and dashes; Ryze suggests one from your organization name) and click **Connect domain**. The blog goes live in about a minute, with no DNS setup. You're done — skip Steps 2 and 3.
+- **Your own domain** — enter the domain and click **Connect domain**, then follow Steps 2 and 3:
+  - **A subdomain** (recommended) — e.g. `blog.example.com`, keeping your main site untouched.
+  - **Your root domain** — e.g. `example.com`, if the whole domain is for the blog.
+
+You can start on the free subdomain and move to your own domain later: click **View** on the **Ryze Hosting** card, then **Connect custom domain**.
 
 ## Step 2 — Add the DNS record
 
@@ -31,7 +33,10 @@ Ryze shows the exact record to add at your domain provider. Which one depends on
 
 If Ryze also shows a **verification** record (a `TXT` or extra `CNAME`), add that one too — it's needed when the domain is already used elsewhere.
 
-Ryze detects your DNS provider and gives you a button straight to its panel — Cloudflare, GoDaddy, Namecheap, Route 53, Vercel, Google Domains, DigitalOcean, Name.com, DNSimple, or Porkbun.
+Ryze detects your DNS provider — Cloudflare, GoDaddy, Namecheap, Route 53, Vercel, Google Domains, DigitalOcean, Name.com, DNSimple, or Porkbun:
+
+- For some providers Ryze shows a **Set up automatically in …** button with your provider's name (for example, **Set up automatically in Cloudflare**). Click it, sign in to your provider and approve the change — Ryze verifies the record on its own.
+- Otherwise click **Open … DNS settings** (for example, **Open GoDaddy DNS settings**) and add the record yourself.
 
 <Frame>
   <img src="/images/ryze-hosting-dns-cloudflare.png" alt="Adding the DNS record in Cloudflare, set to DNS only" />
@@ -43,13 +48,16 @@ On **Cloudflare**, set the record to **DNS only** (grey cloud), not proxied (ora
 
 ## Step 3 — Verify
 
-Back in Ryze, click **Check status**. Ryze checks your DNS and verifies the domain once the record resolves — usually a few minutes, up to about an hour for DNS to propagate. It keeps re-checking on its own, so you can close the dialog and come back.
+Back in Ryze, click **Verify**. Ryze checks your DNS and verifies the domain once the record resolves — usually a few minutes, up to about an hour for DNS to propagate. It keeps re-checking on its own, so you can close the dialog and come back.
 
 Once verified, HTTPS is issued automatically and your blog is live at your domain.
 
-<Frame>
-  <img src="/images/ryze-hosting-blog.png" alt="A live Ryze-hosted blog on a custom domain" />
-</Frame>
+## Change or remove the domain
+
+Click **View** on the **Ryze Hosting** card, then **Remove domain**:
+
+- If the blog was on your own domain, it moves back to a free Ryze subdomain and article links update automatically. You can connect a custom domain again any time.
+- If the blog was on the free subdomain, it goes offline immediately — published article links stop working.
 
 ## Publishing to it
 
@@ -57,7 +65,7 @@ With Ryze Hosting connected, it works like any other publishing destination — 
 
 ## Keeping the hosted blog out of Google
 
-If you publish the same articles to your own CMS as well, the hosted copy can compete with your site for the same searches. You can switch the hosted copy off search entirely: in **Blog Studio → SEO**, turn on **Keep this blog out of Google**.
+If you publish the same articles to your own CMS as well, the hosted copy can compete with your site for the same searches. You can switch the hosted copy off search entirely: in **Blog Studio → SEO**, under **Keep this blog out of Google**, turn on **Hide this blog from search engines**.
 
 When it's on, three things change together so nothing contradicts: the blog's `robots.txt` disallows crawling, the sitemap lists no articles, and every hosted page (index and articles) carries a `noindex, nofollow` tag. The SEO panel notes that the blog is hidden while the toggle is on. Switch it off to let search engines index the hosted blog again.
 
@@ -71,5 +79,8 @@ This only affects the Ryze-hosted copy — articles published to your own CMS ar
 - **Not verifying** — DNS can take up to an hour. Confirm the record type matches your domain (CNAME for a subdomain, A for a root), and that the name and value are exact.
 - **Cloudflare stuck** — the record must be **DNS only** (grey cloud). Switch off the proxy and check again.
 - **Verification record ignored** — if Ryze showed a second (verification) record, both records must be present.
+- **"This subdomain is reserved. Pick another name."** — that name can't be used. Type a different one.
+- **"This domain is already connected to another workspace"** — the domain is in use in another Ryze workspace. Remove it there first (**View** → **Remove domain**), or use a different domain.
+- **"Use letters, numbers and dashes only"** — the subdomain name has other characters. Remove spaces, dots and symbols.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

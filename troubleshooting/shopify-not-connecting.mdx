@@ -1,10 +1,14 @@
 ---
 title: "Shopify not connecting"
-description: "Fixes for a Shopify store that will not connect to Ryze, or that shows as disconnected after working."
+description: "Fixes for a Shopify store that will not connect to Ryze, shows an error, or shows as disconnected after working."
 noindex: true
 ---
 
-Connecting Shopify needs only your store domain. When it fails, it is almost always one of the following.
+Connecting Shopify usually needs only your store domain. When it fails, it is almost always one of the following.
+
+## Two ways to connect
+
+The **Shopify app** tab (the default) needs only your `.myshopify.com` domain and one approval in Shopify. The **Custom app** tab takes your store domain plus the **Client ID** and **Client secret** of a custom app you create in your store — see [Shopify Custom App](/integrations/shopify-custom-app). This page mostly covers the default **Shopify app**.
 
 ## You entered the wrong domain
 
@@ -17,17 +21,26 @@ Ryze needs the **`.myshopify.com`** domain, not your custom domain.
 
 Find it in your Shopify admin under **Settings → Domains**, listed as the store's permanent domain.
 
-## The approval window did not open
+## Shopify didn't open
 
-A popup blocker is the usual cause. Allow popups for Ryze and retry from the Integrations page.
+After you click **Continue**, Ryze sends you to your Shopify admin in the same tab to approve the app — there's no popup. If you land back in Ryze without the approval screen, make sure you're logged in to the right store in Shopify, then click **Connect** on the Shopify card again.
 
 ## You lack permission to approve
 
 Approving app access requires sufficient permissions on the Shopify store. If you are a staff account without app installation rights, the store owner or an admin must complete the approval.
 
-## The approval window reports an error
+## You see an error message
 
-Retry once from the Integrations page — transient failures happen. If it persists, email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your store domain.
+| Message | What it means | Fix |
+|---|---|---|
+| **Must be a valid yourstore.myshopify.com domain** | You typed your custom domain or a URL with a path. | Enter only the `.myshopify.com` domain, e.g. `yourstore.myshopify.com`. |
+| **This Shopify store is already connected to another Ryze workspace. Shopify keeps one live connection per store — disconnect it there first, then retry.** | Shopify allows one live Ryze connection per store, and this store is connected in another workspace. | Open that workspace → **Integrations** → Shopify, disconnect the store, then connect here. No access to that workspace? Email support with the store domain. |
+| **Your Shopify connection expired. Please try again.** | More than 10 minutes passed between clicking **Continue** and approving in Shopify. | Click **Connect** again and approve right away. |
+| **The Shopify install took too long to come back. Open the link again to retry.** | The approval in Shopify didn't come back to Ryze in time. | Click **Connect** on the Shopify card again. |
+| **Shopify access expired — please reconnect your store.** | A custom-app connection lost its credentials. | Click **Reconnect** and enter the Client ID and Client secret again. |
+| `app_not_installed` (custom app) | The custom app was created but never installed on the store. | Install it on the store, then reconnect — see [Shopify Custom App](/integrations/shopify-custom-app). |
+
+Anything else: retry once from the **Integrations** page. If it persists, email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your `.myshopify.com` domain and the exact message.
 
 ## It connected, then showed as disconnected
 
@@ -38,7 +51,7 @@ Click **Reconnect** on the Shopify card and re-authorize. Access can be revoked 
 - Store ownership transfer
 - Store plan changes or pausing
 
-After reconnecting, **start a new chat** in Claude or ChatGPT. Existing chats do not pick up the change.
+In Ryze, the agent sees the reconnected store from your next message. In Claude or ChatGPT, **start a new chat** after reconnecting.
 
 ## It shows connected but Ryze sees no data
 
@@ -47,7 +60,19 @@ Check, in order:
 1. **Right store?** If you manage several, confirm which is connected to this workspace.
 2. **Products published?** Products must be published to the Online Store sales channel to be visible.
 3. **Store password-protected?** A store behind a password cannot be crawled or audited.
-4. **New chat started?** This is the single most common cause of "it's connected but nothing works".
+4. **Using Claude or ChatGPT?** Start a new chat there after connecting the store. If Shopify was connected after you added Ryze to Claude or ChatGPT and its tools still don't appear, refresh the Ryze connector — see the [Claude FAQ](/claude/faq) or [Connect Ryze to ChatGPT](/chatgpt/connect#connected-a-new-platform-after-installing).
+
+## The agent says it can't make a change
+
+With the standard **Shopify app**, the agent edits product, collection, page and blog content and SEO fields. Theme files (such as `robots.txt`, canonical tags or structured data in the theme) and URL redirects need a custom app. To switch:
+
+1. Create a custom app with the access you need — see [Shopify Custom App](/integrations/shopify-custom-app).
+2. In Ryze, remove the current Shopify connection (**View** → trash icon). **Reconnect** keeps the old access, so remove it first.
+3. Connect again on the **Custom app** tab.
+
+## Several stores
+
+Each store is its own connection — use **View** → **Add one more account** on the Shopify card to add the next one.
 
 ## The assistant is reading the wrong store
 

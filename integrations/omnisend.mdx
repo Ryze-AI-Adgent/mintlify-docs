@@ -13,9 +13,17 @@ In Omnisend, go to **Store settings → Integrations & API → API keys → Crea
 
 On the **Integrations** page, click **Connect** on the **Omnisend** card, paste the key into **API key**, and click **Continue**.
 
-<Tip>
-After connecting, start a **new chat** so the agent picks up the new integration.
-</Tip>
+## What the agent can do
+
+- **Read** — campaigns, automations, segments and their statistics, contacts, and products
+- **Change** — add or update contacts and tags, create a campaign draft and send it, and pull performance reports when you ask
+- **Delete** — delete products, segments, campaigns or contact tags when you explicitly ask. Contacts themselves can't be deleted.
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
+
+<Note>
+Omnisend allows **55 performance report requests per day**. Reports count as changes in Ryze, so with **Approve write & delete** on you're also asked to approve report requests.
+</Note>
 
 ## Troubleshooting
 

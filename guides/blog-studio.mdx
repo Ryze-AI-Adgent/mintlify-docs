@@ -1,6 +1,6 @@
 ---
 title: "Blog Studio"
-description: "Host a full blog on your own Ryze subdomain — layout, branding and custom code included — when you would rather not touch a CMS."
+description: "Host a full blog on a free Ryze subdomain or your own domain — layout, branding and custom code included — when you'd rather not touch a CMS."
 ---
 
 <iframe
@@ -12,9 +12,13 @@ description: "Host a full blog on your own Ryze subdomain — layout, branding a
   allowFullScreen
 />
 
+<Note>
+  This video shows an earlier version of the menu. Today you open Blog Studio from **SEO → Preferences → Blog Studio ↗**.
+</Note>
+
 ## In this guide
 
-- Claiming a subdomain for your blog
+- Getting a free Ryze subdomain or connecting your own domain
 - Styling the blog to match your brand
 - Publishing without a CMS connection
 
@@ -22,11 +26,13 @@ description: "Host a full blog on your own Ryze subdomain — layout, branding a
 
 Open **SEO → Preferences** and click **Blog Studio ↗** — it opens the studio for your hosted blog. Blog Studio works with [Ryze Hosting](/integrations/ryze-hosting); if hosting isn't connected yet, the studio offers **Connect Ryze Hosting** first.
 
+Your blog starts on a free Ryze subdomain. To move it to your own domain, such as `blog.yoursite.com`, click **Connect a custom domain** in the studio and add the DNS record — see [Ryze Hosting](/integrations/ryze-hosting).
+
 Inside, three modes:
 
 - **Design** — favicon, site name and meta description, theme, colors, fonts, corners and layout, with a live preview. **Match my website style** asks the agent to pull the colors, fonts and header/footer from your live site.
-- **Code** — custom code for your blog.
-- **SEO** — the Search Console steps for your hosted blog, and the **Keep this blog out of Google** toggle if you also publish the same articles to your own CMS and don't want the hosted copy indexed. See [Ryze Hosting](/integrations/ryze-hosting#keeping-the-hosted-blog-out-of-google).
+- **Code** — custom HTML and CSS for the **Head** (top) and **Footer** (bottom) of every blog page, plus switches to hide the built-in blog header or footer. Scripts and event handlers are removed for security, so analytics tags, ad pixels and chat widgets won't run here. To verify the blog in Search Console, use the **SEO** mode — it places the verification tag in the real page head.
+- **SEO** — the Search Console steps for your hosted blog, and the **Hide this blog from search engines** switch (under **Keep this blog out of Google**) if you also publish the same articles to your own CMS and don't want the hosted copy indexed. See [Ryze Hosting](/integrations/ryze-hosting#keeping-the-hosted-blog-out-of-google).
 
 Your articles themselves live in **SEO → Content Plan**.
 

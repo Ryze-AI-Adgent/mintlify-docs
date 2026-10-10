@@ -6,7 +6,15 @@ description: "Common questions about connecting Ryze to Claude."
 <AccordionGroup>
 
 <Accordion title="Which Claude plan do I need?">
-A paid plan — **Pro, Team, or Max**. The free plan doesn't support custom connectors.
+Any plan — custom connectors work on Claude **Free, Pro, Max, Team and Enterprise**. On the Free plan you can add one custom connector, so remove another custom connector first if you already have one.
+
+On **Team** and **Enterprise**, an organization Owner adds Ryze once in Claude's **Organization settings → Connectors → Add → Custom → Web** (URL `https://connector.get-ryze.ai/mcp`). After that, each member opens **Customize → Connectors**, finds **Ryze AI** and clicks **Connect**.
+</Accordion>
+
+<Accordion title="Claude says a subscription is required.">
+The Ryze tools need an active Ryze plan or free trial (Paid Ads, Agency or an SEO plan). Without one, Claude can still list your workspaces and connect platforms, but every other tool replies that a subscription is required, with a link.
+
+Start your free trial — or update your card if a payment failed — in **Organization Settings → Billing** (or open the link Claude shows), then retry in the same chat.
 </Accordion>
 
 <Accordion title="Where do I find my connector URL?">
@@ -20,18 +28,18 @@ Add it as the **Remote MCP server URL** when setting up the connector. See [Conn
 </Accordion>
 
 <Accordion title='I get "Authorization with the MCP server failed."'>
-1. In Claude, go to **Settings → Connectors** and remove the Ryze connector.
+1. In Claude, go to **Customize → Connectors** and remove the Ryze connector.
 2. Add it again following [Connect Ryze to Claude](/claude/connect).
 3. Open a **new chat** and try again.
 </Accordion>
 
 <Accordion title="I get Error 2812 / a proxy error.">
-This error only happens on the legacy Ryze connector. Remove every Ryze connector in Claude's **Settings → Connectors**, add the current one at `https://connector.get-ryze.ai/mcp` following [Connect Ryze to Claude](/claude/connect), and start a **new chat**. If you're still on the old platform, email [support@get-ryze.ai](mailto:support@get-ryze.ai) and we'll move you over.
+This error only happens on the legacy Ryze connector. Remove every Ryze connector in Claude's **Customize → Connectors**, add the current one at `https://connector.get-ryze.ai/mcp` following [Connect Ryze to Claude](/claude/connect), and start a **new chat**. If you're still on the old platform, email [support@get-ryze.ai](mailto:support@get-ryze.ai) and we'll move you over.
 </Accordion>
 
 <Accordion title="Claude can't see my data.">
 - Make sure the platform shows **Connected** on the **Integrations** page.
-- Confirm you connected it in the **same workspace** you chose when connecting Claude.
+- Confirm you connected it in one of the **workspaces you picked** when connecting Claude. If you picked several, name the workspace (client) you mean in chat.
 - Start a **new chat** — newly connected platforms don't appear in older chats.
 </Accordion>
 
@@ -40,7 +48,7 @@ No — not without your say-so. Read-only tools just pull data. Write and delete
 </Accordion>
 
 <Accordion title="Can I use the connector on a client's account?">
-Yes. Create a workspace for that client, connect their accounts in it, then connect Claude to that workspace. Each workspace is isolated, so you can manage multiple clients from one Ryze account.
+Yes. Create a workspace for that client, connect their accounts in it, and include that workspace when you connect Claude. Each workspace is isolated, so you can manage multiple clients from one Ryze account — and one Claude connection can cover up to 20 of them.
 </Accordion>
 
 <Accordion title="Can I manage all my accounts in one chat?">
@@ -48,27 +56,33 @@ Yes — connect them all to a single workspace and connect Claude to it. A works
 </Accordion>
 
 <Accordion title="Where do I find my connection key / API key?">
-There isn't one. Ryze connects as a remote MCP server with OAuth sign-in — you add the URL `https://connector.get-ryze.ai/mcp` as a custom connector and approve access in the browser. If an older guide asked you for a "Ryze key", ignore it and follow [Connect Ryze to Claude](/claude/connect).
+For Claude.ai, ChatGPT and Grok Bot you don't need a key: add the URL `https://connector.get-ryze.ai/mcp` and approve access in the browser. If an older guide asked you for a "Ryze key" for Claude.ai, ignore it and follow [Connect Ryze to Claude](/claude/connect).
+
+For Claude Code, your own agent or scripts, create a key in **Workspace Settings → Profile → API keys → Create key** and send it as `Authorization: Bearer rk_live_…`. See [Ryze API for agents](/agent-api).
 </Accordion>
 
 <Accordion title="I connected a new platform in Ryze, but Claude doesn't show its tools.">
-Claude caches the connector's tool list when you add the connector, so platforms connected afterwards (Meta, TikTok, LinkedIn, GA4…) don't appear. Remove the Ryze connector in Claude (**Settings → Connectors**), add it again, then start a **new chat**. Reconnecting the platform on the Ryze side doesn't refresh Claude's cache.
+Claude caches the connector's tool list when you add the connector, so platforms connected afterwards (Meta, TikTok, LinkedIn, GA4…) don't appear. Remove the Ryze connector in Claude (**Customize → Connectors**), add it again, then start a **new chat**. Reconnecting the platform on the Ryze side doesn't refresh Claude's cache.
 </Accordion>
 
 <Accordion title="I moved to the new Ryze platform and Claude stopped working.">
-Claude is still pointing at the legacy connector. Remove **every** Ryze connector in Claude's Settings → Connectors, add the current one at `https://connector.get-ryze.ai/mcp` and start a new chat. The same applies to ChatGPT — see [Connect Ryze to ChatGPT](/chatgpt/connect).
+Claude is still pointing at the legacy connector. Remove **every** Ryze connector in Claude's **Customize → Connectors**, add the current one at `https://connector.get-ryze.ai/mcp` and start a new chat. The same applies to ChatGPT — see [Connect Ryze to ChatGPT](/chatgpt/connect).
 </Accordion>
 
-<Accordion title="Claude only sees one of my workspaces. How do I switch?">
-Each connector authorization is tied to one workspace, chosen on the "Pick a workspace" screen. To switch, remove the Ryze connector, add it again and pick the other workspace when asked. To work several clients side by side, use separate Claude projects, each authorized against its own workspace.
+<Accordion title="Can Claude see more than one workspace?">
+Yes — one connection can cover up to 20 workspaces. On the Ryze page **Connect your data sources to AI**, open **Workspaces** and tick the ones you want (all are selected by default, shown as **All workspaces**), then click **Allow connection**. In chat, name the workspace (client) you mean — Claude passes it to every tool.
+
+To add or remove workspaces later, remove the Ryze connector in **Customize → Connectors**, add it again and change the selection.
 </Accordion>
 
 <Accordion title="Do I need Claude at all?">
-No. Everything works in the Ryze web app at reports.get-ryze.ai — chat, reports, creatives, scheduled tasks. Claude and ChatGPT are optional front-ends; the connector needs a paid Claude plan (Pro, Team or Max), billed by Anthropic separately from your Ryze subscription.
+No. Everything works in the Ryze web app at reports.get-ryze.ai — chat, reports, creatives, scheduled tasks. Claude and ChatGPT are optional front-ends. The connector works on any Claude plan, including Free; a paid Claude plan is billed by Anthropic separately from your Ryze subscription.
 </Accordion>
 
 <Accordion title="I added my own Anthropic key (or pay for Claude). Why are Ryze credits still being used?">
-Your own Anthropic key covers the AI steps of chat only. Work the agent does on the Ryze side — Agent mode, scheduled tasks, Approvals it applies, and fixed-cost tools like creative generation — runs on Ryze and draws credits. A Claude subscription can't be used as a key; only an Anthropic API key can. See [Credits & usage](/agent/credits).
+Your own Anthropic key covers the AI steps of chat only. Work the agent does on the Ryze side — agent tasks, scheduled tasks, Approvals it applies, and fixed-cost tools like creative generation — runs on Ryze and draws credits. A Claude subscription can't be used as a key; only an Anthropic API key can. See [Credits & usage](/agent/credits).
+
+Through the Claude or ChatGPT connector itself, Ryze charges no AI steps — see [Through Claude or ChatGPT](/agent/credits#through-claude-or-chatgpt) for what uses credits there.
 </Accordion>
 
 <Accordion title="Where did my chat history go?">

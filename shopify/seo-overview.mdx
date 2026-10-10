@@ -10,7 +10,7 @@ Shopify handles a reasonable amount of SEO by default and constrains a few thing
 
 - Generates `sitemap.xml` automatically, including products, collections, pages, and blog posts
 - Sets canonical tags on product and collection pages
-- Produces a `robots.txt` (editable via `robots.txt.liquid` on supported plans)
+- Produces a `robots.txt` — editable on any plan by adding a `robots.txt.liquid` template to your theme
 - Serves over HTTPS with a CDN
 - Adds basic product structured data on most themes — quality varies significantly by theme
 
@@ -40,7 +40,12 @@ In practice, most Shopify SEO gains come from a short list:
 
 Once your store is [connected](/integrations/shopify), the weekly [Technical Audit](/seo/optimizations) checks the top pages from your Search Console: meta titles and descriptions, JSON-LD schema, canonical tags, robots.txt, sitemap, broken links, images, page speed, HTTPS, and llms.txt.
 
-Each issue has a **Fix with agent** button. The agent fixes what your Shopify connection allows — product, collection, and page SEO fields, alt text, and theme files such as `robots.txt.liquid` or a schema snippet — and tells you exactly what to change yourself where it can't.
+Each issue has a **Fix with agent** button. What the agent can change depends on how your store is connected:
+
+- **Standard Shopify connection** — product, collection, page and blog SEO fields, and product image alt text.
+- **[Shopify Custom App](/integrations/shopify-custom-app) with the `write_themes` scope** — also theme files: `robots.txt.liquid`, canonical tags and JSON-LD schema snippets. URL redirects additionally need the `write_online_store_navigation` scope, which only a custom app can grant.
+
+Where it lacks access, the agent tells you exactly what to change yourself.
 
 The [Content Plan](/seo/programmatic) adds articles built from real demand to your store's blog.
 

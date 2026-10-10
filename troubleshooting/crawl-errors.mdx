@@ -1,6 +1,6 @@
 ---
 title: "Crawl errors"
-description: "How to diagnose crawl errors in Search Console — 404s, soft 404s, server errors, redirect problems, and blocked pages — and which ones actually matter."
+description: "How to diagnose crawl errors in Search Console — 404s, soft 404s, server errors, redirect problems, and blocked pages — which ones matter, and what to do when the Technical Audit can't run."
 noindex: true
 ---
 
@@ -50,6 +50,12 @@ Check crawl stats: if parameter URLs dominate, that is the problem. See [crawl b
 ## What Ryze does
 
 The [Technical Audit](/seo/optimizations) finds pages and links returning 4XX or 5XX errors, robots.txt rules that block crawlers, and sitemap problems. **Fix with agent** fixes what your site connection allows and tells you what to change yourself.
+
+## The audit says "No audit yet" or never finishes
+
+The Technical Audit scores the top pages from your Google Search Console, so [connect Search Console](/integrations/google-search-console) first for a meaningful result. The audit runs weekly on its own; to start one now, open **SEO → Technical Audit** and click **Run Scan** — it takes a few minutes, and you can close the page while it works.
+
+If your site is behind bot protection — for example Cloudflare Bot Fight Mode or a high Security Level, Wordfence, or another firewall (WAF) — the audit's crawler can be blocked, and the audit can't check your pages. Allow automated requests to your site or lower the protection, then click **Run Scan** again.
 
 ## Related
 

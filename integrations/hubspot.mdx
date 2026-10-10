@@ -3,7 +3,7 @@ title: "Connect HubSpot"
 description: "Connect your HubSpot account with OAuth so the agent can read and edit CRM contacts, companies, and deals, plus CMS blog content."
 ---
 
-HubSpot connects with **OAuth** — you sign in to HubSpot and approve access, so Ryze never sees your password. Once connected, the agent can read and edit your CRM contacts, companies, and deals, read your contact lists and account owners, and manage CMS blog content.
+HubSpot connects with **OAuth** — you sign in to HubSpot and approve access, so Ryze never sees your password. Once connected, the agent can read and edit your CRM contacts, companies, and deals, read your contact lists and account owners, and manage CMS blog content — and delete records or blog posts when you ask.
 
 ## Step 1 — Connect in Ryze
 
@@ -27,13 +27,13 @@ On the **Integrations** page, find the HubSpot card and click **Connect**. You'r
 
 ## Step 3 — Confirm the connection
 
-Back in Ryze, the HubSpot card shows a **Connected** badge and the account you linked — identified by its domain (like `pantio.io`).
+Back in Ryze, the HubSpot card shows a **Connected** badge. Click **View** on the card to see the account you linked — identified by its HubSpot domain (like `yourcompany.com`).
 
 <Frame><img src="/images/hubspot-connected.png" alt="The connected HubSpot account shown in Ryze with an option to add another account" /></Frame>
 
 ## Connect multiple accounts
 
-You can connect more than one HubSpot account (portal) in the same workspace. Click **Add one more account** on the HubSpot card and repeat the authorization. See [Connect multiple accounts](/integrations/multiple-accounts) for how the agent picks between them.
+You can connect more than one HubSpot account (portal) in the same workspace. Click **View** on the HubSpot card, then **Add one more account**, and repeat the authorization. See [Connect multiple accounts](/integrations/multiple-accounts) for how the agent picks between them.
 
 ## What the agent can do
 
@@ -44,27 +44,25 @@ Once connected, the agent works with HubSpot through your account:
 - **Lists** — read your contact lists
 - **Owners** — look up account owners to attribute records
 - **CMS** — read and edit blog content
+- **Delete** — delete records or blog posts when you explicitly ask. Most CRM deletes move the record to HubSpot's recycling bin; deleted blog posts may not be recoverable.
 
-<Tip>
-After connecting, start a **new chat** so the agent picks up the new integration.
-</Tip>
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 ## Publishing articles to HubSpot
 
 HubSpot is also a **publishing destination**: programmatic articles can land on your HubSpot blog instead of (or as well as) a separate CMS.
 
-- When you connect, Ryze asks you to pick the **blog** and the **author** the posts should use — both are stored choices, so every article publishes consistently. Reconnecting keeps them.
+- Click **View** on the HubSpot card, pick the **Blog** and the **Author** the posts should use, and click **Save** — both are stored choices, so every article publishes consistently. Reconnecting the same HubSpot account keeps them.
 - Ryze publishes using HubSpot's own slug and publish rules, and only marks an article as published once HubSpot confirms the post is actually live.
 - If an image can't be uploaded to HubSpot, the article still publishes and the skipped image shows as a **warning** on the article, so you can fix it rather than lose the post.
 
 <Note>
-HubSpot needs an existing blog in the portal. If the blog list is empty when you connect, create a blog in HubSpot (Marketing → Website → Blog) and reconnect — most HubSpot portals used only for CRM don't have one yet.
+The **Blog** and **Author** choices are only needed if you publish articles to HubSpot — if you use HubSpot for CRM only, leave them empty. If the lists are empty, create a blog in HubSpot (**Content → Blog**) and an author (**Content → Blog → Authors**), then click **View** on the HubSpot card and pick them — no need to reconnect.
 </Note>
-
 
 ## Troubleshooting
 
-- **Wrong account connected** — each connection is one HubSpot portal. To switch, connect the right portal with **Add one more account**, or reconnect and choose a different account during authorization.
+- **Wrong account connected** — each connection is one HubSpot portal. To switch, click **View** on the HubSpot card and connect the right portal with **Add one more account**, and remove the wrong one with **Disconnect** (the trash icon) in the same window.
 - **Connection stopped working** — click **Reconnect** on the HubSpot card and re-authorize. This refreshes access if permissions changed or the token was revoked in HubSpot.
 - **Missing records or fields** — HubSpot returns a default set of properties; ask the agent for the specific fields you need. If a whole object type is missing, the connected user may not have access to it in HubSpot.
 
