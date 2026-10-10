@@ -32,7 +32,7 @@ Click **Continue**.
 If articles already publish somewhere else, Ryze asks **Publish to BigCommerce?** Click **Publish to BigCommerce** to switch new articles there, or keep the current destination. You can change this any time in SEO settings.
 
 <Tip>
-After connecting, start a **new chat** so the agent picks up the new integration.
+The agent can use the new connection from your next message — no need to start a new chat.
 </Tip>
 
 ## Troubleshooting
@@ -40,5 +40,8 @@ After connecting, start a **new chat** so the agent picks up the new integration
 - **"Paste the API path or the store hash"** — the first field doesn't look like a store hash. Paste the full API path shown with your token.
 - **"Enter both the WebDAV username and password, or leave both empty."** — fill in both WebDAV fields or neither.
 - **Publishing fails or product edits are rejected** — the API account is missing a scope. Create a new API account with the scopes above and connect again.
+- **"BigCommerce WebDAV rejected the username or password."** — copy both from **Settings → File access (WebDAV)** and paste them again. The WebDAV password is separate from your BigCommerce login.
+- **"BigCommerce WebDAV is not reachable at … Try again."** — try again in a few minutes. If it keeps failing, check WebDAV access for this user under **Settings → File access (WebDAV)**, or leave both WebDAV fields empty to publish without thumbnails.
+- **"The featured image could not be uploaded to BigCommerce over WebDAV, so the post has no thumbnail."** — the article is live without a cover image. Click **View** on the BigCommerce card and check **Post thumbnails**. The WebDAV username and password are entered when you connect, so if they're missing or wrong, connect BigCommerce again with the correct ones, then publish the article again.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

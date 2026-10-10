@@ -1,12 +1,12 @@
 ---
 title: "Connect HighLevel"
-description: "Connect a HighLevel (GoHighLevel) sub-account with a private integration token so Ryze can publish articles to your HighLevel blog."
+description: "Connect a HighLevel (GoHighLevel) sub-account with a private integration token so Ryze can publish articles to your HighLevel blog and the agent can manage its posts."
 ---
 
 HighLevel connects with a **private integration token** from the sub-account that owns your blog. Once connected, programmatic articles publish straight to the HighLevel blog you pick.
 
 <Note>
-HighLevel needs an existing blog in the sub-account. If there is no blog yet, create one in HighLevel first — the connection can't finish without one to publish to.
+HighLevel needs an existing blog in the sub-account. If there is no blog yet, create one in HighLevel first (**Sites → Blogs**) — without it there is nothing to pick and nothing to publish to.
 </Note>
 
 ## Step 1 — Create a private integration token
@@ -31,11 +31,22 @@ On the **Integrations** page, click **Connect** on the **HighLevel** card and fi
 - **Location ID** — from Business Profile
 - **Blog URL** — the public URL where your blog posts live, e.g. `https://yoursite.com/blog` (used to link published articles)
 
-Click **Continue**, then pick the **Blog** to publish to. The card shows the blog and location.
+Click **Continue**. If the sub-account has one blog, Ryze picks it for you; if it has several, pick the **Blog** to publish to and click **Save**. The card shows **Connected** — click **View** to see the connection, labelled with **HighLevel** and your Location ID, and to change the **Blog** later.
+
+## What the agent can do
+
+Besides publishing, the agent can read, create, update and delete blog posts in that sub-account when you ask in chat.
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 ## Troubleshooting
 
-- **Nothing saves / "couldn't complete"** — the sub-account has no blog, or the token is missing the Blogs scopes. Create a blog and re-create the token with **View and Edit Blogs** in the same location.
+- **"No blogs found in this HighLevel location. Create a blog in Sites → Blogs first."** — the sub-account has no blog yet. Create one in HighLevel, then click **View** on the HighLevel card and pick it.
+- **"This HighLevel location has more than one blog. Pick the one to publish to in the HighLevel integration settings."** — click **View** on the HighLevel card, choose the **Blog**, and click **Save**.
+- **"No blog authors found in this HighLevel location. Add an author in HighLevel, then publish again."** — add a blog author in HighLevel, then publish the article again.
+- **"HighLevel requires a featured image and this article has none. Add one, then publish again."** — add a cover image to the article and publish again.
+- **"Could not upload the featured image for HighLevel. Try publishing again."** — the cover image upload failed. Publish the article again.
+- **Connecting or publishing fails with an access error** — the token is missing the Blogs scopes. Re-create it with **View and Edit Blogs** in the same sub-account, then disconnect the old connection in **View** and connect again with the new token.
 - **"Token does not have access to this location"** — the token was created in a different sub-account than the Location ID. Both must come from the same sub-account.
 - **Blog URL rejected** — it must be a public `https://` URL.
 

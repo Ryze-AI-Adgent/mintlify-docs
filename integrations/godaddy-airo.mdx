@@ -45,10 +45,11 @@ During connect, Ryze sends Airo one prompt that sets up the blog:
 
 - Articles become JSON files in `src/data/articles/`, one file per article.
 - `/blogs` lists every article, newest first.
-- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns.
+- `/blogs/{slug}` shows one article, with its title, meta description, cover image and body in the HTML the server returns, plus an absolute canonical link.
+- Your site's **sitemap.xml** lists `/blogs` and every article, keeping every URL it already has, and **robots.txt** gets a `Sitemap:` line, keeping every rule it already has. If these were static files, the prompt replaces them with server routes that serve the same content.
 - If your site already has a blog, Airo rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation.
 
-The prompt asks Airo not to change anything else on the site. **Every reconnect sends this prompt again.**
+The prompt asks Airo not to change anything else on the site and not to install new packages. **Every reconnect sends this prompt again.** The connect dialog shows this summary before you connect.
 
 ## How publishing works
 
@@ -92,6 +93,8 @@ Before it sends anything, Ryze checks whether Airo is working on one of your pro
 | --- | --- |
 | The builder rejected this login and password | Check the username or customer number and the password, then connect again. |
 | The builder asked for a verification code on login | Turn off two-step verification for this login, then connect again. |
+| The builder's login page did not show the field Ryze expected | This account signs in with Google, GitHub or an emailed link. Invite a collaborator account that signs in with an email and password, and connect with that one. |
+| Enter the project address / Enter the project URL from the builder's address bar | Copy the project link from the builder's address bar (`https://airo-builder.godaddy.com/develop/…`), not your live site's address. |
 | This login has no access to that project | Check the project link, or log in with the project owner's account. |
 | This Airo plan cannot publish sites | Upgrade to an Airo plan that includes a live site. |
 | GoDaddy Airo is out of credits for this account | Add credits, or wait for the monthly credits in Airo. |

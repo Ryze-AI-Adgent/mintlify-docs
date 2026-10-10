@@ -26,11 +26,15 @@ On the **Integrations** page, click **Connect** on the **Magento** card and fill
 - **Store URL** — the root URL of your store, e.g. `https://store.example.com` (without `/rest`)
 - **Access token** — the integration access token you copied
 
-Click **Continue**. The card shows **Connected** with your store and its store views.
+Click **Continue**. The card shows **Connected**. Click **View** to see what's connected — the store URL.
 
 ## Troubleshooting
 
-- **Token rejected** — make sure the integration is **activated** (not just saved) and that you copied the Access Token, not the consumer key.
+- **"Magento rejected the token."** — make sure the integration is **Active** in **System → Extensions → Integrations** (not just saved), and paste a fresh Access Token — not the consumer key.
+- **"Magento denied access."** — grant the integration the **Catalog**, **Content** and **Stores** API resources. On Adobe Commerce Cloud, also check your WAF rules.
+- **"Connected, but the store returned no store views."** — the integration's API resources don't include **Stores**. Add it and reconnect.
+- **"Magento returned a non-JSON response…"** — the Store URL points to a storefront page, not the Magento root. Enter the root URL without a path.
+- **"Magento rate-limited the request…"** — Fastly on Adobe Commerce Cloud throttled Ryze. Try again in a few minutes.
 - **Can't reach the store** — the Store URL must be the site root with `https://`, without `/rest` or an admin path.
 - **Category edits fail** — some category fields are read-only in the Magento API; the agent strips the standard ones automatically, but custom read-only attributes may need excluding on your side.
 

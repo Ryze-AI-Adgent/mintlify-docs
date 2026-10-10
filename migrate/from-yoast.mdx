@@ -1,12 +1,21 @@
 ---
-title: "Switching from Yoast"
-description: "How to move from Yoast SEO to Ryze, what Yoast handles that must be preserved, and the settings to record before deactivating."
+title: "Using Ryze with Yoast"
+description: "You don't need to remove Yoast to use Ryze: how Ryze writes SEO fixes through Yoast or Rank Math on WordPress, and what to record if you remove Yoast for other reasons."
 noindex: true
 ---
 
-Yoast is a WordPress plugin that manages on-page SEO settings. Ryze is an external agent that audits, fixes, and produces content across platforms.
+Yoast is a WordPress plugin that manages on-page SEO settings. Ryze is an agent that audits your site, fixes what it finds, and produces content.
 
-They are not equivalents, and the migration has one genuine risk: Yoast **stores data in your site** that disappears if you deactivate it carelessly.
+They work together. **You don't need to remove Yoast to use Ryze** — on most WordPress sites, Ryze makes its on-page fixes through Yoast's own fields.
+
+## How Ryze works with Yoast
+
+How much Ryze can change depends on how your site is [connected](/integrations/wordpress):
+
+- **Self-hosted site** (connected with an administrator's application password) — Ryze writes meta titles, meta descriptions and canonical URLs into Yoast's fields, or Rank Math's if you use Rank Math. The first time, the agent asks before it installs the free Code Snippets plugin, which makes those fields editable through the connection. Yoast keeps emitting them as before, so nothing on the page changes except the values Ryze fixed.
+- **WordPress.com / Jetpack** — SEO plugin fields aren't writable through this connection. Ryze gives you the exact change to make in Yoast yourself.
+
+Fixes start from the [Technical Audit](/seo/optimizations): **Fix with agent** applies them where the connection allows and tells you what to change yourself where it doesn't.
 
 ## What Yoast does
 
@@ -18,15 +27,17 @@ They are not equivalents, and the migration has one genuine risk: Yoast **stores
 - Breadcrumbs
 - Redirect management (Premium)
 
-Several of these are structural. If Yoast stops emitting them, the pages change.
+Several of these are structural. If Yoast stops emitting them, the pages change — another reason to keep it running alongside Ryze.
 
-## The risk
+## If you remove Yoast for other reasons
+
+This section is optional. Follow it only if you are deactivating Yoast anyway.
 
 <Note>
 Do not deactivate Yoast before confirming what replaces each function. Titles, meta descriptions, canonicals, and sitemaps all stop being emitted, which can affect indexation.
 </Note>
 
-## Before deactivating
+### Before deactivating
 
 **1. Export your Yoast settings.** Yoast includes an export tool. Do this first.
 
@@ -40,26 +51,25 @@ Do not deactivate Yoast before confirming what replaces each function. Titles, m
 
 **6. Note your sitemap URL.** Yoast generates `/sitemap_index.xml`. If it stops, submit whatever replaces it in Search Console.
 
-## What replaces what
+### What replaces what
 
-| Yoast function | after switching |
+| Yoast function | after removing it |
 |---|---|
-| Title / meta templates | WordPress theme, another plugin, or Ryze-shipped values |
+| Title / meta values | Rank Math (Ryze writes into its fields too), your theme, or the post title |
 | Sitemap | WordPress core generates a basic one; verify it |
 | Canonicals | WordPress core handles standard cases; custom ones must be re-applied |
 | Schema | Must be replaced — core does not emit product or article schema |
 | Redirects | Must be replaced before deactivating Premium |
 
-Ryze audits and ships on-page fixes to WordPress via the [WordPress integration](/integrations/wordpress), but it is not a drop-in plugin replacement for every Yoast function.
+Without an SEO plugin, WordPress has no separate meta title field — the page title is the post title, so that is what Ryze proposes to change.
 
-## The safer sequence
+### The safer sequence
 
 1. Connect Ryze and run an audit **while Yoast is still active**
-2. Confirm what Ryze reports and what it will manage
-3. Establish replacements for schema, sitemap, and redirects
-4. Deactivate Yoast
-5. Re-crawl and compare against the pre-switch audit
-6. Watch Search Console → Pages for two weeks
+2. Set up replacements for titles and meta, schema, sitemap, and redirects
+3. Deactivate Yoast
+4. In **SEO → Technical Audit**, click **Run Scan** and compare against the earlier audit
+5. Watch Search Console → Pages for two weeks
 
 ## Related
 

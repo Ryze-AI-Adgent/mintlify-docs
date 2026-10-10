@@ -1,13 +1,13 @@
 ---
 title: "Technical Audit"
-description: "Ryze crawls your site, surfaces the technical and GEO issues holding you back, and an agent ships the fixes for you."
+description: "Ryze crawls your site, surfaces the technical and GEO issues holding you back, and the agent fixes what your platform lets it change — with step-by-step instructions for the rest."
 ---
 
 <Note>
   Prefer video? Watch the [Technical audit guide](/guides/technical-audit).
 </Note>
 
-Technical Audit checks the technical health of your site — the issues that can block Google and AI assistants from reading and ranking it — and an agent ships the fixes for you, so you don't have to touch code.
+Technical Audit checks the technical health of your site — the issues that can block Google and AI assistants from reading and ranking it — and the agent fixes what your connected platform lets it change, with exact instructions for anything else.
 
 Find it under **SEO → Technical Audit** in the sidebar. The audit checks the top 300 pages from your Google Search Console, ranked by impressions — the pages that carry your traffic.
 
@@ -28,16 +28,20 @@ The audit runs weekly on its own. Click **Run Scan** to run it anytime — it ta
 
 **Issues Detected** lists every problem with its severity — **Critical**, **Warning** or **Notice**. Switch between **Group by page** (each page with its score and issues, plus a row for site-wide checks) and **Group by issue** (each issue with the number of affected pages).
 
+## The audit says "No audit yet" or never finishes
+
+The audit picks the pages to check from your Google Search Console, so connect [Search Console](/integrations/google-search-console) first — without it, Ryze can only fall back to your homepage and sitemap, and the scores don't reflect the pages that carry your traffic. If your site is behind bot protection — Cloudflare Bot Fight Mode or a high Security Level, Wordfence, a web application firewall — the crawler is blocked and pages can't be checked. Lower the protection or allow automated requests to your site, then click **Run Scan**. The audit also runs weekly on its own. See [Crawl errors](/troubleshooting/crawl-errors).
+
 ## Fix with the agent
 
-Click **Fix with agent** on a page or an issue and the agent applies the fix for you across the affected pages — no manual editing. Important issues also show up in the **Needs you** list on Home.
+Click **Fix with agent** on a page, an issue or the site-wide row. The agent opens with the task filled in. It first checks what your connected platform lets it change, fixes what it can (for example meta tags, alt text, broken links in content), and gives you exact step-by-step instructions for anything it can't reach — such as robots.txt on WordPress or llms.txt on Shopify. Without a connected CMS you get instructions only. Important issues also show up in the **Needs you** list on Home.
 
 If an issue is known and you accept it, open its actions menu and click **Acknowledge**; **Reopen** brings it back.
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Programmatic Articles" icon="newspaper" href="/seo/programmatic">
+  <Card title="Content Plan" icon="newspaper" href="/seo/programmatic">
     The other half of on-page: content.
   </Card>
   <Card title="How it works" icon="diagram-project" href="/seo/how-it-works">

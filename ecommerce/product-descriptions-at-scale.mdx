@@ -10,15 +10,7 @@ Generation is the only workable answer at scale. Doing it badly is worse than do
 
 ## What separates useful generation from spam
 
-| works | fails |
-|---|---|
-| Built from real per-product data | Template with swapped nouns |
-| Distinct specifications per product | Same prose, different adjective |
-| Skips products with insufficient data | Generates something for everything |
-| Published in batches and measured | Published all at once, never reviewed |
-| Pruned when pages never earn impressions | Accumulates indefinitely |
-
-The failure mode is [thin content at scale](/concepts/programmatic-seo): thousands of near-identical pages that drag down sitewide quality signals and waste [crawl budget](/concepts/crawl-budget).
+Useful generation is built from real per-product data, gives each product distinct specifications, skips products with too little data, is published in batches and measured, and is pruned when pages never earn impressions. The failure mode is [thin content at scale](/concepts/programmatic-seo#what-separates-the-two): thousands of near-identical pages that drag down sitewide quality signals and waste [crawl budget](/concepts/crawl-budget).
 
 ## Source data determines quality
 
@@ -47,7 +39,9 @@ Extractable descriptions are what makes a product page citable and comparable. A
 
 ## How Ryze does it
 
-Start from the **Create product descriptions** template or ask the agent in chat. It rewrites descriptions for your top products from real product data and the search terms your customers use, shows a before/after for each, and applies only the ones you approve.
+Open **AI Marketer → Templates** and start **Create product descriptions**, or ask the agent in chat. It takes your top 10 products by revenue and rewrites each description with a benefit-led opening, objections answered from real reviews, and the search terms your customers actually use. It shows a before/after per product and applies only the ones you approve.
+
+The template's default opening is benefit-led. If you want the specification-first structure described above — what the product is and its defining attribute in the first sentence, limits stated — say so in the chat.
 
 ## Measure and prune
 

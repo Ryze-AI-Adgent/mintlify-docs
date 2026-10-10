@@ -33,6 +33,8 @@ Click **Continue**, then pick the **Document type** your blog posts use.
 
 <Note>
 The dataset needs at least one **published** post of that type. Ryze reads your newest posts to learn their fields: title, slug, body (Portable Text, markdown or HTML), excerpt, SEO title and description, publish date and main image. If every recent post has an author and a category, Ryze copies those references from the newest post.
+
+If none of your recent posts has a main image, Ryze looks for the image field in your deployed Studio schema and uses it for the cover. Deploy your schema (`sanity schema deploy`, or deploy Studio) so Ryze can find it — otherwise articles publish without a cover image.
 </Note>
 
 ## How publishing works
@@ -54,6 +56,7 @@ Your site has to show new documents of that type. Most front ends pick them up o
 - **No document types to pick** — the dataset has no published documents yet. Publish at least one blog post in Sanity Studio, then pick its type.
 - **Sanity publish not configured** — make sure at least one published post of the chosen type has a slug and a body.
 - **A document with this slug already exists** — one of your own posts uses that slug. Rename the article slug in Ryze, or remove that document in Sanity.
+- **Articles publish without a cover image** — none of your recent posts has a main image and Ryze can't find an image field in your deployed schema. Deploy your Studio schema (`sanity schema deploy`), or add a main image to one published post.
 - **Article published but 404 on the site** — check the Blog URL matches where your site serves posts, and rebuild the site if it's static.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -1,10 +1,22 @@
 ---
 title: "What is generative engine optimization (GEO)?"
-description: "Generative engine optimization is the practice of making a website more likely to be retrieved and cited by AI systems that generate answers, such as ChatGPT, Perplexity, and Google AI Overviews."
+description: "Generative engine optimization (GEO, also called AEO or LLM SEO) is the practice of making a website more likely to be retrieved and cited by AI systems that generate answers, such as ChatGPT, Perplexity, and Google AI Overviews — and how to write pages for it."
 noindex: true
 ---
 
 Generative engine optimization (GEO) is the practice of making a website more likely to be retrieved and cited by AI systems that generate answers rather than return a list of links — ChatGPT, Perplexity, Google AI Overviews, Claude, and Gemini.
+
+## Also called AEO and LLM SEO
+
+**Answer engine optimization (AEO)** and **LLM SEO** describe overlapping practices, and the terms are often used interchangeably. The useful distinction:
+
+| | focus | surface |
+|---|---|---|
+| **AEO** | being *the answer* to a specific question | featured snippets, voice, AI assistants |
+| **GEO** | being *a cited source* inside a generated answer | ChatGPT, Perplexity, AI Overviews |
+| **LLM SEO** | how content is parsed and reproduced by the model | any AI answer |
+
+AEO predates generative engines — it grew out of optimizing for featured snippets. In practice the techniques converge: all three reward direct, factual, well-structured content, so this page covers them together.
 
 ## How it differs from SEO
 
@@ -17,9 +29,19 @@ The practical differences:
 - **Results are volatile.** The same question asked twice can produce different sources. GEO is measured as a rate across many queries over time, not by a single result.
 - **Passage-level clarity matters more than page-level authority.** A model extracts a specific claim. Pages that state facts plainly and early are easier to extract from than pages that build to a conclusion.
 
+## How to write for AI answers
+
+- **Answer in the first sentence.** State the answer or the fact, then explain. A fact in sentence one survives extraction; a fact in paragraph six may not be reached.
+- **One question per page or per section.** A heading that matches the question, followed immediately by the answer.
+- **Self-contained passages.** Retrieval often works on sections, not whole pages, so each section should make sense lifted out of the page.
+- **Be unambiguous about the subject.** Repeat the product or concept name rather than relying on "it" across paragraphs.
+- **State constraints and limits.** Models reproduce caveats when they are stated plainly, which improves answer accuracy about your product.
+- **Keep URLs stable.** A moved page loses whatever retrieval history it accumulated.
+- **Structured data** where the content type supports it — `Product`, `Organization`, `BreadcrumbList`, `Article`. Google stopped showing FAQ rich results in May 2026 and HowTo rich results in 2023, so `FAQPage` and `HowTo` markup no longer earns a result on Google; the question-and-answer content itself still matters for AI answers. See [structured data for AI search](/ai-visibility/structured-data-for-ai).
+
 ## What tends to get cited
 
-Observed patterns across answer engines:
+In our experience, these tend to get cited:
 
 - Pages that define **one specific thing** and say what it is in the first sentence
 - Documentation and help-centre content, which is factual and stable
@@ -30,10 +52,11 @@ Marketing pages, listicles, and "ultimate guides" are cited comparatively rarely
 
 ## Limits
 
-GEO influences **retrieval** — which pages a model finds and quotes when it searches. It does not change the model's **prior knowledge**, the brand associations baked into its training weights. When a model answers from memory without searching, GEO has no effect. Shifting those priors requires sustained third-party presence over much longer periods.
+GEO influences **retrieval** — which pages a model finds and quotes when it searches. When a model answers from memory without searching, GEO has no effect. Mentions come from the model's training data and move slowly; citations come from live retrieval and respond to content — see [AI visibility](/concepts/ai-visibility).
 
 ## Related
 
-- [Answer engine optimization](/concepts/answer-engine-optimization)
 - [AI visibility](/concepts/ai-visibility)
 - [Citation share](/concepts/citation-share)
+- [Answer engine optimization](/concepts/answer-engine-optimization)
+- [LLM SEO](/concepts/llm-seo)

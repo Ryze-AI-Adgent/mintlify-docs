@@ -11,7 +11,7 @@ We take security seriously to protect your data and keep your experience safe an
 
 **Encryption at rest (stored data protection)**
 
-Stored customer data — including the OAuth tokens that connect your ad accounts — is protected with AES-256 encryption, one of the strongest forms of digital security. Think of it like a high-security safe only authorized people can open.
+Stored customer data — including the OAuth tokens, API keys and logins that connect your accounts — is protected with AES-256 encryption, one of the strongest forms of digital security. Think of it like a high-security safe only authorized people can open.
 
 **Encryption in transit (data moving protection)**
 
@@ -42,7 +42,7 @@ Ryze runs on enterprise-grade cloud infrastructure from leading providers that a
 We rely on a small, vetted set of sub-processors, each operating under strict data-protection agreements:
 
 - **Cloud hosting & database** — stores your account data and encrypted access tokens
-- **AI inference** — powers the assistant and reporting you use through Claude
+- **AI inference** — powers the AI agent in the Ryze app, scheduled tasks, reports and content generation, and the tools you call from Claude, ChatGPT or Grok
 - **Monitoring & error tracking** — system health and security alerts
 - **Payments** — billing; card details are handled by the payment processor and never stored by Ryze
 
@@ -72,7 +72,7 @@ Users and administrators only get access to the data they need — nothing more.
 
 **Credential management**
 
-We use secure credential management to protect access keys, ensuring they're encrypted and only accessible to authorized personnel. We never store your ad-platform passwords.
+We use secure credential management to protect access keys, ensuring they're encrypted and only accessible to authorized personnel. Most platforms connect through OAuth, so we never see those passwords. The few connections that need an API key or a login and password store them encrypted, and you can remove them on the **Integrations** page at any time.
 
 ## Compliance & privacy
 

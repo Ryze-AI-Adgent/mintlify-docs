@@ -24,10 +24,17 @@ OpenAI Ads connects with an **API key** you generate in the OpenAI Ads dashboard
 
 ## Step 2 — Connect in Ryze
 
-On the **Integrations** page, click **Connect** on the OpenAI card and paste your API key, then click **Continue**.
+On the **Integrations** page, click **Connect** on the **OpenAI Ads** card, paste your API key (it starts with `sk-svcacct-`) into **API key**, and click **Continue**.
+
+To add another OpenAI Ads account, click **View** → **Add one more account**.
 
 <Frame>
   <img src="/images/openai-connect-ryze.webp" alt="The Connect OpenAI Ads dialog in Ryze" />
 </Frame>
+
+## Troubleshooting
+
+- **"That is not an OpenAI Ads API key. The key starts with sk-svcacct-…"** — the value doesn't look like an API key at all. Copy the whole key from [ads.openai.com](https://ads.openai.com/).
+- **"OpenAI Ads rejected this API key. Generate a new key in the OpenAI Ads dashboard and paste the whole value."** — OpenAI Ads doesn't accept this key. Usually it's a regular OpenAI platform key (`sk-proj-…`). Create the key in the OpenAI Ads dashboard (**Settings → General → Account Info**) and paste the whole value.
 
 Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

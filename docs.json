@@ -19,7 +19,7 @@
   },
   "seo": {
     "metatags": {
-      "description": "Help center for Ryze AI — the AI ad manager for Meta, Google, TikTok, and more.",
+      "description": "Help center for Ryze AI — the AI marketer that runs your SEO and paid ads: setup, integrations, billing and how-to guides.",
       "og:type": "website",
       "og:site_name": "Ryze AI",
       "og:image": "/images/og.png",
@@ -153,6 +153,7 @@
           {
             "group": "AI Marketer",
             "pages": [
+              "agent/chat",
               "agent/credits",
               "agent/schedules",
               "agent/templates",
@@ -190,6 +191,7 @@
                 "pages": [
                   "workspaces/create-workspace",
                   "workspaces/settings",
+                  "workspaces/sign-in",
                   "workspaces/invite-teammates",
                   "workspaces/notifications",
                   "workspaces/delete-account",
@@ -223,6 +225,7 @@
             "group": "SEO",
             "pages": [
               "seo/introduction",
+              "seo/getting-started",
               "seo/how-it-works",
               "seo/optimizations",
               "seo/programmatic",
@@ -251,8 +254,10 @@
             "group": "Paid Ads",
             "pages": [
               "paid-ads/introduction",
+              "paid-ads/getting-started",
               "paid-ads/managed-campaigns",
               "paid-ads/ai-creatives",
+              "paid-ads/ad-templates",
               "paid-ads/competitors",
               "paid-ads/ryze-pixel",
               "paid-ads/faq"
@@ -421,6 +426,23 @@
     },
     "links": [
       {
+        "header": "Ryze",
+        "items": [
+          {
+            "label": "Changelog",
+            "href": "https://changelog.get-ryze.ai/"
+          },
+          {
+            "label": "Contact support",
+            "href": "mailto:support@get-ryze.ai"
+          },
+          {
+            "label": "Chrome extension",
+            "href": "https://chromewebstore.google.com/detail/ryze-ai/enejaalcpmdnomkpkkilbpeppdcebpla"
+          }
+        ]
+      },
+      {
         "header": "Legal",
         "items": [
           {
@@ -428,8 +450,8 @@
             "href": "https://www.get-ryze.ai/privacy"
           },
           {
-            "label": "Terms of Service",
-            "href": "https://www.get-ryze.ai/term-services"
+            "label": "Terms of Use",
+            "href": "https://www.get-ryze.ai/terms-of-use"
           },
           {
             "label": "Refund Policy",

@@ -13,10 +13,13 @@ You install the Ryze GitHub App on your account or organization and grant it acc
 
 <Steps>
   <Step title="Open Integrations">
-    On the **Integrations** page, click **Connect** on the GitHub card.
+    On the **Integrations** page, click **Connect** on the GitHub card. A **Connect GitHub** window explains that GitHub publishing needs a one-time pipeline setup: Ryze commits articles as JSON files, and your site needs a small converter plus a build workflow to render them. Choose:
+
+    - **Set up with Agent** — opens a chat where the agent walks you through the setup in your repo, step by step.
+    - **I'll do it manually** — continue with the steps below.
   </Step>
   <Step title="Install the Ryze app on GitHub">
-    You're redirected to GitHub. Choose the account or organization, then grant access to the repository (or repositories) Ryze should publish to. You can limit access to a single repo.
+    After **I'll do it manually**, you're redirected to GitHub. Choose the account or organization, then grant access to the repository (or repositories) Ryze should publish to. You can limit access to a single repo.
   </Step>
   <Step title="Return to Ryze">
     After installing, GitHub redirects you back to Ryze and the integration shows as connected.
@@ -29,7 +32,7 @@ After connecting, configure these settings:
 
 - **Repository** — pick from the repos you granted access to, e.g. `your-org/your-site`.
 - **Blog URL** — the public URL where your articles are listed, e.g. `https://yoursite.com/blog`. Ryze appends each article's slug to build its live link.
-- **Branch** — the branch Ryze commits to. Set to `main`.
+- **Branch** — the branch Ryze commits to. It's filled in with your repository's default branch when you pick the repo; change it if you publish from another branch.
 - **Folder path** — the folder where article files are written. Defaults to `blog/data`.
 
 ## What lands in your repo

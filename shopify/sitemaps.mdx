@@ -4,7 +4,7 @@ description: "How Shopify generates sitemaps automatically, what they include, t
 noindex: true
 ---
 
-Shopify generates and maintains `sitemap.xml` automatically at your domain root. You do not create it, and on most plans you cannot edit it directly.
+Shopify generates and maintains `sitemap.xml` automatically at your domain root. You do not create it, and you cannot edit the file directly.
 
 ```
 https://yourstore.com/sitemap.xml
@@ -19,7 +19,7 @@ The root sitemap is an index pointing to sub-sitemaps:
 - `sitemap_pages_1.xml`
 - `sitemap_blogs_1.xml`
 
-Shopify updates these as you add, change, and remove content. Only canonical, indexable URLs are included — products hidden from the sales channel, and pages set to `noindex`, are excluded automatically.
+Shopify updates these as you add, change, and remove content. It includes every product, collection, page and blog post that is published to the Online Store sales channel. A `noindex` tag added in theme code hides a page from search engines but does **not** remove it from the sitemap.
 
 ## Submit it
 
@@ -29,16 +29,16 @@ Submit once. Resubmitting repeatedly does not increase crawl rate and is not a f
 
 ## Limits worth knowing
 
-- **You cannot exclude individual URLs** from the generated sitemap on most plans. Control inclusion by unpublishing from the sales channel or setting `noindex` in the theme.
+- **To exclude an individual URL**, add the metafield `seo.hidden` (namespace `seo`, key `hidden`, type integer, value `1`) to that product, collection, page or blog post. Shopify then removes it from the sitemap, hides it from search engines and hides it from your storefront search. Unpublishing it from the Online Store sales channel also removes it.
 - **`changefreq` and `priority` values** are not used by Google. Adjusting them achieves nothing.
-- **Sitemap files cap at 50,000 URLs each**; Shopify splits automatically past that.
+- **Large catalogues are split automatically** into several child sitemaps — `sitemap_products_1.xml`, `sitemap_products_2.xml` and so on — so no file comes near the 50,000-URL limit.
 - **The sitemap is a discovery aid, not an indexing guarantee.** Inclusion does not mean a page will be indexed.
 
 ## Troubleshooting
 
 **"Couldn't fetch" in Search Console.** Usually a password-protected store or a `robots.txt` rule blocking the sitemap. Confirm the store is publicly accessible and the sitemap loads in an incognito browser.
 
-**Pages missing from the sitemap.** Check the product or page is published to the Online Store sales channel, and that the theme is not applying `noindex`.
+**Pages missing from the sitemap.** Check the product or page is published to the Online Store sales channel and doesn't have the `seo.hidden` metafield set.
 
 **Submitted URLs not indexed.** Normal to a degree, especially on large catalogues. Persistent large-scale exclusion usually indicates thin content or [crawl budget](/concepts/crawl-budget) problems rather than a sitemap fault.
 
@@ -55,3 +55,4 @@ If your documentation or blog is hosted separately, it has its own sitemap and m
 - [URL redirects and migrations](/shopify/redirects)
 - [Crawl budget](/concepts/crawl-budget)
 - [Large catalogue automation](/shopify/large-catalogs)
+- [Hiding a page from search engines (Shopify Help Center)](https://help.shopify.com/en/manual/promoting-marketing/seo/hide-a-page-from-search-engines)

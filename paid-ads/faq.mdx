@@ -1,16 +1,16 @@
 ---
 title: "Paid Ads FAQ"
-description: "Common questions about Paid Ads."
+description: "Common questions about Paid Ads: supported platforms, approvals, your existing campaigns, files, audiences and cancelling."
 ---
 
 <AccordionGroup>
 
 <Accordion title="Which ad platforms does Paid Ads support?">
-Google Ads and Meta are the core, and the agent works with any ad platform you've connected under **Integrations** — LinkedIn, Microsoft, TikTok, Snapchat, Reddit, Pinterest and more.
+Ryze connects to Google Ads, Meta, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit, OpenAI Ads, Pinterest, Criteo, StackAdapt and Thrad under **Integrations**. In chat the agent works with all of them. [Managed Campaigns](/paid-ads/managed-campaigns) and the **Ads Performance** dashboard cover Google Ads, Meta, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit and OpenAI Ads; Pinterest, Criteo, StackAdapt and Thrad are available in chat only. See [Connect other ad platforms](/integrations/ad-platforms).
 </Accordion>
 
 <Accordion title="Is it safe to let Ryze create or change campaigns?">
-Yes — you decide what needs your sign-off. In the Ryze chat, the **Tool approvals** setting in the composer controls it: **Manual approve** (every tool that touches your data needs approval), **Approve write & delete** (reads run freely, changes need approval) or **Skip all approvals**. In Claude, set write and delete tools to **Needs approval** — see [Permissions & Approvals](/claude/permissions).
+Yes — you decide what needs your sign-off. In the Ryze chat, the **Tool approvals** setting in the composer controls it: **Manual approve** (every tool that touches your data needs approval), **Approve write & delete** (reads run freely, changes need approval) or **Skip all approvals** (the agent runs every tool on its own). It's set to **Skip all approvals** by default — switch it if you want to sign off on changes. In Claude, set write and delete tools to **Needs approval** — see [Permissions & Approvals](/claude/permissions).
 </Accordion>
 
 <Accordion title="How do I generate ad creatives?">
@@ -30,7 +30,7 @@ It acts directly in your connected accounts through the official APIs — creati
 </Accordion>
 
 <Accordion title="Can I use my own images, upload a CSV, or share a file with the agent?">
-Yes. Use the **+** button in the chat composer → **Attach files** to upload CSV, XLSX, PDF, MD or images from your computer, choose them from Media, or pick from Google Drive. Product photos and videos you want reused across creatives go to **Media** in the sidebar (see [Media library](/workspaces/media)). The agent can also hand you files back — for example a CSV feed.
+Yes. Use the **+** button in the chat composer → **Attach files** to upload images (JPG, PNG, WebP or GIF, up to 10 MB each, 3 per message) or documents (PDF, DOCX, XLSX/XLS, CSV, TXT or MD, up to 20 MB each, 3 per message) from your computer, choose them from Media, or pick Google Docs, Sheets and Slides with **Upload from Drive**. Images from Google Drive aren't supported — upload them directly. Product photos and videos you want reused across creatives go to **Media** in the sidebar (see [Media library](/workspaces/media)). The agent can also hand you files back — for example a CSV feed.
 </Accordion>
 
 <Accordion title="Can I export a report to Excel?">
@@ -39,6 +39,29 @@ Deck reports download as PDF, can be sent by email, and can be shared by link; D
 
 <Accordion title="Can I give Ryze read-only access?">
 Ryze isn't read-only by design, but you control changes: keep **Tool approvals** on **Manual approve** or **Approve write & delete** (or write and delete tools on **Needs approval** in Claude), and reject anything you don't want in your Inbox. If you need a hard guarantee, connect a Google or Meta login that only has read access.
+</Accordion>
+
+<Accordion title="Will Ryze change my existing campaigns?">
+Not on its own. In chat, the agent changes only what you ask for, following your **Tool approvals** setting. A [Managed Campaign](/paid-ads/managed-campaigns#what-happens-in-your-ad-account) always builds its own campaign, named "*your campaign name* [Managed by Ryze]", in the ad account you picked. Your existing campaigns are never paused, edited or reused — the agent only reads the last 90 days of the account to learn what worked. If one of your campaigns already targets the same landing page, keywords or audience, the agent leaves it alone and names the overlap in **Progress** so you can decide.
+</Accordion>
+
+<Accordion title="How do I stop the agent from changing my ads?">
+- **Managed Campaign** — **Pause** on the campaign page stops delivery. Pause first, then choose **Delete** from the menu if you want it gone.
+- **Chat** — **Tool approvals** in the composer is **Skip all approvals** by default, so the agent runs every tool on its own. Switch it to **Manual approve** or **Approve write & delete**, and press **Deny** on anything you don't want.
+- **Inbox proposals** — nothing is applied until you click **Approve**. See [Approvals](/agent/approvals).
+- **To cut access completely** — disconnect the ad account under **Integrations** with the trash icon.
+</Accordion>
+
+<Accordion title="Can I review a Managed Campaign before it goes live?">
+Yes. By default, creating the campaign authorizes the agent to launch it. To approve first, write "Don't launch without my approval" in **Anything the agent should know?** when you create it. The agent builds everything paused, marks the campaign **Needs your input** and waits. Review the ads in your ad account (or on the campaign page), then give your go in the reply box on the campaign page. See [Managed Campaigns](/paid-ads/managed-campaigns#faq).
+</Accordion>
+
+<Accordion title="What happens to my Managed Campaigns if I cancel Paid Ads?">
+When the Paid Ads subscription for the workspace ends, each live Managed Campaign is paused on the ad platforms at its next scheduled check (the **Next check** date on the campaign page). Until then it keeps running and spending as set up — so press **Pause** on the campaign before you cancel if you want ads to stop right away. Nothing is deleted. While the plan is inactive the **Ads** section is locked; once you resubscribe, **Resume** turns the campaign back on.
+</Accordion>
+
+<Accordion title="Can Ryze build audiences from my customer list?">
+For Google Ads — yes. Attach a CSV of your customers (email or phone) in chat and ask the agent: it creates a Customer Match list, uploads the contacts (they're hashed before they reach Google) and can use the list for targeting or exclusions. Changes follow your **Tool approvals** setting.
 </Accordion>
 
 </AccordionGroup>

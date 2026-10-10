@@ -1,6 +1,6 @@
 ---
 title: "Managed Campaigns"
-description: "Set a budget and a goal — the agent builds, launches, and keeps reviewing your ads."
+description: "Set a daily budget and a goal — the agent builds, launches and keeps reviewing its own campaign in your ad accounts."
 ---
 
 Managed Campaigns are autonomous. You set the mandate — budget, platforms, conversion goal, location, landing page — and the agent does the rest: creates the ads, launches them on your connected ad accounts, and keeps reviewing performance.
@@ -9,12 +9,70 @@ Find them under **Ads → Managed Campaigns** in the sidebar.
 
 ## How it works
 
-1. **Create a campaign** — click **New Managed Campaign**, then pick where the ads run (platforms and ad accounts), your budget, the conversion goal and the landing page. If you pick more than one platform, you choose how the budget splits between them. Anything the agent should know — offers to push, claims to avoid — goes in **Anything the agent should know?**
-2. **The agent sets it up** — it checks your landing page and conversion tracking, generates on-brand creatives, builds the campaign structure, and launches it. If anything needs your input, it stops and asks you right on the campaign page.
+1. **Create a campaign** — click **New Managed Campaign** and go through the three steps described below. Anything the agent should know — offers to push, claims to avoid — goes in **Anything the agent should know?**
+2. **The agent sets it up** — it checks your budget, landing page and conversion tracking, generates on-brand creatives, builds the campaign structure, and launches it. If anything needs your input, it stops and asks you right on the campaign page.
 3. **The agent keeps reviewing it** — it reads performance, pauses losers, shifts budget to winners inside your total, and rotates fresh creatives when the current ones fatigue. It sets the date of its next review itself — you see it in **Next check** on the campaign page.
 4. **You watch Progress** — every run ends with a short note in **Progress** on the campaign page, and each entry links to the full agent chat.
 
-Inside the mandate the agent acts on its own. Anything beyond it — a higher budget, a new platform, a different goal — comes to your [Inbox](/agent/approvals) as an approval you decide on.
+Inside the mandate the agent acts on its own. Changes it wants to make beyond the mandate — a higher budget, a new platform, a different goal — come to your [Inbox](/agent/approvals) as approvals you decide on. If you ask for such a change yourself in **Tell agent**, the agent applies it (see [Steer the campaign](#steer-the-campaign)).
+
+## Create a campaign
+
+Click **New Managed Campaign**. The dialog has three steps.
+
+<Steps>
+  <Step title="Where should it run?">
+    Enter the daily budget in US dollars under **How much per day?**. The estimated monthly ad spend and the Ryze fee for that budget show right under the field. For budgets of $250/day and more, the dialog reminds you that the budget is in USD, not in your local currency.
+
+    Under **Where should your ads run?**, tick the platforms and pick the ad account for each. Only platforms with a connected ad account are shown — connect them under [Integrations](/integrations/overview) first. With two or more platforms, set each platform's share of the budget; the shares must add up to 100%.
+  </Step>
+  <Step title="What should it drive?">
+    Under **What do you want more of?**, pick the goal: **More sales**, **More leads**, **More sign-ups**, **More trials**, **More subscribers**, **More add-to-carts**, **More checkouts**, **More bookings**, **More inquiries** or **More traffic**.
+
+    Next to each option you see how many of those events your Meta and Google Ads accounts recorded in the last 30 days (**N events / 30d**, in amber when it's zero). **—** means Ryze can't count that event for the selected platforms. If you pick a goal with no tracked events, the dialog warns that the agent can't optimize for it — fix tracking or pick another goal.
+
+    Then enter your landing page URL under **Where should ads send people?**.
+  </Step>
+  <Step title="Campaign details">
+    Everything is pre-filled — adjust if you want:
+
+    - **Campaign name**.
+    - **Where are your customers?** — the country to target.
+    - **Special ad category** — **None**, **Financial products**, **Employment**, **Housing** or **Social or political**. Pick one if it applies to your ads: the ad platforms require it.
+    - **Anything the agent should know?** — optional: offers to push, audiences or claims to avoid, tone of voice, seasonal angles.
+
+    Click **Create campaign**.
+  </Step>
+</Steps>
+
+Creating the campaign authorizes the agent to build and launch it — setup starts on its own right away. To review it before it goes live, see [Can I review the campaign before it goes live?](#faq) below.
+
+## What happens in your ad account
+
+- The agent creates its own campaign on each platform, named "*your campaign name* [Managed by Ryze]" (plus a short id if that name is already taken), in the exact ad account you picked. Ad sets and ads inside it get plain descriptive names.
+- Your existing campaigns are never paused, edited or reused. Before building, the agent reads the last 90 days of the account — what spent, what converted, top ads, converting search terms — to learn from it.
+- If one of your own campaigns already sends traffic to the same landing page or bids on the same keywords or audience, the agent leaves it alone and names the overlap in **Progress** so you can decide.
+- Everything it builds is visible in each platform's own ads manager. On the campaign page, every ad has an **Open on *platform*** link.
+
+## Campaign statuses
+
+- **Not launched** — just created. Setup starts on its own ("Launch queued — the agent picks this campaign up in a moment"). If it doesn't start, a **Launch** button appears.
+- **Setting up** — the agent is checking your account, tracking and landing page, and building the campaign.
+- **Needs your input** — the agent stopped with questions. Answer them in the reply box on the campaign page.
+- **Live** — running. The agent reviews it on its own schedule — see **Next check**.
+- **Paused** — delivery is stopped on the platforms. **Resume** turns it back on — the agent first checks that the landing page is up and conversion tracking still works.
+- **Failed** — setup couldn't finish. **Retry setup** starts it again.
+- **Archived** — ended by the agent at your request.
+
+You may also see **Blocked** with an **I fixed it** button when something outside Ryze stops delivery. It's rare — normally the agent asks you through **Needs your input** instead.
+
+## The campaign page
+
+- **Top row** — **Budget**, **Goal**, **Location**, **Age**, **Managed for** and **Next check**.
+- **Results** — **Spend**, **Results**, **CPA** and **ROAS**.
+- **Ads** — every ad the agent built, with **Spend**, **Impressions**, **Clicks**, **CPA** and **ROAS**. Sort by any of them and filter by **Active**, **Inactive** or **All statuses**. Click an ad for its preview and the **Open on *platform*** link.
+- **Refresh from the ad platforms** pulls fresh numbers on demand.
+- **Progress** — the agent's notes from every run. **View all** shows the full history.
 
 ## Platforms
 
@@ -22,14 +80,20 @@ Managed Campaigns run on Meta, Google Ads, LinkedIn, Microsoft Ads, TikTok, Snap
 
 ## What the agent will never do
 
-- Spend above the budget you set.
+- Set budgets above your mandate.
 - Add platforms, widen targeting, or change your landing page on its own.
 - Touch anything in your ad account outside the campaign it manages.
 
+Two things to know about the budget:
+
+- **It's a daily amount in US dollars.** If your ad account bills in another currency, the agent converts the amount into that currency when it sets the budget on the platform.
+- **Platforms can spend more than the daily budget on a strong day** — Meta up to 75% more, Google up to twice — and even it out over the following days. That's how platform daily budgets work.
+
 ## Steer the campaign
 
-- **Tell agent** — send instructions in your own words ("stop pushing the bundle offer, lead with free shipping"). The agent acts on them inside the mandate and reports back in Progress.
-- **Edit mandate** — change the budget, location, landing page or the split between platforms. The agent applies the difference on the ad platforms.
+- **Tell agent** — send instructions in your own words ("stop pushing the bundle offer, lead with free shipping"). The agent acts on them and reports back in **Progress**. Available while the campaign is Live or Paused. You can also ask here for changes the **Edit mandate** dialog doesn't cover — "add Google Ads", "optimize for leads instead": your instruction becomes part of the mandate and the agent applies it on the platforms.
+- **Edit mandate** — from the campaign's menu, change the daily budget, location, landing page, the split between platforms and **Anything the agent should know?**. Available while the campaign is Live or Paused. Click **Send to the manager** and the agent applies the difference on the ad platforms. A budget change of more than about 20% or a targeting change resets the platforms' learning phase — expect 3–7 days of noisier delivery.
+- **Pause** and **Resume** — stop and restart delivery on the platforms.
 
 ## Pricing
 
@@ -48,16 +112,29 @@ The exact fee for your budget is shown right under the budget field when you cre
 
 You only pay for spend the agent actually manages. Pausing a campaign stops its fees with it.
 
+The agents that set up and run a Managed Campaign — setup, reviews, new creatives, your **Tell agent** messages — don't use your credits. You pay only the fee on ad spend above. See [Credits & Usage](/agent/credits).
+
 ## FAQ
 
 **Can I stop it at any time?**
 Yes — **Pause** on the campaign page stops all delivery on the platforms. **Resume** turns it back on. To remove a campaign from Ryze, pause it first, then choose **Delete** from the menu; ads already created on the ad platforms stay in your ad account.
 
+**Can I review the campaign before it goes live?**
+By default, creating the campaign authorizes the agent to launch it. If you want to approve first, write "Don't launch without my approval" in **Anything the agent should know?**. The agent builds everything paused, marks the campaign **Needs your input** and waits. Review the ads in your ad account (or on the campaign page), then give your go in the reply box on the campaign page — the agent launches.
+
+**Why did the agent ask me to raise the budget?**
+Before building anything, the agent checks whether the budget can reach a verdict: roughly 40 conversions within 30 days at your expected cost per result. If it can't — or the budget doesn't buy at least a couple of clicks a day — it builds nothing and asks you on the campaign page: raise the budget to the number it names, switch to a goal that happens more often, or run anyway knowing the honest date.
+
+After launch, if the budget is still too small, the agent sends a "Raise daily budget from X to Y" approval to your [Inbox](/agent/approvals) — once. If that approval stays unanswered or rejected for a week and a verdict is more than 60 days away, the agent pauses the campaign and asks you what to do.
+
 **What if the agent has a question?**
-The campaign shows "The agent needs your input" with its questions. Answer in the reply box and the agent picks up exactly where it stopped. Campaigns waiting for you also show up in the **Needs you** list on Home.
+The campaign shows "The agent needs your input" with its questions. Answer in the reply box and the agent picks up exactly where it stopped. The organization owner also gets an email with the agent’s questions and a link to the campaign — and a message in your default Slack channel if Slack is connected. Campaigns waiting for you also show up in the **Needs you** list on Home.
 
 **Whose ad accounts does it use?**
-Yours. The agent works inside the ad accounts you connected — spend goes to the ad platforms as usual, and everything it builds is visible in each platform's own ads manager.
+Yours. The agent works inside the ad accounts you connected — spend goes to the ad platforms as usual, and everything it builds is visible in each platform's own ads manager. See [What happens in your ad account](#what-happens-in-your-ad-account).
+
+**What happens to my campaigns if I cancel Paid Ads?**
+When the Paid Ads subscription for the workspace ends, each live Managed Campaign is paused on the ad platforms at its next scheduled check (the **Next check** date on the campaign page). Until then it keeps running and spending as set up — so if you want ads to stop right away, press **Pause** on the campaign before you cancel. Nothing is deleted. While the plan is inactive the **Ads** section is locked; once you resubscribe, **Progress** shows "Paused: paid-ads subscription ended" and **Resume** turns the campaign back on.
 
 **I got "You already have … active campaigns" when creating a campaign. What now?**
-You've reached the number of campaigns that can run at once. Ask the agent to end one of the current campaigns, then create the new one.
+A workspace can have up to 5 Managed Campaigns at once — paused campaigns and ones waiting for your input count too; archived and failed ones don't. A paused campaign keeps its slot until you delete it. To free a slot, pause a campaign and choose **Delete** from its menu (ads already created stay in your ad account), then create the new one.

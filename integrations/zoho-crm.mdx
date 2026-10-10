@@ -3,7 +3,7 @@ title: "Connect Zoho CRM"
 description: "Connect Zoho CRM with OAuth so Ryze can read and edit records, modules, and settings in your CRM."
 ---
 
-Zoho CRM connects with **OAuth** — you sign in to Zoho and approve access, no keys to copy. Once connected, the agent can read and edit CRM records and modules, run queries, and work with your CRM data next to your marketing data.
+Zoho CRM connects with **OAuth** — you sign in to Zoho and approve access, no keys to copy. Once connected, the agent can read and edit CRM records and modules, run queries, and work with your CRM data next to your marketing data. When you explicitly ask, it can also delete records — deleted records go to the Zoho CRM recycle bin.
 
 ## Connect in Ryze
 
@@ -19,11 +19,13 @@ Zoho CRM connects with **OAuth** — you sign in to Zoho and approve access, no 
   </Step>
 </Steps>
 
-The card then shows **Connected** with your organization and data center. Access renews automatically — you don't need to reconnect on a schedule.
+The card then shows **Connected**. Click **View** to see the connected organization's name. Access renews automatically — you don't need to reconnect on a schedule.
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 ## Connect more than one organization
 
-You can connect several Zoho CRM organizations to the same workspace. Click **Connect** again and sign in to the other one.
+You can connect several Zoho CRM organizations to the same workspace. Click **View** on the Zoho CRM card, then **Add one more account**, and sign in to the other organization. See [Connect multiple accounts](/integrations/multiple-accounts) for how the agent picks between them.
 
 ## Troubleshooting
 

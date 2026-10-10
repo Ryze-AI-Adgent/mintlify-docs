@@ -60,10 +60,16 @@ The application password is shown only once. If you lose it, just generate a new
 On the **Integrations** page, click **Connect** on the WordPress card, select the **Self-hosted site** tab, and fill in:
 
 - **Site URL** — your site address, e.g. `https://example.com`
-- **Username** — the login you use for `/wp-admin`
+- **Username** — the login you use to sign in to WordPress admin (usually at `/wp-admin`)
 - **Application password** — the password you just copied
 
 Click **Continue**. Ryze verifies the connection.
+
+## After connecting
+
+Click **View** on the WordPress card to optionally choose the **Author** and **Category** new posts use, then click **Save**.
+
+To publish to several WordPress sites, click **View** → **Add one more account** and connect the next site.
 
 ## Troubleshooting
 
@@ -71,5 +77,9 @@ Click **Continue**. Ryze verifies the connection.
 - **REST API not found** — make sure the WordPress REST API is enabled and the site URL is correct.
 - **Jetpack site won't connect** — enable the Jetpack JSON API module, then reconnect.
 - **Can't reach the site** — verify the site URL is reachable and uses `https://`.
+- **"…a security plugin, WAF or host is blocking Ryze. Allowlist our requests, then reconnect."** or **"…the site is likely behind a bot challenge, maintenance mode, or a security plugin intercepting /wp-json requests"** — Cloudflare, Wordfence or your host's firewall is blocking requests to `/wp-json`. Allowlist requests from Ryze (the user agent contains `RyzeBot`) or turn off the bot-protection rule for `/wp-json`, then reconnect.
+- **My login page isn't `/wp-admin`** — that's fine. Enter the username you sign in with and its application password; the login address itself doesn't matter.
+- **"Featured image skipped — the image could not be uploaded to the WordPress media library."** — the article is published without a cover. Republish later, or add the image in WordPress.
+- **"The cover image was uploaded to the media library but WordPress did not attach it to the post as the featured image; set it in the post editor."** — Ryze already retried once. Open the post in WordPress and set the featured image by hand.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

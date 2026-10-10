@@ -1,22 +1,54 @@
 ---
 title: "Connect Shopify"
-description: "Connect your Shopify store with just the store domain — Ryze handles the rest."
+description: "Connect your Shopify store with just the store domain, pick the blog articles publish to, and add more stores."
 ---
 
 Connecting Shopify takes under a minute and needs only your store domain.
 
+## The connect window
+
+When you click **Connect** on the Shopify card, the window has two tabs:
+
+- **Shopify app** (default) — enter your store domain and approve Ryze in your Shopify admin. No API keys to copy. The steps below cover this tab.
+- **Custom app** — your store domain plus the **Client ID** and **Client secret** of an app you create in your store. See [Shopify Custom App](/integrations/shopify-custom-app).
+
+## Connect with the Shopify app
+
 <Steps>
   <Step title="Open Integrations → Shopify">
-    In Ryze, go to **Integrations** and pick **Shopify**.
+    In Ryze, go to **Integrations** and click **Connect** on the **Shopify** card.
   </Step>
   <Step title="Enter your store domain">
-    Type your `.myshopify.com` domain (e.g. `yourstore.myshopify.com`) and continue.
+    On the **Shopify app** tab, type your `.myshopify.com` domain (e.g. `yourstore.myshopify.com`) and click **Continue**.
   </Step>
   <Step title="Approve in Shopify">
-    A Shopify window opens — approve the access prompt, and the connection completes automatically.
+    You're redirected to your Shopify admin in the same tab. Approve the access prompt, and you come back to Ryze with the store connected.
   </Step>
 </Steps>
 
-That's it — no app creation, no API keys, no credentials to copy. If the approval window reports an error, retry from the Integrations page; if it persists, contact [support@get-ryze.ai](mailto:support@get-ryze.ai) with your store domain.
+That's it — no app creation, no API keys, no credentials to copy.
 
-Want to define the permissions yourself instead of using our defaults? Connect through your own [Shopify Custom App](/integrations/shopify-custom-app).
+## After connecting
+
+Click **View** on the Shopify card to optionally choose:
+
+- **Blog** — the existing Shopify blog your articles publish to;
+- **Article template** — the theme article template published articles use, or **Theme default**.
+
+Click **Save**. Both choices are optional.
+
+## Several stores
+
+Each store is its own connection. To add another one, click **View** → **Add one more account** and connect the next store. See [Connect multiple accounts](/integrations/multiple-accounts).
+
+## When you need a custom app
+
+The standard Shopify app lets the agent edit product, collection, page and blog content and SEO fields. Theme file edits (for example `robots.txt`, structured data snippets or code in `theme.liquid`) and URL redirects need your own custom app — see [How do I connect Shopify?](/integrations/faq) in the Integrations FAQ and [Shopify Custom App](/integrations/shopify-custom-app).
+
+## Troubleshooting
+
+- **"Must be a valid yourstore.myshopify.com domain"** — enter only the `.myshopify.com` domain, not your custom domain or a URL with a path.
+- **"This Shopify store is already connected to another Ryze workspace. Shopify keeps one live connection per store — disconnect it there first, then retry."** — open the other workspace → **Integrations** → Shopify, disconnect the store, then connect it here.
+- **"The Shopify install took too long to come back. Open the link again to retry."** — open **Integrations** and click **Connect** on the Shopify card again.
+
+More fixes: [Shopify not connecting](/troubleshooting/shopify-not-connecting). If it still fails, email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your store domain.

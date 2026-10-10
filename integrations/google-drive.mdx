@@ -16,15 +16,24 @@ Google Drive connects with **OAuth** on your Google account. Once connected, you
   </Step>
 </Steps>
 
-You can also connect straight from the chat: click **Add to message** (the **+** button) in the composer and choose Google Drive — if Drive isn't connected yet, Ryze starts the connection and brings you back to the file picker afterwards.
+You can also connect straight from the chat: click **+** (**Add to message**) in the composer, then **Attach files** → **Upload from Drive**. If Drive isn't connected yet, Ryze starts the connection and brings you back to the file picker afterwards.
+
+Drive connects one Google account per workspace.
 
 ## Using it in chat
 
-Click **Add to message** in the composer, choose **Google Drive**, and pick one or more files in the Google picker. They're attached to your message, and the agent can read, update, or create files as you ask.
+Click **+** (**Add to message**) in the composer → **Attach files** → **Upload from Drive**, then pick one or more files in the Google picker. They're attached to your message, and the agent can read, update, or create files as you ask.
+
+## Limits
+
+- **Images** picked from Drive aren't supported — upload them from your computer instead (**Attach files** → **Upload from computer**).
+- Files over **10 MB**, binary files, and Google formats other than Sheets, Docs and Slides are attached by name only — the agent can't read their content.
+- When the agent writes into a Google Doc, it writes **plain text** (no headings, links or formatting), and it can only add text at the end or replace the whole document.
 
 ## Troubleshooting
 
 - **Reconnect needed** — Google revoked the access (password change or a revoked app). Click **Reconnect**.
-- **Picker shows no files** — you're signed in to Google with a different account than the one connected. Switch accounts in the picker, or connect the other Google account.
+- **Picker shows the wrong account or no files** — the picker always opens the Google account you connected on the **Integrations** page; the account you're signed in to in the browser doesn't matter. To use another Google account, click **View** on the **Google Drive** card, disconnect it with the trash icon, and connect again with the other login. Only one Google account can be connected for Drive.
+- **"Images from Google Drive aren't supported — upload them directly."** — upload the image from your computer instead.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -1,6 +1,6 @@
 ---
 title: "Connect Google Ads"
-description: "Connect Google Ads to Ryze so you can ask about spend, ROAS, and performance, and let the agent manage campaigns with your approval."
+description: "Connect Google Ads to Ryze so you can ask about spend, ROAS, and performance, and let the agent manage campaigns under your approval settings."
 ---
 
 Connecting Google Ads lets you ask about campaign performance in plain language and lets the agent act on campaigns under your approval settings.
@@ -21,7 +21,7 @@ Connecting Google Ads lets you ask about campaign performance in plain language 
   </Step>
 </Steps>
 
-That's it — there's no account to pick. Ryze sees every Google Ads account that login can reach, and the card shows **Connected**. Start a **new chat** so the agent picks up the connection.
+That's it — there's no account to pick. Ryze sees every Google Ads account that login can reach, and the card shows **Connected**. The agent can use it from your next message.
 
 ## Choose the accounts the agent uses by default
 
@@ -39,15 +39,21 @@ To connect a second Google login, click **View** → **Add one more account**.
 
 ## What the agent can do
 
-With approval, the agent can create and adjust campaigns, manage budgets, and generate ad creatives. Actions that change your account require sign-off by default — see [Approvals](/agent/approvals) and [Permissions & approvals](/claude/permissions).
+The agent can create and adjust campaigns, manage budgets, and generate ad creatives.
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
+
+Improvements the agent finds on its own go to your [Inbox](/agent/approvals) instead: nothing there changes until you approve. In Claude, approvals are set in Claude itself — set write and delete tools to **Needs approval** to be asked first (see [Permissions & approvals](/claude/permissions)).
 
 <Note>
-Review approval settings before enabling unattended changes on a live spending account. This is the connection where a misconfiguration costs real money.
+Check your **Tool approvals** setting before you ask the agent to work on a live spending account. This is the connection where an unwanted change costs real money.
 </Note>
 
 ## Troubleshooting
 
 **"This Google account has no access to a Google Ads account."** You signed in with a login that isn't on any Google Ads account. Connect again with the login that has access to your ad account.
+
+**"This Google login has no accessible Google Ads accounts — reconnect Google Ads with a login that can access the ad account."** The connected login doesn't reach any Google Ads account. Click **View** → **Add one more account** and sign in with the login that has access, then remove the old one with the trash icon.
 
 **An account is missing.** The connected login can't reach it, or it sits under a manager account you didn't sign in with. Connect the right login with **Add one more account**.
 

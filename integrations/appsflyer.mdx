@@ -26,11 +26,15 @@ On the **Integrations** page, click **Connect** on the **AppsFlyer** card and fi
 - **Pull API token (V2.0)** — the token you copied
 - **App ID** — the package name or iOS id; this becomes the default app for reports
 
-Click **Continue**. The card shows **Connected** with the default app.
+Click **Continue**. The card shows **Connected** — click **View** to see the App ID you entered.
+
+## Limits
+
+The Pull API only serves roughly the **last 90 days**, and AppsFlyer rate-limits raw-data reports to a small number of calls per day per app. Ask for a date range once and reuse the answer rather than re-pulling the same days.
 
 ## Troubleshooting
 
 - **Token rejected** — make sure it's the **V2.0** Pull API token from the Security Center, not a legacy V1 token.
-- **Wrong app in reports** — the App ID you entered is the default; you can connect again with another App ID to add a second app.
+- **Wrong app in reports** — the App ID you entered is the default. To add a second app, click **View** on the AppsFlyer card, then **Add one more account**, and connect with the other App ID.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

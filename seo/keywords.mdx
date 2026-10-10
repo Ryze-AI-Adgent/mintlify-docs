@@ -1,11 +1,13 @@
 ---
 title: "Keywords & Prompts"
-description: "How Ryze finds and chooses the keywords worth chasing — seeded from your site and business, expanded with real search data, then filtered down to the ones that can actually win."
+description: "How Ryze finds and chooses the keywords worth chasing, how to add or remove keywords, and how to manage the AI prompts tracked for AI Visibility."
 ---
 
 Keywords are what your content is built to rank for. Ryze generates and selects them automatically, grounded in real search data rather than guesswork.
 
-Find them under **SEO → Keywords & Prompts** in the sidebar. The page has two tabs: **Keywords** (volume, difficulty, your Search Console position and its trend) and **Prompts** (the questions tracked on AI assistants — see [AI Visibility](/seo/ai-visibility)).
+Find them under **SEO → Keywords & Prompts** in the sidebar (the page header reads **Queries** — it's the same page). The page has two tabs: **Keywords** (volume, difficulty, your Search Console position and its trend) and **Prompts** (the questions tracked on AI assistants — see [Prompts](#prompts) below and [AI Visibility](/seo/ai-visibility)).
+
+The row at the top shows **Keywords**, **Avg search volume**, **AI prompts** (n/50) and **AI visibility**.
 
 ## How keywords are generated
 
@@ -40,9 +42,16 @@ The result is a focused set tied to your business and buyer vertical — quality
 - **Remove** — open the actions menu on a keyword's row and click **Delete**. The keyword leaves your list; this can't be undone.
 - **Add or explore** — click **Explore Queries** and the agent reviews your current set — coverage, gaps, what's winnable — and suggests new keywords worth adding. It asks before changing anything. You can also just ask in any chat, for example "add the keyword soundproof office pod".
 
+## Prompts
+
+Prompts are the questions your buyers ask AI assistants. During setup Ryze adds starter prompts — 5 topics with 5 prompts each — and you can track up to 50.
+
+- Prompts are grouped by topic. To add more, click **Add**: pick a topic or create a **New topic…**, then enter one prompt per line — or use **Suggest prompts**. Details: [AI Visibility](/seo/ai-visibility).
+- To change a prompt, open its **⋯** menu and click **Edit** or **Delete**.
+
 ## Keep positions fresh
 
-Click **Refresh** to pull fresh Search Console positions now. The **Settings** icon next to it sets **Auto-refresh** — **Off**, **Weekly** or **Monthly**. After each refresh you get an email digest; you can turn it off in [Notifications](/workspaces/notifications).
+On the **Keywords** tab, **Refresh** pulls fresh Search Console positions now. On the **Prompts** tab, **Refresh** re-asks all your prompts on ChatGPT, Claude, Gemini and Perplexity — you confirm first. The **Settings** icon next to it sets **Auto-refresh** for both — **Off**, **Weekly** or **Monthly**. After each refresh you get an email digest; you can turn it off in [Notifications](/workspaces/notifications).
 
 <Note>
 Volume and difficulty are pulled live from DataForSEO and reflect your workspace's country. Ryze never makes these numbers up.
@@ -54,7 +63,7 @@ Volume and difficulty are pulled live from DataForSEO and reflect your workspace
   <Card title="Brand" icon="brain" href="/agent/context">
     The brand context keyword seeds are built from.
   </Card>
-  <Card title="Programmatic Articles" icon="newspaper" href="/seo/programmatic">
+  <Card title="Content Plan" icon="newspaper" href="/seo/programmatic">
     How keywords turn into articles.
   </Card>
 </CardGroup>

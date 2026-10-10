@@ -36,12 +36,7 @@ Missing attributes cause silent exclusion. An agent filtering for "wide fit unde
 
 `Product` schema in JSON-LD is what makes a page machine-comparable. At minimum include `name`, `description`, `sku`, `brand`, `image`, and an `offers` block with `price`, `priceCurrency`, and `availability`.
 
-Two rules that are broken constantly:
-
-- **Markup must match the visible page.** A price in schema that differs from the rendered price is a violation and can result in loss of rich results.
-- **Availability must be accurate.** Stale `InStock` markup on a sold-out product causes exclusion once discovered, and erodes trust in the feed.
-
-See [structured data for AI search](/ai-visibility/structured-data-for-ai).
+The markup must match the visible page and track real availability — see the validation rules in [structured data for AI search](/ai-visibility/structured-data-for-ai#rules-that-cause-markup-to-be-ignored).
 
 ## Write the description to be quoted
 
@@ -55,9 +50,14 @@ Compare:
 
 The second can be extracted, compared, and cited. The first cannot.
 
-## Give every variant a real URL
+## Make every variant addressable
 
-Variants hidden behind a picker are not individually addressable, so they cannot be cited or compared separately. Distinct, crawlable variant URLs with their own markup make each one retrievable.
+Variants that exist only behind a picker cannot be cited or compared separately. Two valid patterns:
+
+- **Its own page** — give a variant its own indexable page when people search for it specifically and it has distinct content. See [product variant markup](/shopify/product-variants).
+- **One product URL** — otherwise keep one page, make each variant pre-selectable through a stable URL parameter, and describe the set with `ProductGroup` and `hasVariant` markup so agents can read every variant's price and availability.
+
+Do not create a near-identical page per size — that is duplicate content, not AI-readability.
 
 ## Related
 

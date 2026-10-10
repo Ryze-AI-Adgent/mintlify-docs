@@ -3,7 +3,7 @@ title: "Connect WooCommerce"
 description: "Connect your WooCommerce store with a REST API key so Ryze can report on orders, revenue, refunds, products, customers, and coupons."
 ---
 
-WooCommerce connects with a **REST API key** (consumer key and secret). Once connected, the agent can read orders, revenue, refunds, products, customers, and coupons from your store — and update orders or products if you give the key write access.
+WooCommerce connects with a **REST API key** (consumer key and secret). Once connected, the agent can read orders, revenue, refunds, products, customers, and coupons from your store — and, with a **Read/Write** key, make changes when you ask.
 
 ## Step 1 — Create a REST API key
 
@@ -12,7 +12,7 @@ WooCommerce connects with a **REST API key** (consumer key and secret). Once con
     In WordPress, go to **WooCommerce → Settings → Advanced → REST API → Add key**.
   </Step>
   <Step title="Choose permissions">
-    **Read** is enough for reporting. Choose **Read/Write** if the agent should update orders or products.
+    **Read** is enough for reporting. Choose **Read/Write** if the agent should create or change things in your store.
   </Step>
   <Step title="Copy both values">
     Copy the **consumer key** (starts with `ck_`) and **consumer secret** (starts with `cs_`).
@@ -29,9 +29,13 @@ On the **Integrations** page, click **Connect** on the **WooCommerce** card and 
 
 Click **Continue**.
 
-<Tip>
-After connecting, start a **new chat** so the agent picks up the new integration.
-</Tip>
+## What the agent can do
+
+- **Read** — orders and refunds, sales reports, products and variations, customers, coupons, and shipping and tax settings
+- **Change** (Read/Write key) — create coupons, products and order notes, and update orders (for example their status) and products (for example price or stock) when you ask
+- **Delete** (Read/Write key) — delete coupons or products when you explicitly ask
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 <Note>
 To publish articles to a WordPress blog, connect [WordPress](/integrations/wordpress) as well — the WooCommerce connection covers store data.
@@ -41,6 +45,6 @@ To publish articles to a WordPress blog, connect [WordPress](/integrations/wordp
 
 - **"The store must be served over HTTPS"** — WooCommerce keys are only sent over HTTPS. Use your store's `https://` address.
 - **"Consumer keys start with ck_" / "Consumer secrets start with cs_"** — the values are swapped or incomplete. Copy both again.
-- **Updates are rejected** — the key is read-only. Create a new key with **Read/Write** and connect again.
+- **Updates are rejected** — the key is read-only. Create a new key with **Read/Write**, then disconnect the store in **View** and connect again with the new key.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -1,9 +1,9 @@
 ---
 title: "Connect PostHog"
-description: "Connect PostHog with a personal API key so Ryze can read product analytics — events, insights, funnels, and HogQL queries."
+description: "Connect PostHog with a personal API key so Ryze can read product analytics — events, insights, funnels, and HogQL queries — and manage insights, dashboards, feature flags, and cohorts."
 ---
 
-PostHog connects with a **personal API key**. Once connected, the agent can read events, insights, and funnels, and run HogQL queries against the project you pick — putting product analytics next to your ads and SEO data in one answer.
+PostHog connects with a **personal API key**. Once connected, the agent can read events, insights, and funnels, and run HogQL queries against the project you pick — putting product analytics next to your ads and SEO data in one answer. It can also make changes when you ask — see [What the agent can do](#what-the-agent-can-do).
 
 ## Step 1 — Create a personal API key
 
@@ -11,8 +11,8 @@ PostHog connects with a **personal API key**. Once connected, the agent can read
   <Step title="Open Personal API keys">
     In PostHog, go to **Settings → Personal API keys** and click **Create key**.
   </Step>
-  <Step title="Give it read access">
-    Grant read access to the projects you want, including the **Query** and **Insight** scopes. Copy the key — it starts with `phx_`.
+  <Step title="Choose its access">
+    Grant read access to the projects you want, including the **Query** and **Insight** scopes. Read access is enough for reporting; add write access to the scopes the agent should change (for example insights or feature flags). Copy the key — it starts with `phx_`.
   </Step>
 </Steps>
 
@@ -23,7 +23,19 @@ On the **Integrations** page, click **Connect** on the **PostHog** card and fill
 - **Personal API key** — the `phx_` key
 - **Host** — `https://us.posthog.com` for US Cloud, `https://eu.posthog.com` for EU Cloud, or your self-hosted URL
 
-Click **Continue**, then pick the **Project**. The card shows the project and host.
+Click **Continue**, then pick the **Project** and click **Save**. The card shows **Connected** — click **View** to see the project name and change the **Project** later.
+
+## What the agent can do
+
+- **Read** — events, insights, funnels, dashboards, feature flags, cohorts and persons, plus HogQL queries
+- **Change** — create or edit insights, dashboards, feature flags and cohorts when you ask
+- **Delete** — remove those objects when you explicitly ask
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
+
+<Note>
+To keep the agent read-only, give the personal API key read scopes only — PostHog then rejects any change.
+</Note>
 
 ## Troubleshooting
 

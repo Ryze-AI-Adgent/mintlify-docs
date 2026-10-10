@@ -29,7 +29,15 @@ The consequences:
 
 ## Current state
 
-Agentic commerce is early. Standards are still forming across payment protocols, agent identity, and checkout handoff, and support differs by platform and by agent. The durable preparation is the same either way: complete, accurate, machine-readable product data — which also serves conventional search and shopping surfaces.
+Agentic commerce is live but fragmented. Several protocols now exist:
+
+- **Agentic Commerce Protocol (ACP)**, from OpenAI and Stripe, defines how agents such as ChatGPT hand off checkout to a merchant.
+- **Universal Commerce Protocol (UCP)**, co-developed by Google and Shopify with other retailers, covers discovery through checkout and post-purchase.
+- **Agent Payments Protocol (AP2)**, from Google, covers payments made by agents.
+
+Shopify storefronts now publish an `/agents.md` file that points shopping agents to Shopify's tools for catalog search and checkout — open `yourstore.com/agents.md` to see yours.
+
+Support still differs by agent and platform, so the durable preparation is unchanged: complete, accurate, machine-readable product data — which also serves conventional search and shopping surfaces.
 
 ## Related
 

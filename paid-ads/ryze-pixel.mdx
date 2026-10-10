@@ -1,27 +1,42 @@
 ---
-title: "Ryze Pixel"
-description: "One script on your site. Ryze routes every event to Meta, Google Ads, TikTok and GA4 server-side."
+title: "Web Analytics & Ryze Pixel"
+description: "One script on your site for first-party web analytics. Optionally forward conversions server-side to Meta, Google Ads, TikTok and GA4."
 ---
 
-Ryze Pixel collects events from your website and forwards them to your ad platforms from Ryze's servers. You install one script tag; Ryze handles the Conversions API for Meta, conversion uploads for Google Ads, the Events API for TikTok and the Measurement Protocol for GA4. Server-side delivery survives ad blockers and browser tracking limits, and every destination shows sent versus received counts so you can see what actually landed.
+Ryze Pixel is one script tag on your website. It powers **Web Analytics** — visitors, sources, page speed and events from your own site — and, when you add a destination, forwards your conversions to your ad platforms from Ryze's servers: the Conversions API for Meta, conversion uploads for Google Ads, the Events API for TikTok and the Measurement Protocol for GA4. Server-side delivery survives ad blockers and browser tracking limits, and every destination shows sent versus received counts so you can see what actually landed. Nothing is forwarded until you add a destination yourself.
 
-The pixel lives under **Analytics → Web Analytics** in the sidebar. The page has four tabs: **Web Analytics** (visitors, page views, sources, countries and devices), **Web Vitals** (page speed from real visitors), **Events** (every event and how it lands on each platform) and **Destinations** (where events are forwarded).
+The pixel lives under **Analytics → Web Analytics** in the sidebar. Web Analytics is included in every Ryze plan — you don't need Paid Ads to use it. On the Shopify CRO plan, [A/B tests](/cro/ab-testing#what-ryze-does) also run through this pixel, so it has to be on your store.
+
+Until the first event arrives, the page shows only the install screen. After that it has four tabs: **Web Analytics** (visitors, page views, sources, countries and devices), **Web Vitals** (page speed from real visitors), **Events** (every event and how it lands on each platform) and **Destinations** (where events are forwarded). Charts cover the last 7 days. If the pixel sees more than one domain, pick one in **All domains** at the top.
 
 ## Install the script
 
-The fastest path is **Install → Install with Agent** at the top of the Web Analytics page: the agent checks which CMS is connected (Shopify, WordPress, Webflow or GitHub), places the script tag before `</head>` itself and confirms it is served. If no writable CMS is connected it gives you the exact place to paste it. To do it by hand:
+The fastest path is **Install → Install with Agent** at the top of the Web Analytics page: the agent checks which CMS is connected (Shopify, WordPress, Webflow or GitHub), places the script tag before `</head>` itself and confirms it is served. If no writable CMS is connected it gives you the exact place to paste it.
+
+A few things depend on your CMS:
+
+- **WordPress** — the agent adds the tag with the Code Snippets plugin. If the plugin isn't installed, the agent installs it, and asks you first.
+- **Webflow** — the agent adds the tag to your site's custom code, but publishes the site only with your OK, because publishing republishes everything.
+- **GitHub** — the agent commits the tag to your site's code. It goes live after your next deploy.
+- **A blog hosted by Ryze** can't run the pixel — it strips script tags. Put the pixel on your main site.
+
+To do it by hand:
 
 <Steps>
   <Step title="Click Install → Install manually">
-    The dialog shows your script tag with the workspace's public key (`data-key="rz_pk_…"`). Copy it.
+    The dialog shows your script tag with the workspace's public key in the address (`px.js?key=rz_pk_…`). Copy it as is.
   </Step>
   <Step title="Paste it before </head> on every page">
     ```html
-    <script async src="https://px.get-ryze.ai/px.js" data-key="rz_pk_YOUR_KEY"></script>
+    <script src="https://px.get-ryze.ai/px.js?key=rz_pk_YOUR_KEY"></script>
     ```
+    Don't add `async` or `defer`. The tag loads synchronously on purpose, so [A/B tests](/cro/ab-testing#what-ryze-does) can switch the page before it shows.
+
     On most site builders this goes into the global head or custom code section. On Shopify, add it to `theme.liquid` right before `</head>`; the theme does not run on the checkout and thank-you pages of most stores, so purchases there come from your backend through the server API below.
 
-If you load the script asynchronously and call `ryze` before it has loaded, queue the calls: `window.ryzeq = window.ryzeq || []; ryzeq.push(["track", "lead"]);` The script replays the queue when it starts.
+<Note>
+If your site loads the script some other way (for example through a tag manager) and calls `ryze` before the script has loaded, queue the calls: `window.ryzeq = window.ryzeq || []; ryzeq.push(["track", "lead"]);` The script replays the queue when it starts.
+</Note>
 
 Script attributes: `data-consent="required"` holds every event and cookie until `ryze.consent("grant")` (see Consent); `data-link-domains="checkout.example.com"` keeps the visitor and session across links to another domain, for example a hosted checkout; `data-hash-routing="on"` counts hash changes as page views; `data-track-search="on"` makes a different query string a different page (by default a filter or sort is the same page); `data-autocapture="off"` disables click and form capture; `data-allow-localhost="on"` tracks local development, which is otherwise ignored.
   </Step>
@@ -82,17 +97,23 @@ Destinations are where events go. Ryze uses the ad accounts already connected un
 3. Events are mapped to the platform's standard events by default. Click **Customize** to change a mapping, send a custom name, or stop sending a specific event.
 4. Click **Enable destination**, then **Send test event**. Meta and TikTok accept a test event code so the test never counts as real.
 
+Platforms you've connected but haven't added show **Not set up** with a **Set up** button.
+
+<Note>
+Nothing is forwarded until you add a destination — Ryze never turns one on by itself. If your store already sends the same events to that platform server-side (for example Shopify's Facebook & Instagram or Google & YouTube app, or another Conversions API setup), adding it here too will count purchases twice. Use Ryze as a destination only where nothing else sends server-side events, or switch the other source off.
+</Note>
+
 Per platform:
 
 - **Meta** — Conversions API into a dataset in your ad account. Optional test event code from Events Manager → Test events.
-- **Google Ads** — conversion upload with gclid, gbraid and wbraid plus enhanced conversions. Ryze creates the conversion actions it needs. Google only accepts a conversion once its click is six hours old, so uploads run six hours after each event.
+- **Google Ads** — conversion upload with gclid, gbraid and wbraid plus enhanced conversions. Ryze creates the conversion actions it needs. Google only accepts a conversion once its click is six hours old, so uploads run six hours after each event. Click-id uploads work right away. Enhanced conversions (hashed email) stay off until you accept Google's customer data terms once in Google Ads → Goals → Conversions → Settings; until then the destination shows **Customer data terms not accepted**. To send conversions that have no click id, also turn on enhanced conversions for leads in the same place.
 - **TikTok Ads** — Events API. Paste the access token generated on the pixel (TikTok Ads Manager → Tools → Events → Data sources → your pixel → Settings → Generate Access Token). One token covers every pixel of the ad account.
 - **Google Analytics 4** — Measurement Protocol into your data stream. Paste the API secret from Admin → Data streams → Measurement Protocol API secrets. GA4 sends no delivery receipts, so a sent event means Google accepted the request.
 
 ## Reading the tabs
 
-- **Events** — **Events · 24h**, **Conversions sent · 24h** and **Purchases · 24h** summarize the last day. **By event** lists every event name, its count, how many carry an identified visitor, and how it lands on each enabled destination.
-- **Destinations** — sent, received and delivery rate per platform with a health status, plus the share of events carrying each match key. Click a row for the daily chart, the event mapping and recent deliveries with error codes. If a platform keeps rejecting an event, **Fix with agent** hands the error to the agent.
+- **Events** — **Events · 24h**, **Conversions sent · 24h**, **Purchases · 24h** and **Identified sessions** (the share of sessions that carry an email or phone) summarize the last day. **By event** lists every event name, its count, how many carry an identified visitor, and how it lands on each enabled destination.
+- **Destinations** — **Sent · 24h**, **Delivery rate**, **Received · 24h** and **Time to deliver** at the top; sent, received and a health status per platform; and **Match keys** — the share of events carrying each match key. Click a row for the daily chart, the event mapping and recent deliveries with error codes. If a platform keeps rejecting an event, **Fix with agent** hands the error to the agent.
 - Pause a destination with its **Enabled** switch. Events keep collecting; routing resumes when you switch it back on.
 
 ## Troubleshooting
@@ -100,4 +121,4 @@ Per platform:
 - **Waiting for the first event never changes** — check that the script is on the page: the browser console should show a request to `px.get-ryze.ai`.
 - **Events come from the wrong domain** — the pixel accepts events from the domain it was set up for: your workspace's website address, or, if none was set, the domain of the first event it received. If that's not the domain you need, email [support@get-ryze.ai](mailto:support@get-ryze.ai).
 - **Sent but not received** — open the destination and read the error code on the failed deliveries. Expired tokens and missing permissions are the usual causes; reconnect the integration and retry.
-- **Purchases double-count** — pass the same `order_id` from the browser and from the server.
+- **Purchases double-count** — pass the same `order_id` from the browser and from the server. If they still count twice on an ad platform, check whether another app or Conversions API setup also sends purchases to that platform (see the note under [Add destinations](#add-destinations)).
