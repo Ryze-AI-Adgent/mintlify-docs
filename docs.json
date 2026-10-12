@@ -254,6 +254,8 @@
             "group": "Paid Ads",
             "pages": [
               "paid-ads/introduction",
+              "paid-ads/meta-ads",
+              "paid-ads/google-ads",
               "paid-ads/getting-started",
               "paid-ads/managed-campaigns",
               "paid-ads/ai-creatives",
@@ -604,11 +606,11 @@
     },
     {
       "source": "/ads/google-ads",
-      "destination": "/paid-ads/introduction"
+      "destination": "/paid-ads/google-ads"
     },
     {
       "source": "/ads/meta-ads",
-      "destination": "/paid-ads/introduction"
+      "destination": "/paid-ads/meta-ads"
     },
     {
       "source": "/ads/creative-generation",
