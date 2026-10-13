@@ -54,6 +54,8 @@ When you click **Connect**, Ryze first asks how you sign in to Microsoft Adverti
 
 Pick the one you actually use and click **Continue**. If you signed in but no ad accounts show up, you likely picked the other sign-in type — remove the connection in **View** and connect again with the right one.
 
+If the connection fails with an error that mentions **AADSTS650052** ("your organization lacks a service principal for Microsoft Advertising API Service"), you signed in with a work account and your company's Microsoft Entra ID hasn't registered the Microsoft Advertising API yet. Microsoft blocks every outside app until it does. An admin of your organization (Global Administrator or Cloud Application Administrator) adds it once, for example in Azure Cloud Shell: `az ad sp create --id d42ffc93-c136-491d-b4fd-6f18168c68fd`, or in PowerShell: `New-MgServicePrincipal -AppId d42ffc93-c136-491d-b4fd-6f18168c68fd`. Wait a few minutes, then click **Connect** again.
+
 ## TikTok Ads
 
 Campaign performance, spend, and audience insights. Follow the [common steps](#connect-a-platform) and sign in with your TikTok for Business login.
