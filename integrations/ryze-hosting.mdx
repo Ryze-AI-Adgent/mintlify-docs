@@ -31,12 +31,20 @@ Your site runs on a platform Ryze doesn't connect to? Host the blog here and lin
 
 ## Step 1 — Choose where your blog lives
 
-On the **Integrations** page, click **Connect** on the **Ryze Hosting** card. Ryze asks you to *Choose where your hosted blog lives*:
+On the **Integrations** page, click **Connect** on the **Ryze Hosting** card. Ryze asks you to *Choose where your hosted blog lives* and shows two options:
 
-- **Free Ryze subdomain** — `your-brand.byryze.com`. Type a name (letters, numbers and dashes; Ryze suggests one from your organization name) and click **Connect domain**. The blog goes live in about a minute, with no DNS setup. You're done — skip Steps 2 and 3.
-- **Your own domain** — enter the domain and click **Connect domain**, then follow Steps 2 and 3:
+<Frame>
+  <img src="/images/ryze-hosting-choose-domain.png" alt="The Ryze Hosting dialog with two options: Free Ryze subdomain and Your own domain" />
+</Frame>
+
+- **Free Ryze subdomain** — `your-brand.byryze.com`. Click it, type a name (letters, numbers and dashes; Ryze suggests one from your organization name) and click **Connect domain**. The blog goes live in about a minute, with no DNS setup. You're done — skip Steps 2 and 3.
+- **Your own domain** — click it, enter the domain and click **Connect domain**, then follow Steps 2 and 3:
   - **A subdomain** (recommended) — e.g. `blog.example.com`, keeping your main site untouched.
   - **Your root domain** — e.g. `example.com`, if the whole domain is for the blog.
+
+<Frame>
+  <img src="/images/ryze-hosting-custom-domain.png" alt="Entering your own blog domain, with Setup guide and Connect domain" />
+</Frame>
 
 You can start on the free subdomain and move to your own domain later: click **View** on the **Ryze Hosting** card, then **Connect custom domain**.
 
@@ -53,8 +61,16 @@ If Ryze also shows a **verification** record (a `TXT` or extra `CNAME`), add tha
 
 Ryze detects your DNS provider — Cloudflare, GoDaddy, Namecheap, Route 53, Vercel, Google Domains, DigitalOcean, Name.com, DNSimple, or Porkbun:
 
-- For some providers Ryze shows a **Set up automatically in …** button with your provider's name (for example, **Set up automatically in Cloudflare**). Click it, sign in to your provider and approve the change — Ryze verifies the record on its own.
-- Otherwise click **Open … DNS settings** (for example, **Open GoDaddy DNS settings**) and add the record yourself.
+- For some providers Ryze shows a **Set up automatically in …** button with your provider's name (for example, **Set up automatically in Cloudflare**). Click it, sign in to your provider and approve the change — Ryze verifies the record on its own. The record is listed below the button under **Or add this DNS record yourself**, if you'd rather add it by hand.
+- Otherwise Ryze shows *Add this DNS record at your domain provider* — click **Open … DNS settings** (for example, **Open GoDaddy DNS settings**) and add the record yourself.
+
+<Frame>
+  <img src="/images/ryze-hosting-dns-record.png" alt="The Ryze Hosting dialog showing the CNAME record and the Set up automatically in Cloudflare button" />
+</Frame>
+
+<Frame>
+  <img src="/images/ryze-hosting-dns-record-manual.png" alt="Adding the CNAME record yourself" />
+</Frame>
 
 <Frame>
   <img src="/images/ryze-hosting-dns-cloudflare.png" alt="Adding the DNS record in Cloudflare, set to DNS only" />

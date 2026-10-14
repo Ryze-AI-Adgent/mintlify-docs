@@ -3,7 +3,7 @@ title: "Connect Klaviyo"
 description: "Connect your Klaviyo account with a private API key so Ryze can read and manage your email and SMS marketing."
 ---
 
-Klaviyo connects with a **private API key** — a key you generate in Klaviyo that lets Ryze work with your campaigns, flows, lists, and reporting without sharing your login. Pick the access level that matches what you want Ryze to do: **Full Access** if you want the agent to create and manage things (campaigns, lists, flows), or **Read-Only** if you only want reporting.
+Klaviyo connects with a **private API key** — a key you generate in Klaviyo that lets Ryze work with your campaigns, flows, lists, and reporting without sharing your login. Use a **Full Access** key, or a custom key that includes the **Accounts** read scope.
 
 <Frame>
   <img src="/images/klaviyo-connect.png" alt="The Connect Klaviyo dialog in Ryze with the Private API key field" />
@@ -21,7 +21,7 @@ Klaviyo connects with a **private API key** — a key you generate in Klaviyo th
     <Frame><img src="/images/klaviyo-settings.png" alt="The Create Private API Key button on the API keys page" /></Frame>
   </Step>
   <Step title="Choose access level">
-    Pick **Full Access** if you want Ryze to create and manage campaigns, lists, and flows. Pick **Read-Only** if you only want reporting. Avoid a custom key unless you know which scopes you're enabling.
+    Pick **Full Access** — Ryze can then read your reporting and create and manage campaigns, lists, and flows. If you build a custom key instead, make sure it includes the **Accounts** read scope.
     <Frame><img src="/images/klaviyo-access-level.png" alt="Selecting the access level for the API key" /></Frame>
   </Step>
   <Step title="Copy the key">
@@ -51,7 +51,7 @@ Klaviyo serves performance reports through requests that Ryze counts as changes.
 
 ## Troubleshooting
 
-- **Key rejected** — make sure you copied the full `pk_...` key and that it has the `accounts:read` scope. A Read-only or Full key always includes it; a custom key may not.
+- **Key rejected** — make sure you copied the full `pk_...` key and that it has the `accounts:read` scope. A Full Access key always includes it; a custom key may not.
 - **Can't find API keys** — they live under **Settings → API keys** (click your account name in the lower-left to reach Settings).
 - **Wrong account connected** — each key belongs to one Klaviyo account. To connect a different account, generate a key while logged into that account.
 
