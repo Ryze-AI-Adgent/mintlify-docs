@@ -16,7 +16,7 @@ Squarespace has no blog API. To publish, Ryze signs in to your site with the log
 
 ## Before you connect
 
-- **An email and password login.** Use the account of the site owner or a contributor with **Content Editor** access.
+- **An email and password login.** Google, Apple, GitHub sign-in and passkeys won't work. Use the account of the site owner or a contributor with **Content Editor** access.
 - **Two-factor authentication off** for that login. If Squarespace asks for a verification code, the connection is refused. A contributor account without two-factor authentication works.
 - **A blog on the site.** If there isn't one yet, add a Blog page in Squarespace (**Pages → + → Blog**).
 
@@ -36,7 +36,7 @@ Squarespace has no blog API. To publish, Ryze signs in to your site with the log
   </Step>
 </Steps>
 
-If the site has one blog, Ryze picks it. If it has several, open the Squarespace integration settings and choose one in the **Blog** picker. Nothing publishes until a blog is selected.
+If the site has one blog, Ryze picks it. If it has several, choose one under **Choose a Blog** in the window that opens after connecting, then click **Save**. If you close that window, the Squarespace card shows **Require setup** — click **View** on the card to open it again. Nothing publishes until a blog is selected.
 
 ## How publishing works
 
@@ -71,8 +71,8 @@ Publishing is safe to repeat. Ryze finds its own post by slug, so a retry never 
 | Squarespace asked for a verification code on login | Turn off two-factor authentication for this account, or use a contributor account without it, then connect again. |
 | Squarespace login did not finish | Check the login and password, then connect again. |
 | This Squarespace account cannot edit the site | Use the site URL from **Squarespace → Website** and an owner or contributor login with Content Editor access. |
-| Squarespace blog not selected | Pick a blog in the Squarespace integration settings. |
-| The Squarespace blog selected for publishing no longer exists | Pick another blog in the Squarespace integration settings. |
+| Squarespace blog not selected | Click **View** on the Squarespace card, pick a blog under **Choose a Blog** and click **Save**. |
+| The Squarespace blog selected for publishing no longer exists | Click **View** on the Squarespace card, pick another blog and click **Save**. |
 | The Squarespace blog already has a post at "…" that Ryze did not create | Rename the article slug, or remove that post in Squarespace. |
 | The Squarespace blog already has a draft at "…" that Ryze does not recognise | Delete that draft in Squarespace (or rename the article slug), then publish again. |
 | Squarespace refused to save the new post / saved the post at a different address | Change the article slug to letters, digits and hyphens, then publish again. |

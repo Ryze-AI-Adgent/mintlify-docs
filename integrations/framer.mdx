@@ -21,16 +21,16 @@ Framer connects with two things: your **project URL** and an **API key** you gen
     Open your project in Framer.
     <Frame><img src="/images/framer-step-1.png" alt="Open your project in Framer" /></Frame>
   </Step>
-  <Step title="Open project settings">
-    Click the settings icon in the top-right corner to open project settings.
+  <Step title="Open Site Settings">
+    Click the settings icon in the top-right corner to open **Site Settings**.
     <Frame><img src="/images/framer-step-2.png" alt="Open project settings" /></Frame>
   </Step>
-  <Step title="Go to General settings">
-    In General settings, scroll down to the end.
+  <Step title="Go to General">
+    Open **General** and scroll down to **API Keys**.
     <Frame><img src="/images/framer-step-3.png" alt="Scroll to the end of General settings" /></Frame>
   </Step>
-  <Step title="Create and copy the API token">
-    Create an API token and copy it. You'll paste it into Ryze next.
+  <Step title="Create and copy the API key">
+    Create an API key and copy it. You'll paste it into Ryze next.
   </Step>
 </Steps>
 
@@ -39,23 +39,23 @@ Framer connects with two things: your **project URL** and an **API key** you gen
 On the **Integrations** page, click **Connect** on the Framer card and fill in:
 
 - **Project URL** — copy it from the Framer editor's address bar. It looks like `https://framer.com/projects/My-Site--a1b2c3d4e5f6g7h8i9j0`: the project name, two dashes, then a 20-character id. The name alone is not enough — Ryze needs the id at the end. You can also paste just the 20-character id.
-- **API key** — the token you copied from Framer
+- **API key** — the key you copied from Framer (**Site Settings → General → API Keys**)
 
 <Frame>
   <img src="/images/framer-connect.png" alt="The Connect Framer dialog in Ryze" />
 </Frame>
 
-Click **Continue**. You're connected.
+Click **Continue**. You're connected, and the Collection picker opens right away.
 
 ## Step 3 — Choose a Collection
 
-After connecting, open the Framer integration settings and pick a **Collection** — the CMS collection where generated articles are published.
+In the window that opens after **Continue**, pick one under **Choose a Collection** — the CMS collection where generated articles are published. To change it later, click **View** on the Framer card.
 
 <Frame>
   <img src="/images/framer-collection-selected.png" alt="Choosing a CMS collection in the Framer integration settings" />
 </Frame>
 
-If the dropdown says **No Collection available**, your Framer project doesn't have a CMS collection yet (or the API key doesn't have access to one). Create a collection in Framer's CMS, then reconnect and pick it.
+If you see **No Collection available on the connected account. Make sure the account has access to at least one and reconnect.**, your Framer project doesn't have a CMS collection yet (or the API key doesn't have access to one). Create a collection in Framer's CMS, then reconnect and pick it.
 
 <Frame>
   <img src="/images/framer-collection.png" alt="The No Collection available message in the Framer integration settings" />
