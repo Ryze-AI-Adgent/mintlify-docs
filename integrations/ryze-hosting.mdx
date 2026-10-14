@@ -72,12 +72,8 @@ Ryze detects your DNS provider — Cloudflare, GoDaddy, Namecheap, Route 53, Ver
   <img src="/images/ryze-hosting-dns-record-manual.png" alt="Adding the CNAME record yourself" />
 </Frame>
 
-<Frame>
-  <img src="/images/ryze-hosting-dns-cloudflare.png" alt="Adding the DNS record in Cloudflare, set to DNS only" />
-</Frame>
-
 <Warning>
-On **Cloudflare**, set the record to **DNS only** (grey cloud), not proxied (orange cloud). A proxied record breaks verification.
+On **Cloudflare**, add the record exactly as Ryze shows it — for a subdomain, a **CNAME** named `blog` pointing to `cname.vercel-dns.com` — and set it to **DNS only** (grey cloud), not proxied (orange cloud). A proxied record breaks verification.
 </Warning>
 
 ## Step 3 — Verify
