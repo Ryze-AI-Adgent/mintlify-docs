@@ -64,6 +64,7 @@
               "integrations/overview",
               "integrations/google-search-console",
               "integrations/google-analytics",
+              "integrations/google-business-profile",
               "integrations/google-ads",
               "integrations/meta-ads",
               "integrations/ad-platforms",
@@ -230,6 +231,7 @@
               "seo/optimizations",
               "seo/programmatic",
               "seo/keywords",
+              "seo/local-seo",
               {
                 "group": "Backlinks & PR",
                 "pages": [
