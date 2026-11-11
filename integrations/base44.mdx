@@ -1,31 +1,40 @@
 ---
 title: "Connect Base44"
-description: "Publish articles to an app built with Base44. Ryze signs in, saves the article files into the app and clicks Publish."
+description: "Publish articles to an app built with Base44. Ryze connects with a Base44 access token, saves the article files into the app and publishes it."
 ---
 
-<video
-  className="w-full aspect-video rounded-xl"
-  controls
-  preload="none"
-  poster="https://gwvckixiegkllthleuyt.supabase.co/storage/v1/object/public/product-videos/posters/howto-connect-base44.webp"
-  src="https://gwvckixiegkllthleuyt.supabase.co/storage/v1/object/public/product-videos/howto-connect-base44-v1.mp4"
-  title="How to connect Base44"
-/>
-
-Base44 has no publishing API. To publish, Ryze signs in to Base44 with the login you give it, saves the article files into your app, and clicks **Publish**, the way you would. Your login and password are stored encrypted.
+Ryze publishes to Base44 through Base44's own API. You give Ryze the link to your app and a Base44 access token. Ryze saves each article as a file in the app and publishes the app. The access token is stored encrypted.
 
 <Warning>
-**Publish deploys the whole app.** Any changes you made in Base44 but haven't published yet go live with the next article.
+**Publishing deploys the whole app.** Any changes you made in Base44 but haven't published yet go live with the next article.
 </Warning>
 
 ## Before you connect
 
-- **An email and password login.** Google, Apple, GitHub sign-in and passkeys won't work. If you sign in another way, invite a second Base44 account that has a password and connect with that one.
-- **No verification code on login.** If Base44 asks for a code when Ryze signs in, the connection is refused.
+- **A published app.** Publish the app once in Base44 so it has a public address.
 - **A Base44 plan that can publish apps.**
-- **Base44 message credits** for the setup prompt, unpublishing and slug changes. Regular publishing doesn't use credits. See [Credits](#credits).
+- **Base44 message credits** for the one setup prompt. Publishing, republishing and unpublishing don't use credits. See [Credits](#credits).
 
-## Connect in Ryze
+## Step 1 — Create an access token in Base44
+
+<Steps>
+  <Step title="Open Secrets">
+    In Base44, click your workspace name at the bottom left, then **Settings**, then **Secrets**.
+  </Step>
+  <Step title="Create the token">
+    Open the **Personal access tokens** tab and click **Create access token**. Give it a name, for example "Ryze".
+  </Step>
+  <Step title="Choose access and permission">
+    Under **Access**, pick the app you want Ryze to publish to (or all apps). Under **Permission**, pick **Full access**. A read-only token can't save articles.
+  </Step>
+  <Step title="Copy the token">
+    Click **Create access token** and copy the value. Base44 shows it only once.
+  </Step>
+</Steps>
+
+Create the token in the workspace that owns the app.
+
+## Step 2 — Connect in Ryze
 
 <Steps>
   <Step title="Copy the app link">
@@ -35,18 +44,17 @@ Base44 has no publishing API. To publish, Ryze signs in to Base44 with the login
     On the **Integrations** page, click **Connect** on the Base44 card.
   </Step>
   <Step title="Fill in the fields">
-    - **Project URL** — the link you copied
-    - **Base44 email** — your Base44 login
-    - **Password** — the password for that login
+    - **App link** — the link you copied
+    - **Access token** — the token you created in Base44
   </Step>
   <Step title="Click Connect">
-    The dialog shows each step as it happens: **Logging in to Base44**, **Checking your Base44 plan and credits**, **Base44 is setting up your blog**, then **Saving the connection**. Setup usually takes 1–2 minutes.
+    The dialog shows **Base44 is setting up your blog** while Base44's AI works. This takes a few minutes. Keep the window open.
   </Step>
 </Steps>
 
 ### What the setup prompt does
 
-During connect, Ryze sends Base44 one prompt that sets up the blog:
+During connect, Ryze sends Base44's AI one prompt that sets up the blog:
 
 - Articles become JSON files in `src/content/articles/`, one file per article.
 - `/blogs` lists every article, newest first, and `/blogs/{slug}.html` shows one article.
@@ -54,7 +62,9 @@ During connect, Ryze sends Base44 one prompt that sets up the blog:
 - The same build step writes `sitemap.xml` (your public pages and every article) and `robots.txt`. They replace the ones Base44 generates.
 - If your app already has a blog, Base44 rewires that blog to read these files and keeps its design. Otherwise it adds a **Blog** link to the main navigation.
 
-The prompt asks Base44 not to change anything else and not to install new packages. **Every reconnect sends this prompt again.**
+The prompt asks Base44 not to change anything else and not to install new packages.
+
+A reconnect skips the prompt when the blog is already set up. If you have used the app's chat in Base44 since the setup, a reconnect sends the prompt again.
 
 ## Article URLs
 
@@ -66,54 +76,57 @@ Ryze builds these addresses from your app's `base44.app` address.
 
 ## How publishing works
 
-Articles go out in the daily publishing window that starts at 20:00 UTC, in batches of up to 5 articles per site. For each batch Ryze:
+For each article Ryze:
 
-1. Saves each article file straight into the app. No prompt is sent and no credits are spent.
-2. Clicks **Publish**. Base44 runs the build, which also writes the HTML pages and the sitemap.
-3. Opens each article on your live site and checks its title, meta description and text. This check waits up to 2 minutes.
+1. Saves the article file straight into the app. No prompt is sent and no credits are spent.
+2. Publishes the app. Base44 runs the build, which also writes the HTML pages and the sitemap.
+3. Opens the article on your live site and checks its title and text. This check waits up to 1 minute.
+
+One article usually takes about half a minute. Articles for the same app publish one at a time.
 
 ## Credits
 
 | Action | Prompts | Base44 message credits in our tests |
 | --- | --- | --- |
 | First connect (setup) | 1 | about 3 |
-| Reconnect (setup again) | 1 | about 1.5–2 |
-| Publish batch of up to 5 articles | 0 | none |
-| Republish with a changed slug | 1 | about 0.7 |
-| Unpublish an article | 1 | about 0.7 |
-| Clicking **Publish** | 0 | free |
+| Reconnect when the blog is already set up | 0 | none |
+| Reconnect after you used the app's chat | 1 | about 1.5–3 |
+| Publish or republish an article | 0 | none |
+| Unpublish an article | 0 | none |
 
 These are approximate. Base44 decides the cost of each prompt.
 
-Before every prompt Ryze checks your plan and remaining credits. When the account is out of message credits, prompts stop with a message until you add credits or the monthly credits come back.
-
 ## When Base44 is busy with your own prompt
 
-Before it saves a file or clicks Publish, Ryze checks whether Base44 is working on one of your prompts. If it is, Ryze leaves the app alone:
+Before it saves a file, Ryze checks whether Base44's AI is working on one of your prompts. If it is, Ryze leaves the app alone:
 
-- **Scheduled publishing** waits 30 minutes and tries again, up to twice. If Base44 is still busy, the articles stay due and go out in the next daily window. Until then the article shows a "Publishing was postponed" warning.
+- **Scheduled publishing** retries on its own a few times. If Base44 is still busy after that, the article shows as failed and goes out with the next scheduled run.
 - **Publish, Republish or Unpublish from the article page** stops with "Base44 is working on one of your prompts right now. Try again in a few minutes."
 
 ## Republish and unpublish
 
-- **Republish** saves the new article file in place. If the slug changed, Ryze sends one prompt to delete the old file, so the old address stops working.
-- **Unpublish** sends one prompt that deletes the article file, clicks **Publish**, and waits until the page is gone from your live site.
+- **Republish** saves the new article file in place, at the same address. The article's date becomes the republish date, so it moves to the top of the blog list.
+- **Unpublish** deletes the article file, publishes the app, and waits until the page is gone from your live site. No prompt is sent.
 
 ## Troubleshooting
 
 | Message | What to do |
 | --- | --- |
-| The builder rejected this login and password | Check the email and password, then connect again. |
-| The builder asked for a verification code on login | Turn off two-factor authentication for this login, then connect again. |
-| The builder's login page did not show the field Ryze expected | This account signs in with Google, GitHub or an emailed link. Invite a collaborator account that signs in with an email and password, and connect with that one. |
-| Enter the project address / Enter the project URL from the builder's address bar | Copy the project link from the builder's address bar (`https://app.base44.com/apps/…`), not your live site's address. |
-| This login has no access to that project | Check the app link, or log in with the app owner's account. |
-| Base44 does not allow this workspace to publish apps | Check the Base44 plan and workspace settings. |
-| Base44 is out of message credits for this account | Add credits, or wait for the monthly credits in Base44. |
-| Base44 could not publish the app because its build failed | Open the app in Base44 and fix the build (Base44 offers **Resolve with AI** on the error). |
-| Base44 did not save the article file | Nothing to do. Publishing retries on its own. |
+| Enter the app link from the Base44 editor | Copy the link from the Base44 editor's address bar (`https://app.base44.com/apps/…/editor/preview`), not your live site's address. |
+| Base44 rejected this access token | Create a new access token with **Full access** and connect again. |
+| This Base44 access token is read-only | Create an access token with the **Full access** permission and connect again. |
+| Base44 refused this access token for that app | Give the token access to this app (or to all apps) with **Full access**, check the app link, and connect again. |
+| Base44 has no app with this id for this access token | Copy the link from the app's editor and create the token in the workspace that owns the app. |
+| This Base44 app has no public address yet | Publish the app once in Base44, then connect again. |
+| Base44 is out of message credits for this account | Add credits, or wait for the monthly credits in Base44, then connect again. |
+| Base44 did not finish setting up the blog in time | Open the app in Base44, wait until its AI stops working, then connect again. |
+| Base44's AI could not finish setting up the blog | Open the app's chat in Base44 to see what went wrong, then connect again. |
+| Base44's AI stopped to ask for your approval | Open the app's chat in Base44, answer it, then connect again. |
+| Ryze could not deliver the blog setup prompt to Base44 | Nothing was changed in the app. Try again in a few minutes. |
 | Base44 is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
-| The builder's Publish did not finish in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| This Base44 app protects its main branch | Turn off main branch protection for the app in Base44, then try again. |
+| Base44 did not let this access token publish the app | Check that your Base44 account may publish this app and that the plan allows publishing. |
+| Base44 refused to publish this app | The message includes Base44's reason. Fix it in Base44, then publish the article again. |
 | The published site does not show the article yet | Try again in a few minutes. Scheduled publishing retries on its own. |
 | Another publish for this project is still running | Wait a few minutes for it to finish. |
 
