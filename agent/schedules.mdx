@@ -24,13 +24,13 @@ Click **Create with Agent** and just say what you want in chat. The agent briefl
 
 Prefer a starting point? Click **View templates** to open Templates on the **Automate** section, with ready-made automations you can build with the agent. See [Templates](/agent/templates).
 
-The agent also offers this on its own — ask a question you'll clearly want answered again next week and it suggests a recurring task, or mention a specific moment ("check this after the sale ends Friday") and it suggests a one-time task for that time.
+The agent also suggests this on its own — ask a question you'll clearly want answered again next week and it offers a recurring task, or mention a specific moment ("check this after the sale ends Friday") and it offers a one-time task for that time. It offers once and creates the task only after you say yes. Before creating a recurring task, it tells you how many runs that means and that every run uses credits.
 
 <Tip>
 **Describe the task as one instruction to carry out now**, not as a routine. The cadence already lives in the schedule, so "Produce a concise paid-media report for yesterday, compared with the prior day and the same weekday last week" is clearer for the agent — and for anyone reading the task later — than "Every morning, produce a concise paid-media report…".
 </Tip>
 
-New tasks are **active as soon as they're created**.
+New tasks are **active as soon as they're created**. A workspace can hold up to 30 scheduled tasks; past that you'll see **Schedule limit reached (30 per workspace)**.
 
 <Warning>
 Runs are billed per AI step like any agent work (see [Credits & Usage](/agent/credits)), and the agent can use every tool it has access to — including changing or deleting things in your connected accounts. Write the task carefully and use at your own risk.
@@ -52,13 +52,22 @@ Scheduled-run chats are read-only — they're a record of what the agent did, no
 
 **Replies to the result email don't reach the agent.** When a run finds a change that needs your sign-off — a budget, bid, targeting, keyword, creative or content change — it files an approval card instead of asking you in the email. Open **Home → Needs you** or the **Inbox** and click **Approve** or **Reject** there (see [Inbox and approvals](/agent/approvals)). To give the agent new instructions, start a new chat or edit the task.
 
-If there's no active subscription, your organization is out of credits, or the workspace has reached its monthly credit cap, the run is skipped and the task shows why.
+## When a run is skipped
+
+Some runs don't happen. The task's run history shows why:
+
+- **Your plan is paused or its last payment didn't go through** — the run is skipped. A repeating task picks up on its own once the plan is active again; a one-time task won't run again on its own, so schedule it again then. If a payment failed, update your payment method in **Billing**.
+- **No active subscription** — the run is skipped and the task is switched off.
+- **Out of credits or the workspace's monthly credit cap reached** — the run is skipped and you get an email, **Your scheduled task was skipped** (at most once a month). Top up, or ask the organization owner to raise the cap on the **Usage** page, and the next runs go ahead.
+- **The person who created the task left the workspace** — the task is switched off.
+
+A run that hasn't finished after 24 hours is stopped and marked "Stopped: the run did not finish within its time budget."
 
 ## Manage a task
 
 Use the **Search scheduled tasks** box to find a task. Open any task to see its instructions, schedule, next run, and recent runs.
 
-- **Run now** — fire the task immediately. For a one-time task this is a one-off extra run — it doesn't use up the scheduled time, which still fires as planned. Once a one-time task is **Completed**, **Run now** is no longer available.
+- **Run now** — fire the task immediately. A task runs one copy at a time: while a run is still going, **Run now** says "This schedule is already running. Wait for the current run to finish before starting another." For a one-time task this is a one-off extra run — it doesn't use up the scheduled time, which still fires as planned. Once a one-time task is **Completed**, **Run now** is no longer available.
 - **Toggle (Active / Paused)** — pause or resume a repeating schedule. Paused tasks don't run and don't bill. (One-time tasks show **Completed** once they've run.)
 - **Refine with Agent** — opens a chat where the agent sums up the task and asks what you'd like to change — instructions, timing, or something else. It changes nothing until you answer.
 - **Edit** — change the task yourself:
