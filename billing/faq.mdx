@@ -60,6 +60,18 @@ Switching from annual to monthly, or cancelling an annual plan mid-term, doesn't
 We retry the card and notify you. The plan shows *Payment failed — update your card to keep access.* and your workspaces show *Your last payment failed*. Click **Update payment method** on the plan (or in that message) to update the card and keep things running. If payment still isn't received, the subscription is suspended and then cancelled; reactivating after non-payment may require settling the outstanding balance.
 </Accordion>
 
+<Accordion title="I got an email asking me to confirm the payment with my bank.">
+Some banks ask you to confirm a payment before it goes through. Nothing is charged until you do, and the subscription is on hold until then. Click **Confirm payment** in the email and approve the payment with your bank. Already confirmed it? You can ignore the email.
+</Accordion>
+
+<Accordion title="Why were my scheduled tasks skipped?">
+Scheduled runs are skipped while your plan is paused or its last payment didn't go through — the run is marked *Scheduled run skipped* or *One-time run skipped*. Repeating tasks resume on their own once the plan is active again; a one-time task won't run again on its own, so schedule it again. If a payment failed, click **Update payment method** in **Billing** first.
+</Accordion>
+
+<Accordion title="&quot;This payment belongs to another account&quot;">
+Your payment went through, but you opened it while signed in with a different email. Click **Sign in as** with the email you paid under to open the workspace the payment unlocked.
+</Accordion>
+
 <Accordion title="Where is the Billing page? I don't see it in Workspace Settings.">
 Billing lives at the **organization** level, not the workspace: open **Organization Settings → Billing**. Only the organization owner sees it — if you were invited as a member, ask the owner.
 </Accordion>
