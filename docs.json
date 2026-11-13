@@ -243,6 +243,7 @@
               },
               "seo/preferences",
               "seo/ai-visibility",
+              "seo/conversions",
               "chrome-extension",
               "seo/faq"
             ]
@@ -596,11 +597,11 @@
     },
     {
       "source": "/cro/overview",
-      "destination": "/plans/overview"
+      "destination": "/seo/conversions"
     },
     {
       "source": "/cro/store-audit",
-      "destination": "/plans/overview"
+      "destination": "/seo/conversions"
     },
     {
       "source": "/ads/overview",

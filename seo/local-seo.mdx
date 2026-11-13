@@ -14,7 +14,7 @@ description: "Connect your Google Business Profile to see where you rank on Goog
 
 Local SEO is for businesses that customers find on Google Maps — a clinic, an agency, a salon, a shop with a street address. When someone nearby searches for what you do, Google shows a short list of businesses on the map. Local SEO shows where you appear in that list from different spots around your office, who beats you there and why, and lets you fix it.
 
-Open **SEO → Local** in the sidebar. The page has four tabs:
+Open **SEO → Local** in the sidebar. The page has five tabs:
 
 | Tab | What it's for |
 |---|---|
@@ -22,12 +22,13 @@ Open **SEO → Local** in the sidebar. The page has four tabs:
 | **Reviews** | Every Google review, which ones still need a reply, and replying from Ryze |
 | **Posts** | The posts on your Google profile, writing new ones with AI |
 | **Business profile** | Your listing — categories, description, hours, photos, website, phone — and the changes the agent proposes |
+| **Automations** | Review replies, a weekly post, a weekly report and holiday hours that run on a schedule |
 
 Local SEO is part of both SEO plans. Without an SEO plan, the page shows **Unlock** instead. See [Plans & pricing](/plans/overview).
 
 ## Connect Google Business Profile
 
-Local SEO works on one Google Business Profile location per workspace. Until it's connected, the Local page shows a **Connect** button that takes you to Integrations.
+Each Google Business Profile connection is one location. Until one is connected, the Local page shows a **Connect** button that takes you to Integrations.
 
 <Steps>
   <Step title="Open Integrations">
@@ -37,12 +38,14 @@ Local SEO works on one Google Business Profile location per workspace. Until it'
     You're redirected to Google. Sign in with the Google account that manages your business listing and allow access. The Google screen may show the name of our connection partner rather than Ryze — that's expected.
   </Step>
   <Step title="Pick the Location">
-    Back in Ryze, choose the **Location** this workspace works on and click **Save**. One connection is one location.
+    Back in Ryze, choose the **Location** this workspace works on and click **Save**. One connection is one location — to add another location, connect Google Business Profile again and pick it.
   </Step>
   <Step title="Open SEO → Local">
     The Local page fills itself from your listing. On **Map rankings**, pick the searches to track (see below).
   </Step>
 </Steps>
+
+With several locations connected, a **Location** switcher appears at the top of the Local page — pick the location you want to see. Keywords, the map, reviews, posts and the profile are per location.
 
 If you leave before choosing a location, the card shows **Require setup** and the Local page shows **Choose your Google Business Profile location** with a **Choose location** button. Click it and pick the location. See [Google Business Profile](/integrations/google-business-profile) for the integration itself.
 
@@ -55,6 +58,13 @@ If you leave before choosing a location, the card shows **Require setup** and th
 | **Google has no coordinates for this location yet. Verify the listing on Google and reconnect it.** | The listing isn't verified on Google, so Google shares only part of its data — the map can't be drawn and reviews may be missing. Verify the listing in Google Business Profile, then reconnect it in Ryze. |
 | The wrong business is connected | Disconnect it in **Integrations → Google Business Profile** and connect again, choosing the right **Location**. |
 | **Google Business Profile did not answer…** | Google didn't respond for a moment. Wait a minute and click **Retry**. |
+| **The connected Google account does not manage this location…** | Reconnect Google Business Profile with an account that manages the listing, or ask the owner to add that account on Google. |
+| **Google refused this edit…** | Google sees the profile but won't accept changes right now — usually the profile is under review or its edits are restricted. Try the same edit in Google Business Profile; if Google blocks it there too, wait until Google lifts it. |
+| **Google does not allow links in the business description…** | Remove every web address from the description, including bare domains like example.com, and save again. |
+| Google rejects the phone number, website or hours | Enter the full phone number with country and area code, the full website address starting with https://, and hours where no period overlaps another or closes before it opens. |
+| **Google allows this category only for businesses with a storefront…** or **…not allow this category for a service-area business** | Pick another category. |
+| **…Edit it in your Google Business Profile directly** | Google doesn't let this field be changed from outside for your listing — for example, a hotel's description, a locked phone number, or a field Google changed itself recently. Edit it in Google Business Profile. |
+| **Google is not accepting changes to this field right now** or **…had a temporary error** | Google is limiting edits for a while. Try again later. |
 
 ## Map rankings
 
@@ -66,11 +76,12 @@ The map shows what someone sees when they search Google Maps from different spot
 
 ### Choose your keywords
 
-The first time you open the tab, Ryze suggests searches built from your Google categories, your city and the searches people already find you by. Pick the ones your customers type, or click **Add your own** to type one of your own (for example, dentist downtown austin), then click **Scan N keywords**. The counter shows how many of the 5 you've picked.
+The first time you open the tab, Ryze suggests searches built from your Google categories, your city and the searches people already find you by. Nothing is selected in advance — pick the ones your customers type, or click **Add your own** to type one of your own (for example, dentist downtown austin), then click **Scan N keywords**. The counter shows how many of the 5 you've picked.
 
 - You can track **up to 5 keywords per location**.
 - Scanning takes about a minute per keyword.
 - To add one later, type it into **Add a keyword** on the Keywords card and click **Add** — it's scanned right away. Once you have 5, the box disappears.
+- To remove a keyword, open the **⋯** menu next to it and click **Remove**. Its map scans are deleted too, and this can't be undone.
 
 ### Read the map
 
@@ -161,18 +172,31 @@ The **Business profile** tab shows your listing as Google has it: **Categories**
 
 | Field | What you can change |
 |---|---|
-| **Categories** | The **Primary category** and up to 9 **Additional categories**. Type the Google category name, for example *Internet marketing service* — Google rejects a name it doesn't know. |
+| **Categories** | The **Primary category** and up to 9 **Additional categories**. Use **Search Google categories** (type at least a few letters) and pick from Google's own list, for example *Internet marketing service*. |
 | **Description** | What you do, for whom and where — up to 750 characters. |
 | **Hours** | Opening hours for each day: mark a day **Closed**, change the times, or **Add hours** for a second period. |
-| **Photos** | Click **Add photos**, choose up to 10 JPEG or PNG files under 5 MB from your [Media library](/workspaces/media) (or upload new ones there), and pick where they show — **Listing photo**, **Cover photo** or **Logo**. Google reviews each photo before it appears. |
+| **Photos** | Click **Add photos**, choose up to 10 JPEG or PNG files — between 10 KB and 5 MB, at least 250×250 px — from your [Media library](/workspaces/media) (or upload new ones there), and pick where they show — **Listing photo**, **Cover photo** or **Logo**. Google reviews each photo before it appears. |
 | **Website** | Your site's address. |
 | **Phone** | Country and phone number. |
 
 ### Optimize with AI and Proposed changes
 
-**Optimize with AI** (top right) asks the agent to compare your listing with the businesses that hold the top 3 on your map and propose changes to categories, description and hours. They arrive as cards under **Proposed changes**.
+**Optimize with AI** (top right) asks the agent to compare your listing with the businesses that hold the top 3 on your map and suggest changes to categories, description and hours, each with a reason. The suggestions come in the chat; the agent changes nothing until you say yes there.
 
 Once a week the agent also reviews your map, listing and reviews on its own. What it finds — a category the leaders share and you lack, reviews left without a reply, a thin description — arrives as a card under **Proposed changes** at the top of this tab, labeled **Local SEO**. Nothing is applied until you approve it. Approving, rejecting and approving with a note work as described in [Inbox and approvals](/agent/approvals). A dot on the **Business profile** tab means a proposal is waiting.
+
+## Automations
+
+The **Automations** tab holds four recurring jobs for your listing. Click **Set up with AI** on one, and the agent sets it up in chat for the selected location.
+
+| Automation | How often | What goes out on its own |
+|---|---|---|
+| **Reply to new reviews** | Every morning | Replies to new 4- and 5-star reviews are posted automatically. Lower ratings come to you as drafts — post them from the **Reviews** tab. |
+| **Weekly post** | Weekly | A new post with an image, written from your past posts so it sounds like you and doesn't repeat a topic. It's published automatically. |
+| **Weekly report** | Every Monday | Calls, website clicks, directions, new reviews and map rankings, emailed with three next steps. |
+| **Holiday hours** | Monthly | Nothing — the agent checks the public holidays ahead and sends the proposed hours to your [Inbox](/agent/approvals) for approval. |
+
+Once an automation is set up, **Open schedule** shows it, **Pause automation** stops it and **Resume automation** starts it again. **All schedules** opens every scheduled task in the workspace — see [Schedules](/agent/schedules).
 
 ## Ask the AI Marketer
 
@@ -184,7 +208,7 @@ With Google Business Profile connected, you can ask the agent about your listing
 - "Write a post about our weekend opening hours and schedule it for Friday."
 - "Who holds the top 3 on the map for my main keyword, and what do they have that I don't?"
 
-The agent reads freely. Anything that changes your public listing — a reply, a post, a new photo, an edit — follows the [Tool approvals](/agent/chat#tool-approvals) setting of your chat, and the Local SEO buttons always show you the draft first. Google reports profile performance with a 2–3 day delay.
+The agent reads freely. Anything that changes your public listing — a reply, a post, a new photo, an edit — follows the [Tool approvals](/agent/chat#tool-approvals) setting of your chat, and the Local SEO buttons always show you the draft first. Google reports profile performance with a 2–3 day delay, and shares calls, website clicks and directions only for a verified profile.
 
 ## FAQ
 
@@ -194,7 +218,7 @@ The agent reads freely. Anything that changes your public listing — a reply, a
   </Accordion>
 
   <Accordion title="I have several locations. Can I track all of them?">
-    Each workspace works on one location. To track another location, connect it in its own workspace — see [Create a workspace](/workspaces/create-workspace).
+    Yes. Connect Google Business Profile once for each location — a **Location** switcher then appears at the top of the Local page. Each location has its own keywords (up to 5), map, reviews, posts and profile. You can also keep a location in its own workspace — see [Create a workspace](/workspaces/create-workspace).
   </Accordion>
 
   <Accordion title="Why does my position differ from what I see when I search myself?">
@@ -202,7 +226,7 @@ The agent reads freely. Anything that changes your public listing — a reply, a
   </Accordion>
 
   <Accordion title="Why can't I rescan the map right now?">
-    Each keyword is scanned at most once a day. If every keyword was already scanned today, **Rescan map** shows a message and waits for the next scan. Adding a new keyword scans it right away.
+    Each keyword is scanned at most once a day. If every keyword was already scanned today, **Rescan map** shows a message; the next scan runs with your weekly keyword refresh. Adding a new keyword scans it right away.
   </Accordion>
 
   <Accordion title="How many keywords can I track?">
@@ -210,7 +234,7 @@ The agent reads freely. Anything that changes your public listing — a reply, a
   </Accordion>
 
   <Accordion title="Does Ryze change my Google listing on its own?">
-    No. Replies, posts and listing edits go to Google only when you click the button yourself or confirm the agent's draft. The weekly proposals wait under **Proposed changes** until you approve them.
+    Only through automations you turn on. With **Reply to new reviews**, replies to 4- and 5-star reviews are posted automatically; with **Weekly post**, the post is published automatically. Everything else — replies to lower ratings, holiday hours, listing edits — goes to Google only when you click the button yourself or approve the agent's draft or card. The weekly proposals wait under **Proposed changes** until you approve them.
   </Accordion>
 
   <Accordion title="Can I reply to a review twice?">
