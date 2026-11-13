@@ -1,6 +1,6 @@
 ---
 title: "Connect OpenAI Ads"
-description: "Connect OpenAI Ads with an API key."
+description: "Connect OpenAI Ads with an API key so Ryze can read performance and manage your ads in ChatGPT."
 ---
 
 OpenAI Ads connects with an **API key** you generate in the OpenAI Ads dashboard.
@@ -29,6 +29,20 @@ To add another OpenAI Ads account, click **View** → **Add one more account**.
 <Frame>
   <img src="/images/openai-connect-ryze.png" alt="The Connect OpenAI Ads dialog in Ryze" />
 </Frame>
+
+## What you can do with it
+
+- **[Managed Campaigns](/paid-ads/managed-campaigns)** — pick OpenAI Ads as one of the platforms, and the agent builds and runs the campaign there.
+- **[Ads Performance](/analytics/performance)** — OpenAI Ads spend, clicks and results show up next to your other ad accounts.
+- **Chat** — ask about campaigns, spend, conversions and attributed sales, or ask the agent to make changes.
+
+## What the agent can do
+
+- **Read** — the ad account, campaigns, ad groups, ads, conversion events and statistics, including conversions and attributed sales.
+- **Change** — create and update campaigns, ad groups and ads, pause and activate them, and upload images for ad creatives.
+- **Archive** — OpenAI Ads has no delete: removing a campaign, ad group or ad archives it, and an archived object can't be restored.
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step. In Claude, approvals are set in Claude itself — set write and delete tools to **Needs approval** to be asked first (see [Permissions & approvals](/claude/permissions)).
 
 ## Troubleshooting
 

@@ -52,9 +52,15 @@ When you click **Connect**, Ryze first asks how you sign in to Microsoft Adverti
 - **Microsoft account** — if you sign in to Microsoft Advertising with a Microsoft account;
 - **Google account** — if you sign in to Microsoft Advertising with Google.
 
-Pick the one you actually use and click **Continue**. If you signed in but no ad accounts show up, you likely picked the other sign-in type — remove the connection in **View** and connect again with the right one.
+Pick the one you actually use and click **Continue**. The same choice appears when you open a connect link a teammate sent you.
 
-If the connection fails with an error that mentions **AADSTS650052** ("your organization lacks a service principal for Microsoft Advertising API Service"), you signed in with a work account and your company's Microsoft Entra ID hasn't registered the Microsoft Advertising API yet. Microsoft blocks every outside app until it does. An admin of your organization (Global Administrator or Cloud Application Administrator) adds it once, for example in Azure Cloud Shell: `az ad sp create --id d42ffc93-c136-491d-b4fd-6f18168c68fd`, or in PowerShell: `New-MgServicePrincipal -AppId d42ffc93-c136-491d-b4fd-6f18168c68fd`. Wait a few minutes, then click **Connect** again.
+If the connection fails, Ryze tells you why:
+
+- *"Microsoft Advertising knows this email under a different sign-in type than the one you just used…"* — connect again and pick how you normally sign in at ads.microsoft.com: **Google account** if you sign in with Google, **Microsoft account** if you use a Microsoft, work or school account. Then choose that same account on the sign-in screen.
+- *"Microsoft Advertising has no active user for the sign-in used for this connection…"* — connect again with the sign-in type and the exact email that open your ad account at ads.microsoft.com. If that email has never used Microsoft Advertising, sign up at ads.microsoft.com first, then connect again.
+- *"Your organization's Microsoft 365 settings block Ryze from connecting to Microsoft Ads…"* — you signed in with a work account, and your company's Microsoft 365 doesn't let outside apps in yet. Either sign in with the personal Microsoft account that owns your Microsoft Advertising login, or ask your Microsoft 365 admin to approve Ryze at the link shown in the message, then click **Connect** again.
+
+  If the admin approval link doesn't help and the error mentions **AADSTS650052** ("your organization lacks a service principal for Microsoft Advertising API Service"), your company's Microsoft Entra ID hasn't registered the Microsoft Advertising API yet. An admin (Global Administrator or Cloud Application Administrator) adds it once, for example in Azure Cloud Shell: `az ad sp create --id d42ffc93-c136-491d-b4fd-6f18168c68fd`, or in PowerShell: `New-MgServicePrincipal -AppId d42ffc93-c136-491d-b4fd-6f18168c68fd`. Wait a few minutes, then click **Connect** again.
 
 ## TikTok Ads
 
@@ -64,11 +70,13 @@ Campaign performance, spend, and audience insights. Follow the [common steps](#c
 
 Campaign performance, spend, and audience insights. Follow the [common steps](#connect-a-platform).
 
-If you see *"Snapchat returned no organization membership for this login"*, the Snapchat account you signed in with isn't a member of your Ads Manager organization. Sign in with the account that is a member, or first accept the organization invite from Snapchat's welcome email, then connect again.
+If you see *"This Snapchat login is not a member of any Ads Manager organization"*, accept the organization invite from Snapchat's welcome email, or add this login in Snap Business Manager, then connect again. You can also sign in with a login that is already a member.
 
 ## Reddit Ads
 
 Campaign performance, spend, and campaign management. Follow the [common steps](#connect-a-platform) and sign in with the Reddit login that has access to your ad accounts.
+
+If the agent reports *"Reddit rejected the refresh token as revoked or expired"*, Reddit ended Ryze's access. Click **Reconnect** on the Reddit Ads card and sign in again.
 
 ## Pinterest Ads
 

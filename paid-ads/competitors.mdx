@@ -33,9 +33,14 @@ You can track up to 5 competitors per workspace. Pick the brands you actually co
 
 **No ads showing for a competitor?** Ryze looks the brand up by the name and domain you entered:
 
-- **Meta** — ads are found by the brand name, then matched to the brand's Facebook page by the domain and name in the ads. Once the page is matched, Ryze pulls its ads from all countries.
+- **Meta** — ads are found by the brand name and the domain, then matched to the brand's Facebook page by the domain and name in the ads. If the domain is a shared host (facebook.com, instagram.com, google.com, amazon.in), only the name is used. Once the page is matched, Ryze pulls its ads from all countries right away — up to 50 on the first sync.
 - **Google** — ads are found by the domain, in your workspace's market: the one you confirmed in the setup chat, or **Target market** under **SEO → Preferences** if you have SEO. When no market is set, Ryze uses the US. The market is taken when you add the competitor.
 - **LinkedIn** — ads are found by the advertiser name.
+
+A status dot on the brand's chip tells you what happened — hover it for the reason:
+
+- *"No ad library page found for this brand yet, so new-ad alerts can't fire. Check the domain or re-sync."* — Ryze couldn't match the brand's ad library page. Check the domain, then click **Re-sync**.
+- *"The last sync failed. Re-sync to try again."* — click **Re-sync**.
 
 If nothing shows up after the first sync, check that the name matches the brand's Facebook page and that the domain is the one its ads link to. To correct either, stop tracking the brand (trash icon on its chip) and add it again, then click **Re-sync**. The brand may also simply not be running ads right now.
 
@@ -65,6 +70,14 @@ How it works:
 <Note>
 Alerts are off by default — turn them on per competitor.
 </Note>
+
+## Search any brand's ads in chat
+
+You don't have to track a brand to see its ads. Ask the agent in chat, and it searches the public Meta Ad Library by domain, Facebook page or keyword:
+
+> Show me the video ads competitor.com started running in the last 30 days.
+
+The agent returns 5 ads by default and up to 50 per page; ask for more and it pages further, up to 300 ads per search. Each page is a separate search and costs 0.5 credits — see [Credits & Usage](/agent/credits).
 
 ## Turn an ad into your own
 

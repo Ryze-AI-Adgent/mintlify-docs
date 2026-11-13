@@ -14,7 +14,7 @@ description: "Set a daily budget and a goal — the agent builds, launches and k
 
 Managed Campaigns are autonomous. You set the mandate — budget, platforms, conversion goal, location, landing page — and the agent does the rest: creates the ads, launches them on your connected ad accounts, and keeps reviewing performance.
 
-Find them under **Ads → Managed Campaigns** in the sidebar.
+Find them under **Ads → Managed Campaigns** in the sidebar. In a workspace with Paid Ads and no campaign yet, the chat also shows a **Your agent runs your ads from one daily budget** banner — click **Create campaign** to start from there.
 
 <video
   className="w-full aspect-video rounded-xl"
@@ -28,11 +28,11 @@ Find them under **Ads → Managed Campaigns** in the sidebar.
 ## How it works
 
 1. **Create a campaign** — click **New Managed Campaign** and go through the three steps described below. Anything the agent should know — offers to push, claims to avoid — goes in **Anything the agent should know?**
-2. **The agent sets it up** — it checks your budget, landing page and conversion tracking, generates on-brand creatives, builds the campaign structure, and launches it. If anything needs your input, it stops and asks you right on the campaign page.
+2. **The agent sets it up** — it checks your budget, landing page and conversion tracking, generates on-brand creatives, builds the campaign structure, and launches it. It stops and asks you on the campaign page only when it can't launch without you — at most two questions.
 3. **The agent keeps reviewing it** — it reads performance, pauses losers, shifts budget to winners inside your total, and rotates fresh creatives when the current ones fatigue. It sets the date of its next review itself — you see it in **Next check** on the campaign page.
 4. **You watch Progress** — every run ends with a short note in **Progress** on the campaign page, and each entry links to the full agent chat.
 
-Inside the mandate the agent acts on its own. Changes it wants to make beyond the mandate — a higher budget, a new platform, a different goal — come to your [Inbox](/agent/approvals) as approvals you decide on. If you ask for such a change yourself in **Tell agent**, the agent applies it (see [Steer the campaign](#steer-the-campaign)).
+Inside the mandate the agent acts on its own. Changes it wants to make beyond the mandate — a higher budget, a new platform, a different goal — come to your [Inbox](/agent/approvals) as approvals you decide on. You can also approve or reject them by telling your agent in chat. If you ask for such a change yourself in **Tell agent**, the agent applies it (see [Steer the campaign](#steer-the-campaign)).
 
 ## Create a campaign
 
@@ -42,7 +42,7 @@ Click **New Managed Campaign**. The dialog has three steps.
   <Step title="Where should it run?">
     Enter the daily budget in US dollars under **How much per day?**. The estimated monthly ad spend for that budget shows right under the field. For budgets of $250/day and more, the dialog reminds you that the budget is in USD, not in your local currency.
 
-    Under **Where should your ads run?**, tick the platforms and pick the ad account for each. Only platforms with a connected ad account are shown — connect them under [Integrations](/integrations/overview) first. With two or more platforms, set each platform's share of the budget; the shares must add up to 100%.
+    Under **Where should your ads run?**, tick the platforms and pick the ad account for each. Only platforms with a connected ad account are shown — connect them under [Integrations](/integrations/overview) first. With no ad account connected, the dialog says "Connect an ad account first — campaigns run on your connected accounts." and shows a **Connect an ad account** button. With two or more platforms, set each platform's share of the budget; the shares must add up to 100%.
   </Step>
   <Step title="What should it drive?">
     Under **What do you want more of?**, pick the goal: **More sales**, **More leads**, **More sign-ups**, **More trials**, **More subscribers**, **More add-to-carts**, **More checkouts**, **More bookings**, **More inquiries** or **More traffic**.
@@ -76,7 +76,7 @@ Creating the campaign authorizes the agent to build and launch it — setup star
 
 - **Not launched** — just created. Setup starts on its own ("Launch queued — the agent picks this campaign up in a moment"). If it doesn't start, a **Launch** button appears.
 - **Setting up** — the agent is checking your account, tracking and landing page, and building the campaign.
-- **Needs your input** — the agent stopped with questions. Answer them in the reply box on the campaign page.
+- **Needs your input** — the agent stopped with questions. Answer them in the reply box on the campaign page, or tell your agent in chat — it passes your answer on to the campaign.
 - **Live** — running. The agent reviews it on its own schedule — see **Next check**.
 - **Paused** — delivery is stopped on the platforms. **Resume** turns it back on — the agent first checks that the landing page is up and conversion tracking still works.
 - **Failed** — setup couldn't finish. **Retry setup** starts it again.
@@ -90,11 +90,12 @@ You may also see **Blocked** with an **I fixed it** button when something outsid
 - **Results** — **Spend**, **Results**, **CPA** and **ROAS**.
 - **Ads** — every ad the agent built, with **Spend**, **Impressions**, **Clicks**, **CPA** and **ROAS**. Sort by any of them and filter by **Active**, **Inactive** or **All statuses**. Click an ad for its preview and the **Open on *platform*** link.
 - **Refresh from the ad platforms** pulls fresh numbers on demand.
-- **Progress** — the agent's notes from every run. **View all** shows the full history.
+- **Progress** — the agent's notes from every run. **View all** shows the full history. Right after launch it reads "The agent just started — its updates appear here as it works."
+- The page counts only the platforms in the campaign's mandate.
 
 ## Platforms
 
-Managed Campaigns run on Meta, Google Ads, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit and OpenAI Ads — on whichever of them you've connected under **Integrations**.
+Managed Campaigns run on Meta, Google Ads, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit, Pinterest and OpenAI Ads — on whichever of them you've connected under **Integrations**.
 
 ## What the agent will never do
 
@@ -106,6 +107,17 @@ Two things to know about the budget:
 
 - **It's a daily amount in US dollars.** If your ad account bills in another currency, the agent converts the amount into that currency when it sets the budget on the platform.
 - **Platforms can spend more than the daily budget on a strong day** — Meta up to 75% more, Google up to twice — and even it out over the following days. That's how platform daily budgets work.
+
+## If there are no results yet
+
+The agent never stops a campaign just because the budget is small or results are slow. What it does instead:
+
+- **Before the verdict date** (when the budget has had time to collect about 40 conversions) — it keeps working on delivery, keywords, search terms, bids and creatives every review, but doesn't call the CPA or ROAS good or bad yet.
+- **Day 14 with nothing to show** — 14 days of delivery without a single result (for a sales goal: ROAS below 1) — the agent makes one change it names, such as a fresh batch of creatives on new angles, new negative keywords, or moving money to the part that converts. It tells you in **Progress** what it changed and why. The campaign keeps running.
+- **Pause for no results** — only after 30+ days of delivery with zero results, spend above 3× the expected cost per result, and conversion tracking re-checked and working. Then the agent pauses the campaign, marks it **Needs your input** and names what it tried and the ways out: a goal that happens more often, another connected platform, or another landing page or offer.
+- **Winners get more** — after the verdict date, if the campaign beats its target and spends its whole daily budget, the agent sends a "Raise daily budget from X to Y" approval for +20% to your [Inbox](/agent/approvals).
+
+A ROAS that looks too good (above about 20) is checked for double-counted conversions before the agent scales anything.
 
 ## Steer the campaign
 
@@ -125,13 +137,16 @@ Yes — **Pause** on the campaign page stops all delivery on the platforms. **Re
 **Can I review the campaign before it goes live?**
 By default, creating the campaign authorizes the agent to launch it. If you want to approve first, write "Don't launch without my approval" in **Anything the agent should know?**. The agent builds everything paused, marks the campaign **Needs your input** and waits. Review the ads in your ad account (or on the campaign page), then give your go in the reply box on the campaign page — the agent launches.
 
-**Why did the agent ask me to raise the budget?**
-Before building anything, the agent checks whether the budget can reach a verdict: roughly 40 conversions within 30 days at your expected cost per result. If it can't — or the budget doesn't buy at least a couple of clicks a day — it builds nothing and asks you on the campaign page: raise the budget to the number it names, switch to a goal that happens more often, or run anyway knowing the honest date.
+**Will the agent launch on a small budget?**
+Yes. The budget is your choice — the agent launches with any daily budget at or above each platform's minimum. Before building, it works out how long the budget needs to collect roughly 40 conversions at your expected cost per result, and tells you that date honestly. A small budget gets a smaller structure: one ad set, the tightest keyword group, the strongest ads. If the daily budget (or a platform's share of it) is below that platform's minimum, the agent asks you on the campaign page whether to raise it to the minimum or run on the other platforms only.
 
-After launch, if the budget is still too small, the agent sends a "Raise daily budget from X to Y" approval to your [Inbox](/agent/approvals) — once. If that approval stays unanswered or rejected for a week and a verdict is more than 60 days away, the agent pauses the campaign and asks you what to do.
+On a small budget with a sales goal, the agent may suggest optimizing for add-to-carts so the platform learns faster — it never switches the goal on its own. If the conversion event hasn't recorded anything recently, the agent still launches and checks the event on its first reviews.
+
+**Why did the agent ask me to raise the budget?**
+When the budget would take more than about 30 days to reach a verdict, the agent sends a "Raise daily budget from X to Y" approval to your [Inbox](/agent/approvals) — once. Approve it, reject it, or ignore it: the campaign keeps running either way, and the agent doesn't bring the budget up again. Separately, a campaign that beats its target after the verdict date gets a +20% budget approval (see [If there are no results yet](#if-there-are-no-results-yet)).
 
 **What if the agent has a question?**
-The campaign shows "The agent needs your input" with its questions. Answer in the reply box and the agent picks up exactly where it stopped. The organization owner also gets an email with the agent’s questions and a link to the campaign — and a message in your default Slack channel if Slack is connected. Campaigns waiting for you also show up in the **Needs you** list on Home.
+The campaign shows "The agent needs your input" with its questions. Answer in the reply box — or tell your agent in chat, and it passes your answer on to the campaign — and the agent picks up exactly where it stopped. The organization owner also gets an email with the agent’s questions and a link to the campaign — and a message in your default Slack channel if Slack is connected. Campaigns waiting for you also show up in the **Needs you** list on Home.
 
 **Whose ad accounts does it use?**
 Yours. The agent works inside the ad accounts you connected — spend goes to the ad platforms as usual, and everything it builds is visible in each platform's own ads manager. See [What happens in your ad account](#what-happens-in-your-ad-account).
@@ -140,4 +155,4 @@ Yours. The agent works inside the ad accounts you connected — spend goes to th
 When the Paid Ads subscription for the workspace ends, each live Managed Campaign is paused on the ad platforms at its next scheduled check (the **Next check** date on the campaign page). Until then it keeps running and spending as set up — so if you want ads to stop right away, press **Pause** on the campaign before you cancel. Nothing is deleted. While the plan is inactive the **Ads** section is locked; once you resubscribe, **Progress** shows "Paused: paid-ads subscription ended" and **Resume** turns the campaign back on.
 
 **I got "You already have … active campaigns" when creating a campaign. What now?**
-A workspace can have up to 5 Managed Campaigns at once — paused campaigns and ones waiting for your input count too; archived and failed ones don't. A paused campaign keeps its slot until you delete it. To free a slot, pause a campaign and choose **Delete** from its menu (ads already created stay in your ad account), then create the new one.
+A workspace can have up to 5 Managed Campaigns at once — paused campaigns and ones waiting for your input count too; archived and failed ones don't. A paused campaign keeps its slot until you delete it. To free a slot, ask the agent to end a campaign (it's archived), or pause a campaign and choose **Delete** from its menu (ads already created stay in your ad account), then create the new one.
