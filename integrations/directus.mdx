@@ -35,6 +35,6 @@ If your Directus instance sits behind a proxy or load balancer that requires a c
 - **Token rejected** — the token was generated but the user wasn't saved afterwards. Generate again and click Save.
 - **"No collections visible to this token. Give its role read access to the collection your articles live in."** — the token's role can't see any collection. Grant the role read/write on the collection your articles live in and reconnect.
 - **Collection missing from the list** — the user's role can't see that collection. Grant the role read/write on it and reconnect.
-- **Instance unreachable** — the URL must be the Data Studio origin with `https://` and nothing after the domain.
+- **Instance unreachable** — the URL must be the Data Studio origin with `https://` and nothing after the domain. If your server sits behind a firewall, allowlist requests whose user agent contains `RyzeBot`.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -10,7 +10,7 @@ The Custom Webhook integration is for sites Ryze has no native integration for �
 Every time an article publishes, Ryze sends one HTTP request to your endpoint:
 
 - **Method**: `POST`
-- **Headers**: `Authorization: Bearer <your token>`, `Content-Type: application/json`
+- **Headers**: `Authorization: Bearer <your token>`, `Content-Type: application/json`, `X-Ryze-Payload-SHA256` (the hex SHA-256 of the request body), and a `User-Agent` containing `RyzeBot/1.0 (+https://get-ryze.ai)`
 - **Body**:
 
 ```json
@@ -33,7 +33,7 @@ Every time an article publishes, Ryze sends one HTTP request to your endpoint:
 
 Use whichever content field fits your renderer: `body_html` is ready-to-serve HTML, `body_markdown` is the same article in Markdown, and `blocks` carries Ryze's structured rich blocks (TL;DR, stats, FAQ) when the article has them. `image.url` is a permanently hosted copy of the featured image — save it or hotlink it. `primary_keyword` and `image` can be `null`.
 
-Your endpoint should **upsert by `slug`** — if an article with that slug already exists, replace it. Republishing an updated article sends the same slug again, and your upsert is what makes the update land. Return any `2xx` status to confirm. Ryze follows up to three `307`/`308` redirects to an `https://` address on the same domain; any other redirect or non-`2xx` status is treated as a failure and shown in Ryze with your endpoint's response.
+Your endpoint should **upsert by `slug`** — if an article with that slug already exists, replace it. Republishing an updated article sends the same slug again, and your upsert is what makes the update land. To make sure the body arrived complete, your endpoint can compare the SHA-256 of the raw body with `X-Ryze-Payload-SHA256`. If a firewall or bot protection sits in front of your endpoint, allow requests whose user agent contains `RyzeBot`. Return any `2xx` status to confirm. Ryze follows up to three `307`/`308` redirects to an `https://` address on the same domain; any other redirect or non-`2xx` status is treated as a failure and shown in Ryze with your endpoint's response.
 
 ## Step 1 — Build the endpoint on your site
 
@@ -71,9 +71,9 @@ The article's public link is built as **Blog URL + slug** (e.g. `https://yoursit
 
 ## Troubleshooting
 
-- **"rejected the article (HTTP 401/403)"** — the bearer token in Ryze doesn't match what your endpoint checks. Reconnect with the right token.
+- **"Your webhook endpoint rejected the article (HTTP 401, … bytes sent)…"** (or `403`) — the bearer token in Ryze doesn't match what your endpoint checks. Reconnect with the right token. For other statuses, the error ends with your endpoint's response. If your server rejects large requests (for example `413`), compare its request size limit with the **bytes sent** in the error and raise it.
 - **"Your webhook endpoint redirects to … — update the Custom Webhook URL to that address"** — your endpoint answered with a redirect Ryze won't follow (a `301`/`302`, a redirect to a different domain or a non-HTTPS address, or more than three redirects). Point the Webhook URL at the final address.
-- **"could not be reached"** — the endpoint is down, unreachable from the public internet, or not answering within 30 seconds.
+- **"Your webhook endpoint could not be reached or did not respond within 30s (… bytes sent) — check that it is online and accepts POST requests"** — the endpoint is down, unreachable from the public internet, or not answering within 30 seconds. If the body is large, also check your server's request size limit against the **bytes sent**.
 - **Article publishes but the page 404s** — your site isn't serving the article at `Blog URL + slug`; adjust the route or the Blog URL so they match.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

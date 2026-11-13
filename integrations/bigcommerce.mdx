@@ -35,10 +35,22 @@ If articles already publish somewhere else, Ryze asks **Publish to BigCommerce?*
 The agent can use the new connection from your next message — no need to start a new chat.
 </Tip>
 
+## How publishing works
+
+Each article is published as a BigCommerce blog post at your store's address plus `/blog/{slug}/`. Ryze sets:
+
+- the author to **Editorial Team** and the publish date
+- the meta description and the article's main keyword as meta keywords
+- Article and breadcrumb structured data (JSON-LD) in the post body, so search engines see the title, author and dates
+
+Republishing updates the same post and keeps the author and structured data.
+
 ## Troubleshooting
 
 - **"Paste the API path or the store hash"** — the first field doesn't look like a store hash. Paste the full API path shown with your token.
 - **"Enter both the WebDAV username and password, or leave both empty."** — fill in both WebDAV fields or neither.
+- **"BigCommerce already has a blog post at "…" that Ryze did not create — rename the article slug or remove that post in Storefront → Blog."** — one of your own posts uses that address. Rename the article slug in Ryze, or remove that post.
+- **"BigCommerce saved the post but could not give it the URL "…" — that path is taken by another page, product or redirect…"** — free that path in BigCommerce (or rename the article slug), delete the stray post in **Storefront → Blog**, then publish again.
 - **Publishing fails or product edits are rejected** — the API account is missing a scope. Create a new API account with the scopes above and connect again.
 - **"BigCommerce WebDAV rejected the username or password."** — copy both from **Settings → File access (WebDAV)** and paste them again. The WebDAV password is separate from your BigCommerce login.
 - **"BigCommerce WebDAV is not reachable at … Try again."** — try again in a few minutes. If it keeps failing, check WebDAV access for this user under **Settings → File access (WebDAV)**, or leave both WebDAV fields empty to publish without thumbnails.

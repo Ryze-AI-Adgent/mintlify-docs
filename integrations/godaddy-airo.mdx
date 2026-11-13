@@ -21,8 +21,8 @@ GoDaddy Airo has no publishing API. To publish, Ryze signs in to GoDaddy with th
 ## Before you connect
 
 - **Your GoDaddy username or customer number and password.** You'll find your customer number in Airo under **Menu**. Google, Apple, GitHub sign-in and passkeys won't work.
-- **No verification code on login.** If GoDaddy asks for a code when Ryze signs in, the connection is refused. Turn off two-step verification for this login first.
-- **An Airo plan that can publish a live site.** Ryze checks the plan during connect and refuses a plan that can't publish.
+- **No verification code on login or publish.** If GoDaddy asks for a code when Ryze signs in, the connection is refused. GoDaddy can also ask for a code when Ryze clicks **Publish**; then nothing is published. Turn off two-step verification for this login first.
+- **An Airo plan that can publish a live site.** Ryze checks the plan during connect and refuses a plan that can't publish. If you connect with a delegate login (not the project owner), Ryze can't see the owner's plan and skips this check; the owner's plan decides whether Airo lets the project publish.
 - **Airo AI credits.** Connecting, each publish batch and each unpublish send a prompt to Airo, and prompts spend your Airo AI credits. See [Credits](#credits).
 
 <Note>
@@ -66,7 +66,7 @@ Articles go out in the daily publishing window that starts at 20:00 UTC, in batc
 
 1. Attaches the article files and sends **one** prompt asking Airo to copy them into `src/data/articles/`. Airo copies the files as they are and never rewrites the text.
 2. Clicks **Publish** and waits for GoDaddy to finish the deployment.
-3. Opens each article on your live site and checks its title, meta description and text. This check waits up to 2 minutes.
+3. Opens each article on your live site and checks that the page heading (H1) matches the article title and the article text is there. This check waits up to 2 minutes.
 
 Each article lives at your published site's address plus `/blogs/{slug}`.
 
@@ -102,10 +102,13 @@ Before it sends anything, Ryze checks whether Airo is working on one of your pro
 | --- | --- |
 | The builder rejected this login and password | Check the username or customer number and the password, then connect again. |
 | The builder asked for a verification code on login | Turn off two-step verification for this login, then connect again. |
-| The builder's login page did not show the field Ryze expected | This account signs in with Google, GitHub or an emailed link. Invite a collaborator account that signs in with an email and password, and connect with that one. |
+| GoDaddy asked for a verification code before publishing, so nothing was published | Ryze can't enter that code. Publish once from Airo yourself, or connect Airo with a GoDaddy login that publishes without a verification code. |
+| The builder's sign-in service returned an error | GoDaddy's sign-in is having trouble. Scheduled publishing retries on its own; otherwise try again in a few minutes. |
+| The builder's login page did not show the field Ryze expected | Open GoDaddy's login page yourself and check that this login signs in with a username or customer number and a password, not Google, Apple or an emailed link. Then connect again. |
 | Enter the project address / Enter the project URL from the builder's address bar | Copy the project link from the builder's address bar (`https://airo-builder.godaddy.com/develop/…`), not your live site's address. |
 | This login has no access to that project | Check the project link, or log in with the project owner's account. |
 | This Airo plan cannot publish sites | Upgrade to an Airo plan that includes a live site. |
+| GoDaddy Airo did not make Publish available for this project. This login is not the project owner… | You connected with a delegate login. If the owner's Airo plan has no live site, the owner upgrades it in Airo. Otherwise try again in a few minutes. Scheduled publishing retries on its own. |
 | GoDaddy Airo is out of credits for this account | Add credits, or wait for the monthly credits in Airo. |
 | GoDaddy Airo is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
 | The builder did not finish the request in time | Try again in a few minutes. Scheduled publishing retries on its own. |

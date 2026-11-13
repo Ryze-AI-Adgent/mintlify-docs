@@ -72,11 +72,16 @@ On the **Integrations** page, click **Connect** on the Wix card and fill in:
 
 Click **Continue**. Ryze verifies the key against your site and you're connected. Generated articles will now publish to your Wix blog.
 
+## How publishing works
+
+Republishing an article updates the same Wix post. If that post was deleted in Wix, Ryze creates a new one. Republishes made before this could leave a second post with `-1` at the end of its slug; you can delete such duplicates in Wix.
+
 ## Troubleshooting
 
 - **API key or Site ID rejected** — double-check both values, and confirm the key has access to this site (use **All sites** or include this site under **Specific sites**).
 - **"Wix rejected the request for this site."** — check three things: the Site ID, that the Wix Blog app is installed on the site, and that the API key has the **Blog** permission and is allowed on this site.
-- **Blog not found** — install the **Wix Blog** app from the App Market, then reconnect.
+- **"No Wix Blog found on this site. Add the Wix Blog app to your site in the Wix editor, then reconnect."** — add the **Wix Blog** app to the site, then connect again.
+- **Wix answered "Entity not found": usually the API key was deleted or no longer covers this site…** — generate a new API key with **All permissions** that covers this site, and reconnect Wix on the **Integrations** page.
 - **Missing permissions** — regenerate the key with **All permissions** selected and reconnect.
 - **Wrong site** — make sure the Site ID comes from the dashboard URL of the exact site you want to publish to, not the Account ID.
 

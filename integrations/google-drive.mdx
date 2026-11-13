@@ -29,6 +29,8 @@ Click **+** (**Add to message**) in the composer → **Attach files** → **Uplo
 - **Images** picked from Drive aren't supported — upload them from your computer instead (**Attach files** → **Upload from computer**).
 - Files over **10 MB**, binary files, and Google formats other than Sheets, Docs and Slides are attached by name only — the agent can't read their content.
 - When the agent writes into a Google Doc, it writes **plain text** (no headings, links or formatting), and it can only add text at the end or replace the whole document.
+- The agent reads up to **10,000 rows** of a Sheet per request — for bigger sheets, ask for a specific tab or range.
+- If a formula-heavy Sheet is still recalculating (often right after large writes), Google may not return it in time — the agent tells you; wait a few minutes and ask again.
 
 ## Troubleshooting
 

@@ -35,10 +35,13 @@ Approving app access requires sufficient permissions on the Shopify store. If yo
 |---|---|---|
 | **Must be a valid yourstore.myshopify.com domain** | You typed your custom domain or a URL with a path. | Enter only the `.myshopify.com` domain, e.g. `yourstore.myshopify.com`. |
 | **This Shopify store is already connected to another Ryze workspace. Shopify keeps one live connection per store — disconnect it there first, then retry.** | Shopify allows one live Ryze connection per store, and this store is connected in another workspace. | Open that workspace → **Integrations** → Shopify, disconnect the store, then connect here. No access to that workspace? Email support with the store domain. |
-| **Your Shopify connection expired. Please try again.** | More than 10 minutes passed between clicking **Continue** and approving in Shopify. | Click **Connect** again and approve right away. |
-| **The Shopify install took too long to come back. Open the link again to retry.** | The approval in Shopify didn't come back to Ryze in time. | Click **Connect** on the Shopify card again. |
+| **Your Shopify connection expired. Please try again.** | More than 10 minutes passed between clicking **Continue** and approving in Shopify, or you switched to another workspace (for example in another tab) while connecting. | Click **Connect** again in the workspace where you want the store and approve right away. |
+| **The Shopify install took too long to come back. Open the link again to retry.** | Shown on a connect link from your agent: the approval in Shopify didn't come back to Ryze in time. | Open the link again, or ask the agent for a new one. |
 | **Shopify access expired — please reconnect your store.** | A custom-app connection lost its credentials. | Click **Reconnect** and enter the Client ID and Client secret again. |
-| `app_not_installed` (custom app) | The custom app was created but never installed on the store. | Install it on the store, then reconnect — see [Shopify Custom App](/integrations/shopify-custom-app). |
+| **The custom app exists, but it isn't installed on this store yet…** (custom app) | The custom app was created but never installed on the store, or was uninstalled later. | In the Dev Dashboard, open the app and click **Install app**, then connect or reconnect — see [custom app errors](/integrations/shopify-custom-app#errors-when-connecting). |
+| **Shopify has no app with this Client ID on this store…** (custom app) | The Client ID belongs to another app, or the domain points to another store. | Check the `.myshopify.com` domain and copy the Client ID from this app's **Settings → Credentials** — see [custom app errors](/integrations/shopify-custom-app#errors-when-connecting). Or use the **Shopify app** tab. |
+| **Shopify refuses custom-app credentials for this store: the app and the store must belong to the same organization in the Dev Dashboard…** (custom app) | The app was created in another Shopify organization, such as an agency's. | Create the app from the organization that owns the store — see [custom app errors](/integrations/shopify-custom-app#errors-when-connecting). Or use the **Shopify app** tab. |
+| **Shopify has no store at …** (custom app) | No Shopify store exists at that domain. | Copy the `.myshopify.com` address from **Settings → Domains** and try again. |
 
 Anything else: retry once from the **Integrations** page. If it persists, email [support@get-ryze.ai](mailto:support@get-ryze.ai) with your `.myshopify.com` domain and the exact message.
 
@@ -50,6 +53,9 @@ Click **Reconnect** on the Shopify card and re-authorize. Access can be revoked 
 - Changes to staff permissions
 - Store ownership transfer
 - Store plan changes or pausing
+- The store being closed, frozen or deleted — the card shows **Reconnect needed**. Reopen the store in Shopify, then connect it again.
+
+When a connection drops, the workspace owner gets a **Reconnect Shopify** email. You can turn these emails off in **Settings → Notifications** (**Disconnected integrations**).
 
 In Ryze, the agent sees the reconnected store from your next message. In Claude or ChatGPT, **start a new chat** after reconnecting.
 
@@ -66,13 +72,15 @@ Check, in order:
 
 With the standard **Shopify app**, the agent edits product, collection, page and blog content and SEO fields. Theme files (such as `robots.txt`, canonical tags or structured data in the theme) and URL redirects need a custom app. To switch:
 
-1. Create a custom app with the access you need — see [Shopify Custom App](/integrations/shopify-custom-app).
+1. Create a custom app with the access you need — see [Shopify Custom App](/integrations/shopify-custom-app). The quickest route is to [let AI Marketer set it up](/integrations/shopify-custom-app#fastest-way-let-ai-marketer-set-it-up): you only log in to Shopify and paste the keys.
 2. In Ryze, remove the current Shopify connection (**View** → trash icon). **Reconnect** keeps the old access, so remove it first.
 3. Connect again on the **Custom app** tab.
 
 ## Several stores
 
 Each store is its own connection — use **View** → **Add one more account** on the Shopify card to add the next one.
+
+**Copy integrations** in a new workspace doesn't carry over a store connected on the **Shopify app** tab. Disconnect the store in the old workspace, then connect it in the new one. A **Custom app** connection is copied.
 
 ## The assistant is reading the wrong store
 

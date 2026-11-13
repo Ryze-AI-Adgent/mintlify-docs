@@ -45,8 +45,8 @@ Click **Continue**. Ryze verifies the key and connects. To check which site is c
 
 ## Troubleshooting
 
-- **Key rejected** — make sure you copied the **Admin** API Key (it looks like `id:secret`), not the Content API Key.
-- **Can't reach the site** — the Blog URL must be your Ghost admin domain and use `https://`. Ghost(Pro) sites use a `*.ghost.io` domain.
+- **"Invalid Ghost Admin API key — expected the id:secret format."** — make sure you copied the **Admin** API Key (it looks like `id:secret`), not the Content API Key.
+- **Can't reach the site** — the Blog URL must be your Ghost admin domain and use `https://`. Ghost(Pro) sites use a `*.ghost.io` domain. If your own Ghost server sits behind Cloudflare or another firewall, allow requests whose user agent contains `RyzeBot` to `/ghost/api/admin`.
 - **Wrong site connected** — each key belongs to one Ghost site; create the integration on the site you want to publish to.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

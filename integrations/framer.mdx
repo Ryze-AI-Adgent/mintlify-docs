@@ -14,6 +14,8 @@ description: "Connect Framer using a project URL and API key."
 
 Framer connects with two things: your **project URL** and an **API key** you generate in Framer.
 
+Ryze publishes articles to a CMS collection in your project. Republishing an article updates the same CMS item. When you ask, the agent can also work with the project's pages, custom code, redirects and CMS collections.
+
 ## Step 1 — Create an API key in Framer
 
 <Steps>
@@ -67,5 +69,8 @@ Click **Save**.
 
 - **"Copy the project URL from the Framer editor's address bar…"** shown under **Project URL** — you pasted the published site address, or a link without the project id. Open the project in the Framer editor and copy the link from the address bar; the id is the part after `--`.
 - **No Collection available** — create a CMS collection in Framer, then reconnect and pick it (see Step 3).
+- **"Could not reach Framer. Try again in a moment."** — Framer didn't answer. Try again in a minute.
+- **"Could not connect to Framer project. Check the project URL and API key."** — check that the project URL has the id after `--` and that the API key was created in this project.
+- **"Framer rejects every write to this collection while two items share the slug…"** — two items in the collection have the same slug. Remove or rename one of them in the Framer CMS, then publish again.
 
 Need help? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

@@ -1,9 +1,9 @@
 ---
 title: "Connect Magento"
-description: "Connect your Magento 2 / Adobe Commerce store with an integration access token so Ryze can read and edit products, categories, and CMS pages."
+description: "Connect your Magento 2 / Adobe Commerce store with an integration access token so Ryze can read and edit products, categories, and CMS pages, read orders, and publish articles."
 ---
 
-Magento connects with an **integration access token** you create in the Magento admin. Once connected, the agent can read and edit products, categories, and CMS pages through the Magento 2 / Adobe Commerce REST API.
+Magento connects with an **integration access token** you create in the Magento admin. Once connected, the agent can read and edit products, categories, and CMS pages and read orders through the Magento 2 / Adobe Commerce REST API. Ryze can also publish your articles to the store.
 
 ## Step 1 — Create an integration in Magento
 
@@ -12,7 +12,7 @@ Magento connects with an **integration access token** you create in the Magento 
     In the Magento admin, go to **System → Extensions → Integrations** and click **Add New Integration**.
   </Step>
   <Step title="Grant resources">
-    In the **API** tab, grant the **Catalog**, **Content**, and **Stores** resources.
+    In the **API** tab, grant the **Catalog**, **Content**, **Stores** and **Sales** resources (**Sales** lets the agent read orders).
   </Step>
   <Step title="Save and activate">
     Save the integration, click **Activate**, approve the access, and copy the **Access Token**.
@@ -28,10 +28,17 @@ On the **Integrations** page, click **Connect** on the **Magento** card and fill
 
 Click **Continue**. The card shows **Connected**. Click **View** to see what's connected — the store URL.
 
+## How publishing works
+
+- Each article is published as a **CMS page** at `/blog/<slug>` on your store, with its title, text, meta title and meta description.
+- **Republish** replaces the page at the same address. **Unpublish** deletes the CMS page.
+- If your store already has a CMS page at that address that Ryze didn't create, Ryze leaves it alone and shows **"Magento already has a CMS page at "blog/…" that Ryze did not create — rename the article slug or remove that page in Admin → Content → Pages."**
+- Articles are published without FAQ structured data — Magento's API doesn't accept script tags in CMS pages.
+
 ## Troubleshooting
 
-- **"Magento rejected the token."** — make sure the integration is **Active** in **System → Extensions → Integrations** (not just saved), and paste a fresh Access Token — not the consumer key.
-- **"Magento denied access."** — grant the integration the **Catalog**, **Content** and **Stores** API resources. On Adobe Commerce Cloud, also check your WAF rules.
+- **"Magento rejected the token, or the integration lacks the API resource for this endpoint…"** — make sure the integration is **Active** in **System → Extensions → Integrations** (not just saved), and paste a fresh Access Token — not the consumer key. Magento shows the same error when the integration is missing a resource the request needs — for example, you ask about orders but **Sales** isn't granted. Add the resource, activate the integration again, and paste the new token.
+- **"Magento denied access."** — grant the integration the **Catalog**, **Content**, **Stores** and **Sales** API resources. On Adobe Commerce Cloud, also check your WAF / Fastly rules: allow requests whose user agent contains `RyzeBot` to `/rest`.
 - **"Connected, but the store returned no store views."** — the integration's API resources don't include **Stores**. Add it and reconnect.
 - **"Magento returned a non-JSON response…"** — the Store URL points to a storefront page, not the Magento root. Enter the root URL without a path.
 - **"Magento rate-limited the request…"** — Fastly on Adobe Commerce Cloud throttled Ryze. Try again in a few minutes.

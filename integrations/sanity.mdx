@@ -42,6 +42,7 @@ If none of your recent posts has a main image, Ryze looks for the image field in
 - Each article becomes a **published** document, not a draft. Its images are uploaded as Sanity assets.
 - On **republish**, Ryze updates its own document and keeps any fields it doesn't manage. If someone left an unpublished Studio draft of a Ryze article, it's discarded.
 - **Unpublish** deletes Ryze's document and its draft.
+- If your post type has no SEO-title field and the article title is longer than 60 characters, Ryze uses the article's shorter meta title as the document title, so it stays within 60 characters.
 - Edits you make to a Ryze article in Studio are replaced the next time Ryze republishes it. Change the article in Ryze instead.
 - Articles can contain images in the body. Make sure your body field allows images (add `{type: 'image'}` to the body array in your schema), otherwise Studio shows them as unknown blocks.
 - Ryze never edits or deletes posts it didn't create. If one of your posts already uses the same slug, publishing stops and asks you to rename the article slug.
@@ -55,7 +56,7 @@ Your site has to show new documents of that type. Most front ends pick them up o
 - **No such project or dataset** — copy the Project ID from sanity.io/manage and check the dataset name (most projects use `production`).
 - **No document types to pick** — the dataset has no published documents yet. Publish at least one blog post in Sanity Studio, then pick its type.
 - **Sanity publish not configured** — make sure at least one published post of the chosen type has a slug and a body.
-- **A document with this slug already exists** — one of your own posts uses that slug. Rename the article slug in Ryze, or remove that document in Sanity.
+- **"Sanity already has a … document with slug "…" that Ryze did not create — rename the article slug or remove that document in Sanity."** — one of your own posts uses that slug. Rename the article slug in Ryze, or remove that document in Sanity.
 - **Articles publish without a cover image** — none of your recent posts has a main image and Ryze can't find an image field in your deployed schema. Deploy your Studio schema (`sanity schema deploy`), or add a main image to one published post.
 - **Article published but 404 on the site** — check the Blog URL matches where your site serves posts, and rebuild the site if it's static.
 
