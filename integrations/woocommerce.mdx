@@ -43,8 +43,12 @@ To publish articles to a WordPress blog, connect [WordPress](/integrations/wordp
 
 ## Troubleshooting
 
-- **"The store must be served over HTTPS"** — WooCommerce keys are only sent over HTTPS. Use your store's `https://` address.
-- **"Consumer keys start with ck_" / "Consumer secrets start with cs_"** — the values are swapped or incomplete. Copy both again.
+- **"The store must be served over HTTPS"** — WooCommerce keys are never sent over plain HTTP. Use your store's `https://` address.
+- **"Consumer keys start with ck_" / "Consumer secrets start with cs_"** or **"WooCommerce keys start with ck_ (consumer key) and cs_ (consumer secret)…"** — the values are swapped or incomplete. Copy both again.
+- **"WooCommerce rejected the keys. Check the consumer key and secret, that the key has at least Read permission, and that the site is served over HTTPS."** — copy both values again from the same key, and make sure the key isn't revoked and has **Read** or **Read/Write** permission.
+- **"Could not reach the store's REST API. Check the site URL and that /wp-json/wc/v3 is not blocked by a security plugin."** — check the store URL opens in a browser. If Wordfence, Cloudflare or your host blocks `/wp-json/wc/v3`, allowlist requests whose user agent contains `Ryze/1.0`, then connect again.
+- **"The store has no WooCommerce REST API at /wp-json/wc/v3…"** or **"The site answered, but not with the WooCommerce REST API…"** — make sure WooCommerce is active and the URL is the site WooCommerce runs on. In WordPress, open **Settings → Permalinks** and pick any option except **Plain**.
+- **"…answered with a redirect, which is not followed while credentials travel in the URL. Connect the store with the address it redirects to."** — your host strips the Authorization header, so Ryze sends the keys in the request address and doesn't follow redirects. Enter the exact final address of your store (with or without `www`, with `https://`) and connect again.
 - **Updates are rejected** — the key is read-only. Create a new key with **Read/Write**, then disconnect the store in **View** and connect again with the new key.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

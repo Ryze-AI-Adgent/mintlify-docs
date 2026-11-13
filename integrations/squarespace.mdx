@@ -12,7 +12,7 @@ description: "Connect your Squarespace site with a login so Ryze can publish art
   title="How to connect Squarespace"
 />
 
-Squarespace has no blog API. To publish, Ryze signs in to your site with the login you give it and adds each article in the blog editor, the way a person would. Your login and password are stored encrypted.
+Squarespace has no blog API. To publish, Ryze signs in to your site with the login you give it and adds each article in the blog editor, the way a person would. Your login and password are stored encrypted. It works with both Squarespace 7.1 and classic 7.0 sites.
 
 ## Before you connect
 
@@ -70,6 +70,7 @@ Publishing is safe to repeat. Ryze finds its own post by slug, so a retry never 
 | Squarespace's login page did not show the field Ryze expected | This account signs in with Google or Apple. Use a login that signs in with an email and password. |
 | Squarespace asked for a verification code on login | Turn off two-factor authentication for this account, or use a contributor account without it, then connect again. |
 | Squarespace login did not finish | Check the login and password, then connect again. |
+| Squarespace's sign-in service returned an error | Squarespace's sign-in is having trouble. Try again in a few minutes. Scheduled publishing retries on its own. |
 | This Squarespace account cannot edit the site | Use the site URL from **Squarespace → Website** and an owner or contributor login with Content Editor access. |
 | Squarespace blog not selected | Click **View** on the Squarespace card, pick a blog under **Choose a Blog** and click **Save**. |
 | The Squarespace blog selected for publishing no longer exists | Click **View** on the Squarespace card, pick another blog and click **Save**. |
@@ -78,6 +79,9 @@ Publishing is safe to repeat. Ryze finds its own post by slug, so a retry never 
 | Squarespace refused to save the new post / saved the post at a different address | Change the article slug to letters, digits and hyphens, then publish again. |
 | Another Squarespace publish for this site is still running | Wait a few minutes. Scheduled publishing goes through once the other publish finishes. |
 | The Squarespace blog editor did not open | Try publishing again in a few minutes. |
+| The article body did not reach the Squarespace editor / The article images did not reach the Squarespace post | Try publishing again. |
+| The Squarespace post at "…" is in an unexpected state | Open that post in Squarespace and publish or delete it, then publish again. |
 | Featured image skipped | The article published without a cover image. Republish it later. |
+| … body images skipped | The article published without those images. Republish it later. |
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).

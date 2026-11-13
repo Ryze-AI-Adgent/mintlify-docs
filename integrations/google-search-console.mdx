@@ -12,7 +12,7 @@ description: "Connect Google Search Console so Ryze picks keywords from your own
   title="How to connect Search Console and GA4"
 />
 
-Google Search Console supplies the queries and pages you already appear for. Connect it before you start SEO: without it, Ryze can't pick keywords from your own search data or show whether Google indexed and ranked the articles it publishes.
+Google Search Console supplies the queries and pages you already appear for. We recommend connecting it before you start SEO — it's optional, and you can skip it during setup and connect it later in **Integrations**. Without it, Ryze can't pick keywords from your own search data or show whether Google indexed and ranked the articles it publishes.
 
 ## Requirements
 
@@ -51,6 +51,7 @@ Click **View** on the card. There you can:
 - Finding new article topics in your impression data
 - Indexation monitoring
 - Measuring whether published work earned impressions and clicks
+- Resubmitting the sitemap that lists each newly published article, automatically after it goes live — pages with `noindex` or a 404 are skipped. See [Programmatic SEO](/seo/programmatic)
 - Checking a page's index status when you ask (URL Inspection)
 - Submitting or removing sitemaps in Search Console when you ask (removing one doesn't touch the file on your site) — these changes follow your chat's [**Tool approvals**](/agent/chat#tool-approvals) setting
 
@@ -60,7 +61,7 @@ Google reports with a **2–3 day delay** and provides up to **16 months** of hi
 
 ## Troubleshooting
 
-**No sites to pick.** The Google login you used has no access to a verified property. Connect with the login that does, or add it with **Add one more account**.
+**No sites to pick.** The window shows **"This Google account has no verified site in Search Console yet."** The Google login you used has no access to a verified property. Connect with the login that does, or add it with **Add one more account**. If the site isn't in Search Console yet, use the **Add your site in Search Console** link, add and verify the site there, then click **View** on the card again. You can also skip this step and connect it later.
 
 **Data looks incomplete.** Check the property type — a URL-prefix property for `https://www.example.com/` excludes `https://example.com/` traffic.
 

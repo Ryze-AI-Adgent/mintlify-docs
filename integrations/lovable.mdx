@@ -22,6 +22,7 @@ Lovable has no publishing API. To publish, Ryze signs in to Lovable with the log
 
 - **An email and password login.** Google, Apple, GitHub sign-in and passkeys won't work. If you sign in another way, invite a second Lovable account that has a password and connect with that one.
 - **Two-factor authentication off** for that login. If Lovable asks for a verification code, the connection is refused.
+- **Invitation accepted.** If the login was invited to the project, sign in to Lovable with it once, open the project and click **Accept invitation** before you connect.
 - **Lovable credits.** Connecting, each publish batch and each unpublish send a prompt to Lovable, and prompts spend your Lovable credits. See [Credits](#credits).
 
 ## Connect in Ryze
@@ -61,9 +62,9 @@ Articles go out in the daily publishing window that starts at 20:00 UTC, in batc
 
 1. Attaches the article files and sends **one** prompt asking Lovable to copy them into `src/content/articles/`. Lovable copies the files as they are and never rewrites the text.
 2. Clicks **Publish**.
-3. Opens each article on your live site and checks its title, meta description and text. This check waits up to 2 minutes.
+3. Opens each article on your live site and checks that the page heading (H1) matches the article title and the article text is there. This check waits up to 2 minutes.
 
-Each article lives at your published site's address plus `/blogs/{slug}`.
+Each article lives at your published site's address plus `/blogs/{slug}`. Lovable accounts with a non-English interface (for example Portuguese) work too.
 
 ## Credits
 
@@ -100,13 +101,22 @@ If your project has a paused task (for example, it ran out of credits mid-prompt
 | --- | --- |
 | The builder rejected this login and password | Check the login and password, then connect again. |
 | The builder asked for a verification code on login | Turn off two-factor authentication for this login, or use a collaborator login without it, then connect again. |
+| The builder blocked this sign-in as suspicious | Sign in to Lovable yourself once with this login (or contact Lovable support), then connect again. |
+| The builder login did not finish | Check the login and password, then connect again. |
+| The builder's sign-in service returned an error | Lovable's sign-in is having trouble. Try again in a few minutes. Scheduled publishing retries on its own. |
 | The builder's login page did not show the field Ryze expected | This account signs in with Google, GitHub or an emailed link. Invite a collaborator account that signs in with an email and password, and connect with that one. |
 | Enter the project address / Enter the project URL from the builder's address bar | Copy the project link from the builder's address bar (`https://lovable.dev/projects/…`), not your live site's address. |
 | Lovable won't open this project for this login: the project uses connections this account can't access | In Lovable, share the project's connections with this account (or use a login that already has them), then connect again. |
 | This login has no access to that project | Check the project link, or log in with the project owner's account. |
+| Lovable shows this login an invitation to the project that has not been accepted yet | Sign in to Lovable with this login, open the project and click **Accept invitation**, then try again. |
+| The builder moved away from the project page before Ryze could send its request | Nothing was sent. Open the project in Lovable with this login, answer any dialog it shows, then try again. |
+| The builder editor did not open / The builder editor opened, but Ryze could not find its chat box or Send button | Try again in a few minutes. |
 | Lovable is out of credits for this project's workspace | Add credits in Lovable, or wait for the daily credits. |
 | Lovable is working on one of your prompts right now | Let your prompt finish, then try again. Scheduled publishing retries on its own. |
+| The builder is still working on an earlier request in this project | Try again in a few minutes. Scheduled publishing retries on its own. |
 | The builder did not finish the request in time | Try again in a few minutes. Scheduled publishing retries on its own. |
+| Lovable could not publish the project because its build failed | Open the project in Lovable, fix the build error its **Publish** dialog shows (or ask Lovable to fix it), then publish again. |
+| Lovable's Publish failed and offered a retry | Try again in a few minutes. Scheduled publishing retries on its own. |
 | The builder's Publish did not finish in time | Try again in a few minutes. Scheduled publishing retries on its own. |
 | The published site does not show the article yet | Try again in a few minutes. Scheduled publishing retries on its own. |
 | Another publish for this project is still running | Wait a few minutes for it to finish. |

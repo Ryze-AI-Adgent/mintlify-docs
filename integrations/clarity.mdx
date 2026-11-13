@@ -7,7 +7,7 @@ Microsoft Clarity connects with a **Data Export API token** for one Clarity proj
 
 ## Step 1 — Generate a token in Clarity
 
-In Clarity, open your project, then **Settings → Data Export → Generate new API token**, and copy it. Each token belongs to one project.
+In Clarity, open your project, then **Settings → Data Export → Generate new API token**, and copy the whole token. Only project admins can generate it, and only a Data Export API token works here. Each token belongs to one project.
 
 <Note>
 Clarity's Data Export API only covers the **last 1–3 days** — there is no older history, so ask about recent behavior rather than trends over months. Clarity also allows **10 export requests per project per day**, so the agent can pull a limited amount of data each day, and each answer is capped at 1,000 rows. Session recordings and heatmaps aren't available through the API.
@@ -24,7 +24,8 @@ Click **Continue**.
 
 ## Troubleshooting
 
-- **Token rejected** — generate a new token in **Settings → Data Export** for the right project and connect again.
-- **No more data today** — the project has used Clarity's daily export requests. Try again the next day.
+- **"Microsoft Clarity rejected this token. Only a Data Export API token works here…"** — ask a project admin to generate a new token in **Settings → Data Export → Generate new API token** for the right project, copy the whole token and connect again.
+- **"Microsoft Clarity refused the export (400 Bad Request)…"** — the pasted token isn't being accepted as a Data Export API token. Generate a fresh one in **Settings → Data Export** and paste that one.
+- **"Microsoft Clarity allows 10 export requests per project per day and this project has used today's."** — reuse data the agent already fetched, try again the next day, or connect a token of another project that still has requests left. Connecting still works when today's requests are used up.
 
 Still stuck? Email [support@get-ryze.ai](mailto:support@get-ryze.ai).
