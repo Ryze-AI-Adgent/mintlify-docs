@@ -37,6 +37,16 @@ You need access to the **Criteo Developer Portal** with your Criteo account. The
 
 On the **Integrations** page, click **Connect** on the Criteo card, paste the **Client ID** and **Client secret**, and click **Continue**. Ryze validates the credentials against your advertiser portfolio before saving.
 
+## What the agent can do
+
+- **Read** — your advertiser portfolio, campaigns, ad sets, audiences and campaign statistics.
+- **Change** — create and update campaigns, ad sets, audiences and budgets, and pause delivery.
+- **Delete** — remove objects such as an audience segment. Deleting can't be undone, so the agent prefers pausing when the goal is to stop delivery.
+
+By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step. In Claude, approvals are set in Claude itself — set write and delete tools to **Needs approval** to be asked first (see [Permissions & approvals](/claude/permissions)).
+
+Criteo is available in chat only — it isn't part of [Managed Campaigns](/paid-ads/managed-campaigns) or **Ads Performance**.
+
 ## Troubleshooting
 
 - **Credentials rejected** — check both values against the downloaded key file. If the secret is lost, generate a new key in the Developer Portal.
