@@ -1,0 +1,68 @@
+---
+title: "Conversions"
+description: "See every conversion path on phone and desktop, where people drop off, and let the agent fix what loses them — then measure each change before and after."
+---
+
+**Conversions** shows the paths that lead to a result for your business — an order, a lead, a sign-up — step by step, on phone and desktop, and where people drop off. The agent walks those paths on your live site, brings what loses people to your Inbox as changes to approve, and measures each applied change.
+
+Find it as **Conversions** in the sidebar. It works on any plan with an active subscription.
+
+## What you need to connect
+
+- **[Google Analytics 4](/integrations/google-analytics)** or **[PostHog](/integrations/posthog)** — visits and the steps on your site. At least one is needed to start.
+- **[Shopify](/integrations/shopify)** or **[WooCommerce](/integrations/woocommerce)** — for a store, paid orders count as the last step.
+- **Your site** — [Shopify](/integrations/shopify), [WordPress](/integrations/wordpress) or a [GitHub](/integrations/github) repository with the site's code. It is not needed to set conversions up, only for the agent to apply fixes itself.
+
+## Set up your conversions
+
+Click **Setup with agent**. The agent opens a chat, checks what you have connected, works out which actions count as a conversion for your business and reads the numbers for each step. It then shows what it found and asks which conversions to track — nothing is saved until you pick.
+
+- A store usually tracks **Visits → Product views → Add to cart → Checkout started → Orders**.
+- A service or local business tracks visits, the service or contact page and a sent lead or call.
+- A SaaS tracks sign-ups or demo requests, with the pricing page as a step.
+
+A workspace holds up to 6 conversions, one of them marked as the main one. Click **Add conversion** to add another later, or ask the agent in chat to rename, change or remove one.
+
+## Overview
+
+The strip at the top shows each conversion with its count for the **Last 14 days** and the change **vs previous 14 days**. Click one to open it.
+
+- **Funnel** — every step with the share of people who reached it from the step before, split into **Phone** and **Desktop**, so you see where each device loses people.
+- **Health** — 100 minus the weight of every open change the agent found on this funnel, shown for phone and desktop. Applying or rejecting a change gives its points back. It shows after the first scan of the funnel finishes.
+- **To review** — changes waiting for your decision. **Changes** — the ones already decided.
+
+If a step could not be counted, a note above the funnel says so — ask the agent to check how that step is counted.
+
+## How the agent finds problems
+
+Right after setup, the agent walks your main conversion on your live site in a real browser — on a phone and on desktop — then the other conversions, and repeats the scan every week. It looks for what stops people on a step: a popup that covers the page, a button hidden under a chat widget, a form with too many fields, a phone number you can't tap, missing shipping costs or ratings, a layout that breaks on a phone.
+
+It files a problem only after seeing it in two separate page loads. Each one arrives as a card under **To review** and in your [Inbox](/agent/approvals), with what it saw, the step and device it affects, the step's numbers and the exact change — what is there now and what it becomes.
+
+## Approve a change
+
+Click **Approve** (or **Approve with a note** to tell the agent what to do differently), or **Reject**. When you approve, the agent makes the change on your site through the connected Shopify, WordPress or GitHub connection, changing only what the card names, and checks the result.
+
+When the site isn't connected, or the element lives in a tool Ryze can't edit — a form or booking service, a popup or review app, the hosted checkout — the card is marked **Blocked** and spells out the change and where to make it. On a site built with Webflow, Wix, Framer, Squarespace or another builder, you make the change in that platform's own editor, then click **Acknowledge** on the card.
+
+## Results
+
+The **Results** tab lists every applied change for the selected conversion.
+
+- **Timeline** — the conversion's 7-day average, with a numbered pin for each applied change.
+- **Before and after** — the rate of the step the change targeted, for the 14 days before the change and the 14 days after. Until 14 days have passed, the result is still being collected. With too few conversions before the change, it shows **Too little data**.
+- **Revert** — puts back the value from before the change. If someone has edited it since, the agent leaves everything as it is and tells you.
+
+## Why the numbers lag
+
+Analytics needs a couple of days to finish counting. The window always ends 2 days back, so today and yesterday are not included yet. The numbers refresh every day.
+
+## A/B Tests
+
+The **A/B Tests** tab is part of the Shopify CRO plan ($1,499/month): A/B tests designed, applied and measured by the Ryze team. On other plans the tab is locked — click **See the plan**, then **Talk to us** to book a call. See [A/B testing](/cro/ab-testing) and [Plans & pricing](/plans/overview).
+
+## Related
+
+- [Inbox and approvals](/agent/approvals)
+- [Product page conversion](/cro/product-page-conversion)
+- [Checkout friction](/cro/checkout-friction)

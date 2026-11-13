@@ -35,7 +35,9 @@ The audit runs weekly on its own. Click **Run Scan** to run it anytime — it ta
 
 ## The audit says "No audit yet" or never finishes
 
-The audit picks the pages to check from your Google Search Console, so connect [Search Console](/integrations/google-search-console) first — without it, Ryze can only fall back to your homepage and sitemap, and the scores don't reflect the pages that carry your traffic. If your site is behind bot protection — Cloudflare Bot Fight Mode or a high Security Level, Wordfence, a web application firewall — the crawler is blocked and pages can't be checked. Lower the protection or allow automated requests to your site, then click **Run Scan**. The audit also runs weekly on its own. See [Crawl errors](/troubleshooting/crawl-errors).
+The audit picks the pages to check from your Google Search Console, so it needs [Search Console](/integrations/google-search-console) connected — without it the audit doesn't run, and the page shows **Connect Google Search Console** instead of **Run Scan**. If your site is behind bot protection — Cloudflare Bot Fight Mode or a high Security Level, Wordfence, a web application firewall — the crawler is blocked and pages can't be checked. Lower the protection or allow automated requests to your site, then click **Run Scan**. The audit also runs weekly on its own. See [Crawl errors](/troubleshooting/crawl-errors).
+
+If the audit finds no pages at all, check the **Domain** in **Workspace Settings → Workspace** — a typo, or a domain that redirects to another site, leaves nothing to crawl — and whether bot protection blocks the crawler. You can also ask the agent in chat why the audit came back empty.
 
 ## Fix with the agent
 
