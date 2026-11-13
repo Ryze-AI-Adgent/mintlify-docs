@@ -46,6 +46,15 @@ The default is **Skip all approvals**, so the agent can change things in your co
 
 When a tool is waiting for you, the chat shows **Approve** and **Deny** (or **Approve all** and **Deny all** when there are several).
 
+## The agent can set things up for you
+
+Stuck connecting something — Search Console, your store, your site's DNS? Ask the agent to do it with you. It opens a **Live browser** panel next to the chat and does the steps on the other side itself — in your Google account, Shopify, WordPress, Wix, Webflow, Meta, Google Ads or your domain registrar — one step at a time, and checks at the end that the connection works.
+
+- When a step is yours — signing in, a password, a payment detail or a login code — the panel shows **Your turn** with what to do. Type it in the panel yourself, then click **I'm finished**. The agent never types passwords or codes for you.
+- The panel works in the full-page chat on a computer. In the side panel, the agent asks you to click **Open as full chat** first. In Slack there's no panel — open the chat in the Ryze app.
+- Typing into the page needs a keyboard: on a phone or tablet you can watch, but not type.
+- The live view closes when you leave the chat. Click **Reload preview** to pick it up again.
+
 ## Agent tasks
 
 Some actions, such as **Fix with agent** on a Technical Audit item, start an **agent task**: the agent works through the job on its own and reports back when it's done, and you can leave while it runs. **Stop agent** halts it after its current step. Agent tasks are billed like any agent run and are listed under **Chat History → Agent tasks**.
@@ -69,6 +78,9 @@ The agent can make mistakes. Review what it produces before you rely on it.
 | **Conversation is too large** | Remove large attachments or start a new chat. |
 | **Agent is over capacity** | The AI provider is briefly overloaded. Retry in a few seconds. |
 | **Something went wrong** | Click **Retry** to send your message again. |
+| **Reconnecting (1/6)** | The connection to Ryze blinked mid-answer. The chat retries on its own, up to 6 times — wait a moment. If it still can't reach Ryze, you'll see **Connection dropped**. |
+| **Waiting for connection** | Your device is offline. The chat resumes when you're back online; after about 2 minutes offline it stops and shows **Connection dropped**. |
+| **Connection dropped** | The answer most likely finished on our side. Click **Refresh** to see it — nothing is charged for a refresh. |
 
 ## Chat History
 

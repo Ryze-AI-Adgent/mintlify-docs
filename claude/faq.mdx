@@ -65,6 +65,10 @@ For Claude Code, your own agent or scripts, create a key in **Workspace Settings
 Claude caches the connector's tool list when you add the connector, so platforms connected afterwards (Meta, TikTok, LinkedIn, GA4…) don't appear. Remove the Ryze connector in Claude (**Customize → Connectors**), add it again, then start a **new chat**. Reconnecting the platform on the Ryze side doesn't refresh Claude's cache.
 </Accordion>
 
+<Accordion title='Claude says the tool has no "workspace" field.'>
+Claude is still using the tool list it saved from an earlier connection that covered a single workspace. Refresh the tools: remove the Ryze connector in **Customize → Connectors**, add it again, then start a **new chat**.
+</Accordion>
+
 <Accordion title="I moved to the new Ryze platform and Claude stopped working.">
 Claude is still pointing at the legacy connector. Remove **every** Ryze connector in Claude's **Customize → Connectors**, add the current one at `https://connector.get-ryze.ai/mcp` and start a new chat. The same applies to ChatGPT — see [Connect Ryze to ChatGPT](/chatgpt/connect).
 </Accordion>

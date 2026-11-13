@@ -29,7 +29,7 @@ Every proposal is specific and grounded in your data — never "consider improvi
 - **Proposed changes** — a before/after table of every change the agent wants to make.
 - **Evidence** — the data the agent pulled to reach its conclusion.
 
-Each proposal is labeled **SEO**, **Paid Ads** or **Local SEO**, so you can tell at a glance which part of your marketing it touches.
+Each proposal is labeled **SEO**, **Paid Ads**, **Local SEO** or **Conversions**, so you can tell at a glance which part of your marketing it touches.
 
 ## Approve or reject
 
@@ -38,10 +38,23 @@ Each proposal is labeled **SEO**, **Paid Ads** or **Local SEO**, so you can tell
 
 ## After you decide
 
-- An approved card moves to **Applying**, then to **Applied** — with an **Agent note** on what was done — or to **Failed**, with **Why it wasn't applied**. **Already resolved** means the agent re-checked and the problem was already gone.
+- An approved card moves to **Applying**, then to **Applied** or **Failed** — either way with an **Agent note** on what was done or why it didn't work. **Already resolved** means the agent re-checked and the problem was already gone.
 - Your note from **Approve with a note** is shown on the card as **Your note**.
 - **Expected impact** shows the estimated effect (**est.**) or, once there's data, the measured one (**measured**).
-- **Tracing** → **View research run** or **View apply run** opens the agent's chat for that card, so you can see exactly what it looked at and did.
+- **Tracing** → **View research run**, **View apply run** or **View revert run** opens the agent's chat for that card, so you can see exactly what it looked at and did.
+- On a **Conversions** card, **Before and after** shows the conversion rate of the **Funnel step** the change fixed — before the change and after it, on **Phone**, **Desktop** or both. In the Inbox list, the row shows **Too little data** until enough visitors have passed through.
+
+Every card carries one status: **Proposed**, **Applying**, **Applied**, **Failed**, **Already resolved**, **Rejected**, **Acknowledged** or **Reverted**.
+
+## Undo an applied change
+
+Changed your mind about a change the agent applied? Open the **Applied** card and click **Revert**, then confirm in **Revert this change**. The agent puts back the value from before the change. If someone has edited it since, it leaves everything as it is and tells you.
+
+While it works, the card shows **Reverting**; when it's done, the status turns to **Reverted**. If the old value couldn't be confirmed, you'll see **Revert failed** and the change is treated as still live. **View revert run** under **Tracing** shows what the agent did. **Revert** is available on applied fixes — not on blocked items or opportunities — and only once per card.
+
+## Decide from a chat
+
+You can also approve, reject or revert a proposal by telling the [AI Marketer](/agent/chat) in chat — or Ryze in [Claude](/claude/connect), [ChatGPT](/chatgpt/connect) or [Grok](/grok/connect). Name the proposal and say what to do with it. The agent acts only on your own words about that specific proposal, never on its own judgement, and it works the same as clicking the button. The same goes for answering a question from a [managed campaign](/paid-ads/managed-campaigns).
 
 ## Blocked proposals
 
