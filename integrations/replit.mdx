@@ -23,6 +23,7 @@ This works for apps built and published with Replit, on a `.replit.app` address 
 ## Before you connect
 
 - **An email and password login.** Google, Apple, GitHub sign-in and passkeys won't work. If you sign in another way, invite a second Replit account that has a password to the app and connect with that one.
+- **A login that can publish the app.** Sign in to Replit with that login, open the app and click **Publish**: the **Republish** button must be clickable. An invited account that sees "You do not have permission to redeploy" can edit the app but not publish it, and Ryze can't publish with it either. Connect the login of the account that owns the app, or have the owner allow the invited account to publish.
 - **Two-factor authentication off** for that login. If Replit asks for a verification code, the connection is refused.
 - **Replit Agent credits.** Connecting, each publish batch and each unpublish send a prompt to Replit Agent, and prompts spend your Agent credits.
 - **Plan mode off** in the Agent chat. Ryze's prompts ask Agent to change files in the app.
