@@ -51,6 +51,10 @@ To connect another Meta login, click **View** → **Add one more account**.
 
 Campaign creation and adjustment, budget management, and [AI ad creatives](/paid-ads/ai-creatives).
 
+The agent works with ads. It can't publish organic posts to your Facebook Page or Instagram, and it can't read comments on your Page — ask it to turn a post into an ad, or to write the post for you to paste.
+
+The agent can also see the lead forms (Instant Forms) on your Facebook Page. Lead access depends on permissions Meta grants: if the agent reports a permissions error, you can try reconnecting Meta under **Integrations**, but that doesn't always restore it. To download the leads themselves, use Meta (Ads Manager or Meta Business Suite).
+
 By default the agent runs its tools on its own: the [**Tool approvals**](/agent/chat#tool-approvals) setting in the chat composer starts on **Skip all approvals**. To review changes before they happen, switch it to **Approve write & delete** (reads run freely, changes need approval) or **Manual approve** (every tool that touches your data needs approval). Scheduled tasks run without an approval step.
 
 Improvements the agent finds on its own go to your [Inbox](/agent/approvals) instead: nothing there changes until you approve. In Claude, approvals are set in Claude itself — set write and delete tools to **Needs approval** to be asked first (see [Permissions & approvals](/claude/permissions)).
@@ -63,7 +67,7 @@ To see what competitors are running on Meta, use [Competitor Ads](/paid-ads/comp
 
 **Card shows Reconnect needed.** Meta access expires more often than Google's, particularly after two-factor or Business Manager role changes. Click **Reconnect** and sign in again.
 
-**Attribution disagrees with GA4 or Shopify.** Expected. Meta uses its own attribution windows and modelling. Track each consistently rather than reconciling exactly.
+**Attribution disagrees with GA4 or Shopify.** Expected. Meta uses its own attribution windows and modelling. Track each consistently rather than reconciling exactly. To compare with Ads Manager, ask the agent to report with the same attribution window you use there — for example "use 7-day click and 1-day view". Supported windows: 1-day click, 7-day click, 28-day click and 1-day view; a window Meta no longer supports is left out of the answer rather than shown as zero.
 
 **Missing conversion data.** Usually a Pixel or Conversions API configuration issue on the Meta side.
 

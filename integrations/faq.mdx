@@ -43,6 +43,10 @@ Ryze sees exactly what the connected login can reach. If an account is missing, 
 
 <Accordion title="Meta reads work but changes are blocked, or Meta says 'Verify your account'.">
 Both are settings on Meta's side. For blocked changes, give the connected user **Manage ad account** on that ad account (Business settings → Ad accounts → People), then reconnect. For "Verify your account" (error 31), complete the verification prompt in Meta Business Manager — creating any ad manually there usually triggers it; reconnecting in Ryze doesn't clear it.
+
+Blocked changes usually mean the connected user is an analyst or viewer on that ad account, or the account belongs to a client's Business Manager where you only have read-only partner access — the Business Manager owner can grant **Manage ad account**.
+
+If "Verify your account" stays after you followed Meta's prompt: open **business.facebook.com → Settings → Business info / Security Center** and complete every pending verification (business and personal identity); then try creating an ad manually in Ads Manager — Meta often shows the verification flow only then. If Meta shows no pending verification at all, open a case with **Meta Business Support** (Help → Contact support): only Meta can clear this state.
 </Accordion>
 
 <Accordion title="Search Console or Analytics says 'Require setup' after I connected it.">
