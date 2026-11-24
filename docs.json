@@ -155,6 +155,7 @@
             "group": "AI Marketer",
             "pages": [
               "agent/chat",
+              "agent/projects",
               "agent/credits",
               "agent/schedules",
               "agent/templates",
