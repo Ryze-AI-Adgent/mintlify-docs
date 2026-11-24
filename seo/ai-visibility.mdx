@@ -4,47 +4,37 @@ sidebarTitle: "AI Visibility"
 description: "See how often ChatGPT, Claude, Gemini and Perplexity name your brand for the questions your buyers ask, who they name instead, and which sites they cite."
 ---
 
-<video
-  className="w-full aspect-video rounded-xl"
-  controls
-  preload="none"
-  poster="https://gwvckixiegkllthleuyt.supabase.co/storage/v1/object/public/product-videos/posters/ai-visibility.webp"
-  src="https://gwvckixiegkllthleuyt.supabase.co/storage/v1/object/public/product-videos/ai-visibility-v1.mp4"
-  title="What is AI Visibility?"
-/>
-
-AI Visibility shows how AI assistants answer the questions your buyers ask — and whether they name you. Open **Analytics → AI Visibility** in the sidebar. It's part of the SEO plans and opens the **GEO** tab of the [Search Performance](/analytics/performance) page.
+AI Visibility shows which AI assistants send people to your site, whether they name you when your buyers ask, and what to fix so they do. Open **Agentic** in the sidebar. It's part of the SEO plans.
 
 ## What you need
 
-- **Google Search Console** — without it the whole page asks you to connect it. See [Search Console](/integrations/google-search-console).
-- **Google Analytics** — the GEO tab uses it to measure traffic from AI assistants, so the tab stays closed until it's connected. See [Google Analytics](/integrations/google-analytics).
-- **Prompts** — the questions to ask. Add them in **SEO → Keywords & Prompts**, on the **Prompts** tab: click **Add** and enter one prompt per line, or use **Suggest prompts**. You can track up to 50 prompts. See [Keywords & Prompts](/seo/keywords).
-
-## Which assistants
+- **Google Analytics 4** — the page counts visits from AI assistants through it. Until it's connected the page offers **Connect Google Analytics 4**. See [Google Analytics](/integrations/google-analytics).
+- **Prompts** — the questions your buyers ask. Type one into the box on the page and click **Track this prompt**, or add several in **SEO → Keywords & Prompts**, on the **Prompts** tab (**Add** or **Suggest prompts**). You can track up to 50 prompts. See [Keywords & Prompts](/seo/keywords).
 
 Every prompt is asked on **ChatGPT**, **Claude**, **Gemini** and **Perplexity**.
 
 ## What you see
 
-- **AI Share of Voice** — your rank among the brands named in answers, and how many answers name you.
-- **AI answers naming you**, **Your site cited**, **AI Sessions** and the **LLM Optimization Score** from your latest technical audit.
-- **Visibility Over Time** — share of answers naming each brand, one point per run.
-- **Visibility by Assistant** and **Coverage by Model** — how you do on each assistant.
-- **Rankings** — every brand the assistants named across your prompts.
-- **Top Domains** — the sites the assistants linked to while answering.
-- **Prompts** — every tracked prompt on every assistant, with score, whether you were cited, and the top brand.
-- **AI Traffic**, **AI Chats Traffic** and **AI Landing Pages** — visits from AI assistants, from Google Analytics.
+- **AI assistant visits** at the top — how many visits AI assistants sent in the period you picked. Click **Set up metrics** and the agent saves what counts as a result on your site (orders and revenue, leads, bookings or demos); then the top line shows what those visits earned or how many became results.
+- **A card per assistant** — visits (or your metric) from each assistant, compared with the previous period. **Show on the assistant cards** switches between **AI visits**, **Conversion rate** and **Revenue**.
+- **Fixes** — things that stop assistants from reading or naming you: AI crawlers blocked in robots.txt, robots.txt that doesn't load, no llms.txt, a homepage without Organization or WebSite schema, or a top assistant that rarely names you. Each one has a button that hands the fix to the agent.
+- **Tracked prompts** — every prompt with the assistants that name you. Filter by **Named**, **Not named** or **Waiting**. Click a prompt to read each assistant's answer, where it ranks you (**Named #N**), which of your pages it cites, and which other brands it names. If none of your pages is cited, **Write page** asks the agent to write one that answers the question.
+- **AI readiness** — three checks from your [Technical Audit](/seo/optimizations): **Lets every AI in**, **Introduces your business** and **Describes your business**. **Fix with the agent** works through the failing ones.
+- **Sources** — the connected accounts the page reads from, and whether each one is synced.
+
+**Sync now** at the top pulls the latest data from Google Analytics.
+
+The **GEO** tab of the [Search Performance](/analytics/performance#search-performance) dashboard shows the same AI traffic as charts: **AI Sessions**, **AI traffic**, **AI Chats Traffic** and **AI Landing Pages**.
 
 ## Keeping it fresh
 
-- **Refresh** — at the top of the page. On the GEO tab it re-asks all your prompts on the four assistants and updates the results.
+- **Refresh** — on **SEO → Keywords & Prompts**. It re-asks all your prompts on the four assistants and updates the answers.
 - **Auto-refresh** — on **Keywords & Prompts**, open **Settings** next to Refresh and pick a schedule: **Off** (refresh only when you press the button), **Weekly** or **Monthly**. Off is the default. Auto-refresh also updates your keyword positions from Search Console.
 
 After each scheduled refresh you get an email digest with position moves and your AI visibility. Turn it off under **Workspace Settings → Notifications** → **Keywords and prompts refreshed** — see [Notifications](/workspaces/notifications).
 
 ## Getting named more often
 
-Being named depends on the content AI assistants can find and cite. The agent works on this through your [Content Plan](/seo/programmatic) and [Technical Audit](/seo/optimizations); the Top Domains list shows which sites the assistants trust for your topics.
+Being named depends on the content AI assistants can find and cite. The agent works on this through your [Content Plan](/seo/programmatic) and [Technical Audit](/seo/optimizations); open a prompt to see which sites the assistants cite instead of you.
 
-Video walkthrough: [AI visibility guide](/guides/ai-visibility).
+Step by step: [AI visibility guide](/guides/ai-visibility).

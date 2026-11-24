@@ -106,7 +106,7 @@ On pages built with **Elementor**, the agent makes content fixes in the Elemento
 - **"WordPress has no user with this username…"** — enter the WordPress login name of the user who created the application password.
 - **"The application password does not match this user…"** — copy it again from **Users → Profile → Application Passwords** (spaces are fine), or generate a new one.
 - **"Application passwords are turned off for this WordPress user…"** — a security plugin or a filter disables them for this account or role. Enable them for the user, then connect again.
-- **REST API not found** — make sure the WordPress REST API is enabled and the site URL is correct.
+- **"WordPress REST API not found at this URL…"** — enter the site's home address (for example `https://example.com`), not a wp-admin or login page, and make sure the WordPress REST API is enabled. If you paste an address ending in `/wp-admin`, `/wp-login.php` or `/wp-json`, Ryze uses the site root on its own.
 - **Jetpack site won't connect** — enable the Jetpack JSON API module, then reconnect.
 - **Can't reach the site** — verify the site URL is reachable and uses `https://`.
 - **"…redirects WordPress requests to … Connect the site with the address it redirects to."** — your site moves `/wp-json` requests to another address (for example from or to `www`). Connect with the exact final address.

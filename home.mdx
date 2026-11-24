@@ -1,70 +1,34 @@
 ---
-title: "Home and Finish setup"
-description: "Home is the first screen of your workspace: the steps left in setup, what needs your decision, and how your results are moving."
+title: "Home"
+description: "Home is the first screen of your workspace: the agent's input box over one Needs you list — setup steps, approvals, fixes and questions waiting for you."
 ---
 
-<video
-  className="w-full aspect-video rounded-xl"
-  controls
-  preload="none"
-  poster="https://gwvckixiegkllthleuyt.supabase.co/storage/v1/object/public/product-videos/posters/howto-home-finish-setup.webp"
-  src="https://gwvckixiegkllthleuyt.supabase.co/storage/v1/object/public/product-videos/howto-home-finish-setup-v1.mp4"
-  title="Home and Finish setup"
-/>
+Open **Home** at the top of the sidebar (**AI Marketer → New chat** opens the same screen). The number on the **Home** item is how many things are waiting for you.
 
-Open **Home** at the top of the sidebar. The line under the title tells you where things stand:
+At the top, Home greets you and sums up where things stand:
 
-- **"N steps left before your agent can run everything."** — setup isn't finished yet.
-- **"N things need your decision. Everything else is running."** — the agent is waiting on you.
-- **"Nothing needs you. Everything is running."** — all clear.
+- **"N things to review"**, with a line like **"2 to approve, 1 to fix, 1 setup step. Your agent is handling the rest."**
+- **"You're all caught up"** — nothing waits on you. **"Your agent is handling everything. Ask it for what's next."**
 
-The number on the **Home** item in the sidebar is how many items are waiting for your decision.
-
-Right after you sign up, a strip at the top shows the first setup run as it works — **Running step N/5:** **Pulling your data**, **Picking keywords**, **Planning mentions**, **Building your content plan**, **Preparing publishing**. Home updates on its own when it finishes.
-
-## Finish setup
-
-While setup is incomplete, Home shows a row of **Finish setup** cards with a progress count. Each card opens the place where that step is done. You only see the cards for the products on your plan.
-
-| Card | What it does |
-|---|---|
-| **Finish SEO setup** / **Finish Ads setup** | A short setup chat for that product, then your agent takes over. |
-| **Review your brand profile** | The agent read your site and wrote who you are, your voice and audience — check it in [Brand](/agent/context). |
-| **Connect Search Console & Analytics** | SEO. Opens [Integrations](/integrations/overview) filtered to Google. |
-| **Choose where to publish** | SEO. Pick where articles go live — Shopify, WordPress, GitHub, Ryze-hosted and others — in [SEO → Preferences](/seo/preferences). |
-| **Publish your first article** | SEO. Pick a drafted article in Content Plan and ship it. |
-| **Connect an ad account** | Ads. Google, Meta, TikTok — one is enough to start. |
-| **Invite team members** | Optional. Free for your whole team: each teammate gets their own login and approvals, with no extra seat to pay for. See [Invite teammates](/workspaces/invite-teammates). |
-| **Connect Slack** | Optional, on Paid Ads plans. Reports and agent updates in your Slack. See [Slack](/integrations/slack). |
-| **Connect Claude** | Optional. Talk to the same workspace from Claude. See [Connect Claude](/claude/connect). |
-
-When only optional cards are left, click **Hide** to remove the row.
+Below it is the agent's input box. Type a task and the chat opens right there — see [Chat with the AI Marketer](/agent/chat). The shelf under the box offers ready prompts from [Templates](/agent/templates).
 
 ## Needs you
 
-The **Needs you** list on the right collects everything waiting on you, marked **Critical**, **Warning** or **Needs decision**: agent proposals, technical issues, articles that failed to publish, and campaigns where the agent asked you a question. Click an item to see the details and act on it, or open the page where it lives. For a Technical Audit item you can:
+The **Needs you** list collects everything waiting on you, marked **Critical**, **Warning**, **Needs decision** or **Setup**:
+
+- **Setup steps** — **Finish SEO setup** / **Finish Ads setup** (a short setup chat for that product), **Review your brand profile** (check what the agent wrote in [Brand](/agent/context)), **Connect Search Console & Analytics**, **Choose where to publish** (in [SEO → Preferences](/seo/preferences)), **Publish your first article** and **Connect an ad account**. You only see the steps for the products on your plan, and each one disappears once it's done.
+- **Approvals** — agent proposals waiting for your OK. See [Inbox and approvals](/agent/approvals).
+- **Fixes** — technical issues from the audit and articles that failed to publish or went live with warnings.
+- **Questions** — campaigns where the agent stopped to ask you something. Reply right there and it picks back up.
+
+Click an item to see the details and act on it, or open the page where it lives (**Open Technical Audit**, **Open Content Plan**, **Open campaign**). For a Technical Audit item you can:
 
 - **Fix with agent** — starts an agent task that works through the fix on its own. Find it under **Chat History → Agent tasks**; it's billed like any agent run (see [Credits & Usage](/agent/credits)).
 - **Fix** next to a page — the same agent task, for just that page.
 - **Acknowledge** — dismiss the item.
 
-Click **View all** to open the **Inbox**. How to approve, reject and set up notifications: [Inbox and approvals](/agent/approvals).
+Home shows the first few items; click **View all** to see the whole list, and **Back to chat** to return.
 
-## When to expect results (SEO)
+## Where the numbers went
 
-On SEO plans, Home shows where you are on the usual timeline for new content:
-
-| When | Stage |
-|---|---|
-| **Week 1** | Setup & first articles |
-| **Weeks 2–4** | Google indexes you |
-| **Weeks 5–12** | First rankings |
-| **Months 3–6** | Traffic compounds |
-
-If something stops the clock, the card says so and gives you the button to fix it — for example **Choose where to publish**, **Fix publishing**, **Finish domain setup**, **Open content plan** or **Connect Search Console**. If your blog runs on a Ryze subdomain, the card suggests **Connect domain** so rankings build your own brand.
-
-On SEO-only plans, below it you see **Search performance** (impressions, clicks and average position from Search Console) and **AI visibility** (how often AI assistants name you). If your workspace also has Paid Ads, Home shows **Managed Campaigns** in that spot instead — open **Analytics → Search Performance** and **Analytics → AI Visibility** for the SEO numbers. Details: [Search Performance](/analytics/performance) and [AI Visibility](/seo/ai-visibility).
-
-## Ads on Home
-
-On Paid Ads, Home shows your **Managed Campaigns** with a **Create campaign** button — see [Managed campaigns](/paid-ads/managed-campaigns).
+Home doesn't show results. Open **Analytics** for the **Search Performance**, **Ads Performance** and **Web Analytics** dashboards ([Analytics dashboards](/analytics/performance)), **Agentic** for [AI Visibility](/seo/ai-visibility), and **Ads → Managed Campaigns** for your campaigns ([Managed campaigns](/paid-ads/managed-campaigns)).

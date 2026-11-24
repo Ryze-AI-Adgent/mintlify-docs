@@ -1,6 +1,6 @@
 ---
-title: "Search and Ads Performance"
-description: "Live dashboards for your organic search (last 28 days) and your ad accounts (last 30 days), under Analytics in the sidebar."
+title: "Analytics dashboards"
+description: "Built-in Ads Performance, Search Performance and Web Analytics dashboards, plus dashboards and widgets you build yourself, under Analytics in the sidebar."
 ---
 
 <video
@@ -12,33 +12,58 @@ description: "Live dashboards for your organic search (last 28 days) and your ad
   title="What are Search and Ads Performance?"
 />
 
-Both dashboards live under **Analytics** in the sidebar and pull data from your connected accounts. In the sidebar they're called **Search Performance** and **Ads Performance**; each page opens with the title **Dashboard**.
+Open **Analytics** in the sidebar. It has two tabs:
 
-Click **Refresh** at the top to pull the latest numbers; the line under the title shows when they were last updated. You can refresh again 5 minutes after the last refresh — until then the button is greyed out and reads **Refresh in 5m**.
+- **Dashboards** — the **Built-in** dashboards (**Ads Performance**, **Search Performance** and **Web Analytics**) and **Your dashboards**.
+- **Widgets** — every chart and table you can put on a dashboard: the ones made by Ryze and the ones you or the agent saved.
 
-**Analytics → Web Analytics** is a different page: the dashboard of the Ryze Pixel on your site. See [Ryze Pixel](/paid-ads/ryze-pixel).
+Every dashboard pulls data from your connected accounts. If an account is connected but nothing is chosen to sync yet, the dashboard says so and offers **Choose accounts** — see [Integrations](/integrations/overview).
 
-## Search Performance
+## Period and sync
 
-Open **Analytics → Search Performance**. It's part of the SEO plans, covers the last 28 days, and needs [Google Search Console](/integrations/google-search-console) — without it the page asks you to connect it.
+Pick the period at the top of a dashboard: **Last 7 days**, **Last 14 days**, **Last 28 days**, **Last 90 days**, **This month**, **Last month**, or your own dates in the calendar. Numbers are compared with the same span before.
 
-Three tabs:
+**Sync now** pulls the latest data from your connected accounts; the button shows when the data was last synced. If you've just synced, it tells you how many minutes are left before you can sync again.
 
-- **SEO** — four numbers on top: **Impressions · 28 D**, **Organic Clicks · 28 D**, **Domain Rating** and **Health Score** (from your latest Technical Audit). Below them: clicks and impressions over time, **Clicks by Country**, **Position Distribution** (Top 3 / 4–10 / 11–20 / 21+), **Branded vs Non-branded** and **Authority & Backlinks**.
-- **GEO** — how AI assistants answer your buyers' questions and whether they name you, plus **AI Traffic** and **AI Landing Pages** — visits that come to your site from AI assistants. Needs Google Analytics. This is the same view as **Analytics → AI Visibility** — see [AI Visibility](/seo/ai-visibility).
-- **Content** — how your published articles perform: published count, clicks, impressions, how many are indexed and ranking, and a table per article.
+## Built-in dashboards
 
-## Ads Performance
+### Search Performance
 
-Open **Analytics → Ads Performance**. It's part of Paid Ads and shows the last 30 days across your connected Google Ads, Meta, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit, Pinterest and OpenAI Ads accounts. If none are connected, click **Open Integrations** — see [Integrations](/integrations/overview).
+Part of the SEO plans; needs [Google Search Console](/integrations/google-search-console). Three tabs:
 
-Use the account selector at the top to choose which accounts to include — up to 30. Four tabs:
+- **SEO** — clicks and impressions over time, **Domain Rating**, **Clicks by country**, **Where your queries rank**, **Branded vs non-branded**, **Authority & Backlinks** and **Domain Rating over time**.
+- **GEO** — visits that come to your site from AI assistants: **AI Sessions**, **AI traffic**, **AI Chats Traffic** and **AI Landing Pages**. Needs Google Analytics. Which assistants name you and what to fix is on the [AI Visibility](/seo/ai-visibility) page (**Agentic** in the sidebar).
+- **Content** — how your published articles perform: totals, **Traffic from articles** and a table per article.
 
-- **Overview** — **Spend**, **Results**, **Best CPA** and **Clicks**; three trend charts (**Spend & ROAS**, **Conversions & rate**, **Clicks & CTR**); **ROAS by day & hour** and **Spend by day & hour** (hourly data from Google and Meta only); **Channels**; **Top movers**; **Cost per conversion**.
-- **Campaigns** — **Active campaigns**, **Best CPA**, **Conversion rate** and **Avg CPC**; **Daily conversions by platform** and **Daily spend by platform**; the **Top campaigns** table. The table shows the top 30 by spend ("Top 30 of N") — click **View all campaigns** for the rest, and switch between **All** and **Active only**. Archived Meta campaigns that still spent in the period show as archived, not active.
-- **Creatives** — your running ads with spend, CTR, CPC and results, as cards or a table. Needs a Meta or LinkedIn account with running ads.
-- **Portfolio View** — every selected account side by side: **Spend by account**, **ROAS by account**, **CPA by account**, **Account funnels** (impressions → clicks → conversions per account) and the **All accounts** table.
+### Ads Performance
 
-If accounts report in different currencies, totals are shown in one currency and the page tells you which accounts are left out.
+Your connected ad accounts — Google Ads, Meta, LinkedIn, Microsoft Ads, TikTok, Snapchat, Reddit, Pinterest and OpenAI Ads. If none are connected, connect one in [Integrations](/integrations/overview). Four tabs:
+
+- **Overview** — spend, clicks, CPC and CTR by day, **Channels** and **Top movers**.
+- **Campaigns** — **Lowest CPC**, **Best CTR** and **Average cost per click**; spend by platform per day; the **Campaigns** table with **All** and **Active only**.
+- **Creatives** — your running ads with their numbers.
+- **Portfolio View** — every account side by side: spend, clicks and CPC by account, the **All accounts** table and **Account funnels**.
+
+### Web Analytics
+
+The dashboard of the [Ryze Pixel](/paid-ads/ryze-pixel) on your site, on every plan. Two tabs:
+
+- **Web Analytics** — visitors, page views and sessions, traffic by day, visitors by country, **Pages**, **Sources** (by channel, referrer, UTM source, medium and campaign), devices, browsers and operating systems.
+- **Web Vitals** — page speed from real visitors: LCP, INP, CLS, FCP and TTFB by page and by day.
+
+## Your own dashboards
+
+A built-in dashboard can't be changed. To make your own:
+
+- **Duplicate** a built-in dashboard from its menu and change the copy, or
+- click **New dashboard** on the Dashboards tab — the agent panel opens next to it, so you can describe what you want and the agent builds it. You can also just ask the agent in any chat, for example "make me a dashboard of Meta spend and leads by campaign".
+
+On your own dashboard, click **Customize** to add tabs (**Add tab**), add widgets (**Add widget**, or drag one in from **Widgets**), move and resize cards, then **Save**. A dashboard holds up to 24 cards. **Edit details** changes its name and description; **Delete** removes the dashboard but keeps its widgets.
+
+On the **Widgets** tab, **New widget** opens the widget editor: give it a name, write the query (or ask the agent to write it), press **Run** to see the result, then save it and **Add to dashboard**. A widget made by Ryze can't be changed — use **Save as a copy** and edit the copy.
+
+## Pin a dashboard to the sidebar
+
+Open a dashboard's menu and click **Pin to sidebar** — it appears under **Analytics** in the sidebar for everyone in the workspace. Up to 8 dashboards can be pinned; **Unpin from sidebar** removes one.
 
 To dig into a number, ask the agent in **New chat** — it reads the same data. See [Chat with the AI Marketer](/agent/chat).

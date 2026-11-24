@@ -14,13 +14,13 @@ description: "One script on your site for first-party web analytics. Optionally 
 
 Ryze Pixel is one script tag on your website. It powers **Web Analytics** — visitors, sources, page speed and events from your own site — and, when you add a destination, forwards your conversions to your ad platforms from Ryze's servers: the Conversions API for Meta, conversion uploads for Google Ads, the Events API for TikTok and the Measurement Protocol for GA4. Server-side delivery survives ad blockers and browser tracking limits, and every destination shows sent versus received counts so you can see what actually landed. Nothing is forwarded until you add a destination yourself.
 
-The pixel lives under **Analytics → Web Analytics** in the sidebar. Web Analytics is included in every Ryze plan — you don't need Paid Ads to use it. On the Shopify CRO plan, [A/B tests](/cro/ab-testing#what-ryze-does) also run through this pixel, so it has to be on your store.
+The pixel has its own page: open **Integrations** in the sidebar and click the **Ryze Pixel** card. Your site's numbers are on the **Web Analytics** dashboard under **Analytics** — see [Analytics dashboards](/analytics/performance#web-analytics). Web Analytics is included in every Ryze plan — you don't need Paid Ads to use it. On the Shopify CRO plan, [A/B tests](/cro/ab-testing#what-ryze-does) also run through this pixel, so it has to be on your store.
 
-Until the first event arrives, the page shows only the install screen. After that it has four tabs: **Web Analytics** (visitors, page views, sources, countries and devices), **Web Vitals** (page speed from real visitors), **Events** (every event and how it lands on each platform) and **Destinations** (where events are forwarded). Charts cover the last 7 days. If the pixel sees more than one domain, pick one in **All domains** at the top.
+Until the first event arrives, the Ryze Pixel page shows only the install screen (**Your pixel is not on the site yet**, then **Waiting for the first event**). After that it has two tabs: **Events** (every event and how it lands on each platform) and **Destinations** (where conversions are forwarded, with counts for the last 24 hours). The card on **Integrations** reads **Receiving events** once the pixel is live. If the pixel sees more than one domain, pick one at the top.
 
 ## Install the script
 
-The fastest path is **Install → Install with Agent** at the top of the Web Analytics page: the agent checks which CMS is connected (Shopify, WordPress, Webflow or GitHub), places the script tag before `</head>` itself and confirms it is served. If no writable CMS is connected it gives you the exact place to paste it.
+The fastest path is **Install → Install with Agent** at the top of the Ryze Pixel page: the agent checks which CMS is connected (Shopify, WordPress, Webflow or GitHub), places the script tag before `</head>` itself and confirms it is served. If no writable CMS is connected it gives you the exact place to paste it.
 
 A few things depend on your CMS:
 
