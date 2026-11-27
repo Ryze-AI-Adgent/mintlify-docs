@@ -165,7 +165,15 @@
           {
             "group": "Analytics",
             "pages": [
+              "analytics/channel-pages",
               "analytics/performance"
+            ]
+          },
+          {
+            "group": "Social",
+            "pages": [
+              "social/overview",
+              "social/posts"
             ]
           },
           {
